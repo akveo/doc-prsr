@@ -1,0 +1,22 @@
+{
+  "name": "doc-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/32penkin/doc-tool.git"
+  },
+  "author": "Yauhen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/32penkin/doc-tool/issues"
+  },
+  "homepage": "https://github.com/32penkin/doc-tool#readme",
+  "dependencies": {
+    "typescript": "^2.3.3"
+  }
+}
