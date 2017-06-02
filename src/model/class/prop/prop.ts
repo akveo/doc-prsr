@@ -1,5 +1,5 @@
 import { PropKind } from './prop-kind';
-import { Platform } from './platform';
+import { Platform } from '../platform';
 
 export class Prop {
     /**

@@ -1,5 +1,5 @@
 import { Metadata } from './metadata/metadata';
-import { Class } from './class/class';
+import { Class } from './class/class/class';
 
 export class Model {
     /**
