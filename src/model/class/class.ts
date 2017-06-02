@@ -5,7 +5,13 @@ import { ClassKind } from './class-kind';
 import { Platform } from './platform';
 
 export class Class {
+    /**
+     * Type of model: class, component etc.
+     */
     kind: ClassKind;
+    /**
+     * Working platform.
+     */
     platform: Platform;
     examples: Example[];
     props: Prop[];
