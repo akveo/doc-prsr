@@ -15,4 +15,5 @@ export class Model {
         this.metadata = metadata;
         this.classes = classes;
     }
+
 }

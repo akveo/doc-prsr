@@ -1,8 +1,9 @@
-import { Example } from '../example';
-import { Prop } from '../prop/prop';
-import { Method } from '../method';
-import { ClassKind } from './class-kind';
-import { Platform } from '../platform';
+import { Example } from './example';
+import { Prop } from './prop';
+import { Method } from './method';
+import { Platform } from './platform';
+
+type ClassKind = 'component' | 'class';
 
 export class Class {
     /**

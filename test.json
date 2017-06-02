@@ -22,9 +22,9 @@
 
       "props": [
           {
-            "kind": "input/output/prop",       /*???????????????*/
+            "kind": "input/output/prop",
             "name": "input public name",
-            "defaultValue": "",          /*???????????????*/
+            "defaultValue": "",
             "static": "true|false",
             "type": "string|null",
             "required": "true/false",
@@ -38,7 +38,7 @@
         {
           "name": "method name",
           "platform": "react only",
-          "type": "output type", /*???????????????*/
+          "type": "output type",
           "static": "true|false",
           "shortDescription": "some super interesting description",
           "description": "some super interesting description",
