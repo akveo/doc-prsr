@@ -1,6 +1,6 @@
-import { Generator } from './generator';
-import { Language } from './language';
-import { Framework } from './framework';
+export type Framework = 'angular' | 'react';
+export type Generator = 'documentationJS' | 'typeDoc';
+export type Language = 'typescript' | 'javascript';
  
 export class Metadata {
     /**

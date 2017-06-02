@@ -1,6 +1,7 @@
 export class Example {
-    description: string;
     code: string;
+    description: string;
+    
 
     constructor(code: string, description: string = '') {
         this.code = code;

@@ -3,7 +3,7 @@ import { Prop } from './prop';
 import { Method } from './method';
 import { Platform } from './platform';
 
-type ClassKind = 'component' | 'class';
+export type ClassKind = 'component' | 'class';
 
 export class Class {
     /**

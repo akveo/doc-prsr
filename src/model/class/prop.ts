@@ -1,6 +1,6 @@
 import { Platform } from './platform';
 
-type PropKind = 'input' | 'output' | 'prop';
+export type PropKind = 'input' | 'output' | 'prop';
 
 export class Prop {
     /**
