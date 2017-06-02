@@ -1,6 +1,6 @@
-export type Framework = 'angular' | 'react';
 export type Generator = 'documentationJS' | 'typeDoc';
-export type Language = 'typescript' | 'javascript';
+export type Framework = 'react' | 'angular';
+export type Language = 'javascript' | 'typescript';
  
 export class Metadata {
     /**

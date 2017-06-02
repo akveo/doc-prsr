@@ -9,7 +9,7 @@ import { Model } from './model/model';
 
 export abstract class BaseParser {    
 
-    createDocument(metadata: Metadata, classes: Class[]) {
+    createDocument(metadata: Metadata, classes: Class[]): Model {
         return new Model(metadata, classes);
     }   
 
@@ -22,23 +22,23 @@ export abstract class BaseParser {
         return new Class(kind, platform, examples, props, methods, name, shortDescription, description);
     }
 
-    createExample(code: string, description: string) {
+    createExample(code: string, description: string): Example {
         return new Example(code, description);
     }
 
     createProp(kind: PropKind, platform: Platform, isStatic: boolean, 
     type: string | null, required: boolean, name: string, 
-    shortDescription: string, description: string) {
+    shortDescription: string, description: string): Prop {
         return new Prop(kind, platform, isStatic, type, required, name, shortDescription, description);
     }
 
     createMethod(examples: Example[], params: Param[], platform: Platform, name: string,
-    type: string, isStatic: boolean, shortDescription: string = '', description: string = '') {
+    type: string, isStatic: boolean, shortDescription: string = '', description: string = ''): Method {
         return new Method(examples, params, platform, name, type, isStatic, shortDescription, description);
     }
 
     createParam(name: string, type: string | null, required: boolean,
-    shortDescription: string = '', description: string = '') {
+    shortDescription: string = '', description: string = ''): Param {
         return new Param(name, type, required, shortDescription, description);
     }
 
