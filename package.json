@@ -18,5 +18,11 @@
   "homepage": "https://github.com/32penkin/doc-tool#readme",
   "dependencies": {
     "typescript": "^2.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.0.1",
+    "mocha": "^3.4.2",
+    "ts-node": "^3.0.4",
+    "typings": "^2.1.1"
   }
 }
