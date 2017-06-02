@@ -1,0 +1,1 @@
+export type ClassKind = 'component' | 'class';

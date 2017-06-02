@@ -1,11 +1,14 @@
-export class Property {
-    kind: any;
+import { PropKind } from './prop-kind';
+import { Platform } from './platform';
+
+export class Prop {
+    kind: PropKind;
     name: string;
     defaultValue: any;
     static: boolean;
     type: string | null;
     required: boolean;
-    platform: string;
+    platform: Platform;
     shortDescription: string;
     description: string;
 }

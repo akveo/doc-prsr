@@ -1,0 +1,1 @@
+export type PropKind = 'input' | 'output' | 'prop';

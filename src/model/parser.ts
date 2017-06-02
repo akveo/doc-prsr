@@ -1,7 +1,7 @@
 import { Metadata } from './metadata';
-import { Classes } from './classes';
+import { Class } from './class';
 
 export class Parser {
     metadata: Metadata;
-    classes: Classes[];
+    classes: Class[];
 }
