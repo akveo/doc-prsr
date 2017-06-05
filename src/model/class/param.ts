@@ -5,10 +5,9 @@ export class Param {
     shortDescription: string;
     description: string;
 
-    constructor(name: string, type: string | null, required: boolean,
-    shortDescription: string = '', description: string = '') {
-        this.name = name;
-        this.type = type;
-        this.required = required;
+    constructor(options: Param) {
+        this.name = options.name;
+        this.type = options.type;
+        this.required = options.required;
     }
 }
