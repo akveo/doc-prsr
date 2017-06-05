@@ -14,12 +14,17 @@ import {
   ClassKind 
 } from './model';
 
-export const ClassOptions: any = {
+export const ClassOptions: any = { //enum!!!!! import
   classKind: 'kind'
 }
 
 export const CommonOptions: any = {
-  platform: 'platform'
+  platform: 'platform',
+  examples: 'examples',
+  description: 'description', 
+  code: 'code',
+  properties: 'properties',
+  title: 'title'
 }
 
 export abstract class BaseParser {
@@ -36,8 +41,8 @@ export abstract class BaseParser {
 
   getClasses(json: any[]): Class[] {
     return json
-      .filter(item => { return item.hasOwnProperty(ClassOptions.classKind) })
-      .map(item => { return this.parseClass(item) });
+      .filter(item => item[ClassOptions.classKind])
+      .map(item => this.parseClass(item));
   }
 
   parseClass(obj: any) {
@@ -53,32 +58,23 @@ export abstract class BaseParser {
     });
   }
 
-  getKind(obj: any): ClassKind {
+  getKind(obj: any): ClassKind {//names
     return obj.hasOwnProperty(ClassOptions.classKind) ? obj[ClassOptions.classKind] : 'class';
   }
 
   getPlatform(obj: any): Platform {
-    return obj.hasOwnProperty(CommonOptions.platform) ? obj[CommonOptions.platform] : 'ios';
+    return obj[CommonOptions.platform] ? obj[CommonOptions.platform] : 'ios';
   }
 
   getExamples(obj: any): Example[] {
-    const examples: Example[] = [];
-
-    if(obj.hasOwnProperty('examples')) {
-
-      if(obj['examples'].constructor == Array) {
-        obj['examples'].forEach((item: any) => { examples.push(this.parseExample(item))});
-      } else if(obj['examples'].constructor == Object) {
-        examples.push(this.parseExample(obj['examples']));
-      }
-    }
-
-    return examples;
+    return obj[CommonOptions.examples]
+              .filter((item: any) => item[CommonOptions.examples])
+              .map((item: any) => this.parseExample(item));
   }
 
   parseExample(obj: any): Example {
-    if(obj.hasOwnProperty('description') || obj.hasOwnProperty('code')) {
-      return new Example(obj['description'], obj['code']);
+    if(obj.hasOwnProperty(CommonOptions.description) || obj.hasOwnProperty(CommonOptions.code)) {
+      return new Example(obj[CommonOptions.description], obj[CommonOptions.code]);
     } else {
       return new Example();
     }
@@ -86,11 +82,11 @@ export abstract class BaseParser {
 
   getProps(obj: any): Prop[] {
     const props: Prop[] = [];
-    if(obj.hasOwnProperty('properties')) {
-      if(obj['properties'].constructor == Array) {
-        obj['properties'].forEach((item: any) => { props.push(this.parseProp(item))});
-      } else if(obj['properties'].constructor == Object) {
-        props.push(this.parseProp(obj['properties']));
+    if(obj.hasOwnProperty(CommonOptions.properties)) {
+      if(obj[CommonOptions.properties] instanceof Array) {
+        obj[CommonOptions.properties].forEach((item: any) => { props.push(this.parseProp(item))});
+      } else if(obj[CommonOptions.properties] instanceof Object) {
+        props.push(this.parseProp(obj[CommonOptions.properties]));
       }
     }
     
@@ -98,7 +94,7 @@ export abstract class BaseParser {
   }
 
   parseProp(obj: any): Prop {
-    if(obj.hasOwnProperty('title') && obj['title'] == 'property') {
+    if(obj.hasOwnProperty(CommonOptions.title) && obj[CommonOptions.title] == 'property') {
       return new Prop(this.getPropKind(obj), this.getPlatform(obj), this.isStatic(obj),
       this.getPropType(obj), this.isRequired(obj), this.getName(obj), '', this.getDescription(obj), '');
     } 
