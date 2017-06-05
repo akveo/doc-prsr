@@ -14,7 +14,7 @@ import {
   ClassKind 
 } from './model';
 
-export const ClassOptions: any = { //enum!!!!! import
+export const ClassOptions: any = {
   classKind: 'kind',
   methods: 'methods'
 }
@@ -29,7 +29,8 @@ export const CommonOptions: any = {
   shortDescription: 'shortDescription',
   static: 'static',
   required: 'required',
-  type: 'type'
+  type: 'type',
+  name: 'name'
 }
 
 export abstract class BaseParser {
@@ -72,8 +73,7 @@ export abstract class BaseParser {
   }
 
   getExamples(obj: any): Example[] {
-    return obj
-            .filter((item: any) => item[CommonOptions.examples])
+    return obj[CommonOptions.examples]
             .map((item: any) => this.parseExample(item));
   }
 
@@ -86,8 +86,7 @@ export abstract class BaseParser {
   }
 
   getProps(obj: any): Prop[] {
-    return obj
-            .filter((item: any) => item[CommonOptions.properties])
+    return obj[CommonOptions.properties]
             .map((item: any) => this.parseProp(item));
   }
 
@@ -108,10 +107,8 @@ export abstract class BaseParser {
     }
   }
 
-  getMethods(obj: any): Method[] {
-    return obj
-            .filter((item: any) => item[ClassOptions.methods])
-            .map((item: any) => this.parseMethod(item));
+  getMethods(obj: any): Method[] {// where are methods??
+    return obj[ClassOptions.methods] ? obj[ClassOptions.methods].map((item: any) => this.parseMethod(item)) : [];
   }
 
   parseMethod(obj: any): Method { //TODO get parsed when I find example

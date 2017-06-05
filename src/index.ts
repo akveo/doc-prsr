@@ -1,4 +1,4 @@
-import { DocJSParser } from './documentationJS.parser';
+import { DocJSParser } from './doc-js.parser/doc-js.parser';
 import * as fs from 'fs';
 
 fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
