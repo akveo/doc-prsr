@@ -93,9 +93,7 @@ export abstract class BaseParser {
 
   parseProp(obj: any): Prop {
     let propKind: PropKind;
-    let isStatic: boolean = false;
     let propType: string | null;
-    let required: boolean = false;
     let name: string;
     let description: string;
 
@@ -106,18 +104,10 @@ export abstract class BaseParser {
         propKind = 'prop';
       }
 
-      if(obj.hasOwnProperty('isStatic')) {
-        isStatic = obj['isStatic'];
-      }
-
       if(obj.hasOwnProperty('type')) {
         propType = obj['type'].type;
       } else {
         propType = null;
-      }
-
-      if(obj.hasOwnProperty('required')) {
-        required = obj['required'];
       }
 
       if(obj.hasOwnProperty('name')) {
@@ -128,7 +118,7 @@ export abstract class BaseParser {
         description = obj['description'].type;
       }
     }
-    return new Prop(propKind, this.getPlatform(obj), isStatic, propType, required, name, '', description, '');
+    return new Prop(propKind, this.getPlatform(obj), this.isStatic(obj), propType, this.isRequired(obj), name, '', description, '');
   }
 
   getMethods(obj: any): Method[] {
@@ -144,6 +134,34 @@ export abstract class BaseParser {
     return methods;
   }
 
+  parseMethod(obj: any): Method { //TODO gett parsed when I find example
+    const examples: Example[] = [];
+    const params: Param[] = [];
+    const name: string = '';
+    const type: string = '';
+    const description: string = '';
+
+    return new Method(examples, params, this.getPlatform(obj), name, type, this.isStatic(obj), '', description);
+  }
+
+  getShortDescription(obj): string {
+    if(obj.hasOwnProperty('shortDescription')) return obj['shortDescription'];
+    else return '';
+  }
+
+  isStatic(obj: any): boolean {
+    if(obj.hasOwnProperty('static')) {
+      if(obj['static'] = 'true') return true;
+      else return false;
+    }
+  }
+
+  isRequired(obj: any): boolean {
+    if(obj.hasOwnProperty('boolean')) {
+      if(obj['boolean'] = 'true') return true;
+      else return false;
+    }
+  }
   
 
 
