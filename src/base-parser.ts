@@ -18,6 +18,10 @@ export const ClassOptions: any = {
   classKind: 'kind'
 }
 
+export const CommonOptions: any = {
+  platform: 'platform'
+}
+
 export abstract class BaseParser {
   protected json: any;
 
@@ -50,15 +54,11 @@ export abstract class BaseParser {
   }
 
   getKind(obj: any): ClassKind {
-    return (obj.hasOwnProperty(ClassOptions.classKind)) ? obj[ClassOptions.classKind] : 'class';
+    return obj.hasOwnProperty(ClassOptions.classKind) ? obj[ClassOptions.classKind] : 'class';
   }
 
   getPlatform(obj: any): Platform {
-    if(obj.hasOwnProperty('platform')) {
-      return obj['platform'];
-    } else {
-      return 'ios';
-    }
+    return obj.hasOwnProperty(CommonOptions.platform) ? obj[CommonOptions.platform] : 'ios';
   }
 
   getExamples(obj: any): Example[] {
