@@ -37,10 +37,18 @@ export abstract class BaseParser {
   }
 
   parseClass(obj: any) {
-    return new Class(this.getKind(obj), this.getPlatform(), this.getExamples(obj),
+    return new Class(this.getKind(obj), this.getPlatform(obj), this.getExamples(obj),
     this.getProps(obj), this.getMethods(obj), this.getName(obj),
     this.getShortDescription(obj), this.getDescription(obj));
   }
+
+  getKind(obj: any): ClassKind {
+    if(obj.hasOwnProperty('kind')) {
+      return obj['kind'];
+    }
+  }
+
+
 
 
 }
