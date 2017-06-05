@@ -36,6 +36,11 @@ export abstract class BaseParser {
     return classes;
   }
 
+  parseClass(obj: any) {
+    return new Class(this.getKind(obj), this.getPlatform(), this.getExamples(obj),
+    this.getProps(obj), this.getMethods(obj), this.getName(obj),
+    this.getShortDescription(obj), this.getDescription(obj));
+  }
 
 
 }
