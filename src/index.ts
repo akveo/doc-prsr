@@ -8,6 +8,15 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
 });
 
 
+const arr = [
+    [1, 2],
+    [3, 4]
+];
+
+const arr2 = [];
+arr2.push(arr);
+console.log(arr2);
+
 
 
 

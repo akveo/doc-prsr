@@ -56,6 +56,19 @@ export abstract class BaseParser {
     }
   }
 
+  getExamples(obj: any): Example[] {
+    const examples: Example[] = [];
+    if(obj.hasOwnProperty('examples')) {
+      if(obj['examples'].constructor == Array) {
+        examples.push(this.iterArr(this.parseExample(obj['examples'])));
+      } else if(obj['examples'].constructor == Object) {
+        examples.push(this.parseExample(obj['examples']));
+      }
+    }
+
+    return examples;
+  }
+
 
 
 }
