@@ -19,16 +19,14 @@ export class Prop {
     description: string;
     defaultValue: any;
 
-    constructor(kind: PropKind, platform: Platform, isStatic: boolean, type: string | null, 
-    required: boolean, name: string, shortDescription: string = '', description: string = '',
-    defaultValue: any = null) {
-        this.kind = kind;
-        this.platform = platform;
-        this.isStatic = isStatic;
-        this.type = type;
-        this.required = required;
-        this.name = name;
-        this.shortDescription = shortDescription;
-        this.description = description;
+    constructor(options: Prop) {
+        this.kind = options.kind;
+        this.platform = options.platform;
+        this.isStatic = options.isStatic;
+        this.type = options.type;
+        this.required = options.required;
+        this.name = options.name;
+        this.shortDescription = options.shortDescription;
+        this.description = options.description;
     }
 }
