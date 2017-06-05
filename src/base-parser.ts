@@ -155,6 +155,11 @@ export abstract class BaseParser {
     else return '';
   }
 
+  getName(obj: any) {
+    if(obj.hasOwnProperty('name')) return obj['name'];
+    else return '';
+  }
+
   isStatic(obj: any): boolean {
     if(obj.hasOwnProperty('static')) {
       if(obj['static'] = 'true') return true;
