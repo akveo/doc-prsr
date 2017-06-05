@@ -22,5 +22,7 @@ export class Method {
         this.name = options.name;
         this.type = options.type;
         this.isStatic = options.isStatic;
+        this.shortDescription = options.shortDescription;
+        this.description = options.description;
     }
 }

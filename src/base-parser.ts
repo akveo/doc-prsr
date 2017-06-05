@@ -111,13 +111,9 @@ export abstract class BaseParser {
   }
 
   parseMethod(obj: any): Method { //TODO get parsed when I find example
-    const examples: Example[] = [];
-    const params: Param[] = [];
-    const name: string = '';
-    const type: string = '';
-    const description: string = '';
-
-    return new Method(examples, params, this.getPlatform(obj), name, type, this.isStatic(obj), '', description);
+    return new Method({
+      
+    });
   }
 
   getShortDescription(obj: any): string {
