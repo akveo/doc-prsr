@@ -4,6 +4,7 @@ import { Class } from './class/class';
 export class Model {
     /**
      * An information about the project.
+     *
      */
     metadata: Metadata;
     /**
@@ -11,8 +12,8 @@ export class Model {
      */
     classes: Class[];
 
-    constructor( metadata: Metadata, classes: Class[]) {
-        this.metadata = metadata;
+    constructor(classes: Class[]/*, metadata: Metadata*/) {
+        // this.metadata = metadata;
         this.classes = classes;
     }
 
