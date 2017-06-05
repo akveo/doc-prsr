@@ -15,7 +15,8 @@ import {
 } from './model';
 
 export const ClassOptions: any = { //enum!!!!! import
-  classKind: 'kind'
+  classKind: 'kind',
+  methods: 'methods'
 }
 
 export const CommonOptions: any = {
@@ -104,17 +105,9 @@ export abstract class BaseParser {
   }
 
   getMethods(obj: any): Method[] {
-    const methods: Method[] = [];
-
-    if(obj.hasOwnProperty('methods')) {
-      if(obj['methods'] instanceof Array) {
-        obj['methods'].forEach((item: any) => { methods.push(this.parseMethod(item))});
-      } else if(obj['methods'].constructor == Object) {
-        methods.push(this.parseMethod(obj['methods']));
-      }
-    }
-
-    return methods;
+    return obj
+            .filter((item: any) => item[ClassOptions.methods])
+            .map((item: any) => this.parseMethod(item));
   }
 
   parseMethod(obj: any): Method { //TODO get parsed when I find example
