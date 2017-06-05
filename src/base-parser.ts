@@ -25,7 +25,11 @@ export const CommonOptions: any = {
   description: 'description', 
   code: 'code',
   properties: 'properties',
-  title: 'title'
+  title: 'title',
+  shortDescription: 'shortDescription',
+  static: 'static',
+  required: 'required',
+  type: 'type'
 }
 
 export abstract class BaseParser {
@@ -112,53 +116,43 @@ export abstract class BaseParser {
 
   parseMethod(obj: any): Method { //TODO get parsed when I find example
     return new Method({
-      
+      examples: this.getExamples(obj),
+      params: [],
+      platform: this.getPlatform(obj),
+      name: this.getName(obj),
+      type: '',
+      isStatic: this.isStatic(obj),
+      shortDescription: this.getShortDescription(obj),
+      description: this.getDescription(obj)
     });
   }
 
   getShortDescription(obj: any): string {
-    return obj.hasOwnProperty('shortDescription') && obj['shortDescription'];
-    else return '';
+    return obj[CommonOptions.shortDescription] ? obj[CommonOptions.shortDescription] : '';
   }
 
   getDescription(obj: any) {
-    return obj.hasOwnProperty('description') && obj['description'] && obj['description'].type;
-    else return '';
+    return obj[CommonOptions.description] ? obj[CommonOptions.description].type : '';
   }
 
   getName(obj: any) {
-    if(obj.hasOwnProperty('name')) return obj['name'];
-    else return '';
+    return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
   }
 
   isStatic(obj: any): boolean {
-    if(obj.hasOwnProperty('static')) {
-      if(obj['static'] == 'true') return true;
-      else return false;
-    }
-    return false
+    return obj[CommonOptions.static];
   }
 
   isRequired(obj: any): boolean {
-    if(obj.hasOwnProperty('boolean')) {
-      if(obj['boolean'] == 'true') return true;
-      else return false;
-    }
-    return false;
+    return obj[CommonOptions.required];
   }
 
   getPropKind(obj: any): PropKind {
-    if(obj.hasOwnProperty('kind')) {
-      return obj['kind'];
-    } else return 'prop';
+    return obj[CommonOptions.kind] ? obj[CommonOptions.kind] : 'prop';
   }
 
   getPropType(obj: any):string {
-    if(obj.hasOwnProperty('type')) {
-      return obj['type'].type;
-    } else {
-      return 'null';
-    }
+    return obj[CommonOptions.type] ? obj[CommonOptions.type] : '';
   }
 
 }
