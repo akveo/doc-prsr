@@ -48,6 +48,13 @@ export abstract class BaseParser {
     }
   }
 
+  getPlatform(obj: any): Platform {
+    if(obj.hasOwnProperty('platform')) {
+      return obj['platform'];
+    } else {
+      return 'ios';
+    }
+  }
 
 
 
