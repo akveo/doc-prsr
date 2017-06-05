@@ -131,6 +131,19 @@ export abstract class BaseParser {
     return new Prop(propKind, this.getPlatform(obj), isStatic, propType, required, name, '', description, '');
   }
 
+  getMethods(obj: any): Method[] {
+    const methods: Method[] = []
+    if(obj.hasOwnProperty('methods')) {
+      if(obj['methods'].constructor == Array) {
+        obj['methods'].forEach(item => { methods.push(this.parseMethod(item))});
+      } else if(obj['methods'].constructor == Object) {
+        methods.push(this.parseMethod(obj['methods']));
+      }
+    }
+
+    return methods;
+  }
+
   
 
 
