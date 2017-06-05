@@ -16,12 +16,26 @@ import {
 export abstract class BaseParser {
   protected json: any;
 
-  protected saveJSON(json: any) {
-    this.json = json;
-  }
+  // protected saveJSON(json: any) {
+  //   this.json = json;
+  // }
 
   parse(json: any): Model {
-    return new Model(this.getClasses);
+    return new Model(this.getClasses(this.json));
   }
+
+  getClasses(json: any[]): Class[] {
+    const classes: Class[] = [];
+
+    json.forEach(item => {
+      if(item.hasOwnProperty('kind')) {
+        classes.push(this.parseClass(item));
+      }
+    });
+
+    return classes;
+  }
+
+
 
 }
