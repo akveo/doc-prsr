@@ -22,11 +22,14 @@ export class Class {
     description: string;
 
     constructor(kind: ClassKind, platform: Platform, examples: Example[], props: Prop[], methods: Method[],
-    name: string, shortDescription: string = '', description: string = '') {
+    name: string, shortDescription: string, description: string) {
         this.kind = kind;
         this.platform = platform;
         this.examples = examples;
         this.props = props;
         this.methods = methods;
+        this.name = name;
+        this.description = description;
+        this.shortDescription = shortDescription;
     }
 }
