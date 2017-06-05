@@ -97,12 +97,9 @@ export abstract class BaseParser {
 
   parseProp(obj: any): Prop {
     if(obj.hasOwnProperty('title') && obj['title'] == 'property') {
-      return new Prop({
-        kind: this.getKind()
-      })
-      // return new Prop(this.getPropKind(obj), this.getPlatform(obj), this.isStatic(obj),
-      // this.getPropType(obj), this.isRequired(obj), name, '', this.getDescription(obj), '');
-    } else return null;
+      return new Prop(this.getPropKind(obj), this.getPlatform(obj), this.isStatic(obj),
+      this.getPropType(obj), this.isRequired(obj), this.getName(obj), '', this.getDescription(obj), '');
+    } 
   }
 
   getMethods(obj: any): Method[] {

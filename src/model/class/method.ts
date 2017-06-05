@@ -15,13 +15,12 @@ export class Method {
     shortDescription: string;
     description: string;
 
-    constructor(examples: Example[], params: Param[], platform: Platform, name: string,
-    type: string, isStatic: boolean, shortDescription: string = '', description: string = '') {
-        this.examples = examples;
-        this.params = params;
-        this.platform = platform;
-        this.name = name;
-        this.type = type;
-        this.isStatic = isStatic;
+    constructor(options: Method) {
+        this.examples = options.examples;
+        this.params = options.params;
+        this.platform = options.platform;
+        this.name = options.name;
+        this.type = options.type;
+        this.isStatic = options.isStatic;
     }
 }
