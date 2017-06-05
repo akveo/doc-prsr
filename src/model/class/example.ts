@@ -3,7 +3,8 @@ export class Example {
     description: string;
     
 
-    constructor(code: string, description: string = '') {
+    constructor(description: string = '', code: string = '') {
+        this.description = description;
         this.code = code;
     }
 }
