@@ -14,6 +14,10 @@ import {
   ClassKind 
 } from './model';
 
+export const ClassOptions: any = {
+  classKind: 'kind'
+}
+
 export abstract class BaseParser {
   protected json: any;
 
@@ -28,7 +32,7 @@ export abstract class BaseParser {
 
   getClasses(json: any[]): Class[] {
     return json
-      .filter(item => { return item.hasOwnProperty('kind') })
+      .filter(item => { return item.hasOwnProperty(ClassOptions.classKind) })
       .map(item => { return this.parseClass(item) });
   }
 
@@ -46,10 +50,7 @@ export abstract class BaseParser {
   }
 
   getKind(obj: any): ClassKind {
-    if (obj.hasOwnProperty('kind')) {
-      return obj['kind'];
-    }
-    return 'class';
+    return (obj.hasOwnProperty(ClassOptions.classKind)) ? obj[ClassOptions.classKind] : 'class';
   }
 
   getPlatform(obj: any): Platform {
