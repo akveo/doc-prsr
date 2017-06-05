@@ -77,6 +77,21 @@ export abstract class BaseParser {
     }
   }
 
+  getProps(obj: any): Prop[] {
+    const props: Prop[] = [];
+    if(obj.hasOwnProperty('properties')) {
+      if(obj['properties'].constructor == Array) {
+        obj['properties'].forEach(item => { props.push(this.parseProp(item))});
+      } else if(obj['properties'].constructor == Object) {
+        props.push(this.parseProp(obj['properties']));
+      }
+    }
+    
+    return props;
+  }
+
+  
+
 
 
 }
