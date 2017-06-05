@@ -30,7 +30,7 @@ export abstract class BaseParser {
     const classes: Class[] = [];
 
     json.forEach(item => {
-      if(item.hasOwnProperty('kind')) {
+      if (item.hasOwnProperty('kind')) {
         classes.push(this.parseClass(item));
       }
     });
@@ -40,14 +40,15 @@ export abstract class BaseParser {
 
   parseClass(obj: any) {
     return new Class(this.getKind(obj), this.getPlatform(obj), this.getExamples(obj),
-    this.getProps(obj), this.getMethods(obj), this.getName(obj),
-    this.getShortDescription(obj), this.getDescription(obj));
+      this.getProps(obj), this.getMethods(obj), this.getName(obj),
+      this.getShortDescription(obj), this.getDescription(obj));
   }
 
   getKind(obj: any): ClassKind {
-    if(obj.hasOwnProperty('kind')) {
+    if (obj.hasOwnProperty('kind')) {
       return obj['kind'];
     }
+    return 'class';
   }
 
   getPlatform(obj: any): Platform {
@@ -60,9 +61,11 @@ export abstract class BaseParser {
 
   getExamples(obj: any): Example[] {
     const examples: Example[] = [];
+
     if(obj.hasOwnProperty('examples')) {
+
       if(obj['examples'].constructor == Array) {
-        obj['examples'].forEach(item => { examples.push(this.parseExample(item))});
+        obj['examples'].forEach((item: any) => { examples.push(this.parseExample(item))});
       } else if(obj['examples'].constructor == Object) {
         examples.push(this.parseExample(obj['examples']));
       }
@@ -83,7 +86,7 @@ export abstract class BaseParser {
     const props: Prop[] = [];
     if(obj.hasOwnProperty('properties')) {
       if(obj['properties'].constructor == Array) {
-        obj['properties'].forEach(item => { props.push(this.parseProp(item))});
+        obj['properties'].forEach((item: any) => { props.push(this.parseProp(item))});
       } else if(obj['properties'].constructor == Object) {
         props.push(this.parseProp(obj['properties']));
       }
@@ -93,40 +96,21 @@ export abstract class BaseParser {
   }
 
   parseProp(obj: any): Prop {
-    let propKind: PropKind;
-    let propType: string | null;
-    let name: string;
-    let description: string;
-
     if(obj.hasOwnProperty('title') && obj['title'] == 'property') {
-      if(obj.hasOwnProperty('kind')) {
-        propKind = obj['kind'];
-      } else {
-        propKind = 'prop';
-      }
-
-      if(obj.hasOwnProperty('type')) {
-        propType = obj['type'].type;
-      } else {
-        propType = null;
-      }
-
-      if(obj.hasOwnProperty('name')) {
-        name = obj['name'];
-      }
-
-      if(obj.hasOwnProperty('description')) {
-        description = obj['description'].type;
-      }
-    }
-    return new Prop(propKind, this.getPlatform(obj), this.isStatic(obj), propType, this.isRequired(obj), name, '', description, '');
+      return new Prop({
+        kind: this.getKind()
+      })
+      // return new Prop(this.getPropKind(obj), this.getPlatform(obj), this.isStatic(obj),
+      // this.getPropType(obj), this.isRequired(obj), name, '', this.getDescription(obj), '');
+    } else return null;
   }
 
   getMethods(obj: any): Method[] {
-    const methods: Method[] = []
+    const methods: Method[] = [];
+
     if(obj.hasOwnProperty('methods')) {
-      if(obj['methods'].constructor == Array) {
-        obj['methods'].forEach(item => { methods.push(this.parseMethod(item))});
+      if(obj['methods'] instanceof Array) {
+        obj['methods'].forEach((item: any) => { methods.push(this.parseMethod(item))});
       } else if(obj['methods'].constructor == Object) {
         methods.push(this.parseMethod(obj['methods']));
       }
@@ -145,13 +129,13 @@ export abstract class BaseParser {
     return new Method(examples, params, this.getPlatform(obj), name, type, this.isStatic(obj), '', description);
   }
 
-  getShortDescription(obj): string {
-    if(obj.hasOwnProperty('shortDescription')) return obj['shortDescription'];
+  getShortDescription(obj: any): string {
+    return obj.hasOwnProperty('shortDescription') && obj['shortDescription'];
     else return '';
   }
 
   getDescription(obj: any) {
-    if(obj.hasOwnProperty('description')) return obj['description'].type;
+    return obj.hasOwnProperty('description') && obj['description'] && obj['description'].type;
     else return '';
   }
 
@@ -162,19 +146,32 @@ export abstract class BaseParser {
 
   isStatic(obj: any): boolean {
     if(obj.hasOwnProperty('static')) {
-      if(obj['static'] = 'true') return true;
+      if(obj['static'] == 'true') return true;
       else return false;
     }
+    return false
   }
 
   isRequired(obj: any): boolean {
     if(obj.hasOwnProperty('boolean')) {
-      if(obj['boolean'] = 'true') return true;
+      if(obj['boolean'] == 'true') return true;
       else return false;
     }
+    return false;
   }
-  
 
+  getPropKind(obj: any): PropKind {
+    if(obj.hasOwnProperty('kind')) {
+      return obj['kind'];
+    } else return 'prop';
+  }
 
+  getPropType(obj: any):string {
+    if(obj.hasOwnProperty('type')) {
+      return obj['type'].type;
+    } else {
+      return 'null';
+    }
+  }
 
 }

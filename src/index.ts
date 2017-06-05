@@ -1,21 +1,13 @@
-// import { DocumentationJsparser } from './documentationJS.parser';
+import { DocJSParser } from './documentationJS.parser';
 import * as fs from 'fs';
 
 fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
-    // let p1 = new DocumentationJsparser();
-    // // let newdoc: any = p1.parse(JSON.parse(data));
-    // console.log(p1.parse(JSON.parse(data)));
+    let p1 = new DocJSParser();
+    // let newdoc = p1.parse(JSON.parse(data));
+    console.log(p1.parse(JSON.parse(data)));
 });
 
 
-const arr = [
-    [1, 2],
-    [3, 4]
-];
-
-const arr2 = [];
-arr2.push(arr);
-console.log(arr2);
 
 
 

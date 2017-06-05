@@ -21,15 +21,14 @@ export class Class {
     shortDescription: string;
     description: string;
 
-    constructor(kind: ClassKind, platform: Platform, examples: Example[], props: Prop[], methods: Method[],
-    name: string, shortDescription: string, description: string) {
-        this.kind = kind;
-        this.platform = platform;
-        this.examples = examples;
-        this.props = props;
-        this.methods = methods;
-        this.name = name;
-        this.description = description;
-        this.shortDescription = shortDescription;
+    constructor(options: Class) {
+        this.kind = options.kind;
+        this.platform = options.platform;
+        this.examples = options.examples;
+        this.props = options.props;
+        this.methods = options.methods;
+        this.name = options.name;
+        this.description = options.description;
+        this.shortDescription = options.shortDescription;
     }
 }
