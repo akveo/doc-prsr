@@ -17,7 +17,6 @@ export class Prop {
     name: string;
     shortDescription: string;
     description: string;
-    defaultValue: any;
 
     constructor(options: Prop) {
         this.kind = options.kind;

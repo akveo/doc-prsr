@@ -86,11 +86,21 @@ export abstract class BaseParser {
             .map((item: any) => this.parseProp(item));
   }
 
-  parseProp(obj: any): Prop {
-    if(obj.hasOwnProperty(CommonOptions.title) && obj[CommonOptions.title] == 'property') {
-      return new Prop(this.getPropKind(obj), this.getPlatform(obj), this.isStatic(obj),
-      this.getPropType(obj), this.isRequired(obj), this.getName(obj), '', this.getDescription(obj), '');
-    } 
+  parseProp(obj: any): Prop | null {
+    if(obj[CommonOptions.title] && obj[CommonOptions.title] === 'property') {
+      return new Prop({
+        kind: this.getPropKind(obj),
+        platform: this.getPlatform(obj),
+        isStatic: this.isStatic(obj),
+        type: this.getPropType(obj),
+        required: this.isRequired(obj),
+        name: this.getName(obj),
+        description: this.getDescription(obj),
+        shortDescription: this.getShortDescription(obj)
+      });
+    } else {
+      return null;
+    }
   }
 
   getMethods(obj: any): Method[] {
@@ -107,7 +117,7 @@ export abstract class BaseParser {
     return methods;
   }
 
-  parseMethod(obj: any): Method { //TODO gett parsed when I find example
+  parseMethod(obj: any): Method { //TODO get parsed when I find example
     const examples: Example[] = [];
     const params: Param[] = [];
     const name: string = '';
