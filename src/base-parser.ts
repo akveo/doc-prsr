@@ -60,7 +60,7 @@ export abstract class BaseParser {
     const examples: Example[] = [];
     if(obj.hasOwnProperty('examples')) {
       if(obj['examples'].constructor == Array) {
-        examples.push(this.iterArr(this.parseExample(obj['examples'])));
+        examples.push(this.iterateArr(this.parseExample(obj['examples'])));
       } else if(obj['examples'].constructor == Object) {
         examples.push(this.parseExample(obj['examples']));
       }
@@ -69,6 +69,12 @@ export abstract class BaseParser {
     return examples;
   }
 
+
+  protected iterateArr(arr: any[]): any {
+    arr.forEach(item => {
+      return item;
+    });
+  }
 
 
 }
