@@ -4,6 +4,6 @@ import { Model, Class, Metadata, Example, Method, Param, Platform, Prop, Languag
 export abstract class BaseParser {    
     // TODO: different metadata for different parsers
     abstract getMetadata(language: Language, generator: Generator, framework: Framework): Metadata;
-    // abstract getClasses(): Class[];
+    abstract getClass(obj: any): Class;
 
 }
