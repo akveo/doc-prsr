@@ -27,15 +27,9 @@ export abstract class BaseParser {
   }
 
   getClasses(json: any[]): Class[] {
-    const classes: Class[] = [];
-
-    json.forEach(item => {
-      if (item.hasOwnProperty('kind')) {
-        classes.push(this.parseClass(item));
-      }
-    });
-
-    return classes;
+    return json
+      .filter(item => { return item.hasOwnProperty('kind') })
+      .map(item => { return this.parseClass(item) });
   }
 
   parseClass(obj: any) {
