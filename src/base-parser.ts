@@ -1,9 +1,23 @@
+import {
+  Model,
+  Class,
+  Metadata,
+  Example,
+  Method,
+  Param,
+  Platform,
+  Prop,
+  Language,
+  Framework, 
+  Generator,
+  ClassKind 
+} from './model';
 
-import { Model, Class, Metadata, Example, Method, Param, Platform, Prop, Language, Framework, Generator } from './model/index';
+export abstract class BaseParser {
+  protected json: any;
 
-export abstract class BaseParser {    
-    // TODO: different metadata for different parsers
-    abstract getMetadata(language: Language, generator: Generator, framework: Framework): Metadata;
-    abstract getClass(obj: any): Class;
+  protected saveJSON(json: any) {
+    this.json = json;
+  }
 
 }
