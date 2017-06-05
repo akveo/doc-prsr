@@ -1,4 +1,11 @@
+import { BaseParser } from './base-parser';
+import { Model, Class, Metadata, Example, Method, Param, Platform, Prop, Language, Framework, Generator } from './model/index';
 
+export class DocJSParser extends BaseParser {
+        getMetadata(language: Language = 'javascript', generator: Generator = 'documentationJS', framework: Framework = 'react'): Metadata {
+                return new Metadata(language, generator, framework);
+        }
+}
 
 
 
