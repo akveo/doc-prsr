@@ -20,4 +20,8 @@ export abstract class BaseParser {
     this.json = json;
   }
 
+  parse(json: any): Model {
+    return new Model(this.getClasses);
+  }
+
 }
