@@ -28,5 +28,7 @@ export class Prop {
         this.type = type;
         this.required = required;
         this.name = name;
+        this.shortDescription = shortDescription;
+        this.description = description;
     }
 }

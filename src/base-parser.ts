@@ -7,6 +7,7 @@ import {
   Param,
   Platform,
   Prop,
+  PropKind,
   Language,
   Framework, 
   Generator,
@@ -88,6 +89,46 @@ export abstract class BaseParser {
     }
     
     return props;
+  }
+
+  parseProp(obj: any): Prop {
+    let propKind: PropKind;
+    let isStatic: boolean = false;
+    let propType: string | null;
+    let required: boolean = false;
+    let name: string;
+    let description: string;
+
+    if(obj.hasOwnProperty('title') && obj['title'] == 'property') {
+      if(obj.hasOwnProperty('kind')) {
+        propKind = obj['kind'];
+      } else {
+        propKind = 'prop';
+      }
+
+      if(obj.hasOwnProperty('isStatic')) {
+        isStatic = obj['isStatic'];
+      }
+
+      if(obj.hasOwnProperty('type')) {
+        propType = obj['type'].type;
+      } else {
+        propType = null;
+      }
+
+      if(obj.hasOwnProperty('required')) {
+        required = obj['required'];
+      }
+
+      if(obj.hasOwnProperty('name')) {
+        name = obj['name'];
+      }
+
+      if(obj.hasOwnProperty('description')) {
+        description = obj['description'].type;
+      }
+    }
+    return new Prop(propKind, this.getPlatform(obj), isStatic, propType, required, name, '', description, '');
   }
 
   
