@@ -67,13 +67,13 @@ export abstract class BaseParser {
   }
 
   getExamples(obj: any): Example[] {
-    return obj[CommonOptions.examples]
-              .filter((item: any) => item[CommonOptions.examples])
-              .map((item: any) => this.parseExample(item));
+    return obj
+            .filter((item: any) => item[CommonOptions.examples])
+            .map((item: any) => this.parseExample(item));
   }
 
   parseExample(obj: any): Example {
-    if(obj.hasOwnProperty(CommonOptions.description) || obj.hasOwnProperty(CommonOptions.code)) {
+    if(obj[CommonOptions.description] || obj[CommonOptions.code]) {
       return new Example(obj[CommonOptions.description], obj[CommonOptions.code]);
     } else {
       return new Example();
@@ -81,16 +81,9 @@ export abstract class BaseParser {
   }
 
   getProps(obj: any): Prop[] {
-    const props: Prop[] = [];
-    if(obj.hasOwnProperty(CommonOptions.properties)) {
-      if(obj[CommonOptions.properties] instanceof Array) {
-        obj[CommonOptions.properties].forEach((item: any) => { props.push(this.parseProp(item))});
-      } else if(obj[CommonOptions.properties] instanceof Object) {
-        props.push(this.parseProp(obj[CommonOptions.properties]));
-      }
-    }
-    
-    return props;
+    return obj
+            .filter((item: any) => item[CommonOptions.properties])
+            .map((item: any) => this.parseProp(item));
   }
 
   parseProp(obj: any): Prop {
