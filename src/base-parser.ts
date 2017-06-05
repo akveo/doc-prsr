@@ -17,11 +17,12 @@ import {
 export abstract class BaseParser {
   protected json: any;
 
-  // protected saveJSON(json: any) {
-  //   this.json = json;
-  // }
+  protected saveJSON(json: any) {
+    this.json = json;
+  }
 
   parse(json: any): Model {
+    this.saveJSON(json);
     return new Model(this.getClasses(this.json));
   }
 
@@ -146,6 +147,11 @@ export abstract class BaseParser {
 
   getShortDescription(obj): string {
     if(obj.hasOwnProperty('shortDescription')) return obj['shortDescription'];
+    else return '';
+  }
+
+  getDescription(obj: any) {
+    if(obj.hasOwnProperty('description')) return obj['description'].type;
     else return '';
   }
 
