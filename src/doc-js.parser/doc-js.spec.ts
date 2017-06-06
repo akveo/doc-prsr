@@ -67,3 +67,15 @@ test('#getDescription', () => {
   expect(docJSParser.getDescription(objNoSDesc)).toBe('');
 });
 
+test('#isStatic', () => {
+  const docJSParser = new DocJSParser();
+  const objStatic = {
+    static: 'true'
+  };
+  const objNoStatic = {
+    no_type: 'some-type' 
+  };
+
+  expect(docJSParser.isStatic(objStatic)).toBe(true);
+  expect(docJSParser.isStatic(objNoStatic)).toBe(false);
+});

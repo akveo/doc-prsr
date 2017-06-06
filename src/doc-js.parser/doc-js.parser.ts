@@ -78,7 +78,7 @@ export class DocJSParser extends BaseParser {
     }
   }
 
-  getShortDescription(obj: any): string {
+  getShortDescription(obj: any): string {//????
     return obj[CommonOptions.shortDescription] ? obj[CommonOptions.shortDescription] : '';
   }
 
@@ -86,8 +86,10 @@ export class DocJSParser extends BaseParser {
     return obj[CommonOptions.description] ? obj[CommonOptions.description].type : '';
   }
 
-  isStatic(obj: any): boolean {
-    return obj[CommonOptions.static];
+  isStatic(obj: any): boolean {// where is isStatic?
+    // console.log(obj[CommonOptions.static]);
+     return obj[CommonOptions.static] ? true : false;
+    // return true;
   }
 
   getName(obj: any): string {

@@ -9,16 +9,16 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
     // console.log(outputObj);
 });
 
-  // const docJSParser = new DocJSParser();
-  // const objType = {
-  //   type: 'some-type'
-  // };
-  // const objNoType = {
-  //   no_type: 'some-type' 
-  // };
+  const docJSParser = new DocJSParser();
+  const objStatic = {
+    static: 'true'
+  };
+  const objNoStatic = {
+    no_type: 'some-type' 
+  };
 
-  // console.log(docJSParser.getPropType(objType));
-  // console.log(docJSParser.getPropType(objNoType));
+  // console.log(docJSParser.isStatic(objStatic));
+  console.log(docJSParser.isStatic(objNoStatic));
 
 
 
