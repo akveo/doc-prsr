@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register src/**/test.ts"
+    "test": ""
   },
   "repository": {
     "type": "git",
@@ -20,12 +20,25 @@
     "typescript": "^2.3.3"
   },
   "devDependencies": {
+    "@types/jest": "^19.2.4",
     "@types/node": "^7.0.27",
     "@types/tape": "^4.2.30",
     "fs": "0.0.1-security",
-    "mocha": "^3.4.2",
     "tape": "^4.6.3",
+    "ts-jest": "^20.0.5",
     "ts-node": "^3.0.4",
     "typings": "^2.1.1"
+  }, 
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }
