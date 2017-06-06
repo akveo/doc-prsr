@@ -10,19 +10,33 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
 });
 
 const docJSParser = new DocJSParser();
-const exampleInput = {
-    description: 'some example',
-    code: 'mov	ax,00; initialize to all ASCII zeroes; mov	di,counter; including the counter mov	cx,digits+cntDigits/2	;',
-    simba: 0,
-    letMeKnow: 'hello'
-};
-const exampleOutput = {
-    description: 'some example',
-    code: 'mov	ax,00; initialize to all ASCII zeroes; mov	di,counter; including the counter mov	cx,digits+cntDigits/2	;',
-};
+    const propInput = {
+      title: 'property'
+      kind: 'prop',
+      platform: 'ios',
+      hello: 'world',
+      me: 1,
+      isStatic: true,
+      type: 'some-type',
+      required: false,
+      name: 'awesome property',
+      isKing: false,
+      description: { type: 'some desc'},
+      shortDescription: '123'
+    };
+    const propOutput = {
+      kind: 'prop',
+      platform: 'ios',
+      isStatic: true,
+      type: 'some-type',
+      required: false,
+      name: 'awesome property',
+      description: 'some desc',
+      shortDescription: '123'
+    };
 
-console.log(docJSParser.parseExample(exampleInput));
-console.log(exampleOutput);
+console.log(docJSParser.parseProp(propInput).toString() === propOutput.toString());
+console.log(propOutput);
 
 
 

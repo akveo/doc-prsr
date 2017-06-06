@@ -17,7 +17,7 @@ import {
 import { ClassOptions, CommonOptions } from './doc-js.options';
 
 export class DocJSParser extends BaseParser {
-  parseExample(obj: any): Example {
+  parseExample(obj: any): Example { //+
     if (obj[CommonOptions.description] || obj[CommonOptions.code]) {
       return new Example(obj[CommonOptions.description], obj[CommonOptions.code]);
     } else {
@@ -25,7 +25,7 @@ export class DocJSParser extends BaseParser {
     }
   }
 
-  parseProp(obj: any): Prop | null {
+  parseProp(obj: any): Prop | null { 
     if (obj[CommonOptions.title] && obj[CommonOptions.title] === 'property') {
       return new Prop({
         kind: this.getPropKind(obj),
@@ -61,39 +61,39 @@ export class DocJSParser extends BaseParser {
     return obj[ClassOptions.methods] ? obj[ClassOptions.methods].map((item: any) => this.parseMethod(item)) : [];
   }
 
-  getKind(obj: any): ClassKind {//names
+  getKind(obj: any): ClassKind {//++
     return obj[ClassOptions.classKind] ? obj[ClassOptions.classKind] : '';
   }
 
-  getPropKind(obj: any): PropKind {
+  getPropKind(obj: any): PropKind {//++
     return obj[CommonOptions.kind] ? obj[CommonOptions.kind] : 'prop';
   }
 
-  getPropType(obj: any): string {
+  getPropType(obj: any): string {//++
     return obj[CommonOptions.type] ? obj[CommonOptions.type] : '';
   }
 
-  getPlatform(obj: any): Platform {
+  getPlatform(obj: any): Platform {//++
     return obj[CommonOptions.platform] ? obj[CommonOptions.platform] : 'ios';
   }
 
-  getShortDescription(obj: any): string {//????
+  getShortDescription(obj: any): string {//++
     return obj[CommonOptions.shortDescription] ? obj[CommonOptions.shortDescription] : '';
   }
 
-  getDescription(obj: any): string {
+  getDescription(obj: any): string {//++
     return obj[CommonOptions.description] ? obj[CommonOptions.description].type : '';
   }
 
-  isStatic(obj: any): boolean {// where is isStatic?
+  isStatic(obj: any): boolean {// where is isStatic? ++
      return obj[CommonOptions.static] ? true : false;
   }
 
-  getName(obj: any): string {
+  getName(obj: any): string {// ++
     return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
   }
 
-  isRequired(obj: any): boolean {
+  isRequired(obj: any): boolean {//++
     return obj[CommonOptions.required] ? true : false;
   }
 }

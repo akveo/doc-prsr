@@ -132,4 +132,34 @@ describe('#DocJSParser', () => {
 
     expect(docJSParser.parseExample(exampleInput).toString()).toBe(exampleOutput.toString());
   });
+
+  test('#parseProp', () => {
+    const docJSParser = new DocJSParser();
+    const propInput = {
+      title: 'property'
+      kind: 'prop',
+      platform: 'ios',
+      hello: 'world',
+      me: 1,
+      isStatic: true,
+      type: 'some-type',
+      required: false,
+      name: 'awesome property',
+      isKing: false,
+      description: { type: 'some desc'},
+      shortDescription: '123'
+    };
+    const propOutput = {
+      kind: 'prop',
+      platform: 'ios',
+      isStatic: true,
+      type: 'some-type',
+      required: false,
+      name: 'awesome property',
+      description: 'some desc',
+      shortDescription: '123'
+    };
+
+    expect(docJSParser.parseProp(propInput).toString()).toBe(propOutput.toString());
+  });
 });
