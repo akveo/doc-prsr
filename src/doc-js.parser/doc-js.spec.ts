@@ -79,3 +79,16 @@ test('#isStatic', () => {
   expect(docJSParser.isStatic(objStatic)).toBe(true);
   expect(docJSParser.isStatic(objNoStatic)).toBe(false);
 });
+
+test('#getName', () => {
+  const docJSParser = new DocJSParser();
+  const objName = {
+    name: 'Button'
+  };
+  const objNoSname = {
+    no_name: 'some-no-name' 
+  };
+
+  expect(docJSParser.getName(objName)).toBe('Button');
+  expect(docJSParser.getName(objNoSname)).toBe('');
+});

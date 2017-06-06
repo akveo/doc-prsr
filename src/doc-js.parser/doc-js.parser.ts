@@ -87,9 +87,7 @@ export class DocJSParser extends BaseParser {
   }
 
   isStatic(obj: any): boolean {// where is isStatic?
-    // console.log(obj[CommonOptions.static]);
      return obj[CommonOptions.static] ? true : false;
-    // return true;
   }
 
   getName(obj: any): string {
@@ -97,6 +95,6 @@ export class DocJSParser extends BaseParser {
   }
 
   isRequired(obj: any): boolean {
-    return obj[CommonOptions.required];
+    return obj[CommonOptions.required] ? true : false;
   }
 }
