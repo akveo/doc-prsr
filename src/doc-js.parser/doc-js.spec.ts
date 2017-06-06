@@ -52,3 +52,18 @@ test('#getShortDescription', () => {
   expect(docJSParser.getShortDescription(objNoSDesc)).toBe('');
 });
 
+test('#getDescription', () => {
+  const docJSParser = new DocJSParser();
+  const objSDesc = {
+    description: {
+      type: 'Hello world'
+    }
+  };
+  const objNoSDesc = {
+    no_type: 'some-type' 
+  };
+
+  expect(docJSParser.getDescription(objSDesc)).toBe('Hello world');
+  expect(docJSParser.getDescription(objNoSDesc)).toBe('');
+});
+
