@@ -9,17 +9,8 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
     // console.log(outputObj);
 });
 
-  const docJSParser = new DocJSParser();
-  const objStatic = {
-    static: 'true'
-  };
-  const objNoStatic = {
-    no_type: 'some-type' 
-  };
-
-  // console.log(docJSParser.isStatic(objStatic));
-  console.log(docJSParser.isStatic(objNoStatic));
-
+let p2 = new DocJSParser();
+console.log(p2.getKind(null));
 
 
 

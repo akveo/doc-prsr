@@ -1,18 +1,25 @@
 import { DocJSParser } from './doc-js.parser';
 
 // describe();
-test('#getClasses 1', () => {
+test('#getClassKind 1', () => {
   const docJSParser = new DocJSParser();
   const objClass = { kind: 'component' };
 
   expect(docJSParser.getKind(objClass)).toBe('component');
 });
 
-test('#getClasses 2', () => {
+test('#getClassKind 2', () => {
   const docJSParser = new DocJSParser();
   const objNoKind = { no_kind: 'no-class' };
 
   expect(docJSParser.getKind(objNoKind)).toBe('');
+});
+
+test('#getClassKind 3', () => {
+  const docJSParser = new DocJSParser();
+
+  expect(docJSParser.getKind(undefined)).toBe('unknown');
+  expect(docJSParser.getKind(null)).toBe('unknown');
 });
 
 test('#getPropKind 1', () => {
