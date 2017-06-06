@@ -45,7 +45,7 @@ export class DocJSParser extends BaseParser {
     return obj[CommonOptions.kind] ? obj[CommonOptions.kind] : 'prop';
   }
 
-  getPropType(obj: any):string {
+  getPropType(obj: any): string {
     return obj[CommonOptions.type] ? obj[CommonOptions.type] : '';
   }
 
