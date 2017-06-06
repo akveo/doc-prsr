@@ -38,3 +38,17 @@ test('#getPropType', () => {
   expect(docJSParser.getPropType(objType)).toBe('some-type');
   expect(docJSParser.getPropType(objNoType)).toBe('');
 });
+
+test('#getShortDescription', () => {
+  const docJSParser = new DocJSParser();
+  const objSDesc = {
+    shortDescription: 'Hello world'
+  };
+  const objNoSDesc = {
+    no_type: 'some-type' 
+  };
+
+  expect(docJSParser.getShortDescription(objSDesc)).toBe('Hello world');
+  expect(docJSParser.getShortDescription(objNoSDesc)).toBe('');
+});
+
