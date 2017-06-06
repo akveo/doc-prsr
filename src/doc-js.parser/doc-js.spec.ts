@@ -162,4 +162,64 @@ describe('#DocJSParser', () => {
 
     expect(docJSParser.parseProp(propInput).toString()).toBe(propOutput.toString());
   });
+
+  test('#getClasses', () => {
+    const docJSParser = new DocJSParser();
+    const input = [
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-class',
+        shortDescription: 's-d',
+        description: 'description'
+      },
+      {
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-class',
+        shortDescription: 's-d',
+        description: 'description'
+      },
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-another-class',
+        shortDescription: 's-d',
+        description: 'description'
+      }
+    ];
+    const output = [
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-class',
+        shortDescription: 's-d',
+        description: 'description'
+      },
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-another-class',
+        shortDescription: 's-d',
+        description: 'description'
+      }
+    ];
+
+    expect(docJSParser.getClasses(input).toString()).toBe(output.toString());
+  });
+
 });

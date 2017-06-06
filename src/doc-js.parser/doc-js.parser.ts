@@ -25,7 +25,7 @@ export class DocJSParser extends BaseParser {
     }
   }
 
-  parseProp(obj: any): Prop | null { 
+  parseProp(obj: any): Prop | null { // +
     if (obj[CommonOptions.title] && obj[CommonOptions.title] === 'property') {
       return new Prop({
         kind: this.getPropKind(obj),
@@ -43,7 +43,7 @@ export class DocJSParser extends BaseParser {
   }
   getClasses(json: any[]): Class[] {
     return json
-        .filter(item => item[ClassOptions.classKind] === 'class')
+        .filter(item => item[ClassOptions.classKind])
         .map(item => this.parseClass(item));
     }
 

@@ -10,35 +10,63 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
 });
 
 const docJSParser = new DocJSParser();
-    const propInput = {
-      title: 'property'
-      kind: 'prop',
-      platform: 'ios',
-      hello: 'world',
-      me: 1,
-      isStatic: true,
-      type: 'some-type',
-      required: false,
-      name: 'awesome property',
-      isKing: false,
-      description: { type: 'some desc'},
-      shortDescription: '123'
-    };
-    const propOutput = {
-      kind: 'prop',
-      platform: 'ios',
-      isStatic: true,
-      type: 'some-type',
-      required: false,
-      name: 'awesome property',
-      description: 'some desc',
-      shortDescription: '123'
-    };
-
-console.log(docJSParser.parseProp(propInput).toString() === propOutput.toString());
-console.log(propOutput);
 
 
+    const input = [
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-class',
+        shortDescription: 's-d',
+        description: 'description'
+      },
+      {
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-class',
+        shortDescription: 's-d',
+        description: 'description'
+      },
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-another-class',
+        shortDescription: 's-d',
+        description: 'description'
+      }
+    ];
+    const output = [
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-class',
+        shortDescription: 's-d',
+        description: 'description'
+      },
+      {
+        kind: 'class',
+        platform: 'ios',
+        examples: [],
+        properties: [],
+        methods: [],
+        name: 'some-another-class',
+        shortDescription: 's-d',
+        description: 'description'
+      }
+    ];
+
+    console.log(docJSParser.getClasses(input).toString() === output.toString());
 
 
 
