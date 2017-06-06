@@ -21,9 +21,10 @@
   },
   "devDependencies": {
     "@types/node": "^7.0.27",
-    "chai": "^4.0.1",
+    "@types/tape": "^4.2.30",
     "fs": "0.0.1-security",
     "mocha": "^3.4.2",
+    "tape": "^4.6.3",
     "ts-node": "^3.0.4",
     "typings": "^2.1.1"
   }

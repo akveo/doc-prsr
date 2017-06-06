@@ -14,25 +14,6 @@ import {
   ClassKind 
 } from './model';
 
-export const ClassOptions: any = {
-  classKind: 'kind',
-  methods: 'methods'
-}
-
-export const CommonOptions: any = {
-  platform: 'platform',
-  examples: 'examples',
-  description: 'description', 
-  code: 'code',
-  properties: 'properties',
-  title: 'title',
-  shortDescription: 'shortDescription',
-  static: 'static',
-  required: 'required',
-  type: 'type',
-  name: 'name'
-}
-
 export abstract class BaseParser {
   protected json: any;
 
@@ -58,35 +39,6 @@ export abstract class BaseParser {
     });
   }
 
-  protected getPlatform(obj: any): Platform {
-    return obj[CommonOptions.platform] ? obj[CommonOptions.platform] : 'ios';
-  }
-
-  protected parseExample(obj: any): Example {
-    if(obj[CommonOptions.description] || obj[CommonOptions.code]) {
-      return new Example(obj[CommonOptions.description], obj[CommonOptions.code]);
-    } else {
-      return new Example();
-    }
-  }
-
-  protected parseProp(obj: any): Prop | null {
-    if(obj[CommonOptions.title] && obj[CommonOptions.title] === 'property') {
-      return new Prop({
-        kind: this.getPropKind(obj),
-        platform: this.getPlatform(obj),
-        isStatic: this.isStatic(obj),
-        type: this.getPropType(obj),
-        required: this.isRequired(obj),
-        name: this.getName(obj),
-        description: this.getDescription(obj),
-        shortDescription: this.getShortDescription(obj)
-      });
-    } else {
-      return null;
-    }
-  }
-
   protected parseMethod(obj: any): Method { //TODO get parsed when I find example
     return new Method({
       examples: this.getExamples(obj),
@@ -100,25 +52,21 @@ export abstract class BaseParser {
     });
   }
 
-  protected getShortDescription(obj: any): string {
-    return obj[CommonOptions.shortDescription] ? obj[CommonOptions.shortDescription] : '';
-  }
+  abstract getPlatform(obj: any): Platform;
 
-  protected getDescription(obj: any) {
-    return obj[CommonOptions.description] ? obj[CommonOptions.description].type : '';
-  }
+  abstract parseExample(obj: any): Example;
 
-  protected getName(obj: any) {
-    return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
-  }
+  abstract parseProp(obj: any): Prop | null;
 
-  protected isStatic(obj: any): boolean {
-    return obj[CommonOptions.static];
-  }
+  abstract getShortDescription(obj: any): string;
 
-  protected isRequired(obj: any): boolean {
-    return obj[CommonOptions.required];
-  }
+  abstract getDescription(obj: any): string;
+
+  abstract getName(obj: any): string;
+
+  abstract isStatic(obj: any): boolean;
+
+  abstract isRequired(obj: any): boolean;
 
   abstract getMethods(obj: any): Method[];
 

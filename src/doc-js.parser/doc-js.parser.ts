@@ -35,7 +35,6 @@ export const CommonOptions: any = {
 }
 
 export class DocJSParser extends BaseParser {
-
   getClasses(json: any[]): Class[] {
     return json
         .filter(item => item[ClassOptions.classKind])
@@ -66,6 +65,55 @@ export class DocJSParser extends BaseParser {
 
   getPropType(obj: any):string {
     return obj[CommonOptions.type] ? obj[CommonOptions.type] : '';
+  }
+
+  getPlatform(obj: any): Platform {
+    return obj[CommonOptions.platform] ? obj[CommonOptions.platform] : 'ios';
+  }
+
+  parseExample(obj: any): Example {
+    if (obj[CommonOptions.description] || obj[CommonOptions.code]) {
+      return new Example(obj[CommonOptions.description], obj[CommonOptions.code]);
+    } else {
+      return new Example();
+    }
+  }
+
+  parseProp(obj: any): Prop | null {
+    if (obj[CommonOptions.title] && obj[CommonOptions.title] === 'property') {
+      return new Prop({
+        kind: this.getPropKind(obj),
+        platform: this.getPlatform(obj),
+        isStatic: this.isStatic(obj),
+        type: this.getPropType(obj),
+        required: this.isRequired(obj),
+        name: this.getName(obj),
+        description: this.getDescription(obj),
+        shortDescription: this.getShortDescription(obj)
+      });
+    } else {
+      return null;
+    }
+  }
+
+  getShortDescription(obj: any): string {
+    return obj[CommonOptions.shortDescription] ? obj[CommonOptions.shortDescription] : '';
+  }
+
+  getDescription(obj: any): string {
+    return obj[CommonOptions.description] ? obj[CommonOptions.description].type : '';
+  }
+
+  isStatic(obj: any): boolean {
+    return obj[CommonOptions.static];
+  }
+
+  getName(obj: any): string {
+    return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
+  }
+
+  isRequired(obj: any): boolean {
+    return obj[CommonOptions.required];
   }
 
 }
