@@ -62,11 +62,7 @@ export class DocJSParser extends BaseParser {
   }
 
   getKind(obj: any): ClassKind {//names
-    if(obj) {
-       return obj[ClassOptions.classKind] ? obj[ClassOptions.classKind] : '';
-    } else {
-      return 'unknown';
-    }
+    return obj[ClassOptions.classKind] ? obj[ClassOptions.classKind] : '';
   }
 
   getPropKind(obj: any): PropKind {

@@ -1,125 +1,135 @@
 import { DocJSParser } from './doc-js.parser';
 
-// describe();
-test('#getClassKind 1', () => {
-  const docJSParser = new DocJSParser();
-  const objClass = { kind: 'component' };
+describe('#DocJSParser', () => {
+  test('#getClassKind 1', () => {
+    const docJSParser = new DocJSParser();
+    const objClass = { kind: 'component' };
 
-  expect(docJSParser.getKind(objClass)).toBe('component');
-});
+    expect(docJSParser.getKind(objClass)).toBe('component');
+  });
 
-test('#getClassKind 2', () => {
-  const docJSParser = new DocJSParser();
-  const objNoKind = { no_kind: 'no-class' };
+  test('#getClassKind 2', () => {
+    const docJSParser = new DocJSParser();
+    const objNoKind = { no_kind: 'no-class' };
 
-  expect(docJSParser.getKind(objNoKind)).toBe('');
-});
+    expect(docJSParser.getKind(objNoKind)).toBe('');
+  });
 
-test('#getClassKind 3', () => {
-  const docJSParser = new DocJSParser();
+  test('#getPropKind 1', () => {
+    const docJSParser = new DocJSParser();
+    const objProp = { kind: 'input' };
 
-  expect(docJSParser.getKind(undefined)).toBe('unknown');
-  expect(docJSParser.getKind(null)).toBe('unknown');
-});
+    expect(docJSParser.getPropKind(objProp)).toBe('input');
+  });
 
-test('#getPropKind 1', () => {
-  const docJSParser = new DocJSParser();
-  const objProp = { kind: 'input' };
+  test('#getPropKind 2', () => {
+    const docJSParser = new DocJSParser();
+    const objNoProp = { no_kind: 'some prop' };
 
-  expect(docJSParser.getPropKind(objProp)).toBe('input');
-});
+    expect(docJSParser.getPropKind(objNoProp)).toBe('prop');
+  });
 
-test('#getPropKind 2', () => {
-  const docJSParser = new DocJSParser();
-  const objNoProp = { no_kind: 'some prop' };
+  test('#getPropType 1', () => {
+    const docJSParser = new DocJSParser();
+    const objType = { type: 'some-type' };
 
-  expect(docJSParser.getPropKind(objNoProp)).toBe('prop');
-});
+    expect(docJSParser.getPropType(objType)).toBe('some-type');
+  });
 
-test('#getPropType 1', () => {
-  const docJSParser = new DocJSParser();
-  const objType = { type: 'some-type' };
+  test('#getPropType 2', () => {
+    const docJSParser = new DocJSParser();
+    const objType = { type: 'some-type' };
 
-  expect(docJSParser.getPropType(objType)).toBe('some-type');
-});
+    expect(docJSParser.getPropType(objType)).toBe('some-type');
+  });
 
-test('#getPropType 2', () => {
-  const docJSParser = new DocJSParser();
-  const objType = { type: 'some-type' };
+  test('#getShortDescription 1', () => {
+    const docJSParser = new DocJSParser();
+    const objSDesc = { shortDescription: 'Hello world' };
 
-  expect(docJSParser.getPropType(objType)).toBe('some-type');
-});
+    expect(docJSParser.getShortDescription(objSDesc)).toBe('Hello world');
+  });
 
-test('#getShortDescription 1', () => {
-  const docJSParser = new DocJSParser();
-  const objSDesc = { shortDescription: 'Hello world' };
+  test('#getShortDescription 2', () => {
+    const docJSParser = new DocJSParser();
+    const objNoSDesc = { no_type: 'some-type' };
 
-  expect(docJSParser.getShortDescription(objSDesc)).toBe('Hello world');
-});
+    expect(docJSParser.getShortDescription(objNoSDesc)).toBe('');
+  });
 
-test('#getShortDescription 2', () => {
-  const docJSParser = new DocJSParser();
-  const objNoSDesc = { no_type: 'some-type' };
+  test('#getDescription 1', () => {
+    const docJSParser = new DocJSParser();
+    const objSDesc = {
+      description: {
+        type: 'Hello world'
+      }
+    };
 
-  expect(docJSParser.getShortDescription(objNoSDesc)).toBe('');
-});
+    expect(docJSParser.getDescription(objSDesc)).toBe('Hello world');
+  });
 
-test('#getDescription 1', () => {
-  const docJSParser = new DocJSParser();
-  const objSDesc = {
-    description: {
-      type: 'Hello world'
-    }
-  };
+  test('#getDescription 2', () => {
+    const docJSParser = new DocJSParser();
+    const objNoSDesc = { no_type: 'some-type' };
 
-  expect(docJSParser.getDescription(objSDesc)).toBe('Hello world');
-});
+    expect(docJSParser.getDescription(objNoSDesc)).toBe('');
+  });
 
-test('#getDescription 2', () => {
-  const docJSParser = new DocJSParser();
-  const objNoSDesc = { no_type: 'some-type' };
+  test('#isStatic 1', () => {
+    const docJSParser = new DocJSParser();
+    const objStatic = { static: 'true' };
 
-  expect(docJSParser.getDescription(objNoSDesc)).toBe('');
-});
+    expect(docJSParser.isStatic(objStatic)).toBe(true);
+  });
 
-test('#isStatic 1', () => {
-  const docJSParser = new DocJSParser();
-  const objStatic = { static: 'true' };
+  test('#isStatic 2', () => {
+    const docJSParser = new DocJSParser();
+    const objNoStatic = { no_type: 'some-type' };
 
-  expect(docJSParser.isStatic(objStatic)).toBe(true);
-});
+    expect(docJSParser.isStatic(objNoStatic)).toBe(false);
+  });
 
-test('#isStatic 2', () => {
-  const docJSParser = new DocJSParser();
-  const objNoStatic = { no_type: 'some-type' };
+  test('#getName 1', () => {
+    const docJSParser = new DocJSParser();
+    const objName = { name: 'Button' };
 
-  expect(docJSParser.isStatic(objNoStatic)).toBe(false);
-});
+    expect(docJSParser.getName(objName)).toBe('Button');
+  });
 
-test('#getName 1', () => {
-  const docJSParser = new DocJSParser();
-  const objName = { name: 'Button' };
+  test('#getName 2', () => {
+    const docJSParser = new DocJSParser();
+    const objNoSname = { no_name: 'some-no-name' };
 
-  expect(docJSParser.getName(objName)).toBe('Button');
-});
+    expect(docJSParser.getName(objNoSname)).toBe('');
+  });
 
-test('#getName 2', () => {
-  const docJSParser = new DocJSParser();
-  const objNoSname = { no_name: 'some-no-name' };
+  test('#isRequired 1', () => {
+    const docJSParser = new DocJSParser();
+    const objRequired = { required: 'some string' };
 
-  expect(docJSParser.getName(objNoSname)).toBe('');
-});
+    expect(docJSParser.isRequired(objRequired)).toBe(true);
+  });
 
-test('#isRequired 1', () => {
-  const docJSParser = new DocJSParser();
-  const objRequired = { required: 'some string' };
+  test('#isRequired 2', () => {
+    const docJSParser = new DocJSParser();
+    const objNoRequired = { no_required: 'some-type' };
 
-  expect(docJSParser.isRequired(objRequired)).toBe(true);
-});
+    expect(docJSParser.isRequired(objNoRequired)).toBe(false);
+  });
 
-test('#isRequired 2', () => {
-  const docJSParser = new DocJSParser();
-  const objNoRequired = { no_required: 'some-type' };
+  test('#parseExample', () => {
+    const docJSParser = new DocJSParser();
+    const exampleInput = {
+      description: 'some example',
+      code: 'mov	ax,00; initialize to all ASCII zeroes; mov	di,counter; including the counter mov	cx,digits+cntDigits/2	;',
+      simba: 0,
+      letMeKnow: 'hello'
+    };
+    const exampleOutput = {
+      description: 'some example',
+      code: 'mov	ax,00; initialize to all ASCII zeroes; mov	di,counter; including the counter mov	cx,digits+cntDigits/2	;',
+    };
 
-  expect(docJSParser.isRequired(objNoRequired)).toBe(false);
+    expect(docJSParser.parseExample(exampleInput).toString()).toBe(exampleOutput.toString());
+  });
 });

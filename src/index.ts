@@ -9,10 +9,20 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
     // console.log(outputObj);
 });
 
-let p2 = new DocJSParser();
-console.log(p2.getKind(null));
+const docJSParser = new DocJSParser();
+const exampleInput = {
+    description: 'some example',
+    code: 'mov	ax,00; initialize to all ASCII zeroes; mov	di,counter; including the counter mov	cx,digits+cntDigits/2	;',
+    simba: 0,
+    letMeKnow: 'hello'
+};
+const exampleOutput = {
+    description: 'some example',
+    code: 'mov	ax,00; initialize to all ASCII zeroes; mov	di,counter; including the counter mov	cx,digits+cntDigits/2	;',
+};
 
-
+console.log(docJSParser.parseExample(exampleInput));
+console.log(exampleOutput);
 
 
 
