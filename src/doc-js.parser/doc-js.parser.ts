@@ -19,12 +19,12 @@ import { ClassOptions, CommonOptions } from './doc-js.options';
 export class DocJSParser extends BaseParser {
   getClasses(json: any[]): Class[] {
     return json
-        .filter(item => item[ClassOptions.classKind])
+        .filter(item => item[ClassOptions.classKind] === 'class')
         .map(item => this.parseClass(item));
     }
 
   getKind(obj: any): ClassKind {//names
-    return obj[ClassOptions.classKind] ? obj[ClassOptions.classKind] : 'class';
+    return obj[ClassOptions.classKind] ? obj[ClassOptions.classKind] : '';
   }
 
   getExamples(obj: any): Example[] {
@@ -97,5 +97,4 @@ export class DocJSParser extends BaseParser {
   isRequired(obj: any): boolean {
     return obj[CommonOptions.required];
   }
-
 }
