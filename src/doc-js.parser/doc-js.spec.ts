@@ -1,4 +1,5 @@
 import { DocJSParser } from './doc-js.parser';
+import { Example } from '../model/class/example';
 
 describe('#DocJSParser', () => {
   test('#getClassKind 1', () => {
@@ -220,6 +221,34 @@ describe('#DocJSParser', () => {
     ];
 
     expect(docJSParser.getClasses(input).toString()).toBe(output.toString());
+  });
+
+  test('#getExamples', () => {
+    const docJSParser = new DocJSParser();
+    const input = {
+     examples: [
+      {
+        code: 'int main(){ return 0; }',
+        description: 'some description',
+        prop: 12,
+        bebe: true,
+        some: null
+      },
+      {
+        code: 'void main(){ cout>>asdasd; }',
+        description: 'some description 2',
+        prop: 22,
+        bebe: true,
+        some: null
+      }
+    ]
+  };
+    const output = [
+      new Example('some description', 'int main(){ return 0; }'),
+      new Example('some description 2', 'void main(){ cout>>asdasd; }')
+  ];
+
+    expect(docJSParser.getExamples(input).toString()).toBe(output.toString());
   });
 
 });

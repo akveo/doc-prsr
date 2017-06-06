@@ -41,18 +41,18 @@ export class DocJSParser extends BaseParser {
       return null;
     }
   }
-  getClasses(json: any[]): Class[] {
+  getClasses(json: any[]): Class[] {//+
     return json
         .filter(item => item[ClassOptions.classKind])
         .map(item => this.parseClass(item));
     }
 
-  getExamples(obj: any): Example[] {
+  getExamples(obj: any[]): Example[] {
     return obj[CommonOptions.examples]
             .map((item: any) => this.parseExample(item));
   }
 
-  getProps(obj: any): Prop[] {
+  getProps(obj: any[]): Prop[] {
     return obj[CommonOptions.properties]
             .map((item: any) => this.parseProp(item));
   }

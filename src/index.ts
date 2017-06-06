@@ -1,4 +1,5 @@
 import { DocJSParser } from './doc-js.parser/doc-js.parser';
+import { Example } from './model/class/example';
 import * as fs from 'fs';
 
 fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
@@ -11,62 +12,32 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
 
 const docJSParser = new DocJSParser();
 
-
-    const input = [
+   const input = {
+     examples: [
       {
-        kind: 'class',
-        platform: 'ios',
-        examples: [],
-        properties: [],
-        methods: [],
-        name: 'some-class',
-        shortDescription: 's-d',
-        description: 'description'
+        code: 'int main(){ return 0; }',
+        description: 'some description',
+        prop: 12,
+        bebe: true,
+        some: null
       },
       {
-        platform: 'ios',
-        examples: [],
-        properties: [],
-        methods: [],
-        name: 'some-class',
-        shortDescription: 's-d',
-        description: 'description'
-      },
-      {
-        kind: 'class',
-        platform: 'ios',
-        examples: [],
-        properties: [],
-        methods: [],
-        name: 'some-another-class',
-        shortDescription: 's-d',
-        description: 'description'
+        code: 'void main(){ cout>>asdasd; }',
+        description: 'some description 2',
+        prop: 22,
+        bebe: true,
+        some: null
       }
-    ];
+    ]
+  };
     const output = [
-      {
-        kind: 'class',
-        platform: 'ios',
-        examples: [],
-        properties: [],
-        methods: [],
-        name: 'some-class',
-        shortDescription: 's-d',
-        description: 'description'
-      },
-      {
-        kind: 'class',
-        platform: 'ios',
-        examples: [],
-        properties: [],
-        methods: [],
-        name: 'some-another-class',
-        shortDescription: 's-d',
-        description: 'description'
-      }
-    ];
+      new Example('some description', 'int main(){ return 0; }'),
+      new Example('some description 2', 'void main(){ cout>>asdasd; }')
+  ];
 
-    console.log(docJSParser.getClasses(input).toString() === output.toString());
+    console.log(docJSParser.getExamples(input).toString() === output.toString());
+    // console.log('---------------------');
+    // console.log(output);
 
 
 
