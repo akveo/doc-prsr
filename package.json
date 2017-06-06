@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/32penkin/doc-tool#readme",
   "dependencies": {
+    "commander": "^2.9.0",
     "typescript": "^2.3.3"
   },
   "devDependencies": {
