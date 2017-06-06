@@ -92,3 +92,16 @@ test('#getName', () => {
   expect(docJSParser.getName(objName)).toBe('Button');
   expect(docJSParser.getName(objNoSname)).toBe('');
 });
+
+test('#isRequired', () => {
+  const docJSParser = new DocJSParser();
+  const objRequired = {
+    required: 'some string'
+  };
+  const objNoRequired = {
+    no_required: 'some-type' 
+  };
+
+  expect(docJSParser.isRequired(objRequired)).toBe(true);
+  expect(docJSParser.isRequired(objNoRequired)).toBe(false);
+});
