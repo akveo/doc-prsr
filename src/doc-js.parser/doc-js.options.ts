@@ -14,5 +14,6 @@ export const CommonOptions: any = {
   static: 'static',
   required: 'required',
   type: 'type',
-  name: 'name'
+  name: 'name',
+  kind: 'kind'
 }

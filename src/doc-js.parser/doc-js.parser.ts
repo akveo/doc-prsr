@@ -23,10 +23,6 @@ export class DocJSParser extends BaseParser {
         .map(item => this.parseClass(item));
     }
 
-  getKind(obj: any): ClassKind {//names
-    return obj[ClassOptions.classKind] ? obj[ClassOptions.classKind] : '';
-  }
-
   getExamples(obj: any): Example[] {
     return obj[CommonOptions.examples]
             .map((item: any) => this.parseExample(item));
@@ -39,6 +35,10 @@ export class DocJSParser extends BaseParser {
 
   getMethods(obj: any): Method[] {// where are methods??
     return obj[ClassOptions.methods] ? obj[ClassOptions.methods].map((item: any) => this.parseMethod(item)) : [];
+  }
+
+  getKind(obj: any): ClassKind {//names
+    return obj[ClassOptions.classKind] ? obj[ClassOptions.classKind] : '';
   }
 
   getPropKind(obj: any): PropKind {
