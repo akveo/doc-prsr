@@ -36,22 +36,16 @@ export const CommonOptions: any = {
 export abstract class BaseParser {
   protected json: any;
 
-  protected saveJSON(json: any) {
-    this.json = json;
-  }
-
   parse(json: any): Model {
     this.saveJSON(json);
     return new Model(this.getClasses(this.json));
   }
 
-  getClasses(json: any[]): Class[] {
-    return json
-      .filter(item => item[ClassOptions.classKind])
-      .map(item => this.parseClass(item));
+  protected saveJSON(json: any) {
+    this.json = json;
   }
 
-  parseClass(obj: any) {
+  protected parseClass(obj: any) {
     return new Class({
       kind: this.getKind(obj),
       platform: this.getPlatform(obj),
@@ -64,20 +58,11 @@ export abstract class BaseParser {
     });
   }
 
-  getKind(obj: any): ClassKind {//names
-    return obj.hasOwnProperty(ClassOptions.classKind) ? obj[ClassOptions.classKind] : 'class';
-  }
-
-  getPlatform(obj: any): Platform {
+  protected getPlatform(obj: any): Platform {
     return obj[CommonOptions.platform] ? obj[CommonOptions.platform] : 'ios';
   }
 
-  getExamples(obj: any): Example[] {
-    return obj[CommonOptions.examples]
-            .map((item: any) => this.parseExample(item));
-  }
-
-  parseExample(obj: any): Example {
+  protected parseExample(obj: any): Example {
     if(obj[CommonOptions.description] || obj[CommonOptions.code]) {
       return new Example(obj[CommonOptions.description], obj[CommonOptions.code]);
     } else {
@@ -85,12 +70,7 @@ export abstract class BaseParser {
     }
   }
 
-  getProps(obj: any): Prop[] {
-    return obj[CommonOptions.properties]
-            .map((item: any) => this.parseProp(item));
-  }
-
-  parseProp(obj: any): Prop | null {
+  protected parseProp(obj: any): Prop | null {
     if(obj[CommonOptions.title] && obj[CommonOptions.title] === 'property') {
       return new Prop({
         kind: this.getPropKind(obj),
@@ -107,11 +87,7 @@ export abstract class BaseParser {
     }
   }
 
-  getMethods(obj: any): Method[] {// where are methods??
-    return obj[ClassOptions.methods] ? obj[ClassOptions.methods].map((item: any) => this.parseMethod(item)) : [];
-  }
-
-  parseMethod(obj: any): Method { //TODO get parsed when I find example
+  protected parseMethod(obj: any): Method { //TODO get parsed when I find example
     return new Method({
       examples: this.getExamples(obj),
       params: [],
@@ -124,32 +100,37 @@ export abstract class BaseParser {
     });
   }
 
-  getShortDescription(obj: any): string {
+  protected getShortDescription(obj: any): string {
     return obj[CommonOptions.shortDescription] ? obj[CommonOptions.shortDescription] : '';
   }
 
-  getDescription(obj: any) {
+  protected getDescription(obj: any) {
     return obj[CommonOptions.description] ? obj[CommonOptions.description].type : '';
   }
 
-  getName(obj: any) {
+  protected getName(obj: any) {
     return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
   }
 
-  isStatic(obj: any): boolean {
+  protected isStatic(obj: any): boolean {
     return obj[CommonOptions.static];
   }
 
-  isRequired(obj: any): boolean {
+  protected isRequired(obj: any): boolean {
     return obj[CommonOptions.required];
   }
 
-  getPropKind(obj: any): PropKind {
-    return obj[CommonOptions.kind] ? obj[CommonOptions.kind] : 'prop';
-  }
+  abstract getMethods(obj: any): Method[];
 
-  getPropType(obj: any):string {
-    return obj[CommonOptions.type] ? obj[CommonOptions.type] : '';
-  }
+  abstract getProps(obj: any): Prop[];
 
+  abstract getExamples(obj: any): Example[];
+
+  abstract getKind(obj: any): ClassKind;
+
+  abstract getClasses(json: any[]): Class[];
+
+  abstract getPropKind(obj: any): PropKind;
+
+  abstract getPropType(obj: any): string;
 }
