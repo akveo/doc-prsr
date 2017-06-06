@@ -47,7 +47,7 @@ export class DocJSParser extends BaseParser {
         .map(item => this.parseClass(item));
     }
 
-  getExamples(obj: any[]): Example[] {
+  getExamples(obj: any[]): Example[] {//+
     return obj[CommonOptions.examples]
             .map((item: any) => this.parseExample(item));
   }

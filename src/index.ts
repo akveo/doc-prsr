@@ -1,5 +1,6 @@
 import { DocJSParser } from './doc-js.parser/doc-js.parser';
 import { Example } from './model/class/example';
+import { Prop } from './model/class/prop';
 import * as fs from 'fs';
 
 fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
@@ -13,13 +14,20 @@ fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
 const docJSParser = new DocJSParser();
 
    const input = {
-     examples: [
+     properties: [
       {
-        code: 'int main(){ return 0; }',
-        description: 'some description',
-        prop: 12,
-        bebe: true,
-        some: null
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
       },
       {
         code: 'void main(){ cout>>asdasd; }',
@@ -27,15 +35,56 @@ const docJSParser = new DocJSParser();
         prop: 22,
         bebe: true,
         some: null
+      },
+      {
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
       }
     ]
   };
     const output = [
-      new Example('some description', 'int main(){ return 0; }'),
-      new Example('some description 2', 'void main(){ cout>>asdasd; }')
+      new Prop({
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
+      }),
+      null,
+      new Prop({
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
+      })
   ];
 
-    console.log(docJSParser.getExamples(input).toString() === output.toString());
+    console.log(docJSParser.getProps(input).toString() === output.toString());
     // console.log('---------------------');
     // console.log(output);
 

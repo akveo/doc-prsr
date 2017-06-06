@@ -1,5 +1,5 @@
 import { DocJSParser } from './doc-js.parser';
-import { Example } from '../model/class/example';
+import { Example, Prop } from '../model';
 
 describe('#DocJSParser', () => {
   test('#getClassKind 1', () => {
@@ -249,6 +249,82 @@ describe('#DocJSParser', () => {
   ];
 
     expect(docJSParser.getExamples(input).toString()).toBe(output.toString());
+  });
+
+  test('#getProps', () => {
+    const docJSParser = new DocJSParser();
+    const input = {
+     properties: [
+      {
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
+      },
+      {
+        code: 'void main(){ cout>>asdasd; }',
+        description: 'some description 2',
+        prop: 22,
+        bebe: true,
+        some: null
+      },
+      {
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
+      }
+    ]
+  };
+    const output = [
+      new Prop({
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
+      }),
+      null,
+      new Prop({
+        title: 'property'
+        kind: 'prop',
+        platform: 'ios',
+        hello: 'world',
+        me: 1,
+        isStatic: true,
+        type: 'some-type',
+        required: false,
+        name: 'awesome property',
+        isKing: false,
+        description: { type: 'some desc'},
+        shortDescription: '123'
+      })
+  ];
+
+    expect(docJSParser.getProps(input).toString()).toBe(output.toString());
   });
 
 });
