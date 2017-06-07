@@ -17,6 +17,7 @@ import {
 import { ClassOptions, CommonOptions } from './doc-js.options';
 
 export class DocJSParser extends BaseParser {
+
   parseExample(obj: any): Example { //+
     if (obj[CommonOptions.description] || obj[CommonOptions.code]) {
       return new Example(obj[CommonOptions.description], obj[CommonOptions.code]);
@@ -41,6 +42,7 @@ export class DocJSParser extends BaseParser {
       return null;
     }
   }
+
   getClasses(json: any[]): Class[] {//+
     return json
         .filter(item => item[ClassOptions.classKind])

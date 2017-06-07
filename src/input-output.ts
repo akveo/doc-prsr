@@ -6,24 +6,24 @@ export class InputOutput {
   inputStr: any;
   outputStr: any;
 
-  setInputOutputPathes() {
+  setInputOutputPathes(): void {
     program
       .version('0.0.1')
-      .option('-i, --input', 'Path to input file:')
-      .option('-o, --output', 'Path to output file: ')
+      .option('-i, --input <value>', 'Path to input file:')
+      .option('-o, --output <value>', 'Path to output file: ')
       .parse(process.argv);
 
-    this.inputStr = process.argv[process.argv.length - 2];
-    this.outputStr = process.argv[process.argv.length - 1];
+    this.inputStr = program['input'];
+    this.outputStr = program['output'];
   }
 
-  createFile() {
+  createFile(): void {
     this.setInputOutputPathes();
 
     fs.readFile(this.inputStr, (err: any, data: any) => {
       const newdoc = new DocJSParser().parse(JSON.parse(data));
       const outputObj: any = JSON.stringify(newdoc, null, 4);
-      fs.writeFile(this.outputStr + '/' + 'output.json', outputObj);
+      fs.writeFile(this.outputStr, outputObj);
     });
   }
 
