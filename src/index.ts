@@ -20,7 +20,7 @@ fs.readFile(process.argv[process.argv.length - 2], function (err: any, data: any
     let newdoc = p1.parse(JSON.parse(data));
     console.log(newdoc);
     const outputObj = JSON.stringify(newdoc, null, 2);
-    fs.writeFile("thing.json", outputObj);
+    fs.writeFile(process.argv[process.argv.length - 1] + '/' + 'output.json', outputObj);
 });
 
 
