@@ -1,22 +1,27 @@
 import { DocJSParser } from './doc-js.parser/doc-js.parser';
-import { Example } from './model/class/example';
-import { Prop } from './model/class/prop';
 import * as fs from 'fs';
+import * as  program from 'commander';
 
-fs.readFile('./input-examples/docJSInput.json', function (err: any, data: any) {
+
+program
+  .version('0.0.1')
+  .option('-i, --input', 'Path to input file:')
+  .option('-o, --output', 'Path to output file: ')
+  .parse(process.argv);
+
+console.log('your input path:');
+if (program.input) console.log(' - input ' + process.argv[process.argv.length - 2]);
+if (program.input) console.log(' - output ' + process.argv[process.argv.length - 1]);
+
+
+
+fs.readFile(process.argv[process.argv.length - 2], function (err: any, data: any) {
     let p1 = new DocJSParser();
-    // let newdoc = p1.parse(JSON.parse(data));
-    console.log(p1.parse(JSON.parse(data)));
-    // const outputObj = JSON.stringify(p1.parse(JSON.parse(data)));
-    // console.log(outputObj);
+    let newdoc = p1.parse(JSON.parse(data));
+    console.log(newdoc);
+    const outputObj = JSON.stringify(newdoc, null, 2);
+    fs.writeFile("thing.json", outputObj);
 });
-
-
-
-
-
-
-
 
 
 
