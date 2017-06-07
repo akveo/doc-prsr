@@ -18,4 +18,14 @@ export class InputOutput {
     this.outputStr = process.argv[process.argv.length - 1];
   }
 
+  createFile() {
+    this.setInputOutputPathes();
+
+    fs.readFile(this.inputStr, function (err: any, data: any) {
+    const newdoc = docJsParser.parse(JSON.parse(data));
+    const outputObj = JSON.stringify(newdoc, null, 2);
+    fs.writeFile(this.outputStr + '/' + 'output.json', outputObj);
+    });
+  }
+
 }
