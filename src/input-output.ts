@@ -1,11 +1,10 @@
 import { DocJSParser } from './doc-js.parser/doc-js.parser';
 import * as fs from 'fs';
-import * as  program from 'commander';
+const program = require('commander');
 
 export class InputOutput {
-  docJsParser: DocJSParser = new DocJSParser();
-  inputStr: string;
-  outputStr: string;
+  inputStr: any;
+  outputStr: any;
 
   setInputOutputPathes() {
     program
@@ -21,10 +20,10 @@ export class InputOutput {
   createFile() {
     this.setInputOutputPathes();
 
-    fs.readFile(this.inputStr, function (err: any, data: any) {
-    const newdoc = docJsParser.parse(JSON.parse(data));
-    const outputObj = JSON.stringify(newdoc, null, 2);
-    fs.writeFile(this.outputStr + '/' + 'output.json', outputObj);
+    fs.readFile(this.inputStr, (err: any, data: any) => {
+      const newdoc = new DocJSParser().parse(JSON.parse(data));
+      const outputObj: any = JSON.stringify(newdoc, null, 4);
+      fs.writeFile(this.outputStr + '/' + 'output.json', outputObj);
     });
   }
 
