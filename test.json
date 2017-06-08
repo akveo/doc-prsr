@@ -12,9 +12,13 @@
       "shortDescription": "some super interesting description",
       "description": "some super interesting description",
       "platform": "react only",
-      
+      "styles": 
+        {
+          "key": "value"
+        },
       "examples": [
         {
+          "shortDescription": "some",
           "description": "some descr",
           "code": "<some code>"
         }
@@ -22,7 +26,7 @@
 
       "props": [
           {
-            "kind": "input/output/prop",
+            "kind": "input/output/prop/property",
             "name": "input public name",
             "defaultValue": "",
             "static": "true|false",

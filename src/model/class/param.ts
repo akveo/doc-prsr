@@ -1,6 +1,6 @@
 export class Param {
     name: string;
-    type: string | null;
+    type: string;
     required: boolean;
     shortDescription: string;
     description: string;
@@ -9,5 +9,7 @@ export class Param {
         this.name = options.name;
         this.type = options.type;
         this.required = options.required;
+        this.shortDescription = options.shortDescription;
+        this.description = options.description;
     }
 }

@@ -1,10 +1,11 @@
 export class Example {
     code: string;
     description: string;
-    
+    shortDescription: string;  
 
-    constructor(description: string = '', code: string = '') {
-        this.description = description;
-        this.code = code;
+    constructor(options: any) {
+        this.shortDescription = options.shortDescription;
+        this.description = options.description;
+        this.code = options.code;
     }
 }

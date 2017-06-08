@@ -25,101 +25,19 @@
                     "code": ""
                 }
             ],
-            "props": [
-                {
-                    "kind": "prop",
-                    "platform": "ios",
-                    "isStatic": false,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "string"
-                    },
-                    "required": false,
-                    "name": "rkType",
-                    "shortDescription": "",
-                    "description": "root"
-                },
-                {
-                    "kind": "prop",
-                    "platform": "ios",
-                    "isStatic": false,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "TouchableOpacity.style"
-                    },
-                    "required": false,
-                    "name": "style",
-                    "shortDescription": "",
-                    "description": "root"
-                },
-                {
-                    "kind": "prop",
-                    "platform": "ios",
-                    "isStatic": false,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "style"
-                    },
-                    "required": false,
-                    "name": "contentStyle",
-                    "shortDescription": "",
-                    "description": "root"
-                },
-                {
-                    "kind": "prop",
-                    "platform": "ios",
-                    "isStatic": false,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "function"
-                    },
-                    "required": false,
-                    "name": "onPress",
-                    "shortDescription": "",
-                    "description": "root"
-                },
-                {
-                    "kind": "prop",
-                    "platform": "ios",
-                    "isStatic": false,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "function"
-                    },
-                    "required": false,
-                    "name": "onPressIn",
-                    "shortDescription": "",
-                    "description": "root"
-                },
-                {
-                    "kind": "prop",
-                    "platform": "ios",
-                    "isStatic": false,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "function"
-                    },
-                    "required": false,
-                    "name": "onPressOut",
-                    "shortDescription": "",
-                    "description": "root"
-                },
-                {
-                    "kind": "prop",
-                    "platform": "ios",
-                    "isStatic": false,
-                    "type": {
-                        "type": "NameExpression",
-                        "name": "function"
-                    },
-                    "required": false,
-                    "name": "onLongPress",
-                    "shortDescription": "",
-                    "description": "root"
-                }
-            ],
+            "props": [],
             "methods": [],
             "name": "RkButton",
+            "description": "root",
+            "shortDescription": ""
+        },
+        {
+            "kind": "class",
+            "platform": "ios",
+            "examples": [],
+            "props": [],
+            "methods": [],
+            "name": "RkComponent",
             "description": "root",
             "shortDescription": ""
         },
