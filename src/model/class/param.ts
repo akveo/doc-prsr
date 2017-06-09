@@ -1,7 +1,7 @@
 export class Param {
     name: string;
     type: string;
-    required: boolean;
+    required: null;
     shortDescription: string;
     description: string;
 

@@ -6,3 +6,4 @@ export { Param } from './class/param';
 export { Platform } from './class/platform';
 export { Prop, PropKind } from './class/prop';
 export { Model } from './model';
+export { Style } from './class/style';

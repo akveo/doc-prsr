@@ -8,9 +8,13 @@ export const CommonOptions = {
   instance: 'instance',
   kind: 'kind',
   members: 'members',
-  methodType: 'kind',
+  methodType: 'returns',
   params: 'params',
   paramType: 'type',
   properties: 'properties',
-  examples: 'examples'
-}
+  examples: 'examples',
+  type: 'type',
+  tags: 'tags',
+  title: 'title',
+  static: 'static'
+};

@@ -8,9 +8,9 @@ export class Method {
     /**
      * Working platform.
      */
-    platform: Platform;
+    platform: null;
     name: string;
-    type: string;
+    type: string[];
     isStatic: boolean;
     shortDescription: string;
     description: string;

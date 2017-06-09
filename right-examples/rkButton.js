@@ -113,7 +113,6 @@ import {RkComponent} from '../rkComponent'
  * ```
  *
  * @styles Available properties
- * 
  * - `color` : Color of content of `RkButton`. Usually text or icon.
  * - `backgroundColor` : Background color of `RkButton`.
  * - `borderWidth` : Width of outer border.
@@ -123,20 +122,18 @@ import {RkComponent} from '../rkComponent'
  * - `width` : Width of `RkButton`.
  * - `height` : Height of `RkButton`.
  *
- * @styles Available components
- * 
+ *  * @styles Available components
  * - `container` : `TouchableOpacity` - container of `RkButton`.
  * - `content` : If you use plain text then `RkText`. If you insert children - then style will be applied to all children on first level.
  *
- * @required
- * @property {string} rkType - Types for stylization component
+ *
+ * @property @required {string} rkType - Types for stylization component
  * By default RkButton supports following types: primary, info, warning, danger, success, outline, rounded,
  * circle, small, medium, large, xlarge, clear
  *
  * @property {TouchableOpacity.style} style - Style for button container
  *
- * @platform ios
- * @property {style} contentStyle - Style for each button's children
+ * @property {style} contentStyle - Style for each button's children, plaftorm ios
  *
  * @property {function} onPress - Called when the touch is released, but not if cancelled.
  * @property {function} onPressIn - Called when the touch is released, but not if cancelled.
@@ -162,8 +159,33 @@ export class RkButton extends RkComponent {
     }
   };
 
+  /**
+   * @property {object} - Another static property
+   *
+   */
   static contextTypes = {
     theme: PropTypes.object
+  };
+
+  /**
+   * Add new color to theme STATIC
+   * @param {string} name - name of new color
+   * @param {string} value - color value.
+   *
+   * @example
+   * Just a sample of example code
+   *
+   * ```
+   * import {RkButton} from 'react-native-ui-kitten';
+   *
+   * //...
+   *
+   * <RkButton
+   * style={{backgroundColor: 'example'}}
+   * contentStyle={{color: 'white'}}> Hello </RkButton>
+   * ```
+   */
+  static show() {
   };
 
   _renderChildren(style) {

@@ -1,6 +1,6 @@
 import { Platform } from './platform';
 
-export type PropKind = 'input' | 'output' | 'prop';
+export type PropKind = 'input' | 'output' | 'prop' | 'property';
 
 export class Prop {
     /**
@@ -10,10 +10,10 @@ export class Prop {
     /**
      * Working platform.
      */
-    platform: Platform;
+    platform: null;
     isStatic: boolean;
     type: string | null;
-    required: boolean;
+    required: null;
     name: string;
     shortDescription: string;
     description: string;

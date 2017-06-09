@@ -12,10 +12,16 @@
       "shortDescription": "some super interesting description",
       "description": "some super interesting description",
       "platform": "react only",
-      "styles": 
+      "styles": [
         {
-          "key": "value"
-        },
+          "shortDescription": "some",
+          "styles": [
+            {
+              "key": "value"
+            }
+          ]
+        }
+      ],
       "examples": [
         {
           "shortDescription": "some",

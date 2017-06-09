@@ -212,23 +212,18 @@
       },
       {
         "title": "styles",
-        "description": "Available properties\n- `color` : Color of content of `RkButton`. Usually text or icon.\n- `backgroundColor` : Background color of `RkButton`.\n- `borderWidth` : Width of outer border.\n- `borderRadius` : Border radius of `RkButton`.\n- `borderColor` : Color of border.\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\n- `width` : Width of `RkButton`.\n- `height` : Height of `RkButton`.\n\n * @styles Available components\n- `container` : `TouchableOpacity` - container of `RkButton`.\n- `content` : If you use plain text then `RkText`. If you insert children - then style will be applied to all children on first level.",
+        "description": "Available properties\n- `color` : Color of content of `RkButton`. Usually text or icon.\n- `backgroundColor` : Background color of `RkButton`.\n- `borderWidth` : Width of outer border.\n- `borderRadius` : Border radius of `RkButton`.\n- `borderColor` : Color of border.\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\n- `width` : Width of `RkButton`.\n- `height` : Height of `RkButton`.",
         "lineNumber": 98
       },
       {
-        "title": "required",
-        "description": null,
-        "lineNumber": 112
-      },
-      {
         "title": "property",
-        "description": "Types for stylization component\nBy default RkButton supports following types: primary, info, warning, danger, success, outline, rounded,\ncircle, small, medium, large, xlarge, clear",
+        "description": "@required {string} rkType - Types for stylization component\nBy default RkButton supports following types: primary, info, warning, danger, success, outline, rounded,\ncircle, small, medium, large, xlarge, clear",
         "lineNumber": 113,
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        },
-        "name": "rkType"
+        "type": null,
+        "errors": [
+          "Missing or invalid tag type"
+        ],
+        "name": "null"
       },
       {
         "title": "property",
@@ -241,14 +236,9 @@
         "name": "style"
       },
       {
-        "title": "platform",
-        "description": "ios",
-        "lineNumber": 119
-      },
-      {
         "title": "property",
-        "description": "Style for each button's children",
-        "lineNumber": 120,
+        "description": "Style for each button's children, plaftorm ios",
+        "lineNumber": 119,
         "type": {
           "type": "NameExpression",
           "name": "style"
@@ -258,7 +248,7 @@
       {
         "title": "property",
         "description": "Called when the touch is released, but not if cancelled.",
-        "lineNumber": 122,
+        "lineNumber": 121,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -268,7 +258,7 @@
       {
         "title": "property",
         "description": "Called when the touch is released, but not if cancelled.",
-        "lineNumber": 123,
+        "lineNumber": 122,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -278,7 +268,7 @@
       {
         "title": "property",
         "description": "Called when the touch is released, but not if cancelled.",
-        "lineNumber": 124,
+        "lineNumber": 123,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -288,7 +278,7 @@
       {
         "title": "property",
         "description": "Called when the touch is released and is longer than usual press, but not if cancelled.",
-        "lineNumber": 125,
+        "lineNumber": 124,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -302,18 +292,18 @@
         "column": 0
       },
       "end": {
-        "line": 145,
+        "line": 144,
         "column": 3
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 146,
+          "line": 145,
           "column": 0
         },
         "end": {
-          "line": 202,
+          "line": 226,
           "column": 1
         }
       },
@@ -347,73 +337,6 @@
     ],
     "params": [],
     "properties": [
-      {
-        "title": "property",
-        "name": "rkType",
-        "lineNumber": 113,
-        "description": {
-          "type": "root",
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Types for stylization component\nBy default RkButton supports following types: primary, info, warning, danger, success, outline, rounded,\ncircle, small, medium, large, xlarge, clear",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 44,
-                      "offset": 180
-                    },
-                    "indent": [
-                      1,
-                      1
-                    ]
-                  }
-                }
-              ],
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 3,
-                  "column": 44,
-                  "offset": 180
-                },
-                "indent": [
-                  1,
-                  1
-                ]
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 3,
-              "column": 44,
-              "offset": 180
-            }
-          }
-        },
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        }
-      },
       {
         "title": "property",
         "name": "style",
@@ -478,7 +401,7 @@
       {
         "title": "property",
         "name": "contentStyle",
-        "lineNumber": 120,
+        "lineNumber": 119,
         "description": {
           "type": "root",
           "children": [
@@ -487,7 +410,7 @@
               "children": [
                 {
                   "type": "text",
-                  "value": "Style for each button's children",
+                  "value": "Style for each button's children, plaftorm ios",
                   "position": {
                     "start": {
                       "line": 1,
@@ -496,8 +419,8 @@
                     },
                     "end": {
                       "line": 1,
-                      "column": 33,
-                      "offset": 32
+                      "column": 47,
+                      "offset": 46
                     },
                     "indent": []
                   }
@@ -511,8 +434,8 @@
                 },
                 "end": {
                   "line": 1,
-                  "column": 33,
-                  "offset": 32
+                  "column": 47,
+                  "offset": 46
                 },
                 "indent": []
               }
@@ -526,8 +449,8 @@
             },
             "end": {
               "line": 1,
-              "column": 33,
-              "offset": 32
+              "column": 47,
+              "offset": 46
             }
           }
         },
@@ -539,7 +462,7 @@
       {
         "title": "property",
         "name": "onPress",
-        "lineNumber": 122,
+        "lineNumber": 121,
         "description": {
           "type": "root",
           "children": [
@@ -600,7 +523,7 @@
       {
         "title": "property",
         "name": "onPressIn",
-        "lineNumber": 123,
+        "lineNumber": 122,
         "description": {
           "type": "root",
           "children": [
@@ -661,7 +584,7 @@
       {
         "title": "property",
         "name": "onPressOut",
-        "lineNumber": 124,
+        "lineNumber": 123,
         "description": {
           "type": "root",
           "children": [
@@ -722,7 +645,7 @@
       {
         "title": "property",
         "name": "onLongPress",
-        "lineNumber": 125,
+        "lineNumber": 124,
         "description": {
           "type": "root",
           "children": [
@@ -792,7 +715,401 @@
       "inner": [],
       "instance": [],
       "events": [],
-      "static": []
+      "static": [
+        {
+          "description": "",
+          "tags": [
+            {
+              "title": "property",
+              "description": "Another static property",
+              "lineNumber": 1,
+              "type": {
+                "type": "NameExpression",
+                "name": "object"
+              },
+              "name": "null-null"
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 162,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 166,
+                "column": 2
+              },
+              "end": {
+                "line": 168,
+                "column": 4
+              }
+            },
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
+          },
+          "augments": [],
+          "examples": [],
+          "params": [],
+          "properties": [
+            {
+              "title": "property",
+              "name": "null-null",
+              "lineNumber": 1,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Another static property",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 24,
+                            "offset": 23
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 24,
+                        "offset": 23
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 24,
+                    "offset": 23
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "object"
+              }
+            }
+          ],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "contextTypes",
+          "kind": "member",
+          "memberof": "RkButton",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "RkButton",
+              "kind": "class"
+            },
+            {
+              "name": "contextTypes",
+              "kind": "member",
+              "scope": "static"
+            }
+          ],
+          "namespace": "RkButton.contextTypes"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Add new color to theme STATIC",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 30,
+                        "offset": 29
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 30,
+                    "offset": 29
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 30,
+                "offset": 29
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "name of new color",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "name"
+            },
+            {
+              "title": "param",
+              "description": "color value.",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "value"
+            },
+            {
+              "title": "example",
+              "description": "Just a sample of example code\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton\nstyle={{backgroundColor: 'example'}}\ncontentStyle={{color: 'white'}}> Hello </RkButton>\n```",
+              "lineNumber": 5
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 170,
+              "column": 2
+            },
+            "end": {
+              "line": 187,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 188,
+                "column": 2
+              },
+              "end": {
+                "line": 189,
+                "column": 3
+              }
+            },
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "Just a sample of example code\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton\nstyle={{backgroundColor: 'example'}}\ncontentStyle={{color: 'white'}}> Hello </RkButton>\n```"
+            }
+          ],
+          "params": [
+            {
+              "title": "param",
+              "name": "name",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "name of new color",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 18,
+                            "offset": 17
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 18,
+                        "offset": 17
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 18,
+                    "offset": 17
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "param",
+              "name": "value",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "color value.",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 13,
+                        "offset": 12
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 13,
+                    "offset": 12
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "show",
+          "kind": "function",
+          "memberof": "RkButton",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "RkButton",
+              "kind": "class"
+            },
+            {
+              "name": "show",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "RkButton.show"
+        }
+      ]
     },
     "path": [
       {
@@ -899,19 +1216,59 @@
       "inner": [],
       "instance": [
         {
-          "description": "",
-          "tags": [
-            {
-              "title": "property",
-              "description": "of component",
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "string"
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "{string} Name of component",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 27,
+                        "offset": 26
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 27,
+                    "offset": 26
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
               },
-              "name": "Name"
+              "end": {
+                "line": 1,
+                "column": 27,
+                "offset": 26
+              }
             }
-          ],
+          },
+          "tags": [],
           "loc": {
             "start": {
               "line": 13,
@@ -938,69 +1295,7 @@
           "augments": [],
           "examples": [],
           "params": [],
-          "properties": [
-            {
-              "title": "property",
-              "name": "Name",
-              "lineNumber": 1,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "of component",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 13,
-                            "offset": 12
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 13,
-                        "offset": 12
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 13,
-                    "offset": 12
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "string"
-              }
-            }
-          ],
+          "properties": [],
           "returns": [],
           "sees": [],
           "throws": [],
@@ -1030,19 +1325,59 @@
           "namespace": "RkComponent#componentName"
         },
         {
-          "description": "",
-          "tags": [
-            {
-              "title": "property",
-              "description": null,
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "{object} mapping",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 17,
+                        "offset": 16
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 17,
+                    "offset": 16
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
               },
-              "name": "mapping"
+              "end": {
+                "line": 1,
+                "column": 17,
+                "offset": 16
+              }
             }
-          ],
+          },
+          "tags": [],
           "loc": {
             "start": {
               "line": 17,
@@ -1069,17 +1404,7 @@
           "augments": [],
           "examples": [],
           "params": [],
-          "properties": [
-            {
-              "title": "property",
-              "name": "mapping",
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
-              }
-            }
-          ],
+          "properties": [],
           "returns": [],
           "sees": [],
           "throws": [],
@@ -1109,19 +1434,59 @@
           "namespace": "RkComponent#typeMapping"
         },
         {
-          "description": "",
-          "tags": [
-            {
-              "title": "property",
-              "description": "style name",
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "string"
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "{string} base style name",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 25,
+                        "offset": 24
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 25,
+                    "offset": 24
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
               },
-              "name": "base"
+              "end": {
+                "line": 1,
+                "column": 25,
+                "offset": 24
+              }
             }
-          ],
+          },
+          "tags": [],
           "loc": {
             "start": {
               "line": 21,
@@ -1148,69 +1513,7 @@
           "augments": [],
           "examples": [],
           "params": [],
-          "properties": [
-            {
-              "title": "property",
-              "name": "base",
-              "lineNumber": 1,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "style name",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 11,
-                            "offset": 10
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 11,
-                        "offset": 10
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 11,
-                    "offset": 10
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "string"
-              }
-            }
-          ],
+          "properties": [],
           "returns": [],
           "sees": [],
           "throws": [],
@@ -1240,19 +1543,59 @@
           "namespace": "RkComponent#baseStyle"
         },
         {
-          "description": "",
-          "tags": [
-            {
-              "title": "property",
-              "description": "type name",
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "string"
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "{string} default type name",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 27,
+                        "offset": 26
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 27,
+                    "offset": 26
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
               },
-              "name": "default"
+              "end": {
+                "line": 1,
+                "column": 27,
+                "offset": 26
+              }
             }
-          ],
+          },
+          "tags": [],
           "loc": {
             "start": {
               "line": 26,
@@ -1279,69 +1622,7 @@
           "augments": [],
           "examples": [],
           "params": [],
-          "properties": [
-            {
-              "title": "property",
-              "name": "default",
-              "lineNumber": 1,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "type name",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 10,
-                            "offset": 9
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 10,
-                        "offset": 9
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 10,
-                    "offset": 9
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "string"
-              }
-            }
-          ],
+          "properties": [],
           "returns": [],
           "sees": [],
           "throws": [],
@@ -1926,19 +2207,59 @@
       "inner": [],
       "instance": [
         {
-          "description": "",
-          "tags": [
-            {
-              "title": "property",
-              "description": "current theme object.",
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "{object} returns current theme object.",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 39,
+                        "offset": 38
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 39,
+                    "offset": 38
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
               },
-              "name": "returns"
+              "end": {
+                "line": 1,
+                "column": 39,
+                "offset": 38
+              }
             }
-          ],
+          },
+          "tags": [],
           "loc": {
             "start": {
               "line": 55,
@@ -1965,69 +2286,7 @@
           "augments": [],
           "examples": [],
           "params": [],
-          "properties": [
-            {
-              "title": "property",
-              "name": "returns",
-              "lineNumber": 1,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "current theme object.",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 22,
-                            "offset": 21
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 22,
-                        "offset": 21
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 22,
-                    "offset": 21
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
-              }
-            }
-          ],
+          "properties": [],
           "returns": [],
           "sees": [],
           "throws": [],
@@ -2057,19 +2316,59 @@
           "namespace": "ThemeManager#current"
         },
         {
-          "description": "",
-          "tags": [
-            {
-              "title": "property",
-              "description": "auto styles. Deprecated.",
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "{object} returns auto styles. Deprecated.",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 42,
+                        "offset": 41
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 42,
+                    "offset": 41
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
               },
-              "name": "returns"
+              "end": {
+                "line": 1,
+                "column": 42,
+                "offset": 41
+              }
             }
-          ],
+          },
+          "tags": [],
           "loc": {
             "start": {
               "line": 62,
@@ -2096,69 +2395,7 @@
           "augments": [],
           "examples": [],
           "params": [],
-          "properties": [
-            {
-              "title": "property",
-              "name": "returns",
-              "lineNumber": 1,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "auto styles. Deprecated.",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 25,
-                            "offset": 24
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 25,
-                        "offset": 24
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 25,
-                    "offset": 24
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
-              }
-            }
-          ],
+          "properties": [],
           "returns": [],
           "sees": [],
           "throws": [],
@@ -2188,19 +2425,59 @@
           "namespace": "ThemeManager#styles"
         },
         {
-          "description": "",
-          "tags": [
-            {
-              "title": "property",
-              "description": "object contains material colors.",
-              "lineNumber": 1,
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "{object} returns object contains material colors.",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 50,
+                        "offset": 49
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 50,
+                    "offset": 49
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
               },
-              "name": "returns"
+              "end": {
+                "line": 1,
+                "column": 50,
+                "offset": 49
+              }
             }
-          ],
+          },
+          "tags": [],
           "loc": {
             "start": {
               "line": 69,
@@ -2227,69 +2504,7 @@
           "augments": [],
           "examples": [],
           "params": [],
-          "properties": [
-            {
-              "title": "property",
-              "name": "returns",
-              "lineNumber": 1,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "object contains material colors.",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 33,
-                            "offset": 32
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 33,
-                        "offset": 32
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 33,
-                    "offset": 32
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "object"
-              }
-            }
-          ],
+          "properties": [],
           "returns": [],
           "sees": [],
           "throws": [],
