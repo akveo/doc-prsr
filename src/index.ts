@@ -4698,12 +4698,26 @@ const rkButton = {
 
 
 
-import { ExampleParser } from './example-parser/example-parser';
+import { DocJsParser } from './doc-js.parser/doc-js.parser';
 import * as fs from 'fs';
 
-const ep = new ExampleParser();
+const ep = new DocJsParser();
 const output = JSON.stringify(ep.parse(json), null, 2);
 console.log(output);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

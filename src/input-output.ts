@@ -1,4 +1,4 @@
-import { DocJSParser } from './doc-js.parser/doc-js.parser';
+import { DocJsParser } from './doc-js.parser/doc-js.parser';
 import * as fs from 'fs';
 const program = require('commander');
 
@@ -21,7 +21,7 @@ export class InputOutput {
     this.setInputOutputPathes();
 
     fs.readFile(this.inputStr, (err: any, data: any) => {
-      const newdoc = new DocJSParser().parse(JSON.parse(data));
+      const newdoc = new DocJsParser().parse(JSON.parse(data));
       const outputObj: any = JSON.stringify(newdoc, null, 4);
       fs.writeFile(this.outputStr, outputObj);
     });
