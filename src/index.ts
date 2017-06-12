@@ -4700,12 +4700,144 @@ const rkButton = {
 
 import { DocJsParser } from './doc-js.parser/doc-js.parser';
 import * as fs from 'fs';
+import {
+  Common
+} from './doc-js.parser/getters';
 
 const ep = new DocJsParser();
 const output = JSON.stringify(ep.parse(json), null, 2);
-console.log(output);
+// console.log(output);
 
 
+
+const common = new Common();
+const testObj1 = {
+  "description": {
+    "type": "root",
+    "children": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "inlineCode",
+            "value": "Some",
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 11,
+                "offset": 10
+              },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": "short description is OK.",
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 11,
+                "offset": 10
+              },
+              "end": {
+                "line": 1,
+                "column": 40,
+                "offset": 39
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 40,
+            "offset": 39
+          },
+          "indent": []
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "This is full description for",
+            "position": {
+              "start": {
+                "line": 3,
+                "column": 1,
+                "offset": 41
+              },
+              "end": {
+                "line": 3,
+                "column": 30,
+                "offset": 70
+              },
+              "indent": []
+            }
+          },
+          {
+            "type": "inlineCode",
+            "value": "something",
+            "position": {
+              "start": {
+                "line": 3,
+                "column": 30,
+                "offset": 70
+              },
+              "end": {
+                "line": 3,
+                "column": 40,
+                "offset": 80
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 3,
+            "column": 1,
+            "offset": 41
+          },
+          "end": {
+            "line": 3,
+            "column": 40,
+            "offset": 80
+          },
+          "indent": []
+        }
+      }
+    ],
+    "position": {
+      "start": {
+        "line": 1,
+        "column": 1,
+        "offset": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 40,
+        "offset": 80
+      }
+    }
+  }
+};
+const testObj2 = {name: 'Obj name'};
+
+console.log(common.getDescription(testObj1));
+console.log(common.getDescription(testObj2));
 
 
 
