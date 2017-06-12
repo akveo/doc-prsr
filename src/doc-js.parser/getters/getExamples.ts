@@ -20,28 +20,28 @@ export class GetExamples {
     }
   }
 
-  getDescription(obj: any): string { //!!!!!!!
+  getDescriptionArr(obj: any): string[] { //!!!!!!!
     const regexp = /```/g;
     let outArr: any[] = [];
-    const temp = obj[CommonOptions.description].split('\n\n');
-    temp.forEach((item: any) => {
-      if (!regexp.test(item)) {
-        outArr.push(item);
-      }
-    });
-    return outArr[1];
+    if (obj[CommonOptions.description]) {
+      const temp = obj[CommonOptions.description].split('\n\n');
+      temp.forEach((item: any) => {
+        if (!regexp.test(item)) {
+          outArr.push(item);
+        }
+      });
+      return outArr;
+    } else {
+      return [];
+    }
+  }
+
+  getDescription(obj: any): string {
+    return this.getDescriptionArr(obj)[1];
   }
 
   getShortDescription(obj: any): string {
-    const regexp = /```/g;
-    let outArr: any[] = [];
-    const temp = obj[CommonOptions.description].split('\n\n');
-    temp.forEach((item: any) => {
-      if (!regexp.test(item)) {
-        outArr.push(item);
-      }
-    });
-    return outArr[0];
+    return this.getDescriptionArr(obj)[0];
   }
 
   getExamples(obj: any): Example[] {

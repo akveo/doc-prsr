@@ -213,4 +213,26 @@ describe('#DocJsParser', () => {
     expect(examples.getCode(testObj1)).toBe(`\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n`);
     expect(examples.getCode(testObj2)).toBe('');
   });
+
+  test('#GetExamples -> getDescription', () => {
+    const examples = new GetExamples();
+    const testObj1 = {
+      "description": "Advanced Styling\n\nIts also possible to implement more detailed styling. RkButton consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to RkButton:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```"
+    };
+    const testObj2 = {name: 'name'};
+
+    expect(examples.getDescription(testObj1)).toBe('Its also possible to implement more detailed styling. RkButton consists from couple of base react component.\nYou can easily set styles for each component.');
+    expect(examples.getDescription(testObj2)).toBe(undefined);
+  });
+
+  test('#GetExamples -> getShortDescription', () => {
+    const examples = new GetExamples();
+    const testObj1 = {
+      "description": "Advanced Styling\n\nIts also possible to implement more detailed styling. RkButton consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to RkButton:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```"
+    };
+    const testObj2 = {name: 'name'};
+
+    expect(examples.getShortDescription(testObj1)).toBe('Advanced Styling');
+    expect(examples.getShortDescription(testObj2)).toBe(undefined);
+  });
 });
