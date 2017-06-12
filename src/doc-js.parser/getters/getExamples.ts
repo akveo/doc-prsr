@@ -1,4 +1,4 @@
-import { Example } from '../../model';
+import {Example} from '../../model';
 import {CommonOptions} from '../doc-js.parser.options';
 
 export class GetExamples {
