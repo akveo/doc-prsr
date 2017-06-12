@@ -14,12 +14,14 @@ import {
   Generator,
   Style
 } from '../model';
-import { CommonOptions } from './doc-js.parser.options';
-import { GetStyles } from './getters/getStyles';
+import {CommonOptions} from './doc-js.parser.options';
+import {GetStyles} from './getters/getStyles';
+import {GetProperties} from './getters/getProperties';
 
 export class DocJsParser {
   protected json: any;
   protected styles: GetStyles = new GetStyles();
+  protected props: GetProperties = new GetProperties();
 
   parse(json: any): Model {
     this.saveJSON(json);
@@ -42,7 +44,7 @@ export class DocJsParser {
       kind: this.getKind(obj),
       platform: null,
       examples: this.getClassExamples(obj),
-      props: this.getProps(obj),
+      props: this.props.getProps(obj),
       methods: this.getMethods(obj),
       name: this.getName(obj),
       shortDescription: this.getShortDescription(obj),
@@ -64,161 +66,7 @@ export class DocJsParser {
   //--------------------------------------------------------------------------------------------------------------------
   //---------------------------------------------property---------------------------------------------------------------
 
-  parsePropFromProperties(obj: any): Prop {
-    return new Prop({
-      kind: 'prop',
-      platform: null,
-      isStatic: false,
-      type: this.getTypePropertyFromProperties(obj),
-      required: null,
-      name: this.getName(obj),
-      shortDescription: this.getShortDescriptionOfPropertyFromProperties(obj),
-      description: this.getDescriptionOfPropertyFromProperties(obj)
-    });
-  }
 
-  parsePropFromInstance(obj: any): Prop {
-    return new Prop({
-      kind: 'property',
-      platform: null,
-      isStatic: false,
-      type: this.getTypeOfPropertyFromInstance(obj),
-      required: null,
-      name: this.getName(obj),
-      shortDescription: this.getShortDescriptionOfPropFromInstance(obj),
-      description: this.getDescriptionOfPropFromInstance(obj)
-    });
-  }
-
-  parsePropFromStatic(obj: any): Prop {
-    return new Prop({
-      kind: 'property',
-      platform: null,
-      isStatic: true,
-      type: this.getTypePropFromStatic(obj),
-      required: null,
-      name: this.getName(obj),
-      shortDescription: this.getShortDescriptionAndDescriptionOfPropertyFromStatic(obj),
-      description: this.getShortDescriptionAndDescriptionOfPropertyFromStatic(obj)
-    });
-  }
-
-  getPropsFromProperties(obj: any): Prop[] {
-    if (obj[CommonOptions.properties].length) {
-      return obj[CommonOptions.properties].map((item: any) => this.parsePropFromProperties(item));
-    } else {
-      return [];
-    }
-  }
-
-  getTypePropertyFromProperties(obj: any): string {
-    if (obj) {
-      return (obj[CommonOptions.type][CommonOptions.name]);
-    } else {
-      return '';
-    }
-  }
-
-  getDescriptionOfPropertyFromProperties(obj: any) {
-    let str: string = '';
-    if (obj[CommonOptions.description][CommonOptions.children].length > 1) {
-      obj[CommonOptions.description][CommonOptions.children]
-        .forEach((item: any) => {
-          item[CommonOptions.children]
-            .forEach((item: any) => {
-              str += item[CommonOptions.value] + ' ';
-            });
-        });
-      return str;
-    } else {
-      return '';
-    }
-  }
-
-  getShortDescriptionOfPropertyFromProperties(obj: any) {
-    if (obj[CommonOptions.description]) {
-      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
-    } else {
-      return '';
-    }
-  }
-
-  getPropsFromInstance(obj: any): Prop[] {
-    if (obj[CommonOptions.members][CommonOptions.instance].length) {
-      return obj[CommonOptions.members][CommonOptions.instance]
-        .filter((item: any) => item[CommonOptions.kind] === 'member')
-        .map((item: any) => this.parsePropFromInstance(item));
-    } else {
-      return [];
-    }
-  }
-
-  getDescriptionOfPropFromInstance(obj: any): string {
-    let str: string = '';
-    if (obj[CommonOptions.description][CommonOptions.children].length > 1) {
-      obj[CommonOptions.description][CommonOptions.children]
-        .forEach((item: any) => {
-          item[CommonOptions.children]
-            .forEach((item: any) => {
-              str += item[CommonOptions.value] + ' ';
-            });
-        });
-      return str.split('}')[1].trim();
-    } else {
-      return '';
-    }
-  }
-
-  getShortDescriptionOfPropFromInstance(obj: any): string {
-
-    if (obj[CommonOptions.description]) {
-      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
-        .split('}')[1].trim();
-    } else {
-      return '';
-    }
-  }
-
-
-  getTypeOfPropertyFromInstance(obj: any): string {
-    if (obj) {
-      return obj[CommonOptions.description][CommonOptions.children][0]
-        [CommonOptions.children][0][CommonOptions.value]
-        .split(' ')[0].replace(/[{}]/g, '');
-    } else {
-      return '';
-    }
-  }
-
-  getPropsFromStatic(obj: any): Prop[] {
-    if (obj[CommonOptions.members][CommonOptions.static].length) {
-      return obj[CommonOptions.members][CommonOptions.static]
-        .filter((item: any) => item[CommonOptions.kind] === 'member')
-        .map((item: any) => this.parsePropFromStatic(item));
-    } else {
-      return [];
-    }
-  }
-
-  getTypePropFromStatic(obj: any): string {
-    if (obj) {
-      return obj[CommonOptions.properties][0][CommonOptions.type][CommonOptions.name];
-    } else {
-      return '';
-    }
-  }
-
-  getShortDescriptionAndDescriptionOfPropertyFromStatic(obj: any) {
-    if (obj) {
-      return obj[CommonOptions.tags][0][CommonOptions.description];
-    } else {
-      return '';
-    }
-  }
-
-  getProps(obj: any): Prop[] {
-    return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
-  }
 
   //--------------------------------------------------------------------------------------------------------------------
   //------------------------------------------------method--------------------------------------------------------------
