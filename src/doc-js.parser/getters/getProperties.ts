@@ -12,7 +12,7 @@ export class GetProperties {
       kind: 'prop',
       platform: null,
       isStatic: false,
-      type: this.getTypePropertyFromProperties(obj),
+      type: this.getTypeProperties(obj),
       required: null,
       name: this.getName(obj),
       shortDescription: this.getShortDescriptionProperties(obj),
@@ -25,7 +25,7 @@ export class GetProperties {
       kind: 'property',
       platform: null,
       isStatic: false,
-      type: this.getTypeOfPropertyFromInstance(obj),
+      type: this.getTypeInstance(obj),
       required: null,
       name: this.getName(obj),
       shortDescription: this.getShortDescriptionInstance(obj),
@@ -38,7 +38,7 @@ export class GetProperties {
       kind: 'property',
       platform: null,
       isStatic: true,
-      type: this.getTypePropFromStatic(obj),
+      type: this.getTypeStatic(obj),
       required: null,
       name: this.getName(obj),
       shortDescription: this.getDescriptionStatic(obj),
@@ -120,7 +120,7 @@ export class GetProperties {
     }
   }
 
-  getTypePropertyFromProperties(obj: any): string {
+  getTypeProperties(obj: any): string {
     if (obj) {
       return (obj[CommonOptions.type][CommonOptions.name]);
     } else {
@@ -128,7 +128,7 @@ export class GetProperties {
     }
   }
 
-  getTypePropFromStatic(obj: any): string {
+  getTypeStatic(obj: any): string {
     if (obj) {
       return obj[CommonOptions.properties][0][CommonOptions.type][CommonOptions.name];
     } else {
@@ -136,7 +136,7 @@ export class GetProperties {
     }
   }
 
-  getTypeOfPropertyFromInstance(obj: any): string {
+  getTypeInstance(obj: any): string {
     if (obj) {
       return obj[CommonOptions.description][CommonOptions.children][0]
         [CommonOptions.children][0][CommonOptions.value]

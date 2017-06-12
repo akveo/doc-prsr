@@ -17,11 +17,13 @@ import {
 import {CommonOptions} from './doc-js.parser.options';
 import {GetStyles} from './getters/getStyles';
 import {GetProperties} from './getters/getProperties';
+import {GetExamples} from './getters/getExamples';
 
 export class DocJsParser {
   protected json: any;
   protected styles: GetStyles = new GetStyles();
   protected props: GetProperties = new GetProperties();
+  protected examples: GetExamples = new GetExamples();
 
   parse(json: any): Model {
     this.saveJSON(json);
@@ -43,7 +45,7 @@ export class DocJsParser {
     return new Class({
       kind: this.getKind(obj),
       platform: null,
-      examples: this.getClassExamples(obj),
+      examples: this.examples.getExamples(obj),
       props: this.props.getProps(obj),
       methods: this.getMethods(obj),
       name: this.getName(obj),
@@ -72,7 +74,7 @@ export class DocJsParser {
   //------------------------------------------------method--------------------------------------------------------------
   parseMethodFromInstance(obj: any): Method {
     return new Method({
-      examples: this.getClassExamples(obj),
+      examples: this.examples.getExamples(obj),
       params: this.getParams(obj),
       platform: null,
       name: this.getName(obj),
@@ -85,7 +87,7 @@ export class DocJsParser {
 
   parseMethodFromStatic(obj: any): Method {
     return new Method({
-      examples: this.getClassExamples(obj),
+      examples: this.examples.getExamples(obj),
       params: this.getParams(obj),
       platform: null,
       name: this.getName(obj),
@@ -141,55 +143,7 @@ export class DocJsParser {
   //--------------------------------------------------------------------------------------------------------------------
   //-----------------------------------------------examples-------------------------------------------------------------
 
-  parseClassExample(obj: any): Example {
-    return new Example({
-      code: this.getCodeFromClassExample(obj),
-      description: this.getDescriptionFromClassExample(obj),
-      shortDescription: this.getShortDescriptionFromClassExample(obj)
-    });
-  }
 
-
-  getCodeFromClassExample(obj: any): string {
-    const regexp = /```/g;
-    if (obj[CommonOptions.description]) {
-      return obj[CommonOptions.description].split(regexp)[1];
-    } else {
-      return '';
-    }
-  }
-
-  getDescriptionFromClassExample(obj: any): string { //!!!!!!!
-    const regexp = /```/g;
-    let outArr: any[] = [];
-    const temp = obj[CommonOptions.description].split('\n\n');
-    temp.forEach((item: any) => {
-      if (!regexp.test(item)) {
-        outArr.push(item);
-      }
-    });
-    return outArr[1];
-  }
-
-  getShortDescriptionFromClassExample(obj: any): string {
-    const regexp = /```/g;
-    let outArr: any[] = [];
-    const temp = obj[CommonOptions.description].split('\n\n');
-    temp.forEach((item: any) => {
-      if (!regexp.test(item)) {
-        outArr.push(item);
-      }
-    });
-    return outArr[0];
-  }
-
-  getClassExamples(obj: any): Example[] {
-    if (obj[CommonOptions.examples].length) {
-      return obj[CommonOptions.examples].map((item: any) => this.parseClassExample(item));
-    } else {
-      return [];
-    }
-  }
 
 //----------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------params-----------------------------------------------------------
