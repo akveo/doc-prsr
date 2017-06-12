@@ -27,8 +27,7 @@ export class DocJsParser {
   saveJSON(json: any) {
     this.json = json;
   }
-
-//--------------------------------------------------classes-------------------------------------------------------------
+  
   getClasses(json: any[]): Class[] {
     return json
       .filter((item: any) => item[CommonOptions.classKind])
@@ -59,9 +58,6 @@ export class DocJsParser {
     }
   }
 
-  //--------------------------------------------------------------------------------------------------------------------
-  //---------------------------------------------property---------------------------------------------------------------
-
   parsePropFromProperties(obj: any): Prop {
     return new Prop({
       kind: 'prop',
@@ -70,8 +66,8 @@ export class DocJsParser {
       type: this.getTypePropertyFromProperties(obj),
       required: null,
       name: this.getName(obj),
-      shortDescription: this.getShortDescriptionAndDescriptionOfPropertyFromProperties(obj),
-      description: this.getShortDescriptionAndDescriptionOfPropertyFromProperties(obj)
+      shortDescription: this.getShortDescriptionOfPropertyFromProperties(obj),
+      description: this.getDescriptionOfPropertyFromProperties(obj)
     });
   }
 
@@ -83,8 +79,8 @@ export class DocJsParser {
       type: this.getTypeOfPropertyFromInstance(obj),
       required: null,
       name: this.getName(obj),
-      shortDescription: this.getDescriptionAndShortDescriptionOfPropFromInstance(obj),
-      description: this.getDescriptionAndShortDescriptionOfPropFromInstance(obj)
+      shortDescription: this.getShortDescriptionOfPropFromInstance(obj),
+      description: this.getDescriptionOfPropFromInstance(obj)
     });
   }
 
@@ -117,9 +113,9 @@ export class DocJsParser {
     }
   }
 
-  getShortDescriptionAndDescriptionOfPropertyFromProperties(obj: any) {
+  getDescriptionOfPropertyFromProperties(obj: any) {
     let str: string = '';
-    if (obj[CommonOptions.description]) {
+    if (obj[CommonOptions.description][CommonOptions.children].length > 1) {
       obj[CommonOptions.description][CommonOptions.children]
         .forEach((item: any) => {
           item[CommonOptions.children]
@@ -128,6 +124,14 @@ export class DocJsParser {
             });
         });
       return str;
+    } else {
+      return '';
+    }
+  }
+
+  getShortDescriptionOfPropertyFromProperties(obj: any) {
+    if (obj[CommonOptions.description]) {
+      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
     } else {
       return '';
     }
@@ -143,9 +147,9 @@ export class DocJsParser {
     }
   }
 
-  getDescriptionAndShortDescriptionOfPropFromInstance(obj: any): string {
+  getDescriptionOfPropFromInstance(obj: any): string {
     let str: string = '';
-    if (obj[CommonOptions.description]) {
+    if (obj[CommonOptions.description][CommonOptions.children].length > 1) {
       obj[CommonOptions.description][CommonOptions.children]
         .forEach((item: any) => {
           item[CommonOptions.children]
@@ -158,6 +162,17 @@ export class DocJsParser {
       return '';
     }
   }
+
+  getShortDescriptionOfPropFromInstance(obj: any): string {
+
+    if (obj[CommonOptions.description]) {
+      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
+        .split('}')[1].trim();
+    } else {
+      return '';
+    }
+  }
+
 
   getTypeOfPropertyFromInstance(obj: any): string {
     if (obj) {
@@ -199,8 +214,7 @@ export class DocJsParser {
     return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
   }
 
-  //--------------------------------------------------------------------------------------------------------------------
-  //------------------------------------------------method--------------------------------------------------------------
+
   parseMethodFromInstance(obj: any): Method {
     return new Method({
       examples: this.getClassExamples(obj),
@@ -265,8 +279,7 @@ export class DocJsParser {
     }
   }
 
-  //--------------------------------------------------------------------------------------------------------------------
-  //-------------------------------------------------styles-------------------------------------------------------------
+
   getStyles(obj: any): Style[] {
     if (obj[CommonOptions.tags].length) {
       return obj[CommonOptions.tags]
@@ -300,8 +313,6 @@ export class DocJsParser {
     return arrTemp;
   }
 
-  //--------------------------------------------------------------------------------------------------------------------
-  //-----------------------------------------------examples-------------------------------------------------------------
 
   parseClassExample(obj: any): Example {
     return new Example({
@@ -353,8 +364,7 @@ export class DocJsParser {
     }
   }
 
-//----------------------------------------------------------------------------------------------------------------------
-//-----------------------------------------------------params-----------------------------------------------------------
+
   parseParam(obj: any): Param {
     return new Param({
       name: this.getName(obj),
@@ -377,8 +387,6 @@ export class DocJsParser {
     }
   }
 
-//----------------------------------------------------------------------------------------------------------------------
-//-------------------------------------------------others---------------------------------------------------------------
 
   getKind(obj: any): ClassKind {
     return obj[CommonOptions.classKind] ? obj[CommonOptions.classKind] : 'class';
@@ -399,14 +407,16 @@ export class DocJsParser {
   getDescription(obj: any): string {
     let str: string = '';
     if (obj[CommonOptions.description]) {
-      obj[CommonOptions.description][CommonOptions.children]
-        .forEach((item: any) => {
-          item[CommonOptions.children]
-            .forEach((item: any) => {
-              str += item[CommonOptions.value] + ' ';
-            });
-        });
+      if (obj[CommonOptions.description][CommonOptions.children].length > 1)
+        obj[CommonOptions.description][CommonOptions.children]
+          .forEach((item: any) => {
+            item[CommonOptions.children]
+              .forEach((item: any) => {
+                str += item[CommonOptions.value] + ' ';
+              });
+          });
       return str;
+
     } else {
       return '';
     }
