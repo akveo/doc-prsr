@@ -14,10 +14,12 @@ import {
   Generator,
   Style
 } from '../model';
-import {CommonOptions} from './doc-js.parser.options';
+import { CommonOptions } from './doc-js.parser.options';
+import { GetStyles } from './getters/getStyles';
 
 export class DocJsParser {
   protected json: any;
+  protected styles: GetStyles = new GetStyles();
 
   parse(json: any): Model {
     this.saveJSON(json);
@@ -27,7 +29,8 @@ export class DocJsParser {
   saveJSON(json: any) {
     this.json = json;
   }
-  
+
+//--------------------------------------------------classes-------------------------------------------------------------
   getClasses(json: any[]): Class[] {
     return json
       .filter((item: any) => item[CommonOptions.classKind])
@@ -44,7 +47,7 @@ export class DocJsParser {
       name: this.getName(obj),
       shortDescription: this.getShortDescription(obj),
       description: this.getDescription(obj),
-      styles: this.getStyles(obj)
+      styles: this.styles.getStyles(obj)
     });
   }
 
@@ -57,6 +60,9 @@ export class DocJsParser {
       return 'ios';
     }
   }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  //---------------------------------------------property---------------------------------------------------------------
 
   parsePropFromProperties(obj: any): Prop {
     return new Prop({
@@ -214,7 +220,8 @@ export class DocJsParser {
     return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
   }
 
-
+  //--------------------------------------------------------------------------------------------------------------------
+  //------------------------------------------------method--------------------------------------------------------------
   parseMethodFromInstance(obj: any): Method {
     return new Method({
       examples: this.getClassExamples(obj),
@@ -279,40 +286,12 @@ export class DocJsParser {
     }
   }
 
+  //--------------------------------------------------------------------------------------------------------------------
+  //-------------------------------------------------styles-------------------------------------------------------------
 
-  getStyles(obj: any): Style[] {
-    if (obj[CommonOptions.tags].length) {
-      return obj[CommonOptions.tags]
-        .filter((item: any) => item[CommonOptions.title] === 'styles')
-        .map((item: any) => this.parseStyle(item));
-    } else
-      return [];
-  }
 
-  parseStyle(obj: any) {
-    return new Style({
-      shortDescription: this.getShortDescriptionOfStyle(obj),
-      styles: this.getStylesOfStyle(obj)
-    });
-  }
-
-  getShortDescriptionOfStyle(obj: any): string {
-    return obj[CommonOptions.description].split('\n')[0];
-  }
-
-  getStylesOfStyle(obj: any): any[] {                               //regExp!!!!!!!!!!!!
-    const arr = obj[CommonOptions.description].split('\n');
-    const arrTemp: any = [];
-    arr.splice(0, 1);
-    arr.forEach((item: any) => {
-      const [key, value] = item.split(':');
-      const styleObj: any = {};
-      styleObj[key.replace(/[`-]/g, '').trim()] = value.trim();
-      arrTemp.push(styleObj);
-    });
-    return arrTemp;
-  }
-
+  //--------------------------------------------------------------------------------------------------------------------
+  //-----------------------------------------------examples-------------------------------------------------------------
 
   parseClassExample(obj: any): Example {
     return new Example({
@@ -364,7 +343,8 @@ export class DocJsParser {
     }
   }
 
-
+//----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------params-----------------------------------------------------------
   parseParam(obj: any): Param {
     return new Param({
       name: this.getName(obj),
@@ -387,6 +367,8 @@ export class DocJsParser {
     }
   }
 
+//----------------------------------------------------------------------------------------------------------------------
+//-------------------------------------------------others---------------------------------------------------------------
 
   getKind(obj: any): ClassKind {
     return obj[CommonOptions.classKind] ? obj[CommonOptions.classKind] : 'class';
