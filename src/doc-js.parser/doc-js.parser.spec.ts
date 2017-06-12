@@ -481,4 +481,43 @@ describe('#DocJsParser', () => {
     expect(styles.getShortDescription(test1)).toBe('Available properties');
     expect(styles.getShortDescription(test2).toString()).toBe('');
   });
+
+  test('#GetStyles -> getStylesOfStyle', () => {
+    const styles = new GetStyles();
+    const test1 = {
+      "title": "styles",
+      "description": "Available properties\n- `color` : Color of content of `RkButton`. Usually text or icon.\n- `backgroundColor` : Background color of `RkButton`.\n- `borderWidth` : Width of outer border.\n- `borderRadius` : Border radius of `RkButton`.\n- `borderColor` : Color of border.\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\n- `width` : Width of `RkButton`.\n- `height` : Height of `RkButton`.",
+      "lineNumber": 98
+    };
+    const output1 = [
+      {
+        "color": "Color of content of `RkButton`. Usually text or icon."
+      },
+      {
+        "backgroundColor": "Background color of `RkButton`."
+      },
+      {
+        "borderWidth": "Width of outer border."
+      },
+      {
+        "borderRadius": "Border radius of `RkButton`."
+      },
+      {
+        "borderColor": "Color of border."
+      },
+      {
+        "fontSize": "Size of content inside. Applied only for first level children of `RkButton`."
+      },
+      {
+        "width": "Width of `RkButton`."
+      },
+      {
+        "height": "Height of `RkButton`."
+      }
+    ];
+    const test2 = {};
+
+    expect(styles.getStylesOfStyle(test1).toString()).toBe(output1.toString());
+    expect(styles.getStylesOfStyle(test2).toString()).toBe([].toString());
+  });
 });

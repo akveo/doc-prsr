@@ -28,16 +28,20 @@ export class GetStyles {
 
   }
 
-  getStylesOfStyle(obj: any): any[] {                               //regExp!!!!!!!!!!!!
-    const arr = obj[CommonOptions.description].split('\n');
-    const arrTemp: any = [];
-    arr.splice(0, 1);
-    arr.forEach((item: any) => {
-      const [key, value] = item.split(':');
-      const styleObj: any = {};
-      styleObj[key.replace(/[`-]/g, '').trim()] = value.trim();
-      arrTemp.push(styleObj);
-    });
-    return arrTemp;
+  getStylesOfStyle(obj: any): any[] {
+    if (obj[CommonOptions.description]) {
+      const arr = obj[CommonOptions.description].split('\n');
+      const arrTemp: any = [];
+      arr.splice(0, 1);
+      arr.forEach((item: any) => {
+        const [key, value] = item.split(':');
+        const styleObj: any = {};
+        styleObj[key.replace(/[`-]/g, '').trim()] = value.trim();
+        arrTemp.push(styleObj);
+      });
+      return arrTemp;
+    } else {
+      return [];
+    }
   }
 }
