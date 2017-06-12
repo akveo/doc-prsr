@@ -469,5 +469,16 @@ describe('#DocJsParser', () => {
     expect(params.getParams(test2).toString()).toBe([].toString());
   });
 
-  
+  test('#GetStyles -> getShortDescription', () => {
+    const styles = new GetStyles();
+    const test1 = {
+      "title": "styles",
+      "description": "Available properties\n- `color` : Color of content of `RkButton`. Usually text or icon.\n- `backgroundColor` : Background color of `RkButton`.\n- `borderWidth` : Width of outer border.\n- `borderRadius` : Border radius of `RkButton`.\n- `borderColor` : Color of border.\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\n- `width` : Width of `RkButton`.\n- `height` : Height of `RkButton`.",
+      "lineNumber": 98
+    };
+    const test2 = {};
+
+    expect(styles.getShortDescription(test1)).toBe('Available properties');
+    expect(styles.getShortDescription(test2).toString()).toBe('');
+  });
 });

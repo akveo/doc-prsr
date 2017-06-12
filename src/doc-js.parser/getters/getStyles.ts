@@ -4,7 +4,7 @@ import {CommonOptions} from '../doc-js.parser.options';
 export class GetStyles {
 
   getStyles(obj: any): Style[] {
-    if (obj[CommonOptions.tags].length) {
+    if (obj[CommonOptions.tags] && obj[CommonOptions.tags].length) {
       return obj[CommonOptions.tags]
         .filter((item: any) => item[CommonOptions.title] === 'styles')
         .map((item: any) => this.parseStyle(item));
@@ -20,7 +20,12 @@ export class GetStyles {
   }
 
   getShortDescription(obj: any): string {
-    return obj[CommonOptions.description].split('\n')[0];
+    if (obj[CommonOptions.description]) {
+      return obj[CommonOptions.description].split('\n')[0];
+    } else {
+      return '';
+    }
+
   }
 
   getStylesOfStyle(obj: any): any[] {                               //regExp!!!!!!!!!!!!

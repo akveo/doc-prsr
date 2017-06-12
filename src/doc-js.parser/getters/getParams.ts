@@ -19,7 +19,7 @@ export class GetParams {
   }
 
   getParams(obj: any): Param[] {
-    if (obj[CommonOptions.params].length) {
+    if (obj[CommonOptions.params] && obj[CommonOptions.params].length) {
       return obj[CommonOptions.params].map((item: any) => this.parseParam(item));
     } else {
       return [];
