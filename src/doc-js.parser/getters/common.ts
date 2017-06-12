@@ -1,4 +1,5 @@
 import {CommonOptions} from '../doc-js.parser.options';
+import { ClassKind } from '../../model';
 
 export class Common {
   getName(obj: any): string {
@@ -29,5 +30,9 @@ export class Common {
     } else {
       return '';
     }
+  }
+
+  getKind(obj: any): ClassKind {
+    return obj[CommonOptions.classKind] ? obj[CommonOptions.classKind] : 'class';
   }
 }

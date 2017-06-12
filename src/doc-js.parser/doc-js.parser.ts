@@ -1,15 +1,17 @@
 import {
   Model,
   Class,
-  ClassKind,
-  Platform
+  ClassKind
 } from '../model';
 import {CommonOptions} from './doc-js.parser.options';
-import {GetStyles} from './getters/getStyles';
-import {GetProperties} from './getters/getProperties';
-import {GetExamples} from './getters/getExamples';
-import {GetMethods} from "./getters/getMethods";
-import {Common} from './getters/common';
+
+import {
+  GetStyles,
+  GetProperties,
+  GetExamples,
+  GetMethods,
+  Common
+} from './getters';
 
 export class DocJsParser {
   protected json: any;
@@ -36,7 +38,7 @@ export class DocJsParser {
 
   parseClass(obj: any): Class {
     return new Class({
-      kind: this.getKind(obj),
+      kind: this.common.getKind(obj),
       platform: null,
       examples: this.examples.getExamples(obj),
       props: this.props.getProps(obj),
@@ -48,7 +50,4 @@ export class DocJsParser {
     });
   }
 
-  getKind(obj: any): ClassKind {
-    return obj[CommonOptions.classKind] ? obj[CommonOptions.classKind] : 'class';
-  }
 }
