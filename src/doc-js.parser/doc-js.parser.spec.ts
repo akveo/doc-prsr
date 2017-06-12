@@ -520,4 +520,72 @@ describe('#DocJsParser', () => {
     expect(styles.getStylesOfStyle(test1).toString()).toBe(output1.toString());
     expect(styles.getStylesOfStyle(test2).toString()).toBe([].toString());
   });
+
+  test('#GetProperties -> getDescription', () => {
+    const props = new GetProperties();
+    const test1 = {
+      "title": "property",
+      "name": "style",
+      "lineNumber": 117,
+      "description": {
+        "type": "root",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "Style for button container",
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 27,
+                    "offset": 26
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 27,
+                "offset": 26
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 27,
+            "offset": 26
+          }
+        }
+      },
+      "type": {
+        "type": "NameExpression",
+        "name": "TouchableOpacity.style"
+      }
+    };
+    const test2 = {};
+
+    expect(props.getDescription(test2)).toBe('');
+  });
 });

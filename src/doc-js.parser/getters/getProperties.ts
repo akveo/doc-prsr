@@ -1,11 +1,9 @@
 import { Prop } from '../../model';
+import { Common } from './common'
 import {CommonOptions} from '../doc-js.parser.options';
 
 export class GetProperties {
-
-  getName(obj: any): string {
-    return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
-  }
+  protected common: Common = new Common();
 
   parsePropFromProperties(obj: any): Prop {
     return new Prop({
@@ -14,7 +12,7 @@ export class GetProperties {
       isStatic: false,
       type: this.getTypeProperties(obj),
       required: null,
-      name: this.getName(obj),
+      name: this.common.getName(obj),
       shortDescription: this.getShortDescriptionProperties(obj),
       description: this.getDescription(obj)
     });
@@ -27,7 +25,7 @@ export class GetProperties {
       isStatic: false,
       type: this.getTypeInstance(obj),
       required: null,
-      name: this.getName(obj),
+      name: this.common.getName(obj),
       shortDescription: this.getShortDescriptionInstance(obj),
       description: this.getDescription(obj)
     });
@@ -40,7 +38,7 @@ export class GetProperties {
       isStatic: true,
       type: this.getTypeStatic(obj),
       required: null,
-      name: this.getName(obj),
+      name: this.common.getName(obj),
       shortDescription: this.getDescriptionStatic(obj),
       description: this.getDescriptionStatic(obj)
     });
@@ -98,9 +96,11 @@ export class GetProperties {
 
   getDescription(obj: any): string {
     let str: string = '';
-    if (obj[CommonOptions.description][CommonOptions.children].length > 1) {
+    if (obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length > 1) {
       obj[CommonOptions.description][CommonOptions.children]
         .forEach((item: any) => {
+
+        console.log(item[CommonOptions.children]);
           item[CommonOptions.children]
             .forEach((item: any) => {
               str += item[CommonOptions.value] + ' ';

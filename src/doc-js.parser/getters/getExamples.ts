@@ -20,13 +20,12 @@ export class GetExamples {
     }
   }
 
-  getDescriptionArr(obj: any): string[] { //!!!!!!!
-    const regexp = /```/g;
+  getDescriptionArr(obj: any) {
     let outArr: any[] = [];
     if (obj[CommonOptions.description]) {
-      const temp = obj[CommonOptions.description].split('\n\n');
+      const temp = obj[CommonOptions.description].replace(/\r\n\r\n/g, '\n\n').split('\n\n');
       temp.forEach((item: any) => {
-        if (!regexp.test(item)) {
+        if(!/```/g.test(item)) {
           outArr.push(item);
         }
       });
