@@ -202,4 +202,15 @@ describe('#DocJsParser', () => {
     // expect(common.getDescription(testObj1).toString()).toBe('Some short description is OK. This is full description for something');
     expect(common.getDescription(testObj2)).toBe('');
   });
+
+  test('#GetExamples -> getCode', () => {
+    const examples = new GetExamples();
+    const testObj1 = {
+      "description": "Advanced Styling\n\nIt's also possible to implement more detailed styling. `RkButton` consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to `RkButton`:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```"
+    };
+    const testObj2 = {name: 'name'};
+
+    expect(examples.getCode(testObj1)).toBe(`\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n`);
+    expect(examples.getCode(testObj2)).toBe('');
+  });
 });
