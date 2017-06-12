@@ -1,7 +1,6 @@
 import {
   Model,
-  Class,
-  ClassKind
+  Class
 } from '../model';
 import {CommonOptions} from './doc-js.parser.options';
 
