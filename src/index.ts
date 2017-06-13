@@ -1,5 +1,61 @@
 const json = [
   {
+    "description": "",
+    "tags": [
+      {
+        "title": "license",
+        "description": "Copyright Akveo. All Rights Reserved.\nLicensed under the MIT License. See License.txt in the project root for license information.",
+        "lineNumber": 1
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 5,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 7,
+          "column": 39
+        }
+      },
+      "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "license": "Copyright Akveo. All Rights Reserved.\nLicensed under the MIT License. See License.txt in the project root for license information.",
+    "name": "Component",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "Component"
+      }
+    ],
+    "namespace": "Component"
+  },
+  {
     "description": {
       "type": "root",
       "children": [
@@ -54,6 +110,58 @@ const json = [
             },
             "indent": []
           }
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "This is full description for ",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 1,
+                  "offset": 41
+                },
+                "end": {
+                  "line": 3,
+                  "column": 30,
+                  "offset": 70
+                },
+                "indent": []
+              }
+            },
+            {
+              "type": "inlineCode",
+              "value": "RkButton",
+              "position": {
+                "start": {
+                  "line": 3,
+                  "column": 30,
+                  "offset": 70
+                },
+                "end": {
+                  "line": 3,
+                  "column": 40,
+                  "offset": 80
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 1,
+              "offset": 41
+            },
+            "end": {
+              "line": 3,
+              "column": 40,
+              "offset": 80
+            },
+            "indent": []
+          }
         }
       ],
       "position": {
@@ -63,9 +171,9 @@ const json = [
           "offset": 0
         },
         "end": {
-          "line": 1,
+          "line": 3,
           "column": 40,
-          "offset": 39
+          "offset": 80
         }
       }
     },
@@ -73,74 +181,64 @@ const json = [
       {
         "title": "extends",
         "description": null,
-        "lineNumber": 3,
+        "lineNumber": 5,
         "type": null,
         "name": "RkComponent"
       },
       {
         "title": "example",
-        "description": "Simple usage example:\r\n\r\n```\r\n<RkButton>Button</RkButton>\r\n```",
-        "lineNumber": 5
+        "description": "Usage example\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n //...\n\n <RkButton>Click</RkButton>\n```",
+        "lineNumber": 6
       },
       {
         "title": "example",
-        "description": "Custom content inside button\r\n\r\n`RkButton` can contains not only text but also other components:\r\n\r\n```\r\n<RkButton>\r\n   <Image\r\n     style={{width: 50, height: 50}}\r\n     source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}/>\r\n</RkButton>\r\n```",
-        "lineNumber": 11
+        "description": "Usage with Icons\n\nYou can put text or/and icon inside of `RkButton`. Example of button with icon usage:\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\nimport Icon from 'react-native-vector-icons/Ionicons';\n\n//...\n\n<RkButton rkType='small outline'>\n<Icon style={{marginRight: 5, fontSize: 18}} name={'logo-github'}/> Star\n</RkButton>*\n```",
+        "lineNumber": 18
       },
       {
         "title": "example",
-        "description": "Using `rkType`prop\r\n\r\n`RkButton` has `rkType` prop. This prop works similar to CSS-class in web. It's possible to set more than one type.\r\nThere are already some predefined types. Here is example of how to use rkType\r\n\r\n```\r\n<RkButton rkType='success'>Accept</RkButton>\r\n<RkButton rkType='danger small'>Cancel</RkButton>\r\n```",
-        "lineNumber": 24
+        "description": "Create custom rkType\n\nTo define new `rkType` you can use predefined properties which will passed to according element inside components:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'dark', {\n backgroundColor: 'gray',\n borderRadius: 10,\n});\n\nRkTheme.setType('RkButton', 'icon', {\n fontSize: 24,\n width: 46,\n borderRadius: 25\n});\n```\n\nNow you can use *dark* and *icon* types in you app:\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton rkType='dark'>SUBMIT</RkButton>\n\n<RkButton rkType='dark icon' style={{marginLeft: 20}}>\n<Icon name=\"md-heart\"/>\n</RkButton>\n\n```",
+        "lineNumber": 33
       },
       {
         "title": "example",
-        "description": "Define new rkTypes\r\n\r\nIt's easy and very common to create new types. Main point for all customization is `RkTheme` object.\r\nNew rkTypes are defined using `setType` method of `RkTheme`:\r\n\r\n```\r\nimport {RkTheme} from 'react-native-ui-kitten';\r\n\r\n RkTheme.setType('RkButton', 'dark', {\r\n  backgroundColor: 'gray',\r\n  borderRadius: 10,\r\n});\r\n\r\n RkTheme.setType('RkButton', 'icon', {\r\n  fontSize: 24,\r\n  width: 46,\r\n  borderRadius: 25\r\n});\r\n\r\n//...\r\n\r\n<RkButton rkType='dark'>SUBMIT</RkButton>\r\n\r\n<RkButton rkType='dark icon' style={{marginLeft: 20}}>\r\n   <Text>+</Text>\r\n</RkButton>\r\n\r\n```",
-        "lineNumber": 35
+        "description": "Advanced Styling\n\nIt's also possible to implement more detailed styling. `RkButton` consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to `RkButton`:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```",
+        "lineNumber": 67
+      },
+      {
+        "title": "example",
+        "description": "Inline styling\n\nIt's possible to set styles inline. Use props `style` for `container` component and `contentStyle` for `content` component.\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton\nstyle={{backgroundColor: 'red'}}\ncontentStyle={{color: 'white'}}> Hello </RkButton>\n```",
+        "lineNumber": 84
       },
       {
         "title": "styles",
-        "description": "Available properties:\r\n- `color` : Color of content of `RkButton`. Applies only if content of `RkButton` is `string`.\r\n- `backgroundColor` : Background color of `RkButton`.\r\n- `borderWidth` : Width of outer border.\r\n- `borderRadius` : Border radius of `RkButton`.\r\n- `borderColor` : Color of border.\r\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\r\n- `width` : Width of `RkButton`.\r\n- `height` : Height of `RkButton`.",
-        "lineNumber": 64
-      },
-      {
-        "title": "example",
-        "description": "Advanced Styling\r\n\r\nIt's also possible to implement more detailed styling. RkButton consists from couple of base react component. You can easily set styles for each component.\r\n\r\nFor example you can change the opacity of content passed to RkButton:\r\n\r\n```\r\nRkTheme.setType('RkButton', 'faded', {\r\n  content: {\r\n    opacity: 0.6,\r\n  }\r\n});\r\n```",
-        "lineNumber": 75
-      },
-      {
-        "title": "styles",
-        "description": "Available properties:\r\n- `container` : `TouchableOpacity` - container of `RkButton`.\r\n- `content` : If you use plain text then `RkText`. If you insert children - then style will be applied to all children on first level.",
-        "lineNumber": 89
-      },
-      {
-        "title": "example",
-        "description": "Inline styling\r\n\r\nIt's possible to set styles inline. Use props style for container component and contentStyle for content component.\r\n\r\n```\r\n<RkButton\r\n   style={{backgroundColor: 'red'}}\r\n   contentStyle={{color: 'white'}}> Hello </RkButton>\r\n```",
-        "lineNumber": 93
+        "description": "Available properties\n- `color` : Color of content of `RkButton`. Usually text or icon.\n- `backgroundColor` : Background color of `RkButton`.\n- `borderWidth` : Width of outer border.\n- `borderRadius` : Border radius of `RkButton`.\n- `borderColor` : Color of border.\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\n- `width` : Width of `RkButton`.\n- `height` : Height of `RkButton`.",
+        "lineNumber": 98
       },
       {
         "title": "property",
-        "description": "Types for stylization component\r\nBy default `RkButton` supports following types: `primary`, `info`, `warning`, `danger`, `success`, `outline`, `rounded`,\r\n`circle`, `small`, `medium`, `large`, `xlarge`, `clear`, `stretch`",
-        "lineNumber": 103,
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        },
-        "name": "rkType"
+        "description": "@required {string} rkType - Types for stylization component\nBy default RkButton supports following types: primary, info, warning, danger, success, outline, rounded,\ncircle, small, medium, large, xlarge, clear",
+        "lineNumber": 113,
+        "type": null,
+        "errors": [
+          "Missing or invalid tag type"
+        ],
+        "name": "null"
       },
       {
         "title": "property",
         "description": "Style for button container",
-        "lineNumber": 106,
+        "lineNumber": 117,
         "type": {
           "type": "NameExpression",
-          "name": "style"
+          "name": "TouchableOpacity.style"
         },
         "name": "style"
       },
       {
         "title": "property",
-        "description": "Style for each button's children",
-        "lineNumber": 107,
+        "description": "Style for each button's children, plaftorm ios",
+        "lineNumber": 119,
         "type": {
           "type": "NameExpression",
           "name": "style"
@@ -150,7 +248,7 @@ const json = [
       {
         "title": "property",
         "description": "Called when the touch is released, but not if cancelled.",
-        "lineNumber": 108,
+        "lineNumber": 121,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -159,8 +257,8 @@ const json = [
       },
       {
         "title": "property",
-        "description": "Same as `TouchableWithoutFeedback.onPressIn`",
-        "lineNumber": 109,
+        "description": "Called when the touch is released, but not if cancelled.",
+        "lineNumber": 122,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -169,8 +267,8 @@ const json = [
       },
       {
         "title": "property",
-        "description": "Same as `TouchableWithoutFeedback.onPressOut`",
-        "lineNumber": 110,
+        "description": "Called when the touch is released, but not if cancelled.",
+        "lineNumber": 123,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -180,7 +278,7 @@ const json = [
       {
         "title": "property",
         "description": "Called when the touch is released and is longer than usual press, but not if cancelled.",
-        "lineNumber": 111,
+        "lineNumber": 124,
         "type": {
           "type": "NameExpression",
           "name": "function"
@@ -190,623 +288,59 @@ const json = [
     ],
     "loc": {
       "start": {
-        "line": 10,
+        "line": 17,
         "column": 0
       },
       "end": {
-        "line": 122,
+        "line": 144,
         "column": 3
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 124,
+          "line": 145,
           "column": 0
         },
         "end": {
-          "line": 180,
+          "line": 226,
           "column": 1
         }
       },
-      "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\button\\rkButton.js"
+      "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
     },
     "augments": [
       {
         "title": "extends",
         "description": null,
-        "lineNumber": 3,
+        "lineNumber": 5,
         "type": null,
         "name": "RkComponent"
       }
     ],
     "examples": [
       {
-        "description": "Simple usage example:\r\n\r\n```\r\n<RkButton>Button</RkButton>\r\n```"
+        "description": "Usage example\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n //...\n\n <RkButton>Click</RkButton>\n```"
       },
       {
-        "description": "Custom content inside button\r\n\r\n`RkButton` can contains not only text but also other components:\r\n\r\n```\r\n<RkButton>\r\n   <Image\r\n     style={{width: 50, height: 50}}\r\n     source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}/>\r\n</RkButton>\r\n```"
+        "description": "Usage with Icons\n\nYou can put text or/and icon inside of `RkButton`. Example of button with icon usage:\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\nimport Icon from 'react-native-vector-icons/Ionicons';\n\n//...\n\n<RkButton rkType='small outline'>\n<Icon style={{marginRight: 5, fontSize: 18}} name={'logo-github'}/> Star\n</RkButton>*\n```"
       },
       {
-        "description": "Using `rkType`prop\r\n\r\n`RkButton` has `rkType` prop. This prop works similar to CSS-class in web. It's possible to set more than one type.\r\nThere are already some predefined types. Here is example of how to use rkType\r\n\r\n```\r\n<RkButton rkType='success'>Accept</RkButton>\r\n<RkButton rkType='danger small'>Cancel</RkButton>\r\n```"
+        "description": "Create custom rkType\n\nTo define new `rkType` you can use predefined properties which will passed to according element inside components:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'dark', {\n backgroundColor: 'gray',\n borderRadius: 10,\n});\n\nRkTheme.setType('RkButton', 'icon', {\n fontSize: 24,\n width: 46,\n borderRadius: 25\n});\n```\n\nNow you can use *dark* and *icon* types in you app:\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton rkType='dark'>SUBMIT</RkButton>\n\n<RkButton rkType='dark icon' style={{marginLeft: 20}}>\n<Icon name=\"md-heart\"/>\n</RkButton>\n\n```"
       },
       {
-        "description": "Define new rkTypes\r\n\r\nIt's easy and very common to create new types. Main point for all customization is `RkTheme` object.\r\nNew rkTypes are defined using `setType` method of `RkTheme`:\r\n\r\n```\r\nimport {RkTheme} from 'react-native-ui-kitten';\r\n\r\n RkTheme.setType('RkButton', 'dark', {\r\n  backgroundColor: 'gray',\r\n  borderRadius: 10,\r\n});\r\n\r\n RkTheme.setType('RkButton', 'icon', {\r\n  fontSize: 24,\r\n  width: 46,\r\n  borderRadius: 25\r\n});\r\n\r\n//...\r\n\r\n<RkButton rkType='dark'>SUBMIT</RkButton>\r\n\r\n<RkButton rkType='dark icon' style={{marginLeft: 20}}>\r\n   <Text>+</Text>\r\n</RkButton>\r\n\r\n```"
+        "description": "Advanced Styling\n\nIt's also possible to implement more detailed styling. `RkButton` consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to `RkButton`:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```"
       },
       {
-        "description": "Advanced Styling\r\n\r\nIt's also possible to implement more detailed styling. RkButton consists from couple of base react component. You can easily set styles for each component.\r\n\r\nFor example you can change the opacity of content passed to RkButton:\r\n\r\n```\r\nRkTheme.setType('RkButton', 'faded', {\r\n  content: {\r\n    opacity: 0.6,\r\n  }\r\n});\r\n```"
-      },
-      {
-        "description": "Inline styling\r\n\r\nIt's possible to set styles inline. Use props style for container component and contentStyle for content component.\r\n\r\n```\r\n<RkButton\r\n   style={{backgroundColor: 'red'}}\r\n   contentStyle={{color: 'white'}}> Hello </RkButton>\r\n```"
+        "description": "Inline styling\n\nIt's possible to set styles inline. Use props `style` for `container` component and `contentStyle` for `content` component.\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton\nstyle={{backgroundColor: 'red'}}\ncontentStyle={{color: 'white'}}> Hello </RkButton>\n```"
       }
     ],
     "params": [],
     "properties": [
       {
         "title": "property",
-        "name": "rkType",
-        "lineNumber": 103,
-        "description": {
-          "type": "root",
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Types for stylization component\nBy default ",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 12,
-                      "offset": 44
-                    },
-                    "indent": [
-                      1
-                    ]
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "RkButton",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 12,
-                      "offset": 44
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 22,
-                      "offset": 54
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": " supports following types: ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 22,
-                      "offset": 54
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 49,
-                      "offset": 81
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "primary",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 49,
-                      "offset": 81
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 58,
-                      "offset": 90
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 58,
-                      "offset": 90
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 60,
-                      "offset": 92
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "info",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 60,
-                      "offset": 92
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 66,
-                      "offset": 98
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 66,
-                      "offset": 98
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 68,
-                      "offset": 100
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "warning",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 68,
-                      "offset": 100
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 77,
-                      "offset": 109
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 77,
-                      "offset": 109
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 79,
-                      "offset": 111
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "danger",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 79,
-                      "offset": 111
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 87,
-                      "offset": 119
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 87,
-                      "offset": 119
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 89,
-                      "offset": 121
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "success",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 89,
-                      "offset": 121
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 98,
-                      "offset": 130
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 98,
-                      "offset": 130
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 100,
-                      "offset": 132
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "outline",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 100,
-                      "offset": 132
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 109,
-                      "offset": 141
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 109,
-                      "offset": 141
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 111,
-                      "offset": 143
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "rounded",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 111,
-                      "offset": 143
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 120,
-                      "offset": 152
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ",\n",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 120,
-                      "offset": 152
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 1,
-                      "offset": 155
-                    },
-                    "indent": [
-                      1
-                    ]
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "circle",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 1,
-                      "offset": 155
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 9,
-                      "offset": 163
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 9,
-                      "offset": 163
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 11,
-                      "offset": 165
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "small",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 11,
-                      "offset": 165
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 18,
-                      "offset": 172
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 18,
-                      "offset": 172
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 20,
-                      "offset": 174
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "medium",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 20,
-                      "offset": 174
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 28,
-                      "offset": 182
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 28,
-                      "offset": 182
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 30,
-                      "offset": 184
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "large",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 30,
-                      "offset": 184
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 37,
-                      "offset": 191
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 37,
-                      "offset": 191
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 39,
-                      "offset": 193
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "xlarge",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 39,
-                      "offset": 193
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 47,
-                      "offset": 201
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 47,
-                      "offset": 201
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 49,
-                      "offset": 203
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "clear",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 49,
-                      "offset": 203
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 56,
-                      "offset": 210
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 56,
-                      "offset": 210
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 58,
-                      "offset": 212
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "stretch",
-                  "position": {
-                    "start": {
-                      "line": 3,
-                      "column": 58,
-                      "offset": 212
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 67,
-                      "offset": 221
-                    },
-                    "indent": []
-                  }
-                }
-              ],
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 3,
-                  "column": 67,
-                  "offset": 221
-                },
-                "indent": [
-                  1,
-                  1
-                ]
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 3,
-              "column": 67,
-              "offset": 221
-            }
-          }
-        },
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        }
-      },
-      {
-        "title": "property",
         "name": "style",
-        "lineNumber": 106,
+        "lineNumber": 117,
         "description": {
           "type": "root",
           "children": [
@@ -861,13 +395,13 @@ const json = [
         },
         "type": {
           "type": "NameExpression",
-          "name": "style"
+          "name": "TouchableOpacity.style"
         }
       },
       {
         "title": "property",
         "name": "contentStyle",
-        "lineNumber": 107,
+        "lineNumber": 119,
         "description": {
           "type": "root",
           "children": [
@@ -876,7 +410,7 @@ const json = [
               "children": [
                 {
                   "type": "text",
-                  "value": "Style for each button's children",
+                  "value": "Style for each button's children, plaftorm ios",
                   "position": {
                     "start": {
                       "line": 1,
@@ -885,8 +419,8 @@ const json = [
                     },
                     "end": {
                       "line": 1,
-                      "column": 33,
-                      "offset": 32
+                      "column": 47,
+                      "offset": 46
                     },
                     "indent": []
                   }
@@ -900,8 +434,8 @@ const json = [
                 },
                 "end": {
                   "line": 1,
-                  "column": 33,
-                  "offset": 32
+                  "column": 47,
+                  "offset": 46
                 },
                 "indent": []
               }
@@ -915,8 +449,8 @@ const json = [
             },
             "end": {
               "line": 1,
-              "column": 33,
-              "offset": 32
+              "column": 47,
+              "offset": 46
             }
           }
         },
@@ -928,7 +462,7 @@ const json = [
       {
         "title": "property",
         "name": "onPress",
-        "lineNumber": 108,
+        "lineNumber": 121,
         "description": {
           "type": "root",
           "children": [
@@ -989,7 +523,7 @@ const json = [
       {
         "title": "property",
         "name": "onPressIn",
-        "lineNumber": 109,
+        "lineNumber": 122,
         "description": {
           "type": "root",
           "children": [
@@ -998,7 +532,7 @@ const json = [
               "children": [
                 {
                   "type": "text",
-                  "value": "Same as ",
+                  "value": "Called when the touch is released, but not if cancelled.",
                   "position": {
                     "start": {
                       "line": 1,
@@ -1007,25 +541,8 @@ const json = [
                     },
                     "end": {
                       "line": 1,
-                      "column": 9,
-                      "offset": 8
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "TouchableWithoutFeedback.onPressIn",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 9,
-                      "offset": 8
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 45,
-                      "offset": 44
+                      "column": 57,
+                      "offset": 56
                     },
                     "indent": []
                   }
@@ -1039,8 +556,8 @@ const json = [
                 },
                 "end": {
                   "line": 1,
-                  "column": 45,
-                  "offset": 44
+                  "column": 57,
+                  "offset": 56
                 },
                 "indent": []
               }
@@ -1054,8 +571,8 @@ const json = [
             },
             "end": {
               "line": 1,
-              "column": 45,
-              "offset": 44
+              "column": 57,
+              "offset": 56
             }
           }
         },
@@ -1067,7 +584,7 @@ const json = [
       {
         "title": "property",
         "name": "onPressOut",
-        "lineNumber": 110,
+        "lineNumber": 123,
         "description": {
           "type": "root",
           "children": [
@@ -1076,7 +593,7 @@ const json = [
               "children": [
                 {
                   "type": "text",
-                  "value": "Same as ",
+                  "value": "Called when the touch is released, but not if cancelled.",
                   "position": {
                     "start": {
                       "line": 1,
@@ -1085,25 +602,8 @@ const json = [
                     },
                     "end": {
                       "line": 1,
-                      "column": 9,
-                      "offset": 8
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "TouchableWithoutFeedback.onPressOut",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 9,
-                      "offset": 8
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 46,
-                      "offset": 45
+                      "column": 57,
+                      "offset": 56
                     },
                     "indent": []
                   }
@@ -1117,8 +617,8 @@ const json = [
                 },
                 "end": {
                   "line": 1,
-                  "column": 46,
-                  "offset": 45
+                  "column": 57,
+                  "offset": 56
                 },
                 "indent": []
               }
@@ -1132,8 +632,8 @@ const json = [
             },
             "end": {
               "line": 1,
-              "column": 46,
-              "offset": 45
+              "column": 57,
+              "offset": 56
             }
           }
         },
@@ -1145,7 +645,7 @@ const json = [
       {
         "title": "property",
         "name": "onLongPress",
-        "lineNumber": 111,
+        "lineNumber": 124,
         "description": {
           "type": "root",
           "children": [
@@ -1215,7 +715,401 @@ const json = [
       "inner": [],
       "instance": [],
       "events": [],
-      "static": []
+      "static": [
+        {
+          "description": "",
+          "tags": [
+            {
+              "title": "property",
+              "description": "Another static property",
+              "lineNumber": 1,
+              "type": {
+                "type": "NameExpression",
+                "name": "object"
+              },
+              "name": "null-null"
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 162,
+              "column": 2
+            },
+            "end": {
+              "line": 165,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 166,
+                "column": 2
+              },
+              "end": {
+                "line": 168,
+                "column": 4
+              }
+            },
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
+          },
+          "augments": [],
+          "examples": [],
+          "params": [],
+          "properties": [
+            {
+              "title": "property",
+              "name": "null-null",
+              "lineNumber": 1,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Another static property",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 24,
+                            "offset": 23
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 24,
+                        "offset": 23
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 24,
+                    "offset": 23
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "object"
+              }
+            }
+          ],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "contextTypes",
+          "kind": "member",
+          "memberof": "RkButton",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "RkButton",
+              "kind": "class"
+            },
+            {
+              "name": "contextTypes",
+              "kind": "member",
+              "scope": "static"
+            }
+          ],
+          "namespace": "RkButton.contextTypes"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Add new color to theme STATIC",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 30,
+                        "offset": 29
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 30,
+                    "offset": 29
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 30,
+                "offset": 29
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "name of new color",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "name"
+            },
+            {
+              "title": "param",
+              "description": "color value.",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              },
+              "name": "value"
+            },
+            {
+              "title": "example",
+              "description": "Just a sample of example code\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton\nstyle={{backgroundColor: 'example'}}\ncontentStyle={{color: 'white'}}> Hello </RkButton>\n```",
+              "lineNumber": 5
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 170,
+              "column": 2
+            },
+            "end": {
+              "line": 187,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 188,
+                "column": 2
+              },
+              "end": {
+                "line": 189,
+                "column": 3
+              }
+            },
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "Just a sample of example code\n\n```\nimport {RkButton} from 'react-native-ui-kitten';\n\n//...\n\n<RkButton\nstyle={{backgroundColor: 'example'}}\ncontentStyle={{color: 'white'}}> Hello </RkButton>\n```"
+            }
+          ],
+          "params": [
+            {
+              "title": "param",
+              "name": "name",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "name of new color",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 18,
+                            "offset": 17
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 18,
+                        "offset": 17
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 18,
+                    "offset": 17
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            },
+            {
+              "title": "param",
+              "name": "value",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "color value.",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 13,
+                        "offset": 12
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 13,
+                    "offset": 12
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "string"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "show",
+          "kind": "function",
+          "memberof": "RkButton",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "RkButton",
+              "kind": "class"
+            },
+            {
+              "name": "show",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "RkButton.show"
+        }
+      ]
     },
     "path": [
       {
@@ -1224,435 +1118,6 @@ const json = [
       }
     ],
     "namespace": "RkButton"
-  },
-  {
-    "description": {
-      "type": "root",
-      "children": [
-        {
-          "type": "paragraph",
-          "children": [
-            {
-              "type": "inlineCode",
-              "value": "RkCard",
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 1,
-                  "column": 9,
-                  "offset": 8
-                },
-                "indent": []
-              }
-            },
-            {
-              "type": "text",
-              "value": " component used to render card view in your application.\nIt's usually being used with its props (described below) applied to standard react or custom components.",
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 9,
-                  "offset": 8
-                },
-                "end": {
-                  "line": 2,
-                  "column": 105,
-                  "offset": 170
-                },
-                "indent": [
-                  1
-                ]
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 2,
-              "column": 105,
-              "offset": 170
-            },
-            "indent": [
-              1
-            ]
-          }
-        }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 2,
-          "column": 105,
-          "offset": 170
-        }
-      }
-    },
-    "tags": [
-      {
-        "title": "extends",
-        "description": null,
-        "lineNumber": 3,
-        "type": null,
-        "name": "RkComponent"
-      },
-      {
-        "title": "example",
-        "description": "Usage example:\r\n\r\n```\r\n<RkCard>\r\n  <View rkCardHeader>\r\n    <Text>Header</Text>\r\n  </View>\r\n  <Image rkCardImg source={require('../img/sea.jpg')}/>\r\n  <View rkCardContent>\r\n    <Text> quick brown fox jumps over the lazy dog</Text>\r\n  </View>\r\n  <View rkCardFooter>\r\n    <Text>Footer</Text>\r\n  </View>\r\n</RkCard>\r\n```",
-        "lineNumber": 6
-      },
-      {
-        "title": "style",
-        "description": "There are 6 `RkCard` nested element props which can be applied to elements inside `RkCard`:\r\n- `rkCardContainer` : Used for styling root card container.\r\n- `rkCardHeader` : Used for styling header of card.\r\n- `rkCardImg` : Used for styling image content in card.\r\n- `rkCardImgOverlay` : Used for styling component which will be displayed over the image.\r\n- `rkCardContent` : Used for styling content.\r\n- `rkCardFooter` : Used for styling footer of card.",
-        "lineNumber": 23
-      },
-      {
-        "title": "example",
-        "description": "Using `rkType`prop\r\n\r\n`RkCard` has `rkType` prop. This prop works similar to CSS-class in web. It's possible to set more than one type.\r\nThere are already some predefined types. Here is example of how to use rkType\r\n\r\n<RkCard rkType='shadowed'>\r\n  <View rkCardHeader>\r\n    <Text>Header</Text>\r\n  </View>\r\n  <View rkCardContent>\r\n    <Text>Shadowed card</Text>\r\n  </View>\r\n</RkCard>\r\n```",
-        "lineNumber": 31
-      },
-      {
-        "title": "example",
-        "description": "Define new rkTypes\r\n\r\nIt's easy and very common to create new types. Main point for all customization is `RkTheme` object.\r\n`rkType` used here to set style for each of 6 `rkCard` nested element props.\r\nNew rkTypes are defined using `setType` method of `RkTheme`:\r\n\r\nRkTheme.setType('RkCard', 'story', {\r\n  img: {\r\n    height: 100,\r\n    opacity: 0.7\r\n  },\r\n  header: {\r\n    alignSelf: 'center'\r\n  },\r\n  content:{\r\n    alignSelf:'center'\r\n  }\r\n});\r\n\r\n//...\r\n\r\n\r\n<RkCard rkType='story'>\r\n  <Image rkCardImg source={require('../img/sea.jpg')}/>\r\n  <View rkCardHeader>\r\n    <RkText rkType='header'>Once upon a time</RkText>\r\n  </View>\r\n  <View rkCardContent>\r\n    <RkText style={{textAlign:'center'}}>\r\n      One morning, when Gregor Samsa woke from happy dreams, he found himself transformed in ...\r\n    </RkText>\r\n  </View>\r\n  <View rkCardFooter>\r\n    <RkButton rkType='small outline'>Learn More</RkButton>\r\n    <RkButton rkType='small'>Read later</RkButton>\r\n  </View>\r\n</RkCard>",
-        "lineNumber": 46
-      },
-      {
-        "title": "styles",
-        "description": "Nested element props available for styling:\r\n- `container` : Style key for `rkCardContainer`.\r\n- `header` : Style key for `rkCardHeader`.\r\n- `content` : Style key for `rkCardContent`.\r\n- `footer` : Style key for `rkCardFooter`.\r\n- `img` : Style key for `rkCardImg`.\r\n- `imgOverlay` : Style key for `rkCardImgOverlay`.",
-        "lineNumber": 84
-      },
-      {
-        "title": "property",
-        "description": "Types for stylization component\r\nBy default `RkCard` supports following types: `shadowed`, `heroImage`",
-        "lineNumber": 92,
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        },
-        "name": "rkType"
-      },
-      {
-        "title": "property",
-        "description": "Style for root container of `RkCard`",
-        "lineNumber": 94,
-        "type": {
-          "type": "NameExpression",
-          "name": "style"
-        },
-        "name": "style"
-      }
-    ],
-    "loc": {
-      "start": {
-        "line": 5,
-        "column": 0
-      },
-      "end": {
-        "line": 100,
-        "column": 3
-      }
-    },
-    "context": {
-      "loc": {
-        "start": {
-          "line": 101,
-          "column": 0
-        },
-        "end": {
-          "line": 161,
-          "column": 1
-        }
-      },
-      "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\card\\rkCard.js"
-    },
-    "augments": [
-      {
-        "title": "extends",
-        "description": null,
-        "lineNumber": 3,
-        "type": null,
-        "name": "RkComponent"
-      }
-    ],
-    "examples": [
-      {
-        "description": "Usage example:\r\n\r\n```\r\n<RkCard>\r\n  <View rkCardHeader>\r\n    <Text>Header</Text>\r\n  </View>\r\n  <Image rkCardImg source={require('../img/sea.jpg')}/>\r\n  <View rkCardContent>\r\n    <Text> quick brown fox jumps over the lazy dog</Text>\r\n  </View>\r\n  <View rkCardFooter>\r\n    <Text>Footer</Text>\r\n  </View>\r\n</RkCard>\r\n```"
-      },
-      {
-        "description": "Using `rkType`prop\r\n\r\n`RkCard` has `rkType` prop. This prop works similar to CSS-class in web. It's possible to set more than one type.\r\nThere are already some predefined types. Here is example of how to use rkType\r\n\r\n<RkCard rkType='shadowed'>\r\n  <View rkCardHeader>\r\n    <Text>Header</Text>\r\n  </View>\r\n  <View rkCardContent>\r\n    <Text>Shadowed card</Text>\r\n  </View>\r\n</RkCard>\r\n```"
-      },
-      {
-        "description": "Define new rkTypes\r\n\r\nIt's easy and very common to create new types. Main point for all customization is `RkTheme` object.\r\n`rkType` used here to set style for each of 6 `rkCard` nested element props.\r\nNew rkTypes are defined using `setType` method of `RkTheme`:\r\n\r\nRkTheme.setType('RkCard', 'story', {\r\n  img: {\r\n    height: 100,\r\n    opacity: 0.7\r\n  },\r\n  header: {\r\n    alignSelf: 'center'\r\n  },\r\n  content:{\r\n    alignSelf:'center'\r\n  }\r\n});\r\n\r\n//...\r\n\r\n\r\n<RkCard rkType='story'>\r\n  <Image rkCardImg source={require('../img/sea.jpg')}/>\r\n  <View rkCardHeader>\r\n    <RkText rkType='header'>Once upon a time</RkText>\r\n  </View>\r\n  <View rkCardContent>\r\n    <RkText style={{textAlign:'center'}}>\r\n      One morning, when Gregor Samsa woke from happy dreams, he found himself transformed in ...\r\n    </RkText>\r\n  </View>\r\n  <View rkCardFooter>\r\n    <RkButton rkType='small outline'>Learn More</RkButton>\r\n    <RkButton rkType='small'>Read later</RkButton>\r\n  </View>\r\n</RkCard>"
-      }
-    ],
-    "params": [
-      {
-        "title": "param",
-        "name": "props",
-        "lineNumber": 115
-      }
-    ],
-    "properties": [
-      {
-        "title": "property",
-        "name": "rkType",
-        "lineNumber": 92,
-        "description": {
-          "type": "root",
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Types for stylization component\nBy default ",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 12,
-                      "offset": 44
-                    },
-                    "indent": [
-                      1
-                    ]
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "RkCard",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 12,
-                      "offset": 44
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 20,
-                      "offset": 52
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": " supports following types: ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 20,
-                      "offset": 52
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 47,
-                      "offset": 79
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "shadowed",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 47,
-                      "offset": 79
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 57,
-                      "offset": 89
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "text",
-                  "value": ", ",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 57,
-                      "offset": 89
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 59,
-                      "offset": 91
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "heroImage",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 59,
-                      "offset": 91
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 70,
-                      "offset": 102
-                    },
-                    "indent": []
-                  }
-                }
-              ],
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 2,
-                  "column": 70,
-                  "offset": 102
-                },
-                "indent": [
-                  1
-                ]
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 2,
-              "column": 70,
-              "offset": 102
-            }
-          }
-        },
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        }
-      },
-      {
-        "title": "property",
-        "name": "style",
-        "lineNumber": 94,
-        "description": {
-          "type": "root",
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Style for root container of ",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 29,
-                      "offset": 28
-                    },
-                    "indent": []
-                  }
-                },
-                {
-                  "type": "inlineCode",
-                  "value": "RkCard",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 29,
-                      "offset": 28
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 37,
-                      "offset": 36
-                    },
-                    "indent": []
-                  }
-                }
-              ],
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 1,
-                  "column": 37,
-                  "offset": 36
-                },
-                "indent": []
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 37,
-              "offset": 36
-            }
-          }
-        },
-        "type": {
-          "type": "NameExpression",
-          "name": "style"
-        }
-      }
-    ],
-    "returns": [],
-    "sees": [],
-    "throws": [],
-    "todos": [],
-    "name": "RkCard",
-    "kind": "class",
-    "members": {
-      "global": [],
-      "inner": [],
-      "instance": [],
-      "events": [],
-      "static": []
-    },
-    "path": [
-      {
-        "name": "RkCard",
-        "kind": "class"
-      }
-    ],
-    "namespace": "RkCard"
   },
   {
     "description": {
@@ -1729,7 +1194,7 @@ const json = [
           "column": 1
         }
       },
-      "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\rkComponent.js"
+      "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
     },
     "augments": [
       {
@@ -1825,7 +1290,7 @@ const json = [
                 "column": 21
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\rkComponent.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
           },
           "augments": [],
           "examples": [],
@@ -1934,7 +1399,7 @@ const json = [
                 "column": 19
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\rkComponent.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
           },
           "augments": [],
           "examples": [],
@@ -2043,7 +1508,7 @@ const json = [
                 "column": 22
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\rkComponent.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
           },
           "augments": [],
           "examples": [],
@@ -2152,7 +1617,7 @@ const json = [
                 "column": 24
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\rkComponent.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
           },
           "augments": [],
           "examples": [],
@@ -2281,7 +1746,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\rkComponent.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
           },
           "augments": [],
           "examples": [],
@@ -2490,7 +1955,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\components\\rkComponent.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
           },
           "augments": [],
           "examples": [],
@@ -2664,12 +2129,12 @@ const json = [
                 "start": {
                   "line": 3,
                   "column": 1,
-                  "offset": 17
+                  "offset": 15
                 },
                 "end": {
                   "line": 3,
                   "column": 75,
-                  "offset": 91
+                  "offset": 89
                 },
                 "indent": []
               }
@@ -2679,12 +2144,12 @@ const json = [
             "start": {
               "line": 3,
               "column": 1,
-              "offset": 17
+              "offset": 15
             },
             "end": {
               "line": 3,
               "column": 75,
-              "offset": 91
+              "offset": 89
             },
             "indent": []
           }
@@ -2699,7 +2164,7 @@ const json = [
         "end": {
           "line": 3,
           "column": 75,
-          "offset": 91
+          "offset": 89
         }
       }
     },
@@ -2725,7 +2190,7 @@ const json = [
           "column": 1
         }
       },
-      "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+      "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
     },
     "augments": [],
     "examples": [],
@@ -2816,7 +2281,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
           },
           "augments": [],
           "examples": [],
@@ -2925,7 +2390,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
           },
           "augments": [],
           "examples": [],
@@ -3034,7 +2499,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
           },
           "augments": [],
           "examples": [],
@@ -3154,7 +2619,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
           },
           "augments": [],
           "examples": [],
@@ -3395,7 +2860,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
           },
           "augments": [],
           "examples": [],
@@ -3743,7 +3208,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
           },
           "augments": [],
           "examples": [],
@@ -3996,7 +3461,7 @@ const json = [
                 "column": 3
               }
             },
-            "file": "D:\\NWork\\GitHub\\react-native-ui-kitten\\src\\styles\\themeManager.js"
+            "file": "/Users/alexei/dev/react-native-ui-kitten/src/styles/themeManager.js"
           },
           "augments": [],
           "examples": [],
@@ -4178,7 +3643,7 @@ import {
 
 const ep = new DocJsParser();
 const output = JSON.stringify(ep.parse(json), null, 2);
-// console.log(output);
+console.log(output);
 
 const props = new GetProperties();
 const test1 = {
@@ -4314,7 +3779,7 @@ const test1 = {
 };
 const test2 = {};
 
-console.log(props.getDescriptionStatic(test2));
+// console.log(props.getDescriptionStatic(test2));
 
 
 

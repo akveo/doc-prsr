@@ -121,7 +121,7 @@ export class GetProperties {
   }
 
   getTypeProperties(obj: any): string {
-    if (obj) {
+    if (obj && obj[CommonOptions.type]) {
       return (obj[CommonOptions.type][CommonOptions.name]);
     } else {
       return '';
