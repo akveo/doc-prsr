@@ -36,7 +36,7 @@ export class GetMethods {
   }
 
   getMethodsInstance(obj: any): Method[] {
-    if (obj[CommonOptions.members][CommonOptions.instance].length) {
+    if (obj[CommonOptions.members] && obj[CommonOptions.members][CommonOptions.instance].length) {
       return obj[CommonOptions.members][CommonOptions.instance]
         .filter((item: any) => item[CommonOptions.kind] === 'function')
         .map((item: any) => this.parseMethodFromInstance(item));
