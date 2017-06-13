@@ -61,7 +61,7 @@ export class GetMethods {
 
   getType(obj: any) {
     let temp: any[] = [];
-    if (obj[CommonOptions.methodType].length) {
+    if (obj[CommonOptions.methodType] && obj[CommonOptions.methodType].length) {
       obj[CommonOptions.methodType]
         .forEach((item: any) => {
           temp.push(item[CommonOptions.type][CommonOptions.type]);

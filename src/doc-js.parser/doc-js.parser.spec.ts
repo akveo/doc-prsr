@@ -4860,4 +4860,211 @@ describe('#DocJsParser', () => {
     expect(props.getPropsFromStatic(test1).toString()).toBe(output1.toString());
     expect(props.getPropsFromStatic(test2).toString()).toBe([].toString());
   });
+
+  test('#GetMethods -> getType', () => {
+    const methods = new GetMethods();
+    const test1 = {
+      "description": {
+        "type": "root",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "used to compile rkTypes",
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 24,
+                    "offset": 23
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 24,
+                "offset": 23
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 24,
+            "offset": 23
+          }
+        }
+      },
+      "tags": [
+        {
+          "title": "param",
+          "description": null,
+          "lineNumber": 2,
+          "type": {
+            "type": "NameExpression",
+            "name": "string"
+          },
+          "name": "additionalTypes"
+        },
+        {
+          "title": "returns",
+          "description": "styles",
+          "lineNumber": 3,
+          "type": {
+            "type": "NameExpression",
+            "name": "array"
+          }
+        }
+      ],
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 2
+        },
+        "end": {
+          "line": 35,
+          "column": 5
+        }
+      },
+      "context": {
+        "loc": {
+          "start": {
+            "line": 36,
+            "column": 2
+          },
+          "end": {
+            "line": 41,
+            "column": 3
+          }
+        },
+        "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+      },
+      "augments": [],
+      "examples": [],
+      "params": [
+        {
+          "title": "param",
+          "name": "additionalTypes",
+          "lineNumber": 2,
+          "type": {
+            "type": "NameExpression",
+            "name": "string"
+          }
+        }
+      ],
+      "properties": [],
+      "returns": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "styles",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7,
+                        "offset": 6
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7,
+                    "offset": 6
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 7,
+                "offset": 6
+              }
+            }
+          },
+          "title": "returns",
+          "type": {
+            "type": "NameExpression",
+            "name": "array"
+          }
+        }
+      ],
+      "sees": [],
+      "throws": [],
+      "todos": [],
+      "name": "defineStyles",
+      "kind": "function",
+      "memberof": "RkComponent",
+      "scope": "instance",
+      "members": {
+        "global": [],
+        "inner": [],
+        "instance": [],
+        "events": [],
+        "static": []
+      },
+      "path": [
+        {
+          "name": "RkComponent",
+          "kind": "class"
+        },
+        {
+          "name": "defineStyles",
+          "kind": "function",
+          "scope": "instance"
+        }
+      ],
+      "namespace": "RkComponent#defineStyles"
+    };
+    const test2 = {};
+
+    expect(methods.getType(test1).toString()).toBe(['NameExpression'].toString());
+    expect(methods.getType(test2).toString()).toBe(['void'].toString());
+  });
 });
