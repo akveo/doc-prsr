@@ -797,4 +797,144 @@ describe('#DocJsParser', () => {
     expect(props.getTypeProperties(test1)).toBe('TouchableOpacity.style');
     expect(props.getTypeProperties(test2)).toBe('');
   });
+
+  test('#GetProperties -> getTypeStatic', () => {
+    const props = new GetProperties();
+    const test1 = {
+      "description": "",
+      "tags": [
+        {
+          "title": "property",
+          "description": "Another static property",
+          "lineNumber": 1,
+          "type": {
+            "type": "NameExpression",
+            "name": "object"
+          },
+          "name": "null-null"
+        }
+      ],
+      "loc": {
+        "start": {
+          "line": 162,
+          "column": 2
+        },
+        "end": {
+          "line": 165,
+          "column": 5
+        }
+      },
+      "context": {
+        "loc": {
+          "start": {
+            "line": 166,
+            "column": 2
+          },
+          "end": {
+            "line": 168,
+            "column": 4
+          }
+        },
+        "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
+      },
+      "augments": [],
+      "examples": [],
+      "params": [],
+      "properties": [
+        {
+          "title": "property",
+          "name": "null-null",
+          "lineNumber": 1,
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Another static property",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 24,
+                        "offset": 23
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 24,
+                    "offset": 23
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 24,
+                "offset": 23
+              }
+            }
+          },
+          "type": {
+            "type": "NameExpression",
+            "name": "object"
+          }
+        }
+      ],
+      "returns": [],
+      "sees": [],
+      "throws": [],
+      "todos": [],
+      "name": "contextTypes",
+      "kind": "member",
+      "memberof": "RkButton",
+      "scope": "static",
+      "members": {
+        "global": [],
+        "inner": [],
+        "instance": [],
+        "events": [],
+        "static": []
+      },
+      "path": [
+        {
+          "name": "RkButton",
+          "kind": "class"
+        },
+        {
+          "name": "contextTypes",
+          "kind": "member",
+          "scope": "static"
+        }
+      ],
+      "namespace": "RkButton.contextTypes"
+    };
+    const test2 = {};
+
+    expect(props.getTypeStatic(test1)).toBe('object');
+    expect(props.getTypeStatic(test2)).toBe('');
+  });
+
 });

@@ -129,7 +129,7 @@ export class GetProperties {
   }
 
   getTypeStatic(obj: any): string {
-    if (obj) {
+    if (obj && obj[CommonOptions.properties]) {
       return obj[CommonOptions.properties][0][CommonOptions.type][CommonOptions.name];
     } else {
       return '';
