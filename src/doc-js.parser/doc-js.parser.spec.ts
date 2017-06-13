@@ -6,8 +6,6 @@ import {
   Common,
   GetParams
 } from './getters';
-import {DocJsParser} from './doc-js.parser';
-import {CommonOptions} from './doc-js.parser.options';
 
 describe('#DocJsParser', () => {
   test('#Common -> getName', () => {

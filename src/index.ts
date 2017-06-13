@@ -4177,9 +4177,9 @@ const json = [
 
 const ep = new DocJsParser();
 const output = JSON.stringify(ep.parse(json), null, 2);
-// console.log(output);
-console.log('Hello world');
-const io = new InputOutput();
+console.log(output);
+// console.log('Hello world');
+// const io = new InputOutput();
 // io.createFile();
 
 

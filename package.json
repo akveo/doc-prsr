@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "tsc --watch & node dist/index.js"
+    "watch": "tsc --watch",
+    "dev": "node dist/index.js",
+    "compile": "tsc",
+    "start": "npm run compile & npm run dev"
   },
   "repository": {
     "type": "git",
