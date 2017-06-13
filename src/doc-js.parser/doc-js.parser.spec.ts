@@ -937,4 +937,121 @@ describe('#DocJsParser', () => {
     expect(props.getTypeStatic(test2)).toBe('');
   });
 
+  test('#GetProperties -> getTypeInstance', () => {
+    const props = new GetProperties();
+    const test1 = {
+      "description": {
+        "type": "root",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "{string} Name of component",
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 27,
+                    "offset": 26
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 27,
+                "offset": 26
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 27,
+            "offset": 26
+          }
+        }
+      },
+      "tags": [],
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 5
+        }
+      },
+      "context": {
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 2
+          },
+          "end": {
+            "line": 16,
+            "column": 21
+          }
+        },
+        "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+      },
+      "augments": [],
+      "examples": [],
+      "params": [],
+      "properties": [],
+      "returns": [],
+      "sees": [],
+      "throws": [],
+      "todos": [],
+      "name": "componentName",
+      "kind": "member",
+      "memberof": "RkComponent",
+      "scope": "instance",
+      "members": {
+        "global": [],
+        "inner": [],
+        "instance": [],
+        "events": [],
+        "static": []
+      },
+      "path": [
+        {
+          "name": "RkComponent",
+          "kind": "class"
+        },
+        {
+          "name": "componentName",
+          "kind": "member",
+          "scope": "instance"
+        }
+      ],
+      "namespace": "RkComponent#componentName"
+    };
+    const test2 = {};
+
+    expect(props.getTypeInstance(test1)).toBe('string');
+    expect(props.getTypeInstance(test2)).toBe('');
+  });
+
 });

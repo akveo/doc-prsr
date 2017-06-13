@@ -137,7 +137,7 @@ export class GetProperties {
   }
 
   getTypeInstance(obj: any): string {
-    if (obj) {
+    if (obj && obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0]
         [CommonOptions.children][0][CommonOptions.value]
         .split(' ')[0].replace(/[{}]/g, '');
