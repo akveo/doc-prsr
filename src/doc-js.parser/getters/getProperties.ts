@@ -45,7 +45,7 @@ export class GetProperties {//TODO description and shortDescription form "static
   }
 
   getPropsFromProperties(obj: any): Prop[] {
-    if (obj[CommonOptions.properties].length) {
+    if (obj[CommonOptions.properties] && obj[CommonOptions.properties].length) {
       return obj[CommonOptions.properties].map((item: any) => this.parsePropFromProperties(item));
     } else {
       return [];
