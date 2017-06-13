@@ -7,6 +7,7 @@
     "test": "jest",
     "watch": "tsc --watch",
     "compile": "webpack",
+    "dev": "node build/bundle.js",
     "start": "npm run compile && node build/bundle.js"
   },
   "repository": {
@@ -21,6 +22,7 @@
   "homepage": "https://github.com/32penkin/doc-tool#readme",
   "dependencies": {
     "commander": "^2.9.0",
+    "path": "^0.12.7",
     "typescript": "^2.3.3"
   },
   "devDependencies": {
