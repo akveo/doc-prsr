@@ -22,7 +22,7 @@ export class InputOutput {
 
     fs.readFile(this.inputStr, (err: any, data: any) => {
       const newdoc = new DocJsParser().parse(JSON.parse(data));
-      const outputObj: any = JSON.stringify(newdoc, null, 4);
+      const outputObj: any = JSON.stringify(newdoc, null, 2);
       fs.writeFile(this.outputStr, outputObj);
     });
   }

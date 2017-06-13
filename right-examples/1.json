@@ -1,12 +1,4 @@
-import { DocJsParser } from './doc-js.parser/doc-js.parser';
-import { InputOutput } from './input-output';
-import * as fs from 'fs';
-import {
-  Common,
-  GetExamples,
-  GetProperties,
-} from './doc-js.parser/getters';
-const json = [
+[
   {
     "description": {
       "type": "root",
@@ -4173,38 +4165,4 @@ const json = [
     ],
     "namespace": "ThemeManager"
   }
-];
-
-const ep = new DocJsParser();
-const output = JSON.stringify(ep.parse(json), null, 2);
-// console.log(output);
-console.log('Hello world');
-const io = new InputOutput();
-// io.createFile();
-
-
-
-
-
-
-
-
-
-
-
-
-// function iter(obj: any) {
-//     for (let property in obj) {
-//         if (obj.hasOwnProperty(property) && obj[property] != null) {
-//             if (obj[property].constructor == Object) {
-//                 iter(obj[property]);
-//             } else if (obj[property].constructor == Array) {
-//                 for (let i = 0; i < obj[property].length; i++) {
-//                     iter(obj[property][i]);
-//                 }
-//             } else {
-//                 console.log(obj[property]);
-//             }
-//         }
-//     }
-// }
+]

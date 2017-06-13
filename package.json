@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "tsc --watch & node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "@types/node": "^7.0.27",
     "@types/tape": "^4.2.30",
     "fs": "0.0.1-security",
+    "npm-run-all": "^4.0.2",
     "tape": "^4.6.3",
     "ts-jest": "^20.0.5",
     "ts-node": "^3.0.4",
