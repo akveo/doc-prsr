@@ -77,7 +77,7 @@ export class GetProperties {//TODO description and shortDescription form "static
   }
 
   getShortDescriptionProperties(obj: any): string {
-    if (obj[CommonOptions.description]) {
+    if (obj && obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
     } else {
       return '';
@@ -85,7 +85,7 @@ export class GetProperties {//TODO description and shortDescription form "static
   }
 
   getShortDescriptionInstance(obj: any): string {
-    if (obj[CommonOptions.description]) {
+    if (obj && obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
         .split('}')[1].trim();
     } else {
