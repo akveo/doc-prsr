@@ -46,7 +46,7 @@ export class GetMethods {
   }
 
   getMethodsStatic(obj: any): Method[] {
-    if (obj[CommonOptions.members][CommonOptions.static].length) {
+    if (obj[CommonOptions.members] && obj[CommonOptions.members][CommonOptions.static].length) {
       return obj[CommonOptions.members][CommonOptions.static]
         .filter((item: any) => item[CommonOptions.kind] === 'function')
         .map((item: any) => this.parseMethodFromStatic(item));
