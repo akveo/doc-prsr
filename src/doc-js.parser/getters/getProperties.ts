@@ -2,7 +2,7 @@ import { Prop } from '../../model';
 import { Common } from './common'
 import {CommonOptions} from '../doc-js.parser.options';
 
-export class GetProperties {
+export class GetProperties {//TODO description and shortDescription form "static"
   protected common: Common = new Common();
 
   parsePropFromProperties(obj: any): Prop {
@@ -76,7 +76,7 @@ export class GetProperties {
     return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
   }
 
-  getShortDescriptionProperties(obj: any) {
+  getShortDescriptionProperties(obj: any): string {
     if (obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
     } else {
@@ -85,7 +85,6 @@ export class GetProperties {
   }
 
   getShortDescriptionInstance(obj: any): string {
-
     if (obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
         .split('}')[1].trim();
