@@ -53,7 +53,7 @@ export class GetProperties {//TODO description and shortDescription form "static
   }
 
   getPropsFromInstance(obj: any): Prop[] {
-    if (obj[CommonOptions.members][CommonOptions.instance].length) {
+    if (obj[CommonOptions.members] && obj[CommonOptions.members][CommonOptions.instance].length) {
       return obj[CommonOptions.members][CommonOptions.instance]
         .filter((item: any) => item[CommonOptions.kind] === 'member')
         .map((item: any) => this.parsePropFromInstance(item));

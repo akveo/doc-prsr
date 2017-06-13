@@ -3643,7 +3643,7 @@ import {
 
 const ep = new DocJsParser();
 const output = JSON.stringify(ep.parse(json), null, 2);
-// console.log(output);
+console.log(output);
 
 const props = new GetProperties();
 const test1 = {
@@ -4712,67 +4712,48 @@ const test1 = {
 };
 const output1 = [
   {
-    "kind": "prop",
+    "kind": "property",
     "platform": null,
     "isStatic": false,
-    "type": "TouchableOpacity.style",
+    "type": "string",
     "required": null,
-    "name": "style",
-    "shortDescription": "Style for button container",
+    "name": "componentName",
+    "shortDescription": "Name of component",
     "description": ""
   },
   {
-    "kind": "prop",
+    "kind": "property",
     "platform": null,
     "isStatic": false,
-    "type": "style",
+    "type": "object",
     "required": null,
-    "name": "contentStyle",
-    "shortDescription": "Style for each button's children, plaftorm ios",
+    "name": "typeMapping",
+    "shortDescription": "mapping",
     "description": ""
   },
   {
-    "kind": "prop",
+    "kind": "property",
     "platform": null,
     "isStatic": false,
-    "type": "function",
+    "type": "string",
     "required": null,
-    "name": "onPress",
-    "shortDescription": "Called when the touch is released, but not if cancelled.",
+    "name": "baseStyle",
+    "shortDescription": "base style name",
     "description": ""
   },
   {
-    "kind": "prop",
+    "kind": "property",
     "platform": null,
     "isStatic": false,
-    "type": "function",
+    "type": "string",
     "required": null,
-    "name": "onPressIn",
-    "shortDescription": "Called when the touch is released, but not if cancelled.",
+    "name": "defaultType",
+    "shortDescription": "default type name",
     "description": ""
-  },
-  {
-    "kind": "prop",
-    "platform": null,
-    "isStatic": false,
-    "type": "function",
-    "required": null,
-    "name": "onPressOut",
-    "shortDescription": "Called when the touch is released, but not if cancelled.",
-    "description": ""
-  },
-  {
-    "kind": "prop",
-    "platform": null,
-    "isStatic": false,
-    "type": "function",
-    "required": null,
-    "name": "onLongPress",
-    "shortDescription": "Called when the touch is released and is longer than usual press, but not if cancelled.",
-    "description": ""
-  }];
+  }
+];
 
-console.log(props.getPropsFromProperties(test1));
+// console.log(props.getPropsFromProperties(test1));
 
 
 

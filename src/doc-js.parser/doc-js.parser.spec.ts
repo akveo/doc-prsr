@@ -2372,4 +2372,1410 @@ describe('#DocJsParser', () => {
     expect(props.getPropsFromProperties(test1).toString()).toBe(output1.toString());
     expect(props.getShortDescriptionInstance(test2).toString()).toBe([].toString());
   });
+
+  test('#GetProperties -> getPropsFromInstance', () => {
+    const props = new GetProperties();
+    const test1 = {
+      "description": {
+        "type": "root",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "RkComponent is component",
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 25,
+                    "offset": 24
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 25,
+                "offset": 24
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 25,
+            "offset": 24
+          }
+        }
+      },
+      "tags": [],
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 3
+        }
+      },
+      "context": {
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 134,
+            "column": 1
+          }
+        },
+        "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+      },
+      "augments": [
+        {
+          "title": "augments",
+          "name": "Component"
+        }
+      ],
+      "examples": [],
+      "params": [],
+      "properties": [],
+      "returns": [],
+      "sees": [],
+      "throws": [],
+      "todos": [],
+      "name": "RkComponent",
+      "kind": "class",
+      "members": {
+        "global": [],
+        "inner": [],
+        "instance": [
+          {
+            "description": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "{string} Name of component",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 27,
+                          "offset": 26
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 27,
+                      "offset": 26
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 27,
+                  "offset": 26
+                }
+              }
+            },
+            "tags": [],
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 2
+              },
+              "end": {
+                "line": 15,
+                "column": 5
+              }
+            },
+            "context": {
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 21
+                }
+              },
+              "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+            },
+            "augments": [],
+            "examples": [],
+            "params": [],
+            "properties": [],
+            "returns": [],
+            "sees": [],
+            "throws": [],
+            "todos": [],
+            "name": "componentName",
+            "kind": "member",
+            "memberof": "RkComponent",
+            "scope": "instance",
+            "members": {
+              "global": [],
+              "inner": [],
+              "instance": [],
+              "events": [],
+              "static": []
+            },
+            "path": [
+              {
+                "name": "RkComponent",
+                "kind": "class"
+              },
+              {
+                "name": "componentName",
+                "kind": "member",
+                "scope": "instance"
+              }
+            ],
+            "namespace": "RkComponent#componentName"
+          },
+          {
+            "description": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "{object} mapping",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 17,
+                          "offset": 16
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 17,
+                      "offset": 16
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 17,
+                  "offset": 16
+                }
+              }
+            },
+            "tags": [],
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 2
+              },
+              "end": {
+                "line": 19,
+                "column": 5
+              }
+            },
+            "context": {
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "column": 2
+                },
+                "end": {
+                  "line": 20,
+                  "column": 19
+                }
+              },
+              "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+            },
+            "augments": [],
+            "examples": [],
+            "params": [],
+            "properties": [],
+            "returns": [],
+            "sees": [],
+            "throws": [],
+            "todos": [],
+            "name": "typeMapping",
+            "kind": "member",
+            "memberof": "RkComponent",
+            "scope": "instance",
+            "members": {
+              "global": [],
+              "inner": [],
+              "instance": [],
+              "events": [],
+              "static": []
+            },
+            "path": [
+              {
+                "name": "RkComponent",
+                "kind": "class"
+              },
+              {
+                "name": "typeMapping",
+                "kind": "member",
+                "scope": "instance"
+              }
+            ],
+            "namespace": "RkComponent#typeMapping"
+          },
+          {
+            "description": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "{string} base style name",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 25,
+                          "offset": 24
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 25,
+                      "offset": 24
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 25,
+                  "offset": 24
+                }
+              }
+            },
+            "tags": [],
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 2
+              },
+              "end": {
+                "line": 23,
+                "column": 5
+              }
+            },
+            "context": {
+              "loc": {
+                "start": {
+                  "line": 24,
+                  "column": 2
+                },
+                "end": {
+                  "line": 24,
+                  "column": 22
+                }
+              },
+              "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+            },
+            "augments": [],
+            "examples": [],
+            "params": [],
+            "properties": [],
+            "returns": [],
+            "sees": [],
+            "throws": [],
+            "todos": [],
+            "name": "baseStyle",
+            "kind": "member",
+            "memberof": "RkComponent",
+            "scope": "instance",
+            "members": {
+              "global": [],
+              "inner": [],
+              "instance": [],
+              "events": [],
+              "static": []
+            },
+            "path": [
+              {
+                "name": "RkComponent",
+                "kind": "class"
+              },
+              {
+                "name": "baseStyle",
+                "kind": "member",
+                "scope": "instance"
+              }
+            ],
+            "namespace": "RkComponent#baseStyle"
+          },
+          {
+            "description": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "{string} default type name",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 27,
+                          "offset": 26
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 27,
+                      "offset": 26
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 27,
+                  "offset": 26
+                }
+              }
+            },
+            "tags": [],
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 2
+              },
+              "end": {
+                "line": 28,
+                "column": 5
+              }
+            },
+            "context": {
+              "loc": {
+                "start": {
+                  "line": 29,
+                  "column": 2
+                },
+                "end": {
+                  "line": 29,
+                  "column": 24
+                }
+              },
+              "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+            },
+            "augments": [],
+            "examples": [],
+            "params": [],
+            "properties": [],
+            "returns": [],
+            "sees": [],
+            "throws": [],
+            "todos": [],
+            "name": "defaultType",
+            "kind": "member",
+            "memberof": "RkComponent",
+            "scope": "instance",
+            "members": {
+              "global": [],
+              "inner": [],
+              "instance": [],
+              "events": [],
+              "static": []
+            },
+            "path": [
+              {
+                "name": "RkComponent",
+                "kind": "class"
+              },
+              {
+                "name": "defaultType",
+                "kind": "member",
+                "scope": "instance"
+              }
+            ],
+            "namespace": "RkComponent#defaultType"
+          },
+          {
+            "description": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "used to compile rkTypes",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 24,
+                          "offset": 23
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 24,
+                      "offset": 23
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 24,
+                  "offset": 23
+                }
+              }
+            },
+            "tags": [
+              {
+                "title": "param",
+                "description": null,
+                "lineNumber": 2,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "string"
+                },
+                "name": "additionalTypes"
+              },
+              {
+                "title": "returns",
+                "description": "styles",
+                "lineNumber": 3,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "array"
+                }
+              }
+            ],
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 2
+              },
+              "end": {
+                "line": 35,
+                "column": 5
+              }
+            },
+            "context": {
+              "loc": {
+                "start": {
+                  "line": 36,
+                  "column": 2
+                },
+                "end": {
+                  "line": 41,
+                  "column": 3
+                }
+              },
+              "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+            },
+            "augments": [],
+            "examples": [],
+            "params": [
+              {
+                "title": "param",
+                "name": "additionalTypes",
+                "lineNumber": 2,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "string"
+                }
+              }
+            ],
+            "properties": [],
+            "returns": [
+              {
+                "description": {
+                  "type": "root",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "styles",
+                          "position": {
+                            "start": {
+                              "line": 1,
+                              "column": 1,
+                              "offset": 0
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 7,
+                              "offset": 6
+                            },
+                            "indent": []
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 7,
+                          "offset": 6
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 7,
+                      "offset": 6
+                    }
+                  }
+                },
+                "title": "returns",
+                "type": {
+                  "type": "NameExpression",
+                  "name": "array"
+                }
+              }
+            ],
+            "sees": [],
+            "throws": [],
+            "todos": [],
+            "name": "defineStyles",
+            "kind": "function",
+            "memberof": "RkComponent",
+            "scope": "instance",
+            "members": {
+              "global": [],
+              "inner": [],
+              "instance": [],
+              "events": [],
+              "static": []
+            },
+            "path": [
+              {
+                "name": "RkComponent",
+                "kind": "class"
+              },
+              {
+                "name": "defineStyles",
+                "kind": "function",
+                "scope": "instance"
+              }
+            ],
+            "namespace": "RkComponent#defineStyles"
+          },
+          {
+            "description": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extracts non style value",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 25,
+                          "offset": 24
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 25,
+                      "offset": 24
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 25,
+                  "offset": 24
+                }
+              }
+            },
+            "tags": [
+              {
+                "title": "param",
+                "description": null,
+                "lineNumber": 2,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "string"
+                },
+                "name": "styles"
+              },
+              {
+                "title": "param",
+                "description": null,
+                "lineNumber": 3,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "string"
+                },
+                "name": "property"
+              },
+              {
+                "title": "returns",
+                "description": "something",
+                "lineNumber": 4,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "object"
+                }
+              }
+            ],
+            "loc": {
+              "start": {
+                "line": 43,
+                "column": 2
+              },
+              "end": {
+                "line": 48,
+                "column": 5
+              }
+            },
+            "context": {
+              "loc": {
+                "start": {
+                  "line": 49,
+                  "column": 2
+                },
+                "end": {
+                  "line": 58,
+                  "column": 3
+                }
+              },
+              "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+            },
+            "augments": [],
+            "examples": [],
+            "params": [
+              {
+                "title": "param",
+                "name": "styles",
+                "lineNumber": 2,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "string"
+                }
+              },
+              {
+                "title": "param",
+                "name": "property",
+                "lineNumber": 3,
+                "type": {
+                  "type": "NameExpression",
+                  "name": "string"
+                }
+              }
+            ],
+            "properties": [],
+            "returns": [
+              {
+                "description": {
+                  "type": "root",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "something",
+                          "position": {
+                            "start": {
+                              "line": 1,
+                              "column": 1,
+                              "offset": 0
+                            },
+                            "end": {
+                              "line": 1,
+                              "column": 10,
+                              "offset": 9
+                            },
+                            "indent": []
+                          }
+                        }
+                      ],
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 10,
+                          "offset": 9
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 10,
+                      "offset": 9
+                    }
+                  }
+                },
+                "title": "returns",
+                "type": {
+                  "type": "NameExpression",
+                  "name": "object"
+                }
+              }
+            ],
+            "sees": [],
+            "throws": [],
+            "todos": [],
+            "name": "extractNonStyleValue",
+            "kind": "function",
+            "memberof": "RkComponent",
+            "scope": "instance",
+            "members": {
+              "global": [],
+              "inner": [],
+              "instance": [],
+              "events": [],
+              "static": []
+            },
+            "path": [
+              {
+                "name": "RkComponent",
+                "kind": "class"
+              },
+              {
+                "name": "extractNonStyleValue",
+                "kind": "function",
+                "scope": "instance"
+              }
+            ],
+            "namespace": "RkComponent#extractNonStyleValue"
+          }
+        ],
+        "events": [],
+        "static": []
+      },
+      "path": [
+        {
+          "name": "RkComponent",
+          "kind": "class"
+        }
+      ],
+      "namespace": "RkComponent"
+    };
+    const output1 = [
+      {
+        "description": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "{string} Name of component",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 27,
+                      "offset": 26
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 27,
+                  "offset": 26
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 27,
+              "offset": 26
+            }
+          }
+        },
+        "tags": [],
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 2
+          },
+          "end": {
+            "line": 15,
+            "column": 5
+          }
+        },
+        "context": {
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 2
+            },
+            "end": {
+              "line": 16,
+              "column": 21
+            }
+          },
+          "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+        },
+        "augments": [],
+        "examples": [],
+        "params": [],
+        "properties": [],
+        "returns": [],
+        "sees": [],
+        "throws": [],
+        "todos": [],
+        "name": "componentName",
+        "kind": "member",
+        "memberof": "RkComponent",
+        "scope": "instance",
+        "members": {
+          "global": [],
+          "inner": [],
+          "instance": [],
+          "events": [],
+          "static": []
+        },
+        "path": [
+          {
+            "name": "RkComponent",
+            "kind": "class"
+          },
+          {
+            "name": "componentName",
+            "kind": "member",
+            "scope": "instance"
+          }
+        ],
+        "namespace": "RkComponent#componentName"
+      },
+      {
+        "description": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "{object} mapping",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 17,
+                      "offset": 16
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 17,
+                  "offset": 16
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 17,
+              "offset": 16
+            }
+          }
+        },
+        "tags": [],
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 2
+          },
+          "end": {
+            "line": 19,
+            "column": 5
+          }
+        },
+        "context": {
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 2
+            },
+            "end": {
+              "line": 20,
+              "column": 19
+            }
+          },
+          "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+        },
+        "augments": [],
+        "examples": [],
+        "params": [],
+        "properties": [],
+        "returns": [],
+        "sees": [],
+        "throws": [],
+        "todos": [],
+        "name": "typeMapping",
+        "kind": "member",
+        "memberof": "RkComponent",
+        "scope": "instance",
+        "members": {
+          "global": [],
+          "inner": [],
+          "instance": [],
+          "events": [],
+          "static": []
+        },
+        "path": [
+          {
+            "name": "RkComponent",
+            "kind": "class"
+          },
+          {
+            "name": "typeMapping",
+            "kind": "member",
+            "scope": "instance"
+          }
+        ],
+        "namespace": "RkComponent#typeMapping"
+      },
+      {
+        "description": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "{string} base style name",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 25,
+                      "offset": 24
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 25,
+                  "offset": 24
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 25,
+              "offset": 24
+            }
+          }
+        },
+        "tags": [],
+        "loc": {
+          "start": {
+            "line": 21,
+            "column": 2
+          },
+          "end": {
+            "line": 23,
+            "column": 5
+          }
+        },
+        "context": {
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 2
+            },
+            "end": {
+              "line": 24,
+              "column": 22
+            }
+          },
+          "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+        },
+        "augments": [],
+        "examples": [],
+        "params": [],
+        "properties": [],
+        "returns": [],
+        "sees": [],
+        "throws": [],
+        "todos": [],
+        "name": "baseStyle",
+        "kind": "member",
+        "memberof": "RkComponent",
+        "scope": "instance",
+        "members": {
+          "global": [],
+          "inner": [],
+          "instance": [],
+          "events": [],
+          "static": []
+        },
+        "path": [
+          {
+            "name": "RkComponent",
+            "kind": "class"
+          },
+          {
+            "name": "baseStyle",
+            "kind": "member",
+            "scope": "instance"
+          }
+        ],
+        "namespace": "RkComponent#baseStyle"
+      },
+      {
+        "description": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "{string} default type name",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 27,
+                      "offset": 26
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 27,
+                  "offset": 26
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 27,
+              "offset": 26
+            }
+          }
+        },
+        "tags": [],
+        "loc": {
+          "start": {
+            "line": 26,
+            "column": 2
+          },
+          "end": {
+            "line": 28,
+            "column": 5
+          }
+        },
+        "context": {
+          "loc": {
+            "start": {
+              "line": 29,
+              "column": 2
+            },
+            "end": {
+              "line": 29,
+              "column": 24
+            }
+          },
+          "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/rkComponent.js"
+        },
+        "augments": [],
+        "examples": [],
+        "params": [],
+        "properties": [],
+        "returns": [],
+        "sees": [],
+        "throws": [],
+        "todos": [],
+        "name": "defaultType",
+        "kind": "member",
+        "memberof": "RkComponent",
+        "scope": "instance",
+        "members": {
+          "global": [],
+          "inner": [],
+          "instance": [],
+          "events": [],
+          "static": []
+        },
+        "path": [
+          {
+            "name": "RkComponent",
+            "kind": "class"
+          },
+          {
+            "name": "defaultType",
+            "kind": "member",
+            "scope": "instance"
+          }
+        ],
+        "namespace": "RkComponent#defaultType"
+      }];
+    const test2 = {};
+
+    expect(props.getPropsFromInstance(test1).toString()).toBe(output1.toString());
+    expect(props.getPropsFromInstance(test2).toString()).toBe([].toString());
+  });
 });
