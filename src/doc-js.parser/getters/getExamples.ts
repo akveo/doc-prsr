@@ -11,10 +11,9 @@ export class GetExamples {
   }
 
 
-  getCode(obj: any): string {
-    const regexp = /```/g;
+  getCode(obj: any) {
     if (obj[CommonOptions.description]) {
-      return obj[CommonOptions.description].split(regexp)[1];
+      return obj[CommonOptions.description].split(/```/g)[1];
     } else {
       return '';
     }

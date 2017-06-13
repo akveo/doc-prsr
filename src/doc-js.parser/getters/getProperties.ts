@@ -113,7 +113,7 @@ export class GetProperties {
   }
 
   getDescriptionStatic(obj: any) { //??????????
-    if (obj) {
+    if (obj && obj[CommonOptions.tags]) {
       return obj[CommonOptions.tags][0][CommonOptions.description];
     } else {
       return '';

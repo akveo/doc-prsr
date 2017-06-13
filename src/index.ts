@@ -4178,17 +4178,145 @@ import {
 
 const ep = new DocJsParser();
 const output = JSON.stringify(ep.parse(json), null, 2);
-console.log(output);
+// console.log(output);
 
-const examples = new GetExamples();
+const props = new GetProperties();
+const test1 = {
+  "description": "",
+  "tags": [
+    {
+      "title": "property",
+      "description": "Another static property",
+      "lineNumber": 1,
+      "type": {
+        "type": "NameExpression",
+        "name": "object"
+      },
+      "name": "null-null"
+    }
+  ],
+  "loc": {
+    "start": {
+      "line": 162,
+      "column": 2
+    },
+    "end": {
+      "line": 165,
+      "column": 5
+    }
+  },
+  "context": {
+    "loc": {
+      "start": {
+        "line": 166,
+        "column": 2
+      },
+      "end": {
+        "line": 168,
+        "column": 4
+      }
+    },
+    "file": "/Users/alexei/dev/react-native-ui-kitten/src/components/button/rkButton.js"
+  },
+  "augments": [],
+  "examples": [],
+  "params": [],
+  "properties": [
+    {
+      "title": "property",
+      "name": "null-null",
+      "lineNumber": 1,
+      "description": {
+        "type": "root",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "Another static property",
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 24,
+                    "offset": 23
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 24,
+                "offset": 23
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 24,
+            "offset": 23
+          }
+        }
+      },
+      "type": {
+        "type": "NameExpression",
+        "name": "object"
+      }
+    }
+  ],
+  "returns": [],
+  "sees": [],
+  "throws": [],
+  "todos": [],
+  "name": "contextTypes",
+  "kind": "member",
+  "memberof": "RkButton",
+  "scope": "static",
+  "members": {
+    "global": [],
+    "inner": [],
+    "instance": [],
+    "events": [],
+    "static": []
+  },
+  "path": [
+    {
+      "name": "RkButton",
+      "kind": "class"
+    },
+    {
+      "name": "contextTypes",
+      "kind": "member",
+      "scope": "static"
+    }
+  ],
+  "namespace": "RkButton.contextTypes"
+};
+const test2 = {};
 
-// const test1 = {
-//   "title": "example",
-//   "description": "Using `rkType`prop\r\n\r\n`RkButton` has `rkType` prop. This prop works similar to CSS-class in web. It's possible to set more than one type.\r\nThere are already some predefined types. Here is example of how to use rkType\r\n\r\n```\r\n<RkButton rkType='success'>Accept</RkButton>\r\n<RkButton rkType='danger small'>Cancel</RkButton>\r\n```",
-//   "lineNumber": 24
-// };
-// ;
-// console.log(examples.getDescriptionArr(test1));
+console.log(props.getDescriptionStatic(test2));
+
+
 
 
 
