@@ -6,9 +6,8 @@
   "scripts": {
     "test": "jest",
     "watch": "tsc --watch",
-    "dev": "node dist/index.js",
-    "compile": "tsc",
-    "start": "npm run compile & npm run dev"
+    "compile": "webpack",
+    "start": "npm run compile && node build/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -28,12 +27,16 @@
     "@types/jest": "^19.2.4",
     "@types/node": "^7.0.27",
     "@types/tape": "^4.2.30",
+    "@webpack-blocks/babel6": "^0.4.1",
+    "@webpack-blocks/typescript": "^0.4.1",
+    "@webpack-blocks/webpack2": "^0.4.0",
     "fs": "0.0.1-security",
     "npm-run-all": "^4.0.2",
     "tape": "^4.6.3",
     "ts-jest": "^20.0.5",
     "ts-node": "^3.0.4",
-    "typings": "^2.1.1"
+    "typings": "^2.1.1",
+    "webpack": "^2.6.1"
   },
   "jest": {
     "transform": {
@@ -46,5 +49,8 @@
       "js",
       "json"
     ]
+  },
+  "bin": {
+    "prsr": "bin/prsr"
   }
 }

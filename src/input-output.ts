@@ -3,8 +3,8 @@ import * as fs from 'fs';
 const program = require('commander');
 
 export class InputOutput {
-  inputStr: any;
-  outputStr: any;
+  inputStr: any = '';
+  outputStr: any = '';
 
   setInputOutputPathes(): void {
     program
@@ -20,10 +20,10 @@ export class InputOutput {
   createFile(): void {
     this.setInputOutputPathes();
 
-    fs.readFile(this.inputStr, (err: any, data: any) => {
+    fs.readFile(process.cwd() + this.inputStr, (err: any, data: any) => {
       const newdoc = new DocJsParser().parse(JSON.parse(data));
       const outputObj: any = JSON.stringify(newdoc, null, 2);
-      fs.writeFile(this.outputStr, outputObj);
+      fs.writeFile(process.cwd() + this.outputStr, outputObj);
     });
   }
 
