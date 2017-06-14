@@ -53,5 +53,73 @@ export class TypedocParser {
     });
     return JSON.stringify(tempClasses, null, 2);
   }
+  parseComponent(obj: any) {
+    return new Class({
+      kind: 'component',
+      platform: null,
+      examples: [],
+      props: [],
+      methods: [],
+      name: obj[CommonOptions.name],
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj),
+      styles: []
+    });
+  }
 
+  parseClass(obj: any) {
+    return new Class({
+      kind: 'class',
+      platform: null,
+      examples: [],
+      props: [],
+      methods: [],
+      name: obj[CommonOptions.name],
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj),
+      styles: []
+    });
+  }
+
+  parseDirective(obj: any) {
+    return new Class({
+      kind: 'directive',
+      platform: null,
+      examples: [],
+      props: [],
+      methods: [],
+      name: obj[CommonOptions.name],
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj),
+      styles: []
+    });
+  }
+
+  parseService(obj: any) {
+    return new Class({
+      kind: 'service',
+      platform: null,
+      examples: [],
+      props: [],
+      methods: [],
+      name: obj[CommonOptions.name],
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj),
+      styles: []
+    });
+  }
+
+  parseInterface(obj: any) {
+    return new Class({
+      kind: 'interface',
+      platform: null,
+      examples: [],
+      props: [],
+      methods: [],
+      name: obj[CommonOptions.name],
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj),
+      styles: []
+    });
+  }
 }
