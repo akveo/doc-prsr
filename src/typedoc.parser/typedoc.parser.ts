@@ -30,7 +30,28 @@ export class TypedocParser {
     }
   }
 
+  getClasses(obj: any) {
+    this.findAllClasses(obj);
+    let tempClasses: any[] = [];
 
-
+    tempClasses = this.classes.map((item: any) => {
+      if (!item[CommonOptions.decorators]) {
+        if (item[CommonOptions.primKind] === 'Class') {
+          return this.parseClass(item);
+        } else if (item[CommonOptions.primKind] === 'Interface') {
+          return this.parseInterface(item);
+        }
+      } else if (item[CommonOptions.decorators]) {
+        if (item[CommonOptions.decorators][0][CommonOptions.name] === 'Component') {
+          return this.parseComponent(item);
+        } else if (item[CommonOptions.decorators][0][CommonOptions.name] === 'Injectable') {
+          return this.parseService(item);
+        } else if (item[CommonOptions.decorators][0][CommonOptions.name] === 'Directive') {
+          return this.parseDirective(item);
+        }
+      }
+    });
+    return JSON.stringify(tempClasses, null, 2);
+  }
 
 }
