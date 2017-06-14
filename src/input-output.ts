@@ -19,7 +19,7 @@ export class InputOutput {
       this.outputStr = Path.resolve(program['output']);
       return true;
     } else {
-      console.log('U don\'t enter inp and/or out str');
+      console.log('U don\'t enter input and/or output pathes');
       return false;
     }
   }

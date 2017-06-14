@@ -4,7 +4,7 @@ import {Method} from './method';
 import {Platform} from './platform';
 import {Style} from './style';
 
-export type ClassKind = 'component' | 'class' | 'unknown';
+export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface';
 
 export class Class {
   /**

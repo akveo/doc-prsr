@@ -1,4 +1,4 @@
-const { createConfig, defineConstants, env, entryPoint, setOutput, sourceMaps } = require('@webpack-blocks/webpack2');
+const { createConfig, entryPoint, setOutput } = require('@webpack-blocks/webpack2');
 const typescript = require('@webpack-blocks/typescript');
 
 module.exports = createConfig([
