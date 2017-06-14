@@ -26442,8 +26442,8 @@ var GetProperties = (function () {
             type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
-            shortDescription: '',
-            description: ''
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj)
         });
     };
     GetProperties.prototype.parseProperty = function (obj) {
@@ -26454,8 +26454,8 @@ var GetProperties = (function () {
             type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
-            shortDescription: '',
-            description: ''
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj)
         });
     };
     GetProperties.prototype.parseInput = function (obj) {
@@ -26466,8 +26466,8 @@ var GetProperties = (function () {
             type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
-            shortDescription: '',
-            description: ''
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj)
         });
     };
     GetProperties.prototype.parseOutput = function (obj) {
@@ -26485,6 +26485,22 @@ var GetProperties = (function () {
     GetProperties.prototype.getType = function (obj) {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
             return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.getDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['text'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
         else {
             return '';

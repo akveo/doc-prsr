@@ -2913,8 +2913,7 @@
           "type": "string",
           "required": null,
           "name": "tag",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page."
         },
         {
           "kind": "property",
@@ -2983,8 +2982,7 @@
           "type": "",
           "required": null,
           "name": "fixed",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Makes sidebar fixed (shown below the layout content)"
         },
         {
           "kind": "property",
@@ -2993,8 +2991,7 @@
           "type": "",
           "required": null,
           "name": "left",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Places sidebar on the right side"
         },
         {
           "kind": "property",
@@ -3003,8 +3000,7 @@
           "type": "",
           "required": null,
           "name": "right",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Places sidebar on the left side"
         },
         {
           "kind": "property",
@@ -3013,8 +3009,7 @@
           "type": "",
           "required": null,
           "name": "state",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Initial sidebar state, expanded|collapsed|compacted"
         }
       ],
       "methods": [],
@@ -3276,8 +3271,7 @@
           "type": "string",
           "required": null,
           "name": "color",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Color of the area shown when no picture specified"
         },
         {
           "kind": "property",
@@ -3306,8 +3300,7 @@
           "type": "NgaUserMenuItem",
           "required": null,
           "name": "menu",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "List of menu items for a user context menu (shown when clicked)"
         },
         {
           "kind": "property",
@@ -3316,8 +3309,7 @@
           "type": "EventEmitter",
           "required": null,
           "name": "menuClick",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Outputs when a context menu item is clicked"
         },
         {
           "kind": "property",
@@ -3326,8 +3318,7 @@
           "type": "string",
           "required": null,
           "name": "name",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Specifies a name to be shown on the right of a user picture"
         },
         {
           "kind": "property",
@@ -3336,8 +3327,7 @@
           "type": "string",
           "required": null,
           "name": "picture",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Absolute path to a user picture\nUser name initials (JD for John Doe) will be shown if no picture specified"
         },
         {
           "kind": "property",
@@ -3386,8 +3376,7 @@
           "type": "string",
           "required": null,
           "name": "title",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Specifies a title (written in a smaller font) to be shown under the **name**"
         },
         {
           "kind": "property",
@@ -3443,8 +3432,7 @@
           "type": "",
           "required": null,
           "name": "onlyPicture",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Whether to show only a picture or also show the name and title"
         },
         {
           "kind": "property",
@@ -3453,8 +3441,7 @@
           "type": "",
           "required": null,
           "name": "showInitials",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Whether to show a user initials (if no picture specified) or not"
         },
         {
           "kind": "property",
@@ -3463,8 +3450,7 @@
           "type": "",
           "required": null,
           "name": "showName",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Whether to show a user name or not"
         },
         {
           "kind": "property",
@@ -3473,8 +3459,7 @@
           "type": "",
           "required": null,
           "name": "showTitle",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Whether to show a user title or not"
         },
         {
           "kind": "property",
@@ -3483,8 +3468,7 @@
           "type": "",
           "required": null,
           "name": "size",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Size of the component, small|medium|large"
         },
         {
           "kind": "property",
@@ -3515,8 +3499,7 @@
           "type": "string",
           "required": null,
           "name": "icon",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Icon class"
         },
         {
           "kind": "property",
@@ -3525,8 +3508,7 @@
           "type": "string",
           "required": null,
           "name": "link",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Menu link for [routerLink] directive"
         },
         {
           "kind": "property",
@@ -3535,8 +3517,7 @@
           "type": "string",
           "required": null,
           "name": "target",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Link target (_blank, _self, etc)"
         },
         {
           "kind": "property",
@@ -3545,8 +3526,7 @@
           "type": "string",
           "required": null,
           "name": "title",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Menu title"
         },
         {
           "kind": "property",
@@ -3555,8 +3535,7 @@
           "type": "string",
           "required": null,
           "name": "url",
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "URL for absolute urls, used directly in href"
         }
       ],
       "methods": [],

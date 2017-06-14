@@ -50,8 +50,8 @@ export class GetProperties {
       type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
-      shortDescription: '',
-      description: ''
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj)
     });
   }
 
@@ -63,8 +63,8 @@ export class GetProperties {
       type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
-      shortDescription: '',
-      description: ''
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj)
     });
   }
 
@@ -76,8 +76,8 @@ export class GetProperties {
       type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
-      shortDescription: '',
-      description: ''
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj)
     });
   }
 
@@ -97,6 +97,22 @@ export class GetProperties {
   getType(obj: any): string {
     if (obj && obj[CommonOptions.type]) {
       return obj[CommonOptions.type][CommonOptions.name];
+    } else {
+      return '';
+    }
+  }
+
+  getDescription(obj: any): string {
+    if (obj && obj[CommonOptions.comment]) {
+      return obj[CommonOptions.comment]['text'];
+    } else {
+      return '';
+    }
+  }
+
+  getShortDescription(obj: any) {
+    if (obj && obj[CommonOptions.comment]) {
+      return obj[CommonOptions.comment]['shortText'];
     } else {
       return '';
     }
