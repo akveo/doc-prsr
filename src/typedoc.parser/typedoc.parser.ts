@@ -10,7 +10,12 @@ import {
   PropKind
 } from '../model';
 
+import {
+  GetProperties
+} from './getters';
+
 export class TypedocParser {
+  protected props: GetProperties = new GetProperties();
   protected json: any;
   protected classes: any[] = [];
 
@@ -63,7 +68,7 @@ export class TypedocParser {
       kind: 'component',
       platform: null,
       examples: [],
-      props: [],
+      props: this.props.getProps(obj),
       methods: [],
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
@@ -77,7 +82,7 @@ export class TypedocParser {
       kind: 'class',
       platform: null,
       examples: [],
-      props: [],
+      props: this.props.getProps(obj),
       methods: [],
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
@@ -91,7 +96,7 @@ export class TypedocParser {
       kind: 'directive',
       platform: null,
       examples: [],
-      props: [],
+      props: this.props.getProps(obj),
       methods: [],
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
@@ -105,7 +110,7 @@ export class TypedocParser {
       kind: 'service',
       platform: null,
       examples: [],
-      props: [],
+      props: this.props.getProps(obj),
       methods: [],
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
@@ -119,7 +124,7 @@ export class TypedocParser {
       kind: 'interface',
       platform: null,
       examples: [],
-      props: [],
+      props: this.props.getProps(obj),
       methods: [],
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),

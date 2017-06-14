@@ -26077,7 +26077,7 @@ const json = {
 const rdp = new TypedocParser();
 
 const output = rdp.parse(json);
-console.log(output);
+console.log(JSON.stringify(output, null, 2));
 
 
 

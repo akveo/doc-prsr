@@ -1,0 +1,1 @@
+export { GetProperties } from './getProperties';
