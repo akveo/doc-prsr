@@ -1,763 +1,5 @@
 {
   "classes": [
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaAppComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    null,
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "any",
-          "required": null,
-          "name": "cards",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Array",
-          "required": null,
-          "name": "sizes",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Array",
-          "required": null,
-          "name": "statuses",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "prepareCards",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaCardTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaLayoutFooterTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaLayoutHeaderTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaLayoutTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "currentTheme",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "NgaThemeService",
-          "required": null,
-          "name": "themeService",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "changeTheme",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaThemeChangeTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem1Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem2Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem31Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem32Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem331Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem332Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem33Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem3Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuItem4Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "List",
-          "required": null,
-          "name": "menuItems",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "NgaMenuService",
-          "required": null,
-          "name": "menuService",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "addMenuItem",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "navigateHome",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngAfterViewInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaMenuTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaRouteTabsetTestChild1Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaRouteTabsetTestChild2Component",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "any",
-          "required": null,
-          "name": "tabs",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [],
-      "name": "NgaRouteTabsetTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaSidebarTestOneComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaSidebarTestThreeComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "name": "NgaSidebarTestTwoComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "content",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "NgaSidebarService",
-          "required": null,
-          "name": "sidebarService",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "collapseLeft",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "collapseRight",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "ngOnInit",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaSidebarTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Router",
-          "required": null,
-          "name": "router",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "changeTab",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaTabsetTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "component",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Array",
-          "required": null,
-          "name": "contextMenu",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "onMenuItemClick",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "name": "NgaUserTestComponent",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
     null,
     {
       "kind": "interface",
@@ -883,7 +125,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "errors",
           "shortDescription": "",
@@ -893,7 +134,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "messages",
           "shortDescription": "",
@@ -1069,7 +309,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "errors",
           "shortDescription": "",
@@ -1079,7 +318,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "messages",
           "shortDescription": "",
@@ -1192,7 +430,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "errors",
           "shortDescription": "",
@@ -1202,7 +439,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "messages",
           "shortDescription": "",
@@ -1305,7 +541,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "errors",
           "shortDescription": "",
@@ -1315,7 +550,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "messages",
           "shortDescription": "",
@@ -1901,7 +1135,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "defaultErrors",
           "shortDescription": "",
@@ -1911,7 +1144,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "defaultMessages",
           "shortDescription": "",
@@ -1970,7 +1202,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "defaultErrors",
           "shortDescription": "",
@@ -1980,7 +1211,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "defaultMessages",
           "shortDescription": "",
@@ -2204,7 +1434,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "errors",
           "shortDescription": "",
@@ -2214,7 +1443,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "string",
           "required": null,
           "name": "messages",
           "shortDescription": "",
@@ -2747,6 +1975,152 @@
       "kind": "component",
       "platform": null,
       "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "boolean",
+          "required": null,
+          "name": "disabledValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "icon",
+          "shortDescription": "Icon class to display"
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "disabled",
+          "shortDescription": "Disables the item (changes item opacity and mouse cursor)"
+        }
+      ],
+      "methods": [],
+      "name": "NgaActionComponent",
+      "shortDescription": "Action item, display a link with an icon, or any other content provided instead.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "boolean",
+          "required": null,
+          "name": "inverseValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "sizeValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "SIZE_LARGE",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "SIZE_MEDIUM",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "SIZE_SMALL",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "inverse",
+          "shortDescription": "Makes colors inverse based on current theme"
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "large",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "medium",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "size",
+          "shortDescription": "Size of the component, small|medium|large"
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "small",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaActionsComponent",
+      "shortDescription": "Shows a a horizontal list of actions, available in multiple sizes\nAligns items vertically.",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
       "props": [],
       "name": "NgaCardBodyComponent",
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset body section.",
@@ -3111,6 +2485,26 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "appendClassSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "appendSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
           "type": "boolean",
           "required": null,
           "name": "centerValue",
@@ -3121,9 +2515,39 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "clearSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "ComponentFactoryResolver",
+          "required": null,
+          "name": "componentFactoryResolver",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
           "type": "ElementRef",
           "required": null,
           "name": "elementRef",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "removeClassSubscription",
           "shortDescription": "",
           "description": ""
         },
@@ -3161,6 +2585,16 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
+          "type": "ViewContainerRef",
+          "required": null,
+          "name": "veryTopRef",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
           "type": "",
           "required": null,
           "name": "center",
@@ -3169,6 +2603,16 @@
         }
       ],
       "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngAfterViewInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
         {
           "examples": [],
           "params": [],
@@ -3267,9 +2711,29 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "EventEmitter",
+          "type": "Subscription",
           "required": null,
-          "name": "hoverItem",
+          "name": "addItemSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "getSelectedItemSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "boolean",
+          "required": null,
+          "name": "inverseValue",
           "shortDescription": "",
           "description": ""
         },
@@ -3279,7 +2743,7 @@
           "isStatic": false,
           "type": "List",
           "required": null,
-          "name": "menuItems",
+          "name": "items",
           "shortDescription": "",
           "description": ""
         },
@@ -3287,9 +2751,19 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "NgaMenuService",
+          "type": "NgaMenuInternalService",
           "required": null,
-          "name": "menuService",
+          "name": "menu2Service",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "navigateHomeSubscription",
           "shortDescription": "",
           "description": ""
         },
@@ -3327,14 +2801,33 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "EventEmitter",
+          "type": "",
           "required": null,
-          "name": "toggleSubMenu",
-          "shortDescription": "",
-          "description": ""
+          "name": "inverse",
+          "shortDescription": "Makes colors inverse based on current theme"
         }
       ],
       "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "clearStack",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "compareTag",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
         {
           "examples": [],
           "params": [],
@@ -3349,7 +2842,27 @@
           "examples": [],
           "params": [],
           "platform": null,
+          "name": "getSelectedItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
           "name": "navigateHome",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnDestroy",
           "type": [],
           "isStatic": false,
           "shortDescription": "",
@@ -3460,16 +2973,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "NgaMenuService",
-          "required": null,
-          "name": "menuService",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
           "type": "Router",
           "required": null,
           "name": "router",
@@ -3546,6 +3049,219 @@
     },
     null,
     {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "List",
+          "required": null,
+          "name": "items",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Location",
+          "required": null,
+          "name": "location",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "any",
+          "required": null,
+          "name": "options",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Router",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "List",
+          "required": null,
+          "name": "stack",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "clearStack",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getItems",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "itemClick",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "itemHover",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "itemSelect",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onAddItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onGetSelectedItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onNavigateHome",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "prepareItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "prepareItems",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetItems",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "setParent",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "submenuToggle",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaMenuInternalService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
       "kind": "class",
       "platform": null,
       "examples": [],
@@ -3557,6 +3273,16 @@
           "type": "List",
           "required": null,
           "name": "children",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "any",
+          "required": null,
+          "name": "data",
           "shortDescription": "",
           "description": ""
         },
@@ -3644,6 +3370,16 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
+          "type": "boolean",
+          "required": null,
+          "name": "selected",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
           "type": "string",
           "required": null,
           "name": "target",
@@ -3678,163 +3414,10 @@
       "styles": []
     },
     {
-      "kind": "class",
-      "platform": null,
-      "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "List",
-          "required": null,
-          "name": "items",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
-      "methods": [],
-      "name": "NgaMenuModuleConfig",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
       "kind": "service",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "addItems$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Observable",
-          "required": null,
-          "name": "addItemsSuggest",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "NgaMenuModuleConfig",
-          "required": null,
-          "name": "config",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "itemClick$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Observable",
-          "required": null,
-          "name": "itemClickSuggest",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "List",
-          "required": null,
-          "name": "items",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "itemsChanges$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Observable",
-          "required": null,
-          "name": "itemsChangesSuggest",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "navigateHome$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Observable",
-          "required": null,
-          "name": "navigateHomeSuggest",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Router",
-          "required": null,
-          "name": "router",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "List",
-          "required": null,
-          "name": "stack",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [
         {
           "examples": [],
@@ -3850,27 +3433,7 @@
           "examples": [],
           "params": [],
           "platform": null,
-          "name": "clearStack",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "getItems",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "itemClick",
+          "name": "getSelectedItem",
           "type": [],
           "isStatic": false,
           "shortDescription": "",
@@ -3890,7 +3453,7 @@
           "examples": [],
           "params": [],
           "platform": null,
-          "name": "prepareItem",
+          "name": "onItemClick",
           "type": [],
           "isStatic": false,
           "shortDescription": "",
@@ -3900,7 +3463,7 @@
           "examples": [],
           "params": [],
           "platform": null,
-          "name": "prepareItems",
+          "name": "onItemHover",
           "type": [],
           "isStatic": false,
           "shortDescription": "",
@@ -3910,7 +3473,7 @@
           "examples": [],
           "params": [],
           "platform": null,
-          "name": "resetItem",
+          "name": "onItemSelect",
           "type": [],
           "isStatic": false,
           "shortDescription": "",
@@ -3920,17 +3483,7 @@
           "examples": [],
           "params": [],
           "platform": null,
-          "name": "resetItems",
-          "type": [],
-          "isStatic": false,
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "examples": [],
-          "params": [],
-          "platform": null,
-          "name": "setParent",
+          "name": "onSubmenuToggle",
           "type": [],
           "isStatic": false,
           "shortDescription": "",
@@ -3938,6 +3491,28 @@
         }
       ],
       "name": "NgaMenuService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "List",
+          "required": null,
+          "name": "items",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuOptions",
       "description": "",
       "shortDescription": "",
       "styles": []
@@ -3991,7 +3566,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "any",
           "required": null,
           "name": "tabs",
           "shortDescription": "",
@@ -4026,6 +3600,567 @@
       "styles": []
     },
     null,
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "ViewContainerRef",
+          "required": null,
+          "name": "attachedSearchContainer",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "ComponentFactoryResolver",
+          "required": null,
+          "name": "componentFactoryResolver",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "placeholder",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "ComponentRef",
+          "required": null,
+          "name": "searchFieldComponentRef",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "NgaSuperSearchService",
+          "required": null,
+          "name": "searchService",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "searchType",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "boolean",
+          "required": null,
+          "name": "showSearch",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "tag",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "NgaThemeService",
+          "required": null,
+          "name": "themeService",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "simpleSearch",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "type",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "connectToSearchField",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createAttachedSearch",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngAfterViewInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnDestroy",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "openSearch",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaSearchComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "ElementRef",
+          "required": null,
+          "name": "inputElement",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "placeholder",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "EventEmitter",
+          "required": null,
+          "name": "search",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "EventEmitter",
+          "required": null,
+          "name": "searchClose",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "searchType",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "boolean",
+          "required": null,
+          "name": "showSearch",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_COLUMN_CURTAIN",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_CURTAIN",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_MODAL_DROP",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_MODAL_HALF",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_MODAL_MOVE",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_MODAL_ZOOMIN",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_ROTATE_LAYOUT",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": true,
+          "required": null,
+          "name": "TYPE_SIMPLE_SEARCH",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "columnCurtain",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "curtain",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "modalDrop",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "modalHalf",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "modalMove",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "modalZoomin",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "rotateLayout",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "simpleSearch",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "type",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "closeSearch",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onBlur",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "submitSearch",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaSearchFieldComponent",
+      "shortDescription": "search-field-component is used under the hood by nga-search component\ncan't be used itself",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subject",
+          "required": null,
+          "name": "searchActivations$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subject",
+          "required": null,
+          "name": "searchDeactivations$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subject",
+          "required": null,
+          "name": "searchSubmittings$",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "activateSearch",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "deactivateSearch",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onSearchActivate",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onSearchDeactivate",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onSearchSubmit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "submitSearch",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaSuperSearchService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     null,
     {
       "kind": "component",
@@ -4039,6 +4174,26 @@
           "type": "",
           "required": null,
           "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "collapseSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "expandSubscription",
           "shortDescription": "",
           "description": ""
         },
@@ -4100,6 +4255,16 @@
           "required": null,
           "name": "tag",
           "shortDescription": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page."
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "toggleSubscription",
+          "shortDescription": "",
+          "description": ""
         },
         {
           "kind": "property",
@@ -4168,7 +4333,7 @@
           "type": "",
           "required": null,
           "name": "fixed",
-          "shortDescription": "Makes sidebar fixed (shown below the layout content)"
+          "shortDescription": "Makes sidebar fixed (shown above the layout content)"
         },
         {
           "kind": "property",
@@ -4230,6 +4395,16 @@
           "examples": [],
           "params": [],
           "platform": null,
+          "name": "ngOnDestroy",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
           "name": "ngOnInit",
           "type": [],
           "isStatic": false,
@@ -4240,10 +4415,28 @@
           "examples": [],
           "params": [],
           "platform": null,
+          "name": "returnSomeValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Returns some value;"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
           "name": "toggle",
           "type": [],
           "isStatic": false,
           "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "someTestMethod",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Some Static method"
         }
       ],
       "name": "NgaSidebarComponent",
@@ -4291,9 +4484,9 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "Observable",
+          "type": "Subject",
           "required": null,
-          "name": "collapseChanges",
+          "name": "collapse$",
           "shortDescription": "",
           "description": ""
         },
@@ -4303,17 +4496,7 @@
           "isStatic": false,
           "type": "Subject",
           "required": null,
-          "name": "collapseChanges$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Observable",
-          "required": null,
-          "name": "expandChanges",
+          "name": "expand$",
           "shortDescription": "",
           "description": ""
         },
@@ -4323,27 +4506,7 @@
           "isStatic": false,
           "type": "Subject",
           "required": null,
-          "name": "expandChanges$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Observable",
-          "required": null,
-          "name": "toggleChanges",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "toggleChanges$",
+          "name": "toggle$",
           "shortDescription": "",
           "description": ""
         }
@@ -4356,8 +4519,7 @@
           "name": "collapse",
           "type": [],
           "isStatic": false,
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Collapses the sidebar (sidebar entity is selected by the tag)"
         },
         {
           "examples": [],
@@ -4366,8 +4528,34 @@
           "name": "expand",
           "type": [],
           "isStatic": false,
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Expandes the sidebar (sidebar entity is selected by the tag)"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onCollapse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Collapsed event observable"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onExpand",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Expanded event observable"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onToggle",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Toggle event observable"
         },
         {
           "examples": [],
@@ -4376,13 +4564,12 @@
           "name": "toggle",
           "type": [],
           "isStatic": false,
-          "shortDescription": "",
-          "description": ""
+          "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
         }
       ],
       "name": "NgaSidebarService",
-      "description": "",
-      "shortDescription": "",
+      "description": "Allows to control sidebar(s) state and also listen to subscribe events.\n",
+      "shortDescription": "Global app service for sidebar control.",
       "styles": []
     },
     {
@@ -4571,6 +4758,16 @@
           "isStatic": false,
           "type": "boolean",
           "required": null,
+          "name": "inverseValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "boolean",
+          "required": null,
           "name": "isMenuShown",
           "shortDescription": "",
           "description": ""
@@ -4579,7 +4776,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "NgaUserMenuItem",
           "required": null,
           "name": "menu",
           "shortDescription": "List of menu items for a user context menu (shown when clicked)"
@@ -4693,6 +4889,15 @@
           "isStatic": false,
           "type": "",
           "required": null,
+          "name": "inverse",
+          "shortDescription": "Makes colors inverse based on current theme"
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
           "name": "large",
           "shortDescription": "",
           "description": ""
@@ -4769,6 +4974,16 @@
           "params": [],
           "platform": null,
           "name": "getInitials",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "hasMenu",
           "type": [],
           "isStatic": false,
           "shortDescription": "",
@@ -4867,6 +5082,12 @@
       "styles": []
     },
     null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
     {
       "kind": "service",
       "platform": null,
@@ -4879,6 +5100,36 @@
           "type": "",
           "required": null,
           "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subject",
+          "required": null,
+          "name": "appendLayoutClass$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "ReplaySubject",
+          "required": null,
+          "name": "appendToLayoutTop$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subject",
+          "required": null,
+          "name": "createLayoutTop$",
           "shortDescription": "",
           "description": ""
         },
@@ -4906,6 +5157,16 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
+          "type": "Subject",
+          "required": null,
+          "name": "removeLayoutClass$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
           "type": "ReplaySubject",
           "required": null,
           "name": "themeChanges$",
@@ -4914,6 +5175,26 @@
         }
       ],
       "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "appendLayoutClass",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "appendToLayoutTop",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
         {
           "examples": [],
           "params": [],
@@ -4928,7 +5209,67 @@
           "examples": [],
           "params": [],
           "platform": null,
+          "name": "clearLayoutTop",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onAppendLayoutClass",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onAppendToTop",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onClearLayoutTop",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onRemoveLayoutClass",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
           "name": "onThemeChange",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "removeLayoutClass",
           "type": [],
           "isStatic": false,
           "shortDescription": "",

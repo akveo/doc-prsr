@@ -26080,7 +26080,7 @@ const rdp = new TypedocParser();
 // const output = rdp.parse(json);
 // console.log(JSON.stringify(output));
 
-fs.readFile('./right-examples/typedoc/output.json', (err: any, data: any) => {
+fs.readFile('./right-examples/typedoc/new/docs.json', (err: any, data: any) => {
   const newdoc = new TypedocParser().parse(JSON.parse(data));
   const outputObj: any = JSON.stringify(newdoc, null, 2);
   fs.writeFile('./watchOut.json', outputObj);

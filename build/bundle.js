@@ -26195,7 +26195,7 @@ var json = {
 var rdp = new typedoc_parser_1.TypedocParser();
 // const output = rdp.parse(json);
 // console.log(JSON.stringify(output));
-fs.readFile('./right-examples/typedoc/output.json', function (err, data) {
+fs.readFile('./right-examples/typedoc/new/docs.json', function (err, data) {
     var newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data));
     var outputObj = JSON.stringify(newdoc, null, 2);
     fs.writeFile('./watchOut.json', outputObj);
