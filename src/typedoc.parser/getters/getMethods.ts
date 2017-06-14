@@ -10,4 +10,17 @@ export class GetMethods {
         .map((item: any) => this.parseMethod(item));
     }
   }
+
+  parseMethod(obj: any): Method {
+    return new Method({
+      examples: [],
+      params: [],
+      platform: null,
+      name: obj[CommonOptions.name],
+      type: [],
+      isStatic: false,
+      shortDescription: '',
+      description: ''
+    });
+  }
 }
