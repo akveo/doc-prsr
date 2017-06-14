@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -107,7 +107,8 @@ exports.CommonOptions = {
     type: 'type',
     flags: 'flags',
     isStatic: 'isStatic',
-    signatures: 'signatures'
+    signatures: 'signatures',
+    parameters: 'parameters'
 };
 
 
@@ -121,8 +122,8 @@ exports.CommonOptions = {
 // const io = new InputOutput();
 // io.createFile();
 Object.defineProperty(exports, "__esModule", { value: true });
-var typedoc_parser_1 = __webpack_require__(14);
-var fs = __webpack_require__(15);
+var typedoc_parser_1 = __webpack_require__(15);
+var fs = __webpack_require__(16);
 var json = {
     "id": 0,
     "name": "nga",
@@ -26386,8 +26387,10 @@ exports.Model = Model;
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(1);
+var getParams_1 = __webpack_require__(12);
 var GetMethods = (function () {
     function GetMethods() {
+        this.params = new getParams_1.GetParams();
     }
     GetMethods.prototype.getMethods = function (obj) {
         var _this = this;
@@ -26400,10 +26403,10 @@ var GetMethods = (function () {
     GetMethods.prototype.parseMethod = function (obj) {
         return new model_1.Method({
             examples: [],
-            params: [],
+            params: this.params.getParams(obj),
             platform: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
-            type: [],
+            type: this.getType(obj),
             isStatic: false,
             shortDescription: this.getShortDescription(obj),
             description: this.getDescription(obj)
@@ -26425,6 +26428,16 @@ var GetMethods = (function () {
             return '';
         }
     };
+    GetMethods.prototype.getType = function (obj) {
+        var returnsArray = [];
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.type]) {
+            returnsArray.push(obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name]);
+            return returnsArray;
+        }
+        else {
+            return ['void'];
+        }
+    };
     return GetMethods;
 }());
 exports.GetMethods = GetMethods;
@@ -26432,6 +26445,47 @@ exports.GetMethods = GetMethods;
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(1);
+var GetParams = (function () {
+    function GetParams() {
+    }
+    GetParams.prototype.getParams = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]) {
+            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]
+                .map(function (item) { return _this.parseParam(item); });
+        }
+    };
+    GetParams.prototype.parseParam = function (obj) {
+        return new model_1.Param({
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            type: this.getType(obj),
+            required: null,
+            shortDescription: '',
+            description: ''
+        });
+    };
+    GetParams.prototype.getType = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
+            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetParams;
+}());
+exports.GetParams = GetParams;
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26576,20 +26630,20 @@ exports.GetProperties = GetProperties;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var getProperties_1 = __webpack_require__(12);
+var getProperties_1 = __webpack_require__(13);
 exports.GetProperties = getProperties_1.GetProperties;
 var getMethods_1 = __webpack_require__(11);
 exports.GetMethods = getMethods_1.GetMethods;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26597,7 +26651,7 @@ exports.GetMethods = getMethods_1.GetMethods;
 Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_options_1 = __webpack_require__(1);
 var model_1 = __webpack_require__(0);
-var getters_1 = __webpack_require__(13);
+var getters_1 = __webpack_require__(14);
 var TypedocParser = (function () {
     function TypedocParser() {
         this.methods = new getters_1.GetMethods();
@@ -26740,13 +26794,13 @@ exports.TypedocParser = TypedocParser;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(2);

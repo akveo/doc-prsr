@@ -1,7 +1,11 @@
-import {Method} from '../../model';
+import {
+  Method
+} from '../../model';
 import {CommonOptions} from '../typedoc.parser.options';
+import {GetParams} from './getParams';
 
-export class GetMethods {
+export class GetMethods {                                         //TODO ask about examples!!!
+  protected params: GetParams = new GetParams();
 
   getMethods(obj: any) {
     if (obj && obj[CommonOptions.children]) {
@@ -14,15 +18,16 @@ export class GetMethods {
   parseMethod(obj: any): Method {
     return new Method({
       examples: [],
-      params: [],
+      params: this.params.getParams(obj),
       platform: null,
       name: obj[CommonOptions.name],
-      type: [],
+      type: this.getType(obj),
       isStatic: false,
       shortDescription: this.getShortDescription(obj),
       description: this.getDescription(obj)
     });
   }
+
   getDescription(obj: any): string {
     if (obj && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
       return obj[CommonOptions.signatures][0][CommonOptions.comment]['text'];
@@ -36,6 +41,16 @@ export class GetMethods {
       return obj[CommonOptions.signatures][0][CommonOptions.comment]['shortText'];
     } else {
       return '';
+    }
+  }
+
+  getType(obj: any): string[] {
+    const returnsArray: string[] = [];
+    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.type]) {
+      returnsArray.push(obj[CommonOptions.signatures][0][CommonOptions.type][CommonOptions.name]);
+      return returnsArray;
+    } else {
+      return ['void'];
     }
   }
 }

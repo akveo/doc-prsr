@@ -92,10 +92,11 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnDestroy",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -193,20 +194,47 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "login",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -266,20 +294,31 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "logout",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnInit",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -387,20 +426,47 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "register",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -498,20 +564,47 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "requestPass",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -609,20 +702,47 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "resetPass",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -754,100 +874,191 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "authenticate",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createFailResponse",
-          "type": [],
+          "type": [
+            "Response"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createSuccessResponse",
-          "type": [],
+          "type": [
+            "Response"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "res",
+              "type": "Response",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getJsonSafe",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "logout",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "register",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "requestPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "resetPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "config",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "setConfig",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -877,110 +1088,220 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "authenticate",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createDummyResult",
-          "type": [],
+          "type": [
+            "NgaAuthResult"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createFailResponse",
-          "type": [],
+          "type": [
+            "Response"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createSuccessResponse",
-          "type": [],
+          "type": [
+            "Response"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "res",
+              "type": "Response",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getJsonSafe",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "logout",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "register",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "requestPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "resetPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "config",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "setConfig",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -1311,100 +1632,191 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "authenticate",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createFailResponse",
-          "type": [],
+          "type": [
+            "Response"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createSuccessResponse",
-          "type": [],
+          "type": [
+            "Response"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "res",
+              "type": "Response",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getJsonSafe",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "logout",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "register",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "requestPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "resetPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "config",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "setConfig",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -1492,70 +1904,77 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getErrors",
-          "type": [],
+          "type": [
+            null
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getMessages",
-          "type": [],
+          "type": [
+            null
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getRedirect",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getResponse",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getTokenValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "isFailure",
-          "type": [],
+          "type": [
+            "boolean"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "isSuccess",
-          "type": [],
+          "type": [
+            "boolean"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -1605,96 +2024,188 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "authenticate",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Authenticates with the selected provider\nStores received token in the token storage",
           "description": "Example:\nauthenticate('email', {email: 'email@example.com', password: 'test'})\n"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getProvider",
-          "type": [],
+          "type": [
+            "NgaAbstractAuthProvider"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getToken",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Retrieves current authenticated token stored"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "isAuthenticated",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Returns true if auth token is presented in the token storage"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "logout",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Sign outs with the selected provider\nRemoves token from the token storage",
           "description": "Example:\nlogout('email')\n"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onAuthenticationChange",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Returns authentication status stream"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onTokenChange",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Returns tokens stream"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "register",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Registers with the selected provider\nStores received token in the token storage",
           "description": "Example:\nregister('email', {email: 'email@example.com', name: 'Some Name', password: 'test'})\n"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "requestPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Sends forgot password request to the selected provider",
           "description": "Example:\nrequestPassword('email', {email: 'email@example.com'})\n"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "provider",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "data",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "resetPassword",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Tries to reset password with the selected provider",
           "description": "Example:\nresetPassword('email', {newPassword: 'test'})\n"
@@ -1764,80 +2275,200 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "headers",
+              "type": "Headers",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "token",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "addAuthTokenHeader",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "url",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "options",
+              "type": "RequestOptionsArgs",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "delete",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "requestObservable",
+              "type": "Observable",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "doRequest",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "url",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "options",
+              "type": "RequestOptionsArgs",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "get",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onRequestError",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "url",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "body",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "options",
+              "type": "RequestOptionsArgs",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "post",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "options",
+              "type": "RequestOptionsArgs",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "prepareOptions",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "url",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "body",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "options",
+              "type": "RequestOptionsArgs",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "put",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -1897,70 +2528,113 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "clear",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "get",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "key",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getConfigValue",
-          "type": [],
+          "type": [
+            "any"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "token",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "publishToken",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "token",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "set",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "config",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "setConfig",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "tokenChange",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -2605,20 +3279,22 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngAfterViewInit",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnDestroy",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -2810,110 +3486,184 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "clearStack",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "compareTag",
-          "type": [],
+          "type": [
+            "boolean"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "parent",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getHomeItem",
-          "type": [],
+          "type": [
+            "NgaMenuItem"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "parent",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getSelectedItem",
-          "type": [],
+          "type": [
+            "NgaMenuItem"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "navigateHome",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnDestroy",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnInit",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onHoverItem",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onItemClick",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onSelectItem",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onToggleSubMenu",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -3003,40 +3753,80 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onHoverItem",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onItemClick",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onSelectItem",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "onToggleSubMenu",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -3117,140 +3907,263 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "clearStack",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getItems",
-          "type": [],
+          "type": [
+            "List"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "itemClick",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "itemHover",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "itemSelect",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onAddItem",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onGetSelectedItem",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onNavigateHome",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "parent",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "prepareItem",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "items",
+              "type": "List",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "prepareItems",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "parent",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "resetItem",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "items",
+              "type": "List",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "resetItems",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "parent",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "setParent",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "item",
+              "type": "NgaMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "submenuToggle",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -3421,70 +4334,111 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "items",
+              "type": "List",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "addItems",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "getSelectedItem",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "navigateHome",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onItemClick",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onItemHover",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onItemSelect",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onSubmenuToggle",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -3585,10 +4539,20 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "tab",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "selectTab",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -3729,60 +4693,84 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "componentRef",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "connectToSearchField",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "component",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "createAttachedSearch",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngAfterViewInit",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnDestroy",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnInit",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "openSearch",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -4024,30 +5012,42 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "closeSearch",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onBlur",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "term",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "submitSearch",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -4097,60 +5097,114 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "searchType",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "activateSearch",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "searchType",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "deactivateSearch",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onSearchActivate",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onSearchDeactivate",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onSearchSubmit",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "term",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "submitSearch",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -4366,75 +5420,108 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "collapse",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Collapses the sidebar"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "compact",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Compacts the sidebar (minimizes)"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "expand",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Expands the sidebar"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnDestroy",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngOnInit",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "returnSomeValue",
-          "type": [],
+          "type": [
+            "number"
+          ],
           "isStatic": false,
           "shortDescription": "Returns some value;"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "compact",
+              "type": "boolean",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "toggle",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "test",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "anotherOne",
+              "type": "Observable",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "someTestMethod",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Some Static method"
         }
@@ -4514,55 +5601,95 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "collapse",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Collapses the sidebar (sidebar entity is selected by the tag)"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "expand",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Expandes the sidebar (sidebar entity is selected by the tag)"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onCollapse",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Collapsed event observable"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onExpand",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Expanded event observable"
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onToggle",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "Toggle event observable"
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "compact",
+              "type": "boolean",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "tag",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "toggle",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
         }
@@ -4693,20 +5820,31 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "ngAfterContentInit",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "tab",
+              "type": "NgaTabComponent",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "selectTab",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
@@ -4971,50 +6109,80 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "getInitials",
-          "type": [],
+          "type": [
+            "string"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "hasMenu",
-          "type": [],
+          "type": [
+            "boolean"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "event",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "hideMenu",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "event",
+              "type": "any",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "item",
+              "type": "NgaUserMenuItem",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "itemClick",
-          "type": [],
+          "type": [
+            "boolean"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "toggleMenu",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Toggles a context menu"
         }
@@ -5177,100 +6345,146 @@
       "methods": [
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "className",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "appendLayoutClass",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "component",
+              "type": "Type",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "appendToLayoutTop",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "name",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "changeTheme",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "clearLayoutTop",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onAppendLayoutClass",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onAppendToTop",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onClearLayoutTop",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onRemoveLayoutClass",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
           "platform": null,
           "name": "onThemeChange",
-          "type": [],
+          "type": [
+            "Observable"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
         },
         {
           "examples": [],
-          "params": [],
+          "params": [
+            {
+              "name": "className",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
           "platform": null,
           "name": "removeLayoutClass",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "",
           "description": ""
