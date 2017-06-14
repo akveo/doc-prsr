@@ -3,5 +3,6 @@ export const CommonOptions = {
   primKind: 'kindString',
   name: 'name',
   decorators: 'decorators',
-  comment: 'comment'
+  comment: 'comment',
+  type: 'type'
 };

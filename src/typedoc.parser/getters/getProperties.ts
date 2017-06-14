@@ -47,7 +47,7 @@ export class GetProperties {
       kind: 'property',
       platform: null,
       isStatic: false,
-      type: '',
+      type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
       shortDescription: '',
@@ -60,7 +60,7 @@ export class GetProperties {
       kind: 'property',
       platform: null,
       isStatic: false,
-      type: '',
+      type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
       shortDescription: '',
@@ -73,7 +73,7 @@ export class GetProperties {
       kind: 'input',
       platform: null,
       isStatic: false,
-      type: '',
+      type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
       shortDescription: '',
@@ -92,5 +92,13 @@ export class GetProperties {
       shortDescription: '',
       description: ''
     });
+  }
+
+  getType(obj: any): string {
+    if (obj && obj[CommonOptions.type]) {
+      return obj[CommonOptions.type][CommonOptions.name];
+    } else {
+      return '';
+    }
   }
 }

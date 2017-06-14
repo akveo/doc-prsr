@@ -103,7 +103,8 @@ exports.CommonOptions = {
     primKind: 'kindString',
     name: 'name',
     decorators: 'decorators',
-    comment: 'comment'
+    comment: 'comment',
+    type: 'type'
 };
 
 
@@ -26438,7 +26439,7 @@ var GetProperties = (function () {
             kind: 'property',
             platform: null,
             isStatic: false,
-            type: '',
+            type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             shortDescription: '',
@@ -26450,7 +26451,7 @@ var GetProperties = (function () {
             kind: 'property',
             platform: null,
             isStatic: false,
-            type: '',
+            type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             shortDescription: '',
@@ -26462,7 +26463,7 @@ var GetProperties = (function () {
             kind: 'input',
             platform: null,
             isStatic: false,
-            type: '',
+            type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             shortDescription: '',
@@ -26480,6 +26481,14 @@ var GetProperties = (function () {
             shortDescription: '',
             description: ''
         });
+    };
+    GetProperties.prototype.getType = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
+            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else {
+            return '';
+        }
     };
     return GetProperties;
 }());
