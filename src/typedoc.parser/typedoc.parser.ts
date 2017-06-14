@@ -11,7 +11,8 @@ import {
 } from '../model';
 
 import {
-  GetProperties
+  GetProperties,
+  GetMethods
 } from './getters';
 
 export class TypedocParser {
