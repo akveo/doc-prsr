@@ -46,8 +46,8 @@ export class GetProperties {
     return new Prop({
       kind: 'property',
       platform: null,
-      isStatic: false,
-      type: this.getType(obj),
+      isStatic: this.isStatic(obj),
+      type: 'void',
       required: null,
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
@@ -59,7 +59,7 @@ export class GetProperties {
     return new Prop({
       kind: 'property',
       platform: null,
-      isStatic: false,
+      isStatic: this.isStatic(obj),
       type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
@@ -72,7 +72,7 @@ export class GetProperties {
     return new Prop({
       kind: 'input',
       platform: null,
-      isStatic: false,
+      isStatic: this.isStatic(obj),
       type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
@@ -86,7 +86,7 @@ export class GetProperties {
       kind: 'output',
       platform: null,
       isStatic: false,
-      type: '',
+      type: this.getType(obj),
       required: null,
       name: obj[CommonOptions.name],
       shortDescription: '',
@@ -110,11 +110,19 @@ export class GetProperties {
     }
   }
 
-  getShortDescription(obj: any) {
+  getShortDescription(obj: any): string {
     if (obj && obj[CommonOptions.comment]) {
       return obj[CommonOptions.comment]['shortText'];
     } else {
       return '';
+    }
+  }
+
+  isStatic(obj: any):boolean {
+    if (obj && obj[CommonOptions.flags] && obj[CommonOptions.flags][CommonOptions.isStatic]) {
+      return obj[CommonOptions.flags][CommonOptions.isStatic];
+    } else {
+      return false;
     }
   }
 }

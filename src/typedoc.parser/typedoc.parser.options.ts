@@ -4,5 +4,7 @@ export const CommonOptions = {
   name: 'name',
   decorators: 'decorators',
   comment: 'comment',
-  type: 'type'
+  type: 'type',
+  flags: 'flags',
+  isStatic: 'isStatic'
 };
