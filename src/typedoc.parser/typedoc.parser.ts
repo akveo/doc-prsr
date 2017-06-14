@@ -122,4 +122,20 @@ export class TypedocParser {
       styles: []
     });
   }
+
+  getDescription(obj: any): string {
+    if (obj && obj[CommonOptions.comment]) {
+      return obj[CommonOptions.comment]['text'];
+    } else {
+      return '';
+    }
+  }
+
+  getShortDescription(obj: any) {
+    if (obj && obj[CommonOptions.comment]) {
+      return obj[CommonOptions.comment]['shortText'];
+    } else {
+      return '';
+    }
+  }
 }
