@@ -4,6 +4,7 @@
 
 
 import { TypedocParser } from './typedoc.parser/typedoc.parser';
+import * as fs from 'fs';
 const json = {
   "id": 0,
   "name": "nga",
@@ -26076,10 +26077,14 @@ const json = {
 
 const rdp = new TypedocParser();
 
-const output = rdp.parse(json);
-console.log(JSON.stringify(output, null, 2));
+// const output = rdp.parse(json);
+// console.log(JSON.stringify(output));
 
-
+fs.readFile('./right-examples/typedoc/output.json', (err: any, data: any) => {
+  const newdoc = new TypedocParser().parse(JSON.parse(data));
+  const outputObj: any = JSON.stringify(newdoc, null, 2);
+  fs.writeFile('./watchOut.json', outputObj);
+});
 
 
 

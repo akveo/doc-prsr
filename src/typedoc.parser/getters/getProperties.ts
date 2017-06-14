@@ -1,25 +1,42 @@
-import { Prop } from '../../model';
+import {Prop} from '../../model';
 import {CommonOptions} from '../typedoc.parser.options';
 
 export class GetProperties {
 
   getProps(obj: any): Prop[] {
     if (obj && obj[CommonOptions.children]) {
-      return obj[CommonOptions.children].map((item: any) => {
-        if (item[CommonOptions.decorators]) {
-          if(item[CommonOptions.primKind] === 'Property' && item[CommonOptions.decorators][CommonOptions.name] === 'Input') {
-            return this.parseInput(item);
-          } else if (item[CommonOptions.primKind] === 'Property' && item[CommonOptions.decorators][CommonOptions.name] === 'Output') {
-            return this.parseOutput(item);
+      return obj[CommonOptions.children]
+        .filter((item: any) => {
+          if (item[CommonOptions.primKind] === 'Property' || item[CommonOptions.primKind] === 'Accessor'
+            || item[CommonOptions.primKind] === 'Constructor') {
+            return item;
           }
-        } else {
-          if (item[CommonOptions.primKind] === 'Constructor') {
-            return this.parseConstructor(item);
-          } else if (item[CommonOptions.primKind] === 'Property') {
+        })
+        .map((item: any) => {
+          if (item[CommonOptions.primKind] === 'Property') {
+            if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Input') {
+              return this.parseInput(item);
+            } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Output') {
+              return this.parseOutput(item);
+            } else if (item[CommonOptions.decorators]) {
+              return this.parseProperty(item)
+            } else if (!item[CommonOptions.decorators]) {
+              return this.parseProperty(item);
+            }
+          } else if (item[CommonOptions.primKind] === 'Accessor') {
+            if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Input') {
+              return this.parseInput(item);
+            } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Output') {
+              return this.parseOutput(item);
+            } else if (item[CommonOptions.decorators]) {
+              return this.parseProperty(item)
+            } else if (!item[CommonOptions.decorators]) {
+              return this.parseProperty(item);
+            }
+          } else if (item[CommonOptions.primKind] === 'Constructor') {
             return this.parseProperty(item);
           }
-        }
-      })
+        });
     } else {
       return [];
     }

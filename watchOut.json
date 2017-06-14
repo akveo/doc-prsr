@@ -1,0 +1,3671 @@
+{
+  "classes": [
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaAppComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "cards",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "sizes",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "statuses",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaCardTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaLayoutFooterTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaLayoutHeaderTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaLayoutTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "currentTheme",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "themeService",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaThemeChangeTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem1Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem2Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem31Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem32Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem331Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem332Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem33Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem3Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem4Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menuItems",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menuService",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaRouteTabsetTestChild1Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaRouteTabsetTestChild2Component",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tabs",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaRouteTabsetTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaSidebarTestOneComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaSidebarTestThreeComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaSidebarTestTwoComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "content",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "sidebarService",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaSidebarTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaTabsetTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "contextMenu",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaUserTestComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "providers",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaAuthOptions",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaAuthBlockComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "auth",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "authenticated",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "subscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "token",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaAuthComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "errors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "messages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirectDelay",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "service",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "submitted",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "user",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaLoginComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirectDelay",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "service",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaLogoutComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "errors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "messages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirectDelay",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "service",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "submitted",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tokenService",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "user",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaRegisterComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "errors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "messages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirectDelay",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "service",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "submitted",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "user",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaRequestPasswordComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "errors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "messages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirectDelay",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "service",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "submitted",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "user",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaResetPasswordComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "class",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "confirmPassword",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "email",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fullName",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "id",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "password",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "rememberMe",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "terms",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaUser",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "class",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "config",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "defaultConfig",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaAbstractAuthProvider",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "config",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaDummyAuthProvider",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "alwaysFail",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "delay",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaDummyAuthProviderConfig",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "errors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "login",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "logout",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "messages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "register",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "requestPass",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "resetPass",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "token",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "validation",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgEmailPassAuthProviderConfig",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "alwaysFail",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "defaultErrors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "defaultMessages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "endpoint",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirect",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "rememberMe",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaEmailPassModuleConfig",
+      "styles": []
+    },
+    {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "alwaysFail",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "defaultErrors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "defaultMessages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "endpoint",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirect",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "rememberMe",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "resetPasswordTokenKey",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaEmailPassResetModuleConfig",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "config",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "http",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "route",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaEmailPassAuthProvider",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "class",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "errors",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "messages",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "redirect",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "response",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "success",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "token",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaAuthResult",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "providers",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tokenService",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaAuthService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "http",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "injector",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "onErrorSubject",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "authService",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaSecuredHttp",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "config",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "options",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "token$",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaTokenService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaCardBodyComponent",
+      "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset body section.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "sizeValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "statusValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "title",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_LARGE",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_MEDIUM",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_SMALL",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_XMEDIUM",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_XSMALL",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATUS_ACTIVE",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATUS_DANGER",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATUS_DISABLED",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATUS_INFO",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATUS_PRIMARY",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATUS_SUCCESS",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATUS_WARNING",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "active",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "danger",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "disabled",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "info",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "large",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "medium",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "primary",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "size",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "small",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "status",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "success",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "warning",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "xmedium",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "xsmall",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaCardComponent",
+      "description": "While this component can be used alone, it also provides a number\nof child components for common card sections, including:\n- nga-card-header\n- nga-card-body\n- nga-card-footer\n",
+      "shortDescription": "A basic content container component",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaCardFooterComponent",
+      "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset footer section.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaCardHeaderComponent",
+      "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset header section.",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "leftValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "left",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaLayoutColumnComponent",
+      "shortDescription": "Component intended to be used within  the `<nga-layout>` component.\nIt adds styles for a preset column section.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "centerValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "elementRef",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "renderer",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "themeService",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "themeSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "center",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaLayoutComponent",
+      "description": "While this component can be used alone, it also provides a number\nof child components for common layout sections, including:\n- nga-sidebar\n- nga-layout-column\n- nga-layout-content\n- nga-layout-header\n- nga-layout-footer\n",
+      "shortDescription": "A basic content container component",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fixedValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fixed",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaLayoutFooterComponent",
+      "shortDescription": "Component intended to be used within  the `<nga-layout>` component.\nIt adds styles for a preset footer section.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fixedValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fixed",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaLayoutHeaderComponent",
+      "shortDescription": "Component intended to be used within  the `<nga-layout>` component.\nIt adds styles for a preset header section.",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "hoverItem",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menuItems",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menuService",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "stack",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tag",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "toggleSubMenu",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "hoverItem",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "itemClick",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menuItem",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menuService",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "selectItem",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "toggleSubMenu",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItemComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "class",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "children",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "expanded",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "group",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "hidden",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "home",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "icon",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "link",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "parent",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "pathMath",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "target",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "title",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "url",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuItem",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "class",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "items",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuModuleConfig",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "addItems$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "addItemsSuggest",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "config",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "itemClick$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "itemClickSuggest",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "items",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "itemsChanges$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "itemsChangesSuggest",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "navigateHome$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "navigateHomeSuggest",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "stack",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaMenuService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "changeTab",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fullWidthValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "router",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tabs",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fullWidth",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaRouteTabsetComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    null,
+    null,
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fixedValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "leftValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "rightValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "sidebarService",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "stateValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tag",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATE_COLLAPSED",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATE_COMPACTED",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "STATE_EXPANDED",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "collapsed",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "compacted",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "expanded",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fixed",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "left",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "right",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "state",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaSidebarComponent",
+      "description": "Sidebar can be place on the left or right side of the layout, can be fixed (shown above the content)\nor can push the layout when opened.\n",
+      "shortDescription": "Main sidebar component.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaSidebarContentComponent",
+      "description": "Placeholder which contains a sidebar main content.\n",
+      "shortDescription": "Sidebar content container.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaSidebarFooterComponent",
+      "description": "Placeholder which contains a sidebar footer content,\nplaced at the very bottom of the sidebar outside of the scroll area.\n",
+      "shortDescription": "Sidebar footer container.",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaSidebarHeaderComponent",
+      "description": "Placeholder which contains a sidebar header content,\nplaced at the very top of the sidebar outside of the scroll area.\n",
+      "shortDescription": "Sidebar header container.",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "collapseChanges",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "collapseChanges$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "expandChanges",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "expandChanges$",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "toggleChanges",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "toggleChanges$",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaSidebarService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "active",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "route",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tabTitle",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaTabComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "activatedRoute",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "changeTab",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fullWidthValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "routes",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "tabs",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "fullWidth",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaTabsetComponent",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "component",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "color",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "el",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "isMenuShown",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menu",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "menuClick",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "name",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "picture",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "showInitialsValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "showNameValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "showTitleValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "sizeValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "title",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_LARGE",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_MEDIUM",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "SIZE_SMALL",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "large",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "medium",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "onlyPicture",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "showInitials",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "showName",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "showTitle",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "size",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "small",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaUserComponent",
+      "description": "Can be used as a user profile link or can bring a user context menu.\n",
+      "shortDescription": "Represents a component showing a user avatar (picture) with a user name on the right.",
+      "styles": []
+    },
+    {
+      "kind": "class",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "icon",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "link",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "target",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "title",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "url",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaUserMenuItem",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "service",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "currentTheme",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "options",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "themeChanges$",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaThemeService",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    null,
+    {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "name",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [],
+      "name": "NgaThemeOptions",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    }
+  ]
+}

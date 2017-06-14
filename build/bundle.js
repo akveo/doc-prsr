@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -118,6 +118,7 @@ exports.CommonOptions = {
 // io.createFile();
 Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_1 = __webpack_require__(13);
+var fs = __webpack_require__(14);
 var json = {
     "id": 0,
     "name": "nga",
@@ -26188,8 +26189,13 @@ var json = {
     ]
 };
 var rdp = new typedoc_parser_1.TypedocParser();
-var output = rdp.parse(json);
-console.log(JSON.stringify(output, null, 2));
+// const output = rdp.parse(json);
+// console.log(JSON.stringify(output));
+fs.readFile('./right-examples/typedoc/output.json', function (err, data) {
+    var newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data));
+    var outputObj = JSON.stringify(newdoc, null, 2);
+    fs.writeFile('./watchOut.json', outputObj);
+});
 // function iter(obj: any) {
 //     for (let property in obj) {
 //         if (obj.hasOwnProperty(property) && obj[property] != null) {
@@ -26382,22 +26388,44 @@ var GetProperties = (function () {
     GetProperties.prototype.getProps = function (obj) {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
-            return obj[typedoc_parser_options_1.CommonOptions.children].map(function (item) {
-                if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                    if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property' && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
+            return obj[typedoc_parser_options_1.CommonOptions.children]
+                .filter(function (item) {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor'
+                    || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
+                    return item;
+                }
+            })
+                .map(function (item) {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property') {
+                    if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
                         return _this.parseInput(item);
                     }
-                    else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property' && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
+                    else if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
                         return _this.parseOutput(item);
                     }
-                }
-                else {
-                    if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
-                        return _this.parseConstructor(item);
-                    }
-                    else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property') {
+                    else if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
                         return _this.parseProperty(item);
                     }
+                    else if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                        return _this.parseProperty(item);
+                    }
+                }
+                else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor') {
+                    if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
+                        return _this.parseInput(item);
+                    }
+                    else if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
+                        return _this.parseOutput(item);
+                    }
+                    else if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                        return _this.parseProperty(item);
+                    }
+                    else if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                        return _this.parseProperty(item);
+                    }
+                }
+                else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
+                    return _this.parseProperty(item);
                 }
             });
         }
@@ -26508,7 +26536,9 @@ var TypedocParser = (function () {
         var _this = this;
         this.findAllClasses(obj);
         var tempClasses = [];
-        tempClasses = this.classes.map(function (item) {
+        tempClasses = this.classes
+            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface'; })
+            .map(function (item) {
             if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
                 if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class') {
                     return _this.parseClass(item);
@@ -26619,6 +26649,12 @@ exports.TypedocParser = TypedocParser;
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(2);
