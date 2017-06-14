@@ -5,7 +5,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaAppComponent",
       "description": "",
       "shortDescription": "",
@@ -58,7 +57,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "prepareCards",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaCardTestComponent",
       "description": "",
       "shortDescription": "",
@@ -69,7 +79,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaLayoutFooterTestComponent",
       "description": "",
       "shortDescription": "",
@@ -80,7 +89,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaLayoutHeaderTestComponent",
       "description": "",
       "shortDescription": "",
@@ -91,7 +99,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaLayoutTestComponent",
       "description": "",
       "shortDescription": "",
@@ -133,7 +140,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "changeTheme",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaThemeChangeTestComponent",
       "description": "",
       "shortDescription": "",
@@ -155,7 +173,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem1Component",
       "description": "",
       "shortDescription": "",
@@ -177,7 +206,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem2Component",
       "description": "",
       "shortDescription": "",
@@ -199,7 +239,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem31Component",
       "description": "",
       "shortDescription": "",
@@ -221,7 +272,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem32Component",
       "description": "",
       "shortDescription": "",
@@ -243,7 +305,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem331Component",
       "description": "",
       "shortDescription": "",
@@ -265,7 +338,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem332Component",
       "description": "",
       "shortDescription": "",
@@ -287,7 +371,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem33Component",
       "description": "",
       "shortDescription": "",
@@ -309,7 +404,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem3Component",
       "description": "",
       "shortDescription": "",
@@ -331,7 +437,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItem4Component",
       "description": "",
       "shortDescription": "",
@@ -373,7 +490,48 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "addMenuItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "navigateHome",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngAfterViewInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuTestComponent",
       "description": "",
       "shortDescription": "",
@@ -384,7 +542,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaRouteTabsetTestChild1Component",
       "description": "",
       "shortDescription": "",
@@ -395,7 +552,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaRouteTabsetTestChild2Component",
       "description": "",
       "shortDescription": "",
@@ -428,7 +584,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaSidebarTestOneComponent",
       "description": "",
       "shortDescription": "",
@@ -439,7 +594,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaSidebarTestThreeComponent",
       "description": "",
       "shortDescription": "",
@@ -450,7 +604,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaSidebarTestTwoComponent",
       "description": "",
       "shortDescription": "",
@@ -492,7 +645,38 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "collapseLeft",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "collapseRight",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaSidebarTestComponent",
       "description": "",
       "shortDescription": "",
@@ -524,7 +708,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "changeTab",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaTabsetTestComponent",
       "description": "",
       "shortDescription": "",
@@ -546,7 +741,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onMenuItemClick",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaUserTestComponent",
       "description": "",
       "shortDescription": "",
@@ -580,7 +786,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaAuthBlockComponent",
       "description": "",
       "shortDescription": "",
@@ -642,7 +847,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnDestroy",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaAuthComponent",
       "description": "",
       "shortDescription": "",
@@ -734,7 +950,28 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "login",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaLoginComponent",
       "description": "",
       "shortDescription": "",
@@ -786,7 +1023,28 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "logout",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaLogoutComponent",
       "description": "",
       "shortDescription": "",
@@ -888,7 +1146,28 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "register",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaRegisterComponent",
       "description": "",
       "shortDescription": "",
@@ -980,7 +1259,28 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "requestPass",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaRequestPasswordComponent",
       "description": "",
       "shortDescription": "",
@@ -1072,7 +1372,28 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetPass",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaResetPasswordComponent",
       "description": "",
       "shortDescription": "",
@@ -1196,7 +1517,108 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "authenticate",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createFailResponse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createSuccessResponse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getJsonSafe",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "logout",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "register",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "requestPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "setConfig",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaAbstractAuthProvider",
       "description": "",
       "shortDescription": "",
@@ -1218,7 +1640,118 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "authenticate",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createDummyResult",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createFailResponse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createSuccessResponse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getJsonSafe",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "logout",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "register",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "requestPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "setConfig",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaDummyAuthProvider",
       "description": "",
       "shortDescription": "",
@@ -1545,7 +2078,108 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "authenticate",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createFailResponse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "createSuccessResponse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getJsonSafe",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "logout",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "register",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "requestPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "setConfig",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaEmailPassAuthProvider",
       "description": "",
       "shortDescription": "",
@@ -1627,7 +2261,78 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getErrors",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getMessages",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getRedirect",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getResponse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getTokenValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "isFailure",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "isSuccess",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaAuthResult",
       "description": "",
       "shortDescription": "",
@@ -1669,7 +2374,104 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "authenticate",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Authenticates with the selected provider\nStores received token in the token storage",
+          "description": "Example:\nauthenticate('email', {email: 'email@example.com', password: 'test'})\n"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getProvider",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getToken",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Retrieves current authenticated token stored"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "isAuthenticated",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Returns true if auth token is presented in the token storage"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "logout",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Sign outs with the selected provider\nRemoves token from the token storage",
+          "description": "Example:\nlogout('email')\n"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onAuthenticationChange",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Returns authentication status stream"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onTokenChange",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Returns tokens stream"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "register",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Registers with the selected provider\nStores received token in the token storage",
+          "description": "Example:\nregister('email', {email: 'email@example.com', name: 'Some Name', password: 'test'})\n"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "requestPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Sends forgot password request to the selected provider",
+          "description": "Example:\nrequestPassword('email', {email: 'email@example.com'})\n"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetPassword",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Tries to reset password with the selected provider",
+          "description": "Example:\nresetPassword('email', {newPassword: 'test'})\n"
+        }
+      ],
       "name": "NgaAuthService",
       "description": "",
       "shortDescription": "",
@@ -1731,7 +2533,88 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "addAuthTokenHeader",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "delete",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "doRequest",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "get",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onRequestError",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "post",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "prepareOptions",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "put",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaSecuredHttp",
       "description": "",
       "shortDescription": "",
@@ -1783,7 +2666,78 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "clear",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "get",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getConfigValue",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "publishToken",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "set",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "setConfig",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "tokenChange",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaTokenService",
       "description": "",
       "shortDescription": "",
@@ -1794,7 +2748,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaCardBodyComponent",
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset body section.",
       "styles": []
@@ -1837,7 +2790,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_LARGE",
           "shortDescription": "",
@@ -1846,7 +2799,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_MEDIUM",
           "shortDescription": "",
@@ -1855,7 +2808,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_SMALL",
           "shortDescription": "",
@@ -1864,7 +2817,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_XMEDIUM",
           "shortDescription": "",
@@ -1873,7 +2826,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_XSMALL",
           "shortDescription": "",
@@ -1882,7 +2835,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "STATUS_ACTIVE",
           "shortDescription": "",
@@ -1891,7 +2844,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "STATUS_DANGER",
           "shortDescription": "",
@@ -1900,7 +2853,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "STATUS_DISABLED",
           "shortDescription": "",
@@ -1909,7 +2862,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "STATUS_INFO",
           "shortDescription": "",
@@ -1918,7 +2871,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "STATUS_PRIMARY",
           "shortDescription": "",
@@ -1927,7 +2880,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "STATUS_SUCCESS",
           "shortDescription": "",
@@ -1936,7 +2889,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "STATUS_WARNING",
           "shortDescription": "",
@@ -2094,7 +3047,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaCardFooterComponent",
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset footer section.",
       "styles": []
@@ -2104,7 +3056,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaCardHeaderComponent",
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset header section.",
       "styles": []
@@ -2217,7 +3168,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnDestroy",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaLayoutComponent",
       "description": "While this component can be used alone, it also provides a number\nof child components for common layout sections, including:\n- nga-sidebar\n- nga-layout-column\n- nga-layout-content\n- nga-layout-header\n- nga-layout-footer\n",
       "shortDescription": "A basic content container component",
@@ -2372,7 +3334,78 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getHomeItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "navigateHome",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onHoverItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onItemClick",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onSelectItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onToggleSubMenu",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuComponent",
       "description": "",
       "shortDescription": "",
@@ -2464,7 +3497,48 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onHoverItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onItemClick",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onSelectItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onToggleSubMenu",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuItemComponent",
       "description": "",
       "shortDescription": "",
@@ -2761,7 +3835,108 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "addItems",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "clearStack",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getItems",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "itemClick",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "navigateHome",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "prepareItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "prepareItems",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetItem",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "resetItems",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "setParent",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaMenuService",
       "description": "",
       "shortDescription": "",
@@ -2833,7 +4008,18 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "selectTab",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaRouteTabsetComponent",
       "description": "",
       "shortDescription": "",
@@ -2918,7 +4104,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "type": "string",
           "required": null,
           "name": "STATE_COLLAPSED",
@@ -2928,7 +4114,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "type": "string",
           "required": null,
           "name": "STATE_COMPACTED",
@@ -2938,7 +4124,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "type": "string",
           "required": null,
           "name": "STATE_EXPANDED",
@@ -3012,7 +4198,54 @@
           "shortDescription": "Initial sidebar state, expanded|collapsed|compacted"
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "collapse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Collapses the sidebar"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "compact",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Compacts the sidebar (minimizes)"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "expand",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Expands the sidebar"
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngOnInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "toggle",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
+        }
+      ],
       "name": "NgaSidebarComponent",
       "description": "Sidebar can be place on the left or right side of the layout, can be fixed (shown above the content)\nor can push the layout when opened.\n",
       "shortDescription": "Main sidebar component.",
@@ -3023,7 +4256,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaSidebarContentComponent",
       "description": "Placeholder which contains a sidebar main content.\n",
       "shortDescription": "Sidebar content container.",
@@ -3034,7 +4266,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaSidebarFooterComponent",
       "description": "Placeholder which contains a sidebar footer content,\nplaced at the very bottom of the sidebar outside of the scroll area.\n",
       "shortDescription": "Sidebar footer container.",
@@ -3045,7 +4276,6 @@
       "platform": null,
       "examples": [],
       "props": [],
-      "methods": [],
       "name": "NgaSidebarHeaderComponent",
       "description": "Placeholder which contains a sidebar header content,\nplaced at the very top of the sidebar outside of the scroll area.\n",
       "shortDescription": "Sidebar header container.",
@@ -3118,7 +4348,38 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "collapse",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "expand",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "toggle",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaSidebarService",
       "description": "",
       "shortDescription": "",
@@ -3242,7 +4503,28 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "ngAfterContentInit",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "selectTab",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaTabsetComponent",
       "description": "",
       "shortDescription": "",
@@ -3381,7 +4663,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_LARGE",
           "shortDescription": "",
@@ -3390,7 +4672,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_MEDIUM",
           "shortDescription": "",
@@ -3399,7 +4681,7 @@
         {
           "kind": "property",
           "platform": null,
-          "isStatic": false,
+          "isStatic": true,
           "required": null,
           "name": "SIZE_SMALL",
           "shortDescription": "",
@@ -3481,7 +4763,47 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "getInitials",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "hideMenu",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "itemClick",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "toggleMenu",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "Toggles a context menu"
+        }
+      ],
       "name": "NgaUserComponent",
       "description": "Can be used as a user profile link or can bring a user context menu.\n",
       "shortDescription": "Represents a component showing a user avatar (picture) with a user name on the right.",
@@ -3591,7 +4913,28 @@
           "description": ""
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "changeTheme",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [],
+          "platform": null,
+          "name": "onThemeChange",
+          "type": [],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
       "name": "NgaThemeService",
       "description": "",
       "shortDescription": "",

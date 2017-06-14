@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -104,7 +104,10 @@ exports.CommonOptions = {
     name: 'name',
     decorators: 'decorators',
     comment: 'comment',
-    type: 'type'
+    type: 'type',
+    flags: 'flags',
+    isStatic: 'isStatic',
+    signatures: 'signatures'
 };
 
 
@@ -118,8 +121,8 @@ exports.CommonOptions = {
 // const io = new InputOutput();
 // io.createFile();
 Object.defineProperty(exports, "__esModule", { value: true });
-var typedoc_parser_1 = __webpack_require__(13);
-var fs = __webpack_require__(14);
+var typedoc_parser_1 = __webpack_require__(14);
+var fs = __webpack_require__(15);
 var json = {
     "id": 0,
     "name": "nga",
@@ -26383,6 +26386,59 @@ exports.Model = Model;
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(1);
+var GetMethods = (function () {
+    function GetMethods() {
+    }
+    GetMethods.prototype.getMethods = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
+            return obj[typedoc_parser_options_1.CommonOptions.children]
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.primKind] === 'Method'; })
+                .map(function (item) { return _this.parseMethod(item); });
+        }
+    };
+    GetMethods.prototype.parseMethod = function (obj) {
+        return new model_1.Method({
+            examples: [],
+            params: [],
+            platform: null,
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            type: [],
+            isStatic: false,
+            shortDescription: this.getShortDescription(obj),
+            description: this.getDescription(obj)
+        });
+    };
+    GetMethods.prototype.getDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['text'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetMethods.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['shortText'];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetMethods;
+}());
+exports.GetMethods = GetMethods;
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(1);
 var GetProperties = (function () {
     function GetProperties() {
     }
@@ -26438,8 +26494,8 @@ var GetProperties = (function () {
         return new model_1.Prop({
             kind: 'property',
             platform: null,
-            isStatic: false,
-            type: this.getType(obj),
+            isStatic: this.isStatic(obj),
+            type: 'void',
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
@@ -26450,7 +26506,7 @@ var GetProperties = (function () {
         return new model_1.Prop({
             kind: 'property',
             platform: null,
-            isStatic: false,
+            isStatic: this.isStatic(obj),
             type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -26462,7 +26518,7 @@ var GetProperties = (function () {
         return new model_1.Prop({
             kind: 'input',
             platform: null,
-            isStatic: false,
+            isStatic: this.isStatic(obj),
             type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -26475,7 +26531,7 @@ var GetProperties = (function () {
             kind: 'output',
             platform: null,
             isStatic: false,
-            type: '',
+            type: this.getType(obj),
             required: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             shortDescription: '',
@@ -26506,20 +26562,17 @@ var GetProperties = (function () {
             return '';
         }
     };
+    GetProperties.prototype.isStatic = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.flags] && obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
+            return obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
+        }
+        else {
+            return false;
+        }
+    };
     return GetProperties;
 }());
 exports.GetProperties = GetProperties;
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var getProperties_1 = __webpack_require__(11);
-exports.GetProperties = getProperties_1.GetProperties;
 
 
 /***/ }),
@@ -26529,11 +26582,25 @@ exports.GetProperties = getProperties_1.GetProperties;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var getProperties_1 = __webpack_require__(12);
+exports.GetProperties = getProperties_1.GetProperties;
+var getMethods_1 = __webpack_require__(11);
+exports.GetMethods = getMethods_1.GetMethods;
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_options_1 = __webpack_require__(1);
 var model_1 = __webpack_require__(0);
-var getters_1 = __webpack_require__(12);
+var getters_1 = __webpack_require__(13);
 var TypedocParser = (function () {
     function TypedocParser() {
+        this.methods = new getters_1.GetMethods();
         this.props = new getters_1.GetProperties();
         this.classes = [];
     }
@@ -26592,7 +26659,7 @@ var TypedocParser = (function () {
             platform: null,
             examples: [],
             props: this.props.getProps(obj),
-            methods: [],
+            methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
@@ -26605,7 +26672,7 @@ var TypedocParser = (function () {
             platform: null,
             examples: [],
             props: this.props.getProps(obj),
-            methods: [],
+            methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
@@ -26618,7 +26685,7 @@ var TypedocParser = (function () {
             platform: null,
             examples: [],
             props: this.props.getProps(obj),
-            methods: [],
+            methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
@@ -26631,7 +26698,7 @@ var TypedocParser = (function () {
             platform: null,
             examples: [],
             props: this.props.getProps(obj),
-            methods: [],
+            methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
@@ -26644,7 +26711,7 @@ var TypedocParser = (function () {
             platform: null,
             examples: [],
             props: this.props.getProps(obj),
-            methods: [],
+            methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
@@ -26673,13 +26740,13 @@ exports.TypedocParser = TypedocParser;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(2);

@@ -16,6 +16,7 @@ import {
 } from './getters';
 
 export class TypedocParser {
+  protected methods: GetMethods = new GetMethods();
   protected props: GetProperties = new GetProperties();
   protected json: any;
   protected classes: any[] = [];
@@ -73,7 +74,7 @@ export class TypedocParser {
       platform: null,
       examples: [],
       props: this.props.getProps(obj),
-      methods: [],
+      methods: this.methods.getMethods(obj),
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
@@ -87,7 +88,7 @@ export class TypedocParser {
       platform: null,
       examples: [],
       props: this.props.getProps(obj),
-      methods: [],
+      methods: this.methods.getMethods(obj),
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
@@ -101,7 +102,7 @@ export class TypedocParser {
       platform: null,
       examples: [],
       props: this.props.getProps(obj),
-      methods: [],
+      methods: this.methods.getMethods(obj),
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
@@ -115,7 +116,7 @@ export class TypedocParser {
       platform: null,
       examples: [],
       props: this.props.getProps(obj),
-      methods: [],
+      methods: this.methods.getMethods(obj),
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
@@ -129,7 +130,7 @@ export class TypedocParser {
       platform: null,
       examples: [],
       props: this.props.getProps(obj),
-      methods: [],
+      methods: this.methods.getMethods(obj),
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
@@ -145,7 +146,7 @@ export class TypedocParser {
     }
   }
 
-  getShortDescription(obj: any) {
+  getShortDescription(obj: any): string {
     if (obj && obj[CommonOptions.comment]) {
       return obj[CommonOptions.comment]['shortText'];
     } else {

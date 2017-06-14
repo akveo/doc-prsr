@@ -19,8 +19,23 @@ export class GetMethods {
       name: obj[CommonOptions.name],
       type: [],
       isStatic: false,
-      shortDescription: '',
-      description: ''
+      shortDescription: this.getShortDescription(obj),
+      description: this.getDescription(obj)
     });
+  }
+  getDescription(obj: any): string {
+    if (obj && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
+      return obj[CommonOptions.signatures][0][CommonOptions.comment]['text'];
+    } else {
+      return '';
+    }
+  }
+
+  getShortDescription(obj: any): string {
+    if (obj && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
+      return obj[CommonOptions.signatures][0][CommonOptions.comment]['shortText'];
+    } else {
+      return '';
+    }
   }
 }

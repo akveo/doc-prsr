@@ -6,5 +6,6 @@ export const CommonOptions = {
   comment: 'comment',
   type: 'type',
   flags: 'flags',
-  isStatic: 'isStatic'
+  isStatic: 'isStatic',
+  signatures: 'signatures'
 };
