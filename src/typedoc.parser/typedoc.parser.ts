@@ -18,6 +18,11 @@ export class TypedocParser {
     this.json = json;
   }
 
+  parse(json: any): Model {
+    this.saveJSON(json);
+    return new Model(this.getClasses(this.json));
+  }
+
   findAllClasses(obj: any) {
     if (obj && obj[CommonOptions.children]) {
       obj[CommonOptions.children].forEach((item: any) => {
@@ -30,7 +35,7 @@ export class TypedocParser {
     }
   }
 
-  getClasses(obj: any) {
+  getClasses(obj: any): Class[] {
     this.findAllClasses(obj);
     let tempClasses: any[] = [];
 
@@ -51,7 +56,7 @@ export class TypedocParser {
         }
       }
     });
-    return JSON.stringify(tempClasses, null, 2);
+    return tempClasses;
   }
   parseComponent(obj: any) {
     return new Class({

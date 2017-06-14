@@ -26147,7 +26147,8 @@ var json = {
     ]
 };
 var rdp = new typedoc_parser_1.TypedocParser();
-console.log(rdp.getClasses(json));
+var output = rdp.parse(json);
+console.log(output);
 // function iter(obj: any) {
 //     for (let property in obj) {
 //         if (obj.hasOwnProperty(property) && obj[property] != null) {
@@ -26382,6 +26383,10 @@ var TypedocParser = (function () {
     TypedocParser.prototype.saveJSON = function (json) {
         this.json = json;
     };
+    TypedocParser.prototype.parse = function (json) {
+        this.saveJSON(json);
+        return new model_1.Model(this.getClasses(this.json));
+    };
     TypedocParser.prototype.findAllClasses = function (obj) {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
@@ -26420,7 +26425,7 @@ var TypedocParser = (function () {
                 }
             }
         });
-        return JSON.stringify(tempClasses, null, 2);
+        return tempClasses;
     };
     TypedocParser.prototype.parseComponent = function (obj) {
         return new model_1.Class({
