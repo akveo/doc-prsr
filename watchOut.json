@@ -5522,7 +5522,7 @@
           "type": [
             "Observable"
           ],
-          "isStatic": false,
+          "isStatic": true,
           "shortDescription": "Some Static method"
         }
       ],

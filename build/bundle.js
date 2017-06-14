@@ -26407,7 +26407,7 @@ var GetMethods = (function () {
             platform: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             type: this.getType(obj),
-            isStatic: false,
+            isStatic: this.isStatic(obj),
             shortDescription: this.getShortDescription(obj),
             description: this.getDescription(obj)
         });
@@ -26436,6 +26436,14 @@ var GetMethods = (function () {
         }
         else {
             return ['void'];
+        }
+    };
+    GetMethods.prototype.isStatic = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.flags] && obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
+            return obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
+        }
+        else {
+            return false;
         }
     };
     return GetMethods;

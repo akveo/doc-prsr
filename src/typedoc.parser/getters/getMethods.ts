@@ -22,7 +22,7 @@ export class GetMethods {                                         //TODO ask abo
       platform: null,
       name: obj[CommonOptions.name],
       type: this.getType(obj),
-      isStatic: false,
+      isStatic: this.isStatic(obj),
       shortDescription: this.getShortDescription(obj),
       description: this.getDescription(obj)
     });
@@ -51,6 +51,14 @@ export class GetMethods {                                         //TODO ask abo
       return returnsArray;
     } else {
       return ['void'];
+    }
+  }
+
+  isStatic(obj: any):boolean {
+    if (obj && obj[CommonOptions.flags] && obj[CommonOptions.flags][CommonOptions.isStatic]) {
+      return obj[CommonOptions.flags][CommonOptions.isStatic];
+    } else {
+      return false;
     }
   }
 }
