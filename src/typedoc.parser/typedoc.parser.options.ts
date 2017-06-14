@@ -7,5 +7,6 @@ export const CommonOptions = {
   type: 'type',
   flags: 'flags',
   isStatic: 'isStatic',
-  signatures: 'signatures'
+  signatures: 'signatures',
+  parameters: 'parameters'
 };
