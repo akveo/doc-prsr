@@ -12,10 +12,12 @@ import {
 
 import {
   GetProperties,
-  GetMethods
+  GetMethods,
+  GetStyles
 } from './getters';
 
 export class TypedocParser {
+  protected styles: GetStyles = new GetStyles();
   protected methods: GetMethods = new GetMethods();
   protected props: GetProperties = new GetProperties();
   protected json: any;
@@ -67,7 +69,7 @@ export class TypedocParser {
           }
         }
       });
-    console.log(tempClasses.length);
+    // console.log(tempClasses.length);
     return tempClasses;
   }
 
@@ -131,19 +133,19 @@ export class TypedocParser {
     return new Class({
       kind: 'interface',
       platform: null,
-      examples: [],
+      examples: [],                                                              //TODO tell about templates
       props: this.props.getProps(obj),
       methods: this.methods.getMethods(obj),
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: []
+      styles: []                                                               //TODO tell about templates
     });
   }
 
   parseNgModule(obj: any) {                                                   //TODO ask what is it!!!
     return new Class({
-      kind: 'ng-module',
+      kind: 'class',
       platform: null,
       examples: [],
       props: this.props.getProps(obj),

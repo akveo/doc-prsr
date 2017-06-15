@@ -4,7 +4,7 @@ import {
 import {CommonOptions} from '../typedoc.parser.options';
 import {GetParams} from './getParams';
 
-export class GetMethods {                                         //TODO ask about examples!!!
+export class GetMethods {                                         //TODO ask about examples and its templates
   protected params: GetParams = new GetParams();
 
   getMethods(obj: any) {
