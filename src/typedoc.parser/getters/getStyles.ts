@@ -16,7 +16,10 @@ export  class GetStyles {
   }
 
   parserStyle(obj: any) {
-
+    return new Style({
+      shortDescription: this.getShortDescription(obj),
+      styles: this.getStylesOfStyle(obj)
+    });
   }
 
   getStylesOfStyle(obj: any) {
