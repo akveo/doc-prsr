@@ -26,7 +26,12 @@ export  class GetStyles {
 
   }
 
-  getShortDescription(obj: any) {
-
+  getShortDescription(obj: any): string {
+    if (obj && obj[CommonOptions.text]) {
+      const workString = obj[CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
+      return workString[0];
+    } else {
+      return '';
+    }
   }
 }

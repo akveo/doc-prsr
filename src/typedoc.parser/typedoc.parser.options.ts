@@ -10,5 +10,6 @@ export const CommonOptions = {
   signatures: 'signatures',
   parameters: 'parameters',
   tag: 'tag',
-  tags: 'tags'
+  tags: 'tags',
+  text: 'text'
 };
