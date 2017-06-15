@@ -186,6 +186,39 @@ var GetStyles = (function () {
         });
     };
     GetStyles.prototype.getStylesOfStyle = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            var arr = obj[typedoc_parser_options_1.CommonOptions.text].split('\n\n');
+            var tempArr = [];
+            var returnArr_1 = [];
+            arr.splice(0, 1);
+            tempArr = arr[0].split('\n');
+            tempArr.forEach(function (item) {
+                if (item) {
+                    var _a = item.split(':'), key = _a[0], value = _a[1];
+                    // console.log(item.split(':'));
+                    var styleObj = {};
+                    // styleObj[key.replace(/[`-]/g, '').trim()] = value.trim();
+                    if (key) {
+                        styleObj['name'] = key.replace(/[`-]/g, '').trim();
+                    }
+                    else {
+                        styleObj['name'] = '';
+                    }
+                    if (value) {
+                        styleObj['description'] = value.trim();
+                    }
+                    else {
+                        styleObj['description'] = '';
+                    }
+                    returnArr_1.push(styleObj);
+                }
+            });
+            return returnArr_1;
+        }
+        else {
+            // return [];
+            console.log('nothing');
+        }
     };
     GetStyles.prototype.getShortDescription = function (obj) {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
@@ -224,7 +257,7 @@ var obj = {
     "tag": "styles",
     "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
 };
-console.log(gs.getShortDescription(obj));
+console.log(gs.getStylesOfStyle(obj));
 
 
 /***/ }),

@@ -22,8 +22,34 @@ export  class GetStyles {
     });
   }
 
-  getStylesOfStyle(obj: any) {
-
+  getStylesOfStyle(obj: any): any[] {
+    if (obj && obj[CommonOptions.text]) {
+      const arr = obj[CommonOptions.text].split('\n\n');
+      let tempArr: any[] = [];
+      const returnArr: any[] = [];
+      arr.splice(0, 1);
+      tempArr = arr[0].split('\n');
+      tempArr.forEach((item: any) => {
+        if (item) {
+          const [key, value] = item.split(':');
+          const styleObj: any = {};
+          if (key) {
+            styleObj['name'] = key.replace(/[`-]/g, '').trim();
+          } else {
+            styleObj['name'] = '';
+          }
+          if (value) {
+            styleObj['description'] = value.trim();
+          } else {
+            styleObj['description'] = '';
+          }
+          returnArr.push(styleObj);
+        }
+      });
+      return returnArr;
+    } else {
+      return [];
+    }
   }
 
   getShortDescription(obj: any): string {
