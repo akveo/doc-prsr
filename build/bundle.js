@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,21 +73,21 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var metadata_1 = __webpack_require__(11);
+var metadata_1 = __webpack_require__(10);
 exports.Metadata = metadata_1.Metadata;
-var class_1 = __webpack_require__(5);
+var class_1 = __webpack_require__(4);
 exports.Class = class_1.Class;
-var example_1 = __webpack_require__(6);
+var example_1 = __webpack_require__(5);
 exports.Example = example_1.Example;
-var method_1 = __webpack_require__(7);
+var method_1 = __webpack_require__(6);
 exports.Method = method_1.Method;
-var param_1 = __webpack_require__(8);
+var param_1 = __webpack_require__(7);
 exports.Param = param_1.Param;
-var prop_1 = __webpack_require__(9);
+var prop_1 = __webpack_require__(8);
 exports.Prop = prop_1.Prop;
-var model_1 = __webpack_require__(12);
+var model_1 = __webpack_require__(11);
 exports.Model = model_1.Model;
-var style_1 = __webpack_require__(10);
+var style_1 = __webpack_require__(9);
 exports.Style = style_1.Style;
 
 
@@ -111,7 +111,9 @@ exports.CommonOptions = {
     parameters: 'parameters',
     tag: 'tag',
     tags: 'tags',
-    text: 'text'
+    text: 'text',
+    description: 'description',
+    shortDescription: 'shortDescription'
 };
 
 
@@ -122,61 +124,20 @@ exports.CommonOptions = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(0);
-var typedoc_parser_options_1 = __webpack_require__(1);
-var GetParams = (function () {
-    function GetParams() {
-    }
-    GetParams.prototype.getParams = function (obj) {
-        var _this = this;
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]) {
-            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]
-                .map(function (item) { return _this.parseParam(item); });
-        }
-    };
-    GetParams.prototype.parseParam = function (obj) {
-        return new model_1.Param({
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            type: this.getType(obj),
-            required: null,
-            shortDescription: '',
-            description: ''
-        });
-    };
-    GetParams.prototype.getType = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
-            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
-        }
-        else {
-            return '';
-        }
-    };
-    return GetParams;
-}());
-exports.GetParams = GetParams;
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
 var getProperties_1 = __webpack_require__(15);
 exports.GetProperties = getProperties_1.GetProperties;
-var getMethods_1 = __webpack_require__(14);
+var getMethods_1 = __webpack_require__(13);
 exports.GetMethods = getMethods_1.GetMethods;
 var getStyles_1 = __webpack_require__(16);
 exports.GetStyles = getStyles_1.GetStyles;
-var getParams_1 = __webpack_require__(2);
+var getParams_1 = __webpack_require__(14);
 exports.GetParams = getParams_1.GetParams;
-var getExamples_1 = __webpack_require__(13);
+var getExamples_1 = __webpack_require__(12);
 exports.GetExamples = getExamples_1.GetExamples;
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -186,27 +147,17 @@ exports.GetExamples = getExamples_1.GetExamples;
 // io.createFile();
 Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_1 = __webpack_require__(17);
-var getters_1 = __webpack_require__(3);
+var fs = __webpack_require__(18);
 var rdp = new typedoc_parser_1.TypedocParser();
-// fs.readFile('./right-examples/typedoc/new/docs.json', (err: any, data: any) => {
-//   const newdoc = new TypedocParser().parse(JSON.parse(data));
-//   const outputObj: any = JSON.stringify(newdoc, null, 2);
-//   fs.writeFile('./watchOut.json', outputObj);
-// });
-var ge = new getters_1.GetExamples();
-var obj1 = {
-    "tag": "example",
-    "text": "Min sidebar example\n\n```\n<nga-sidebar><nga-sidebar-content>Sidebar content</nga-sidebar-content></nga-sidebar>\n```\n"
-};
-var obj2 = {
-    "tag": "example",
-    "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
-};
-console.log(ge.getDescription(obj2));
+fs.readFile('./right-examples/typedoc/new/docs.json', function (err, data) {
+    var newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data));
+    var outputObj = JSON.stringify(newdoc, null, 2);
+    fs.writeFile('./watchOut.json', outputObj);
+});
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,7 +181,7 @@ exports.Class = Class;
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -248,7 +199,7 @@ exports.Example = Example;
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -271,7 +222,7 @@ exports.Method = Method;
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -291,7 +242,7 @@ exports.Param = Param;
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -314,7 +265,7 @@ exports.Prop = Prop;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -331,7 +282,7 @@ exports.Style = Style;
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -349,7 +300,7 @@ exports.Metadata = Metadata;
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -366,7 +317,7 @@ exports.Model = Model;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -446,7 +397,7 @@ exports.GetExamples = GetExamples;
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -454,10 +405,11 @@ exports.GetExamples = GetExamples;
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(1);
-var getParams_1 = __webpack_require__(2);
+var _1 = __webpack_require__(2);
 var GetMethods = (function () {
     function GetMethods() {
-        this.params = new getParams_1.GetParams();
+        this.params = new _1.GetParams();
+        this.examples = new _1.GetExamples();
     }
     GetMethods.prototype.getMethods = function (obj) {
         var _this = this;
@@ -469,7 +421,7 @@ var GetMethods = (function () {
     };
     GetMethods.prototype.parseMethod = function (obj) {
         return new model_1.Method({
-            examples: [],
+            examples: this.examples.getExamples(obj),
             params: this.params.getParams(obj),
             platform: null,
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -516,6 +468,47 @@ var GetMethods = (function () {
     return GetMethods;
 }());
 exports.GetMethods = GetMethods;
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(1);
+var GetParams = (function () {
+    function GetParams() {
+    }
+    GetParams.prototype.getParams = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]) {
+            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]
+                .map(function (item) { return _this.parseParam(item); });
+        }
+    };
+    GetParams.prototype.parseParam = function (obj) {
+        return new model_1.Param({
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            type: this.getType(obj),
+            required: null,
+            shortDescription: '',
+            description: ''
+        });
+    };
+    GetParams.prototype.getType = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
+            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetParams;
+}());
+exports.GetParams = GetParams;
 
 
 /***/ }),
@@ -748,7 +741,7 @@ exports.GetStyles = GetStyles;
 Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_options_1 = __webpack_require__(1);
 var model_1 = __webpack_require__(0);
-var getters_1 = __webpack_require__(3);
+var getters_1 = __webpack_require__(2);
 var TypedocParser = (function () {
     function TypedocParser() {
         this.examples = new getters_1.GetExamples();
@@ -778,11 +771,19 @@ var TypedocParser = (function () {
         }
     };
     TypedocParser.prototype.getClasses = function (obj) {
+        return this.getAllClasses(obj)
+            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.description] || item[typedoc_parser_options_1.CommonOptions.shortDescription]; });
+    };
+    TypedocParser.prototype.getAllClasses = function (obj) {
         var _this = this;
         this.findAllClasses(obj);
         var tempClasses = [];
         tempClasses = this.classes
-            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface'; })
+            .filter(function (item) {
+            if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface') {
+                return item;
+            }
+        })
             .map(function (item) {
             if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
                 if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class') {
@@ -813,7 +814,7 @@ var TypedocParser = (function () {
         return new model_1.Class({
             kind: 'component',
             platform: null,
-            examples: [],
+            examples: this.examples.getExamples(obj),
             props: this.props.getProps(obj),
             methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -826,7 +827,7 @@ var TypedocParser = (function () {
         return new model_1.Class({
             kind: 'class',
             platform: null,
-            examples: [],
+            examples: this.examples.getExamples(obj),
             props: this.props.getProps(obj),
             methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -839,7 +840,7 @@ var TypedocParser = (function () {
         return new model_1.Class({
             kind: 'directive',
             platform: null,
-            examples: [],
+            examples: this.examples.getExamples(obj),
             props: this.props.getProps(obj),
             methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -852,7 +853,7 @@ var TypedocParser = (function () {
         return new model_1.Class({
             kind: 'service',
             platform: null,
-            examples: [],
+            examples: this.examples.getExamples(obj),
             props: this.props.getProps(obj),
             methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -865,20 +866,20 @@ var TypedocParser = (function () {
         return new model_1.Class({
             kind: 'interface',
             platform: null,
-            examples: [],
+            examples: this.examples.getExamples(obj),
             props: this.props.getProps(obj),
             methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
-            styles: this.styles.getStyles(obj) //TODO tell about templates
+            styles: this.styles.getStyles(obj)
         });
     };
     TypedocParser.prototype.parseNgModule = function (obj) {
         return new model_1.Class({
             kind: 'class',
             platform: null,
-            examples: [],
+            examples: this.examples.getExamples(obj),
             props: this.props.getProps(obj),
             methods: this.methods.getMethods(obj),
             name: obj[typedoc_parser_options_1.CommonOptions.name],
@@ -910,9 +911,15 @@ exports.TypedocParser = TypedocParser;
 
 /***/ }),
 /* 18 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(3);
 
 
 /***/ })

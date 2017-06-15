@@ -11,5 +11,7 @@ export const CommonOptions = {
   parameters: 'parameters',
   tag: 'tag',
   tags: 'tags',
-  text: 'text'
+  text: 'text',
+  description: 'description',
+  shortDescription: 'shortDescription'
 };

@@ -1,11 +1,12 @@
 import {
   Method
 } from '../../model';
-import {CommonOptions} from '../typedoc.parser.options';
-import {GetParams} from './getParams';
+import { CommonOptions } from '../typedoc.parser.options';
+import { GetParams, GetExamples} from './';
 
 export class GetMethods {                                         //TODO ask about examples and its templates
   protected params: GetParams = new GetParams();
+  protected examples: GetExamples = new GetExamples();
 
   getMethods(obj: any) {
     if (obj && obj[CommonOptions.children]) {
@@ -17,7 +18,7 @@ export class GetMethods {                                         //TODO ask abo
 
   parseMethod(obj: any): Method {
     return new Method({
-      examples: [],
+      examples: this.examples.getExamples(obj),
       params: this.params.getParams(obj),
       platform: null,
       name: obj[CommonOptions.name],
