@@ -6,17 +6,7 @@
       "examples": [],
       "props": [
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "disabledValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "string",
@@ -25,7 +15,7 @@
           "shortDescription": "Icon class to display"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -45,54 +35,7 @@
       "examples": [],
       "props": [
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "inverseValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "sizeValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_LARGE",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_MEDIUM",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_SMALL",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -101,43 +44,13 @@
           "shortDescription": "Makes colors inverse based on current theme"
         },
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "large",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "medium",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
           "required": null,
           "name": "size",
           "shortDescription": "Size of the component, small|medium|large"
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "small",
-          "shortDescription": "",
-          "description": ""
         }
       ],
       "methods": [],
@@ -158,286 +71,7 @@
       "kind": "component",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "sizeValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "statusValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "title",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_LARGE",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_MEDIUM",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_SMALL",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_XMEDIUM",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_XSMALL",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "STATUS_ACTIVE",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "STATUS_DANGER",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "STATUS_DISABLED",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "STATUS_INFO",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "STATUS_PRIMARY",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "STATUS_SUCCESS",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "STATUS_WARNING",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "active",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "danger",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "disabled",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "info",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "large",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "medium",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "primary",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "size",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "small",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "status",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "success",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "warning",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "xmedium",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "xsmall",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [],
       "name": "NgaCardComponent",
       "description": "While this component can be used alone, it also provides a number\nof child components for common card sections, including:\n- nga-card-header\n- nga-card-body\n- nga-card-footer\n",
@@ -466,28 +100,7 @@
       "kind": "component",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "leftValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "left",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [],
       "name": "NgaLayoutColumnComponent",
       "shortDescription": "Component intended to be used within  the `<nga-layout>` component.\nIt adds styles for a preset column section.",
@@ -497,158 +110,7 @@
       "kind": "component",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "BehaviorSubject",
-          "required": null,
-          "name": "afterViewInit$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "appendClassSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "appendSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "centerValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "clearSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "ComponentFactoryResolver",
-          "required": null,
-          "name": "componentFactoryResolver",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "ElementRef",
-          "required": null,
-          "name": "elementRef",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "removeClassSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Renderer2",
-          "required": null,
-          "name": "renderer",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "NgaSpinnerService",
-          "required": null,
-          "name": "spinnerService",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "NgaThemeService",
-          "required": null,
-          "name": "themeService",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "themeSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "ViewContainerRef",
-          "required": null,
-          "name": "veryTopRef",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "center",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [
         {
           "examples": [],
@@ -682,28 +144,7 @@
       "kind": "component",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "fixedValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "fixed",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [],
       "name": "NgaLayoutFooterComponent",
       "shortDescription": "Component intended to be used within  the `<nga-layout>` component.\nIt adds styles for a preset footer section.",
@@ -713,28 +154,7 @@
       "kind": "component",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "fixedValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "fixed",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [],
       "name": "NgaLayoutHeaderComponent",
       "shortDescription": "Component intended to be used within  the `<nga-layout>` component.\nIt adds styles for a preset header section.",
@@ -744,230 +164,7 @@
       "kind": "component",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "ElementRef",
-          "required": null,
-          "name": "inputElement",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "placeholder",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "EventEmitter",
-          "required": null,
-          "name": "search",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "EventEmitter",
-          "required": null,
-          "name": "searchClose",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "searchType",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "showSearch",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_COLUMN_CURTAIN",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_CURTAIN",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_MODAL_DROP",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_MODAL_HALF",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_MODAL_MOVE",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_MODAL_ZOOMIN",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_ROTATE_LAYOUT",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "TYPE_SIMPLE_SEARCH",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "columnCurtain",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "curtain",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "modalDrop",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "modalHalf",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "modalMove",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "modalZoomin",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "rotateLayout",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "simpleSearch",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "type",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [
         {
           "examples": [],
@@ -1033,87 +230,7 @@
       ],
       "props": [
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "collapseSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "expandSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "fixedValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "leftValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "rightValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "NgaSidebarService",
-          "required": null,
-          "name": "sidebarService",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "stateValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "string",
@@ -1122,77 +239,7 @@
           "shortDescription": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page."
         },
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subscription",
-          "required": null,
-          "name": "toggleSubscription",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "type": "string",
-          "required": null,
-          "name": "STATE_COLLAPSED",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "type": "string",
-          "required": null,
-          "name": "STATE_COMPACTED",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "type": "string",
-          "required": null,
-          "name": "STATE_EXPANDED",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "collapsed",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "compacted",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "expanded",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1201,7 +248,7 @@
           "shortDescription": "Makes sidebar fixed (shown above the layout content)"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1210,7 +257,7 @@
           "shortDescription": "Places sidebar on the right side"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1219,7 +266,7 @@
           "shortDescription": "Places sidebar on the left side"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1414,38 +461,7 @@
       "kind": "service",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "collapse$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "expand$",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "Subject",
-          "required": null,
-          "name": "toggle$",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [
         {
           "examples": [],
@@ -1553,17 +569,7 @@
       "examples": [],
       "props": [
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "string",
@@ -1572,37 +578,7 @@
           "shortDescription": "Color of the area shown when no picture specified"
         },
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "ElementRef",
-          "required": null,
-          "name": "el",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "inverseValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "isMenuShown",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "required": null,
@@ -1610,16 +586,17 @@
           "shortDescription": "List of menu items for a user context menu (shown when clicked)"
         },
         {
-          "kind": "property",
+          "kind": "output",
           "platform": null,
           "isStatic": false,
           "type": "EventEmitter",
           "required": null,
           "name": "menuClick",
-          "shortDescription": "Outputs when a context menu item is clicked"
+          "shortDescription": "",
+          "description": ""
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "string",
@@ -1628,7 +605,7 @@
           "shortDescription": "Specifies a name to be shown on the right of a user picture"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "string",
@@ -1637,47 +614,7 @@
           "shortDescription": "Absolute path to a user picture\nUser name initials (JD for John Doe) will be shown if no picture specified"
         },
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "showInitialsValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "showNameValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "boolean",
-          "required": null,
-          "name": "showTitleValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "string",
-          "required": null,
-          "name": "sizeValue",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "string",
@@ -1686,34 +623,7 @@
           "shortDescription": "Specifies a title (written in a smaller font) to be shown under the **name**"
         },
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_LARGE",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_MEDIUM",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": true,
-          "required": null,
-          "name": "SIZE_SMALL",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1722,27 +632,7 @@
           "shortDescription": "Makes colors inverse based on current theme"
         },
         {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "large",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "medium",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1751,7 +641,7 @@
           "shortDescription": "Whether to show only a picture or also show the name and title"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1760,7 +650,7 @@
           "shortDescription": "Whether to show a user initials (if no picture specified) or not"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1769,7 +659,7 @@
           "shortDescription": "Whether to show a user name or not"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
@@ -1778,23 +668,13 @@
           "shortDescription": "Whether to show a user title or not"
         },
         {
-          "kind": "property",
+          "kind": "input",
           "platform": null,
           "isStatic": false,
           "type": "",
           "required": null,
           "name": "size",
           "shortDescription": "Size of the component, small|medium|large"
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "small",
-          "shortDescription": "",
-          "description": ""
         }
       ],
       "methods": [

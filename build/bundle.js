@@ -528,41 +528,45 @@ var GetProperties = (function () {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
             return obj[typedoc_parser_options_1.CommonOptions.children]
                 .filter(function (item) {
-                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor'
-                    || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor') {
                     return item;
                 }
             })
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
                 .map(function (item) {
-                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property') {
-                    if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
+                // if (item[CommonOptions.primKind] === 'Property') {
+                //   if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Input') {
+                //     return this.parseInput(item);
+                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Output') {
+                //     return this.parseOutput(item);
+                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'HostBinding') {
+                //     return this.parseProperty(item)
+                //   } else if (!item[CommonOptions.decorators]) {
+                //     return this.parseProperty(item);
+                //   }
+                // } else if (item[CommonOptions.primKind] === 'Accessor') {
+                //   if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Input') {
+                //     return this.parseInput(item);
+                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Output') {
+                //     return this.parseOutput(item);
+                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'HostBinding') {
+                //     return this.parseProperty(item)
+                //   } else if (!item[CommonOptions.decorators]) {
+                //     return this.parseProperty(item);
+                //   }
+                // }
+                if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                    if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
                         return _this.parseInput(item);
                     }
-                    else if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
+                    else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
                         return _this.parseOutput(item);
                     }
-                    else if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                        return _this.parseProperty(item);
-                    }
-                    else if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                    else {
                         return _this.parseProperty(item);
                     }
                 }
-                else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor') {
-                    if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
-                        return _this.parseInput(item);
-                    }
-                    else if (item[typedoc_parser_options_1.CommonOptions.decorators] && item[typedoc_parser_options_1.CommonOptions.decorators][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
-                        return _this.parseOutput(item);
-                    }
-                    else if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                        return _this.parseProperty(item);
-                    }
-                    else if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                        return _this.parseProperty(item);
-                    }
-                }
-                else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
+                else if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
                     return _this.parseProperty(item);
                 }
             });
@@ -570,18 +574,6 @@ var GetProperties = (function () {
         else {
             return [];
         }
-    };
-    GetProperties.prototype.parseConstructor = function (obj) {
-        return new model_1.Prop({
-            kind: 'property',
-            platform: null,
-            isStatic: this.isStatic(obj),
-            type: 'void',
-            required: null,
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            description: this.getDescription(obj),
-            shortDescription: this.getShortDescription(obj)
-        });
     };
     GetProperties.prototype.parseProperty = function (obj) {
         return new model_1.Prop({
