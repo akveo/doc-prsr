@@ -1,6 +1,48 @@
 {
   "classes": [
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "methods": [
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "ngaAuthOptions",
+              "type": "NgaAuthOptions",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaAuthModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "interface",
       "platform": null,
@@ -2790,7 +2832,16 @@
       "shortDescription": "Shows a a horizontal list of actions, available in multiple sizes\nAligns items vertically.",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaActionsModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "component",
       "platform": null,
@@ -3108,7 +3159,16 @@
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset header section.",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaCardModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "component",
       "platform": null,
@@ -3367,7 +3427,16 @@
       "shortDescription": "Component intended to be used within  the `<nga-layout>` component.\nIt adds styles for a preset header section.",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaLayoutModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "component",
       "platform": null,
@@ -3837,7 +3906,38 @@
       "shortDescription": "",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "ngaMenuOptions",
+              "type": "NgaMenuOptions",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaMenuModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "service",
       "platform": null,
@@ -4563,7 +4663,16 @@
       "shortDescription": "",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaRouteTabsetModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "component",
       "platform": null,
@@ -5057,7 +5166,16 @@
       "shortDescription": "search-field-component is used under the hood by nga-search component\ncan't be used itself",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaSearchModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "service",
       "platform": null,
@@ -5215,7 +5333,16 @@
       "shortDescription": "",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaSharedModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "component",
       "platform": null,
@@ -5561,7 +5688,29 @@
       "shortDescription": "Sidebar header container.",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaSidebarModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "service",
       "platform": null,
@@ -5855,7 +6004,16 @@
       "shortDescription": "",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaTabsetModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "component",
       "platform": null,
@@ -6249,13 +6407,154 @@
       "shortDescription": "",
       "styles": []
     },
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "name": "NgaUserModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaBootstrapModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaChartsModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaComponentsModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaMapsModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaTablesModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaTypographyModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "service",
       "platform": null,
@@ -6495,7 +6794,38 @@
       "shortDescription": "",
       "styles": []
     },
-    null,
+    {
+      "kind": "ng-module",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "ngaThemeOptions",
+              "type": "NgaThemeOptions",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "forRoot",
+          "type": [
+            "ModuleWithProviders"
+          ],
+          "isStatic": true,
+          "shortDescription": "",
+          "description": ""
+        }
+      ],
+      "name": "NgaThemeModule",
+      "description": "",
+      "shortDescription": "",
+      "styles": []
+    },
     {
       "kind": "interface",
       "platform": null,

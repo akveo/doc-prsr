@@ -62,9 +62,12 @@ export class TypedocParser {
             return this.parseService(item);
           } else if (item[CommonOptions.decorators][0][CommonOptions.name] === 'Directive') {
             return this.parseDirective(item);
+          } else if (item[CommonOptions.decorators][0][CommonOptions.name] === 'NgModule') {      //TODO ask what is it
+            return this.parseNgModule(item);
           }
         }
       });
+    console.log(tempClasses.length);
     return tempClasses;
   }
 
@@ -127,6 +130,20 @@ export class TypedocParser {
   parseInterface(obj: any) {
     return new Class({
       kind: 'interface',
+      platform: null,
+      examples: [],
+      props: this.props.getProps(obj),
+      methods: this.methods.getMethods(obj),
+      name: obj[CommonOptions.name],
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj),
+      styles: []
+    });
+  }
+
+  parseNgModule(obj: any) {                                                   //TODO ask what is it!!!
+    return new Class({
+      kind: 'ng-module',
       platform: null,
       examples: [],
       props: this.props.getProps(obj),

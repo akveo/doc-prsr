@@ -625,6 +625,9 @@ var TypedocParser = (function () {
                 else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Directive') {
                     return _this.parseDirective(item);
                 }
+                else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'NgModule') {
+                    return _this.parseNgModule(item);
+                }
             }
         });
         console.log(tempClasses.length);
@@ -685,6 +688,19 @@ var TypedocParser = (function () {
     TypedocParser.prototype.parseInterface = function (obj) {
         return new model_1.Class({
             kind: 'interface',
+            platform: null,
+            examples: [],
+            props: this.props.getProps(obj),
+            methods: this.methods.getMethods(obj),
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj),
+            styles: []
+        });
+    };
+    TypedocParser.prototype.parseNgModule = function (obj) {
+        return new model_1.Class({
+            kind: 'ng-module',
             platform: null,
             examples: [],
             props: this.props.getProps(obj),
