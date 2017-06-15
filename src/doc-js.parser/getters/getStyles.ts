@@ -35,10 +35,19 @@ export class GetStyles {
       arr.splice(0, 1);
       arr.forEach((item: any) => {
         const [key, value] = item.split(':');
+        // console.log(item.split(':'));
         const styleObj: any = {};
         // styleObj[key.replace(/[`-]/g, '').trim()] = value.trim();
-        styleObj['name'] = key.replace(/[`-]/g, '').trim();
-        styleObj['description'] = value.trim();
+        if (key) {
+          styleObj['name'] = key.replace(/[`-]/g, '').trim();
+        } else {
+          styleObj['name'] = '';
+        }
+        if (value) {
+          styleObj['description'] = value.trim();
+        } else {
+          styleObj['description'] = '';
+        }
         arrTemp.push(styleObj);
       });
       return arrTemp;

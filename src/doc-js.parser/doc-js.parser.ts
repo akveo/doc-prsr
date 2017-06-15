@@ -31,7 +31,7 @@ export class DocJsParser {
 
   getClasses(json: any[]): Class[] {
     return json
-      .filter((item: any) => item[CommonOptions.classKind])
+      .filter((item: any) => item[CommonOptions.classKind] === 'class')
       .map((item: any) => this.parseClass(item));
   }
 
