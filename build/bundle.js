@@ -73,21 +73,21 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var metadata_1 = __webpack_require__(10);
+var metadata_1 = __webpack_require__(11);
 exports.Metadata = metadata_1.Metadata;
-var class_1 = __webpack_require__(4);
+var class_1 = __webpack_require__(5);
 exports.Class = class_1.Class;
-var example_1 = __webpack_require__(5);
+var example_1 = __webpack_require__(6);
 exports.Example = example_1.Example;
-var method_1 = __webpack_require__(6);
+var method_1 = __webpack_require__(7);
 exports.Method = method_1.Method;
-var param_1 = __webpack_require__(7);
+var param_1 = __webpack_require__(8);
 exports.Param = param_1.Param;
-var prop_1 = __webpack_require__(8);
+var prop_1 = __webpack_require__(9);
 exports.Prop = prop_1.Prop;
-var model_1 = __webpack_require__(11);
+var model_1 = __webpack_require__(12);
 exports.Model = model_1.Model;
-var style_1 = __webpack_require__(9);
+var style_1 = __webpack_require__(10);
 exports.Style = style_1.Style;
 
 
@@ -162,29 +162,51 @@ exports.GetParams = GetParams;
 
 "use strict";
 
-// import { InputOutput } from  './input-output';
-// const io = new InputOutput();
-// io.createFile();
 Object.defineProperty(exports, "__esModule", { value: true });
-var typedoc_parser_1 = __webpack_require__(16);
-var fs = __webpack_require__(17);
-var rdp = new typedoc_parser_1.TypedocParser();
-fs.readFile('./right-examples/typedoc/new/docs.json', function (err, data) {
-    var newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data));
-    var outputObj = JSON.stringify(newdoc, null, 2);
-    fs.writeFile('./watchOut.json', outputObj);
-});
-// const gs = new GetStyles();
-// const obj = {
-//   "tag": "styles",
-//   "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
-// };
-//
-// console.log(gs.getStylesOfStyle(obj));
+var getProperties_1 = __webpack_require__(15);
+exports.GetProperties = getProperties_1.GetProperties;
+var getMethods_1 = __webpack_require__(14);
+exports.GetMethods = getMethods_1.GetMethods;
+var getStyles_1 = __webpack_require__(16);
+exports.GetStyles = getStyles_1.GetStyles;
+var getParams_1 = __webpack_require__(2);
+exports.GetParams = getParams_1.GetParams;
+var getExamples_1 = __webpack_require__(13);
+exports.GetExamples = getExamples_1.GetExamples;
 
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// import { InputOutput } from  './input-output';
+// const io = new InputOutput();
+// io.createFile();
+Object.defineProperty(exports, "__esModule", { value: true });
+var typedoc_parser_1 = __webpack_require__(17);
+var getters_1 = __webpack_require__(3);
+var rdp = new typedoc_parser_1.TypedocParser();
+// fs.readFile('./right-examples/typedoc/new/docs.json', (err: any, data: any) => {
+//   const newdoc = new TypedocParser().parse(JSON.parse(data));
+//   const outputObj: any = JSON.stringify(newdoc, null, 2);
+//   fs.writeFile('./watchOut.json', outputObj);
+// });
+var ge = new getters_1.GetExamples();
+var obj1 = {
+    "tag": "example",
+    "text": "Min sidebar example\n\n```\n<nga-sidebar><nga-sidebar-content>Sidebar content</nga-sidebar-content></nga-sidebar>\n```\n"
+};
+var obj2 = {
+    "tag": "example",
+    "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
+};
+console.log(ge.getCode(obj2));
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -208,7 +230,7 @@ exports.Class = Class;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -226,7 +248,7 @@ exports.Example = Example;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -249,7 +271,7 @@ exports.Method = Method;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -269,7 +291,7 @@ exports.Param = Param;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -292,7 +314,7 @@ exports.Prop = Prop;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -309,7 +331,7 @@ exports.Style = Style;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -327,7 +349,7 @@ exports.Metadata = Metadata;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -344,7 +366,55 @@ exports.Model = Model;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(1);
+var GetExamples = (function () {
+    function GetExamples() {
+    }
+    GetExamples.prototype.getExamples = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
+            obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'example'; })
+                .map(function (item) { return _this.parseExample(item); });
+        }
+        else {
+            return [];
+        }
+    };
+    GetExamples.prototype.parseExample = function (obj) {
+        return new model_1.Example({
+            code: this.getCode(obj),
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj)
+        });
+    };
+    GetExamples.prototype.getDescription = function (obj) {
+    };
+    GetExamples.prototype.getShortDescription = function (obj) {
+    };
+    GetExamples.prototype.getCode = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            return obj[typedoc_parser_options_1.CommonOptions.text].split(/```/g)[1];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetExamples;
+}());
+exports.GetExamples = GetExamples;
+
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -417,7 +487,7 @@ exports.GetMethods = GetMethods;
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -562,7 +632,7 @@ exports.GetProperties = GetProperties;
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -638,24 +708,7 @@ exports.GetStyles = GetStyles;
 
 
 /***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var getProperties_1 = __webpack_require__(13);
-exports.GetProperties = getProperties_1.GetProperties;
-var getMethods_1 = __webpack_require__(12);
-exports.GetMethods = getMethods_1.GetMethods;
-var getStyles_1 = __webpack_require__(14);
-exports.GetStyles = getStyles_1.GetStyles;
-var getParams_1 = __webpack_require__(2);
-exports.GetParams = getParams_1.GetParams;
-
-
-/***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -663,9 +716,10 @@ exports.GetParams = getParams_1.GetParams;
 Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_options_1 = __webpack_require__(1);
 var model_1 = __webpack_require__(0);
-var getters_1 = __webpack_require__(15);
+var getters_1 = __webpack_require__(3);
 var TypedocParser = (function () {
     function TypedocParser() {
+        this.examples = new getters_1.GetExamples();
         this.styles = new getters_1.GetStyles();
         this.methods = new getters_1.GetMethods();
         this.props = new getters_1.GetProperties();
@@ -823,16 +877,10 @@ exports.TypedocParser = TypedocParser;
 
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = require("fs");
-
-/***/ }),
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(4);
 
 
 /***/ })

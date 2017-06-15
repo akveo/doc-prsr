@@ -32,7 +32,11 @@ export class GetExamples {
 
   }
 
-  getCode(obj: any) {
-
+  getCode(obj: any): string {
+    if (obj && obj[CommonOptions.text]) {
+      return obj[CommonOptions.text].split(/```/g)[1];
+    } else {
+      return '';
+    }
   }
 }
