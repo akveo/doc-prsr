@@ -24,6 +24,21 @@ export class GetExamples {
     });
   }
 
+  getDescriptionArr(obj: any) {
+    const outArr: string[] = [];
+    if (obj && obj[CommonOptions.text]) {
+      const tempArr = obj[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
+      tempArr.forEach((item: any) => {
+        if(!/```/g.test(item)) {
+          outArr.push(item);
+        }
+      });
+      return outArr;
+    } else {
+      return [];
+    }
+  }
+
   getDescription(obj: any) {
 
   }
