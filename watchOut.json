@@ -123,6 +123,54 @@
       "methods": [
         {
           "examples": [],
+          "params": [
+            {
+              "name": "themeService",
+              "type": "NgaThemeService",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "spinnerService",
+              "type": "NgaSpinnerService",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "componentFactoryResolver",
+              "type": "ComponentFactoryResolver",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "elementRef",
+              "type": "ElementRef",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            },
+            {
+              "name": "renderer",
+              "type": "Renderer2",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "constructor",
+          "type": [
+            "NgaLayoutComponent"
+          ],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
           "platform": null,
           "name": "ngAfterViewInit",
           "type": [
@@ -285,6 +333,26 @@
         }
       ],
       "methods": [
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "sidebarService",
+              "type": "NgaSidebarService",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "constructor",
+          "type": [
+            "NgaSidebarComponent"
+          ],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
         {
           "examples": [],
           "platform": null,
@@ -687,6 +755,26 @@
         }
       ],
       "methods": [
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "el",
+              "type": "ElementRef",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "constructor",
+          "type": [
+            "NgaUserComponent"
+          ],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
         {
           "examples": [],
           "platform": null,

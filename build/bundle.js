@@ -415,7 +415,11 @@ var GetMethods = (function () {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
             return obj[typedoc_parser_options_1.CommonOptions.children]
-                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.primKind] === 'Method'; })
+                .filter(function (item) {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Method' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
+                    return item;
+                }
+            })
                 .map(function (item) { return _this.parseMethod(item); });
         }
     };
@@ -741,10 +745,6 @@ var TypedocParser = (function () {
             });
         }
     };
-    // getClasses(obj: any): Class[] {
-    //   return this.getAllClasses(obj)
-    //     .filter((item: any) => item[CommonOptions.description] || item[CommonOptions.shortDescription]);
-    // }
     TypedocParser.prototype.getClasses = function (obj) {
         var _this = this;
         this.findAllClasses(obj);

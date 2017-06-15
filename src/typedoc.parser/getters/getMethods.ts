@@ -11,7 +11,11 @@ export class GetMethods {                                         //TODO ask abo
   getMethods(obj: any) {
     if (obj && obj[CommonOptions.children]) {
       return obj[CommonOptions.children]
-        .filter((item: any) => item[CommonOptions.primKind] === 'Method')
+        .filter((item: any) => {
+          if (item[CommonOptions.primKind] === 'Method' || item[CommonOptions.primKind] === 'Constructor') {
+            return item;
+          }
+        })
         .map((item: any) => this.parseMethod(item));
     }
   }
