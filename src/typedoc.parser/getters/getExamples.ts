@@ -10,14 +10,18 @@ export class GetExamples {
   }
 
   parseExample(obj: any) {
-
+    return new Example({
+      code: this.getCode(obj),
+      description: this.getDescription(obj),
+      shortDescription: this.getShortDescription(obj)
+    });
   }
 
   getDescription(obj: any) {
 
   }
 
-  getShortDescriprion(obj: any) {
+  getShortDescription(obj: any) {
 
   }
 
