@@ -534,27 +534,6 @@ var GetProperties = (function () {
             })
                 .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
                 .map(function (item) {
-                // if (item[CommonOptions.primKind] === 'Property') {
-                //   if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Input') {
-                //     return this.parseInput(item);
-                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Output') {
-                //     return this.parseOutput(item);
-                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'HostBinding') {
-                //     return this.parseProperty(item)
-                //   } else if (!item[CommonOptions.decorators]) {
-                //     return this.parseProperty(item);
-                //   }
-                // } else if (item[CommonOptions.primKind] === 'Accessor') {
-                //   if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Input') {
-                //     return this.parseInput(item);
-                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'Output') {
-                //     return this.parseOutput(item);
-                //   } else if (item[CommonOptions.decorators] && item[CommonOptions.decorators][CommonOptions.name] === 'HostBinding') {
-                //     return this.parseProperty(item)
-                //   } else if (!item[CommonOptions.decorators]) {
-                //     return this.parseProperty(item);
-                //   }
-                // }
                 if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
                     if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
                         return _this.parseInput(item);
@@ -762,11 +741,11 @@ var TypedocParser = (function () {
             });
         }
     };
+    // getClasses(obj: any): Class[] {
+    //   return this.getAllClasses(obj)
+    //     .filter((item: any) => item[CommonOptions.description] || item[CommonOptions.shortDescription]);
+    // }
     TypedocParser.prototype.getClasses = function (obj) {
-        return this.getAllClasses(obj)
-            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.description] || item[typedoc_parser_options_1.CommonOptions.shortDescription]; });
-    };
-    TypedocParser.prototype.getAllClasses = function (obj) {
         var _this = this;
         this.findAllClasses(obj);
         var tempClasses = [];
@@ -776,6 +755,7 @@ var TypedocParser = (function () {
                 return item;
             }
         })
+            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
             .map(function (item) {
             if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
                 if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class') {

@@ -1,6 +1,15 @@
 {
   "classes": [
     {
+      "kind": "interface",
+      "platform": null,
+      "examples": [],
+      "props": [],
+      "methods": [],
+      "name": "NgaEmailPassModuleConfig",
+      "styles": []
+    },
+    {
       "kind": "component",
       "platform": null,
       "examples": [],

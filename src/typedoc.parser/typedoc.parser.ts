@@ -32,7 +32,7 @@ export class TypedocParser {
     if (obj && obj[CommonOptions.children]) {
       obj[CommonOptions.children].forEach((item: any) => {
         if (item[CommonOptions.primKind] === 'Class' || item[CommonOptions.primKind] === 'Interface') {
-          this.classes.push(item)
+          this.classes.push(item);
         } else {
           this.findAllClasses(item);
         }
@@ -41,11 +41,6 @@ export class TypedocParser {
   }
 
   getClasses(obj: any): Class[] {
-    return this.getAllClasses(obj)
-      .filter((item: any) => item[CommonOptions.description] || item[CommonOptions.shortDescription]);
-  }
-
-  getAllClasses(obj: any): Class[] {
     this.findAllClasses(obj);
     let tempClasses: any[] = [];
 
@@ -55,6 +50,7 @@ export class TypedocParser {
           return item;
         }
       })
+      .filter((item: any) => item[CommonOptions.comment])
       .map((item: any) => {
         if (!item[CommonOptions.decorators]) {
           if (item[CommonOptions.primKind] === 'Class') {
