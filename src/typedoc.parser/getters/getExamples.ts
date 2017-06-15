@@ -43,8 +43,12 @@ export class GetExamples {
 
   }
 
-  getShortDescription(obj: any) {
-
+  getShortDescription(obj: any): string {
+    if (obj && this.getDescriptionArr(obj).length && this.getDescriptionArr(obj)[0]) {
+      return this.getDescriptionArr(obj)[0];
+    } else {
+      return '';
+    }
   }
 
   getCode(obj: any): string {
