@@ -6,7 +6,14 @@ import {CommonOptions} from '../typedoc.parser.options';
 export class GetExamples {
 
   getExamples(obj: any) {
-
+    if (obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] &&
+      obj[CommonOptions.comment][CommonOptions.tags].length){
+      return obj[CommonOptions.comment][CommonOptions.tags]
+        .filter((item: any) => item[CommonOptions.tag] === 'example')
+        .map((item: any) => this.parseExample(item));
+    } else {
+      return [];
+    }
   }
 
   parseExample(obj: any) {
