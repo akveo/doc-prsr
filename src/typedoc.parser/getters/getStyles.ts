@@ -6,7 +6,8 @@ import {CommonOptions} from '../typedoc.parser.options';
 export  class GetStyles {
 
   getStyles(obj: any): Style[] {
-    if (obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags].length){
+    if (obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] &&
+      obj[CommonOptions.comment][CommonOptions.tags].length){
       return obj[CommonOptions.comment][CommonOptions.tags]
         .filter((item: any) => item[CommonOptions.tag] === 'styles')
         .map((item: any) => this.parserStyle(item));
@@ -34,7 +35,7 @@ export  class GetStyles {
           const [key, value] = item.split(':');
           const styleObj: any = {};
           if (key) {
-            styleObj['name'] = key.replace(/[`-]/g, '').trim();
+            styleObj['name'] = key.trim();
           } else {
             styleObj['name'] = '';
           }

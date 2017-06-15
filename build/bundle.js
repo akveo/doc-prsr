@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -73,21 +73,21 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var metadata_1 = __webpack_require__(11);
+var metadata_1 = __webpack_require__(10);
 exports.Metadata = metadata_1.Metadata;
-var class_1 = __webpack_require__(5);
+var class_1 = __webpack_require__(4);
 exports.Class = class_1.Class;
-var example_1 = __webpack_require__(6);
+var example_1 = __webpack_require__(5);
 exports.Example = example_1.Example;
-var method_1 = __webpack_require__(7);
+var method_1 = __webpack_require__(6);
 exports.Method = method_1.Method;
-var param_1 = __webpack_require__(8);
+var param_1 = __webpack_require__(7);
 exports.Param = param_1.Param;
-var prop_1 = __webpack_require__(9);
+var prop_1 = __webpack_require__(8);
 exports.Prop = prop_1.Prop;
-var model_1 = __webpack_require__(12);
+var model_1 = __webpack_require__(11);
 exports.Model = model_1.Model;
-var style_1 = __webpack_require__(10);
+var style_1 = __webpack_require__(9);
 exports.Style = style_1.Style;
 
 
@@ -162,106 +162,29 @@ exports.GetParams = GetParams;
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(0);
-var typedoc_parser_options_1 = __webpack_require__(1);
-var GetStyles = (function () {
-    function GetStyles() {
-    }
-    GetStyles.prototype.getStyles = function (obj) {
-        var _this = this;
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
-            return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
-                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'styles'; })
-                .map(function (item) { return _this.parserStyle(item); });
-        }
-        else {
-            return [];
-        }
-    };
-    GetStyles.prototype.parserStyle = function (obj) {
-        return new model_1.Style({
-            shortDescription: this.getShortDescription(obj),
-            styles: this.getStylesOfStyle(obj)
-        });
-    };
-    GetStyles.prototype.getStylesOfStyle = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
-            var arr = obj[typedoc_parser_options_1.CommonOptions.text].split('\n\n');
-            var tempArr = [];
-            var returnArr_1 = [];
-            arr.splice(0, 1);
-            tempArr = arr[0].split('\n');
-            tempArr.forEach(function (item) {
-                if (item) {
-                    var _a = item.split(':'), key = _a[0], value = _a[1];
-                    // console.log(item.split(':'));
-                    var styleObj = {};
-                    // styleObj[key.replace(/[`-]/g, '').trim()] = value.trim();
-                    if (key) {
-                        styleObj['name'] = key.replace(/[`-]/g, '').trim();
-                    }
-                    else {
-                        styleObj['name'] = '';
-                    }
-                    if (value) {
-                        styleObj['description'] = value.trim();
-                    }
-                    else {
-                        styleObj['description'] = '';
-                    }
-                    returnArr_1.push(styleObj);
-                }
-            });
-            return returnArr_1;
-        }
-        else {
-            // return [];
-            console.log('nothing');
-        }
-    };
-    GetStyles.prototype.getShortDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
-            var workString = obj[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
-            return workString[0];
-        }
-        else {
-            return '';
-        }
-    };
-    return GetStyles;
-}());
-exports.GetStyles = GetStyles;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 // import { InputOutput } from  './input-output';
 // const io = new InputOutput();
 // io.createFile();
 Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_1 = __webpack_require__(16);
-var getStyles_1 = __webpack_require__(3);
+var fs = __webpack_require__(17);
 var rdp = new typedoc_parser_1.TypedocParser();
-// fs.readFile('./right-examples/typedoc/new/docs.json', (err: any, data: any) => {
-//   const newdoc = new TypedocParser().parse(JSON.parse(data));
-//   const outputObj: any = JSON.stringify(newdoc, null, 2);
-//   fs.writeFile('./watchOut.json', outputObj);
-// });
-var gs = new getStyles_1.GetStyles();
-var obj = {
-    "tag": "styles",
-    "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
-};
-console.log(gs.getStylesOfStyle(obj));
+fs.readFile('./right-examples/typedoc/new/docs.json', function (err, data) {
+    var newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data));
+    var outputObj = JSON.stringify(newdoc, null, 2);
+    fs.writeFile('./watchOut.json', outputObj);
+});
+// const gs = new GetStyles();
+// const obj = {
+//   "tag": "styles",
+//   "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
+// };
+//
+// console.log(gs.getStylesOfStyle(obj));
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -285,7 +208,7 @@ exports.Class = Class;
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -303,7 +226,7 @@ exports.Example = Example;
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -326,7 +249,7 @@ exports.Method = Method;
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -346,7 +269,7 @@ exports.Param = Param;
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -369,7 +292,7 @@ exports.Prop = Prop;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -386,7 +309,7 @@ exports.Style = Style;
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -404,7 +327,7 @@ exports.Metadata = Metadata;
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -421,7 +344,7 @@ exports.Model = Model;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -494,7 +417,7 @@ exports.GetMethods = GetMethods;
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -639,17 +562,93 @@ exports.GetProperties = GetProperties;
 
 
 /***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(1);
+var GetStyles = (function () {
+    function GetStyles() {
+    }
+    GetStyles.prototype.getStyles = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
+            obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'styles'; })
+                .map(function (item) { return _this.parserStyle(item); });
+        }
+        else {
+            return [];
+        }
+    };
+    GetStyles.prototype.parserStyle = function (obj) {
+        return new model_1.Style({
+            shortDescription: this.getShortDescription(obj),
+            styles: this.getStylesOfStyle(obj)
+        });
+    };
+    GetStyles.prototype.getStylesOfStyle = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            var arr = obj[typedoc_parser_options_1.CommonOptions.text].split('\n\n');
+            var tempArr = [];
+            var returnArr_1 = [];
+            arr.splice(0, 1);
+            tempArr = arr[0].split('\n');
+            tempArr.forEach(function (item) {
+                if (item) {
+                    var _a = item.split(':'), key = _a[0], value = _a[1];
+                    var styleObj = {};
+                    if (key) {
+                        styleObj['name'] = key.trim();
+                    }
+                    else {
+                        styleObj['name'] = '';
+                    }
+                    if (value) {
+                        styleObj['description'] = value.trim();
+                    }
+                    else {
+                        styleObj['description'] = '';
+                    }
+                    returnArr_1.push(styleObj);
+                }
+            });
+            return returnArr_1;
+        }
+        else {
+            return [];
+        }
+    };
+    GetStyles.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            var workString = obj[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
+            return workString[0];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetStyles;
+}());
+exports.GetStyles = GetStyles;
+
+
+/***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var getProperties_1 = __webpack_require__(14);
+var getProperties_1 = __webpack_require__(13);
 exports.GetProperties = getProperties_1.GetProperties;
-var getMethods_1 = __webpack_require__(13);
+var getMethods_1 = __webpack_require__(12);
 exports.GetMethods = getMethods_1.GetMethods;
-var getStyles_1 = __webpack_require__(3);
+var getStyles_1 = __webpack_require__(14);
 exports.GetStyles = getStyles_1.GetStyles;
 var getParams_1 = __webpack_require__(2);
 exports.GetParams = getParams_1.GetParams;
@@ -722,7 +721,6 @@ var TypedocParser = (function () {
                 }
             }
         });
-        // console.log(tempClasses.length);
         return tempClasses;
     };
     TypedocParser.prototype.parseComponent = function (obj) {
@@ -735,7 +733,7 @@ var TypedocParser = (function () {
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
-            styles: []
+            styles: this.styles.getStyles(obj)
         });
     };
     TypedocParser.prototype.parseClass = function (obj) {
@@ -748,7 +746,7 @@ var TypedocParser = (function () {
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
-            styles: []
+            styles: this.styles.getStyles(obj)
         });
     };
     TypedocParser.prototype.parseDirective = function (obj) {
@@ -761,7 +759,7 @@ var TypedocParser = (function () {
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
-            styles: []
+            styles: this.styles.getStyles(obj)
         });
     };
     TypedocParser.prototype.parseService = function (obj) {
@@ -774,7 +772,7 @@ var TypedocParser = (function () {
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
-            styles: []
+            styles: this.styles.getStyles(obj)
         });
     };
     TypedocParser.prototype.parseInterface = function (obj) {
@@ -787,7 +785,7 @@ var TypedocParser = (function () {
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
-            styles: [] //TODO tell about templates
+            styles: this.styles.getStyles(obj) //TODO tell about templates
         });
     };
     TypedocParser.prototype.parseNgModule = function (obj) {
@@ -800,7 +798,7 @@ var TypedocParser = (function () {
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj),
-            styles: []
+            styles: this.styles.getStyles(obj)
         });
     };
     TypedocParser.prototype.getDescription = function (obj) {
@@ -826,9 +824,15 @@ exports.TypedocParser = TypedocParser;
 
 /***/ }),
 /* 17 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(4);
+module.exports = __webpack_require__(3);
 
 
 /***/ })

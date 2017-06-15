@@ -1,21 +1,10 @@
 {
   "classes": [
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
-      "props": [
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
-          "type": "",
-          "required": null,
-          "name": "constructor",
-          "shortDescription": "",
-          "description": ""
-        }
-      ],
+      "props": [],
       "methods": [
         {
           "examples": [],
@@ -1395,6 +1384,16 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "baseEndpoint",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
           "required": null,
           "name": "errors",
           "shortDescription": "",
@@ -1727,6 +1726,26 @@
           "name": "createSuccessResponse",
           "type": [
             "Response"
+          ],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "action",
+              "type": "string",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "getActionEndpoint",
+          "type": [
+            "string"
           ],
           "isStatic": false,
           "shortDescription": "",
@@ -2833,7 +2852,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -3160,7 +3179,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -3212,6 +3231,16 @@
           "type": "",
           "required": null,
           "name": "constructor",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "BehaviorSubject",
+          "required": null,
+          "name": "afterViewInit$",
           "shortDescription": "",
           "description": ""
         },
@@ -3292,6 +3321,16 @@
           "type": "Renderer2",
           "required": null,
           "name": "renderer",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "NgaSpinnerService",
+          "required": null,
+          "name": "spinnerService",
           "shortDescription": "",
           "description": ""
         },
@@ -3428,7 +3467,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -3907,7 +3946,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -4664,7 +4703,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -4692,6 +4731,16 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "activateSearchSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
           "type": "ViewContainerRef",
           "required": null,
           "name": "attachedSearchContainer",
@@ -4705,6 +4754,26 @@
           "type": "ComponentFactoryResolver",
           "required": null,
           "name": "componentFactoryResolver",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "createFieldSubscription",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "Subscription",
+          "required": null,
+          "name": "deactivateSearchSubscription",
           "shortDescription": "",
           "description": ""
         },
@@ -5167,7 +5236,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -5334,7 +5403,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -5541,7 +5610,7 @@
           "type": "",
           "required": null,
           "name": "state",
-          "shortDescription": "Initial sidebar state, expanded|collapsed|compacted"
+          "shortDescription": "Initial sidebar state, `expanded`|`collapsed`|`compacted`"
         }
       ],
       "methods": [
@@ -5605,7 +5674,7 @@
             "number"
           ],
           "isStatic": false,
-          "shortDescription": "Returns some value;"
+          "shortDescription": "Returns some value\n// TODO: remove this"
         },
         {
           "examples": [],
@@ -5638,7 +5707,7 @@
             },
             {
               "name": "anotherOne",
-              "type": "Observable",
+              "type": "any",
               "required": null,
               "shortDescription": "",
               "description": ""
@@ -5647,16 +5716,54 @@
           "platform": null,
           "name": "someTestMethod",
           "type": [
-            "Observable"
+            "number"
           ],
           "isStatic": true,
-          "shortDescription": "Some Static method"
+          "shortDescription": "Some Static method\n// TODO: remove this"
         }
       ],
       "name": "NgaSidebarComponent",
       "description": "Sidebar can be place on the left or right side of the layout, can be fixed (shown above the content)\nor can push the layout when opened.\n",
       "shortDescription": "Main sidebar component.",
-      "styles": []
+      "styles": [
+        {
+          "shortDescription": "Available component styles",
+          "styles": [
+            {
+              "name": "$nga-sidebar-foreground",
+              "description": "$nga-foreground-inverse !default;"
+            },
+            {
+              "name": "$nga-sidebar-background",
+              "description": "$nga-background-inverse !default;"
+            },
+            {
+              "name": "$nga-sidebar-height",
+              "description": "100vh !default;"
+            },
+            {
+              "name": "$nga-sidebar-width",
+              "description": "12rem !default;"
+            },
+            {
+              "name": "$nga-sidebar-width-compact",
+              "description": "4rem !default;"
+            },
+            {
+              "name": "$nga-sidebar-padding",
+              "description": "$nga-padding !default;"
+            },
+            {
+              "name": "$nga-sidebar-header-height",
+              "description": "3.5rem !default;"
+            },
+            {
+              "name": "$nga-sidebar-footer-height",
+              "description": "3.5rem !default;"
+            }
+          ]
+        }
+      ]
     },
     {
       "kind": "component",
@@ -5689,7 +5796,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -5765,7 +5872,7 @@
             "void"
           ],
           "isStatic": false,
-          "shortDescription": "Collapses the sidebar (sidebar entity is selected by the tag)"
+          "shortDescription": "Collapses a sidebar"
         },
         {
           "examples": [],
@@ -5784,7 +5891,7 @@
             "void"
           ],
           "isStatic": false,
-          "shortDescription": "Expandes the sidebar (sidebar entity is selected by the tag)"
+          "shortDescription": "Expands a sidebar"
         },
         {
           "examples": [],
@@ -5794,7 +5901,7 @@
             "Observable"
           ],
           "isStatic": false,
-          "shortDescription": "Collapsed event observable"
+          "shortDescription": "Subscribe to collapse evens"
         },
         {
           "examples": [],
@@ -5804,7 +5911,7 @@
             "Observable"
           ],
           "isStatic": false,
-          "shortDescription": "Expanded event observable"
+          "shortDescription": "Subscribe to expand events"
         },
         {
           "examples": [],
@@ -5814,7 +5921,7 @@
             "Observable"
           ],
           "isStatic": false,
-          "shortDescription": "Toggle event observable"
+          "shortDescription": "Subscribe to toggle events"
         },
         {
           "examples": [],
@@ -5840,12 +5947,12 @@
             "void"
           ],
           "isStatic": false,
-          "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
+          "shortDescription": "Toggle a sidebar"
         }
       ],
       "name": "NgaSidebarService",
-      "description": "Allows to control sidebar(s) state and also listen to subscribe events.\n",
-      "shortDescription": "Global app service for sidebar control.",
+      "description": "Root module service to control the sidebar from any part of the app.\n",
+      "shortDescription": "Sidebar service.",
       "styles": []
     },
     {
@@ -5859,7 +5966,7 @@
           "isStatic": false,
           "type": "boolean",
           "required": null,
-          "name": "active",
+          "name": "activeValue",
           "shortDescription": "",
           "description": ""
         },
@@ -5880,6 +5987,16 @@
           "type": "string",
           "required": null,
           "name": "tabTitle",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "",
+          "required": null,
+          "name": "active",
           "shortDescription": "",
           "description": ""
         }
@@ -5909,16 +6026,6 @@
           "kind": "property",
           "platform": null,
           "isStatic": false,
-          "type": "ActivatedRoute",
-          "required": null,
-          "name": "activatedRoute",
-          "shortDescription": "",
-          "description": ""
-        },
-        {
-          "kind": "property",
-          "platform": null,
-          "isStatic": false,
           "type": "EventEmitter",
           "required": null,
           "name": "changeTab",
@@ -5932,6 +6039,16 @@
           "type": "boolean",
           "required": null,
           "name": "fullWidthValue",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "ActivatedRoute",
+          "required": null,
+          "name": "route",
           "shortDescription": "",
           "description": ""
         },
@@ -5982,7 +6099,7 @@
           "examples": [],
           "params": [
             {
-              "name": "tab",
+              "name": "selectedTab",
               "type": "NgaTabComponent",
               "required": null,
               "shortDescription": "",
@@ -6005,7 +6122,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -6408,7 +6525,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],
@@ -6418,139 +6535,128 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "service",
       "platform": null,
       "examples": [],
-      "props": [],
-      "methods": [
+      "props": [
         {
-          "examples": [],
+          "kind": "property",
           "platform": null,
-          "name": "forRoot",
-          "type": [
-            "ModuleWithProviders"
-          ],
-          "isStatic": true,
+          "isStatic": false,
+          "required": null,
+          "name": "loaders",
+          "shortDescription": "",
+          "description": ""
+        },
+        {
+          "kind": "property",
+          "platform": null,
+          "isStatic": false,
+          "type": "string",
+          "required": null,
+          "name": "selector",
           "shortDescription": "",
           "description": ""
         }
       ],
-      "name": "NgaBootstrapModule",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "ng-module",
-      "platform": null,
-      "examples": [],
-      "props": [],
       "methods": [
         {
           "examples": [],
           "platform": null,
-          "name": "forRoot",
+          "name": "clear",
           "type": [
-            "ModuleWithProviders"
+            "void"
           ],
-          "isStatic": true,
+          "isStatic": false,
           "shortDescription": "",
           "description": ""
-        }
-      ],
-      "name": "NgaChartsModule",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "ng-module",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "methods": [
+        },
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "done",
+              "type": "(Anonymous function)",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "executeAll",
+          "type": [
+            "void"
+          ],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
         {
           "examples": [],
           "platform": null,
-          "name": "forRoot",
+          "name": "getSpinnerElement",
           "type": [
-            "ModuleWithProviders"
+            "any"
           ],
-          "isStatic": true,
+          "isStatic": false,
           "shortDescription": "",
           "description": ""
-        }
-      ],
-      "name": "NgaComponentsModule",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "ng-module",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "methods": [
+        },
         {
           "examples": [],
           "platform": null,
-          "name": "forRoot",
+          "name": "hideSpinner",
           "type": [
-            "ModuleWithProviders"
+            "void"
           ],
-          "isStatic": true,
+          "isStatic": false,
           "shortDescription": "",
           "description": ""
-        }
-      ],
-      "name": "NgaMapsModule",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "ng-module",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "methods": [
+        },
         {
           "examples": [],
           "platform": null,
-          "name": "forRoot",
+          "name": "load",
           "type": [
-            "ModuleWithProviders"
+            "void"
           ],
-          "isStatic": true,
+          "isStatic": false,
           "shortDescription": "",
           "description": ""
-        }
-      ],
-      "name": "NgaTablesModule",
-      "description": "",
-      "shortDescription": "",
-      "styles": []
-    },
-    {
-      "kind": "ng-module",
-      "platform": null,
-      "examples": [],
-      "props": [],
-      "methods": [
+        },
+        {
+          "examples": [],
+          "params": [
+            {
+              "name": "method",
+              "type": "Promise",
+              "required": null,
+              "shortDescription": "",
+              "description": ""
+            }
+          ],
+          "platform": null,
+          "name": "registerLoader",
+          "type": [
+            "void"
+          ],
+          "isStatic": false,
+          "shortDescription": "",
+          "description": ""
+        },
         {
           "examples": [],
           "platform": null,
-          "name": "forRoot",
+          "name": "showSpinner",
           "type": [
-            "ModuleWithProviders"
+            "void"
           ],
-          "isStatic": true,
+          "isStatic": false,
           "shortDescription": "",
           "description": ""
         }
       ],
-      "name": "NgaTypographyModule",
+      "name": "NgaSpinnerService",
       "description": "",
       "shortDescription": "",
       "styles": []
@@ -6795,7 +6901,7 @@
       "styles": []
     },
     {
-      "kind": "ng-module",
+      "kind": "class",
       "platform": null,
       "examples": [],
       "props": [],

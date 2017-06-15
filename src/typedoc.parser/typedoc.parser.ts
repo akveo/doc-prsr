@@ -13,10 +13,12 @@ import {
 import {
   GetProperties,
   GetMethods,
-  GetStyles
+  GetStyles,
+  GetExamples
 } from './getters';
 
 export class TypedocParser {
+  protected examples: GetExamples = new GetExamples();
   protected styles: GetStyles = new GetStyles();
   protected methods: GetMethods = new GetMethods();
   protected props: GetProperties = new GetProperties();
@@ -69,7 +71,6 @@ export class TypedocParser {
           }
         }
       });
-    // console.log(tempClasses.length);
     return tempClasses;
   }
 
@@ -83,7 +84,7 @@ export class TypedocParser {
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: []
+      styles: this.styles.getStyles(obj)
     });
   }
 
@@ -97,7 +98,7 @@ export class TypedocParser {
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: []
+      styles: this.styles.getStyles(obj)
     });
   }
 
@@ -111,7 +112,7 @@ export class TypedocParser {
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: []
+      styles: this.styles.getStyles(obj)
     });
   }
 
@@ -125,7 +126,7 @@ export class TypedocParser {
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: []
+      styles: this.styles.getStyles(obj)
     });
   }
 
@@ -139,7 +140,7 @@ export class TypedocParser {
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: []                                                               //TODO tell about templates
+      styles: this.styles.getStyles(obj)                                                               //TODO tell about templates
     });
   }
 
@@ -153,7 +154,7 @@ export class TypedocParser {
       name: obj[CommonOptions.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: []
+      styles: this.styles.getStyles(obj)
     });
   }
 
