@@ -7,7 +7,7 @@ export class GetExamples {
 
   getExamples(obj: any) {
     if (obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] &&
-      obj[CommonOptions.comment][CommonOptions.tags].length){
+      obj[CommonOptions.comment][CommonOptions.tags].length) {
       return obj[CommonOptions.comment][CommonOptions.tags]
         .filter((item: any) => item[CommonOptions.tag] === 'example')
         .map((item: any) => this.parseExample(item));
@@ -29,7 +29,7 @@ export class GetExamples {
     if (obj && obj[CommonOptions.text]) {
       const tempArr = obj[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
       tempArr.forEach((item: any) => {
-        if(!/```/g.test(item)) {
+        if (!/```/g.test(item)) {
           outArr.push(item);
         }
       });
@@ -39,8 +39,16 @@ export class GetExamples {
     }
   }
 
-  getDescription(obj: any) {
-
+  getDescription(obj: any): string {
+    if (obj && this.getDescriptionArr(obj).length) {
+      if (this.getDescriptionArr(obj)[1]) {
+        return this.getDescriptionArr(obj)[1];
+      } else {
+        return '';
+      }
+    } else {
+      return '';
+    }
   }
 
   getShortDescription(obj: any): string {

@@ -202,7 +202,7 @@ var obj2 = {
     "tag": "example",
     "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
 };
-console.log(ge.getShortDescription(obj2));
+console.log(ge.getDescription(obj2));
 
 
 /***/ }),
@@ -412,6 +412,17 @@ var GetExamples = (function () {
         }
     };
     GetExamples.prototype.getDescription = function (obj) {
+        if (obj && this.getDescriptionArr(obj).length) {
+            if (this.getDescriptionArr(obj)[1]) {
+                return this.getDescriptionArr(obj)[1];
+            }
+            else {
+                return '';
+            }
+        }
+        else {
+            return '';
+        }
     };
     GetExamples.prototype.getShortDescription = function (obj) {
         if (obj && this.getDescriptionArr(obj).length && this.getDescriptionArr(obj)[0]) {
