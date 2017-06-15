@@ -422,8 +422,7 @@
               "name": "compact",
               "type": "boolean",
               "required": null,
-              "shortDescription": "",
-              "description": ""
+              "description": "If true, then sidebar state will be changed between expanded & compacted,\notherwise - between expanded & collapsed. False by default.\n"
             }
           ],
           "platform": null,
@@ -440,16 +439,12 @@
             {
               "name": "test",
               "type": "string",
-              "required": null,
-              "shortDescription": "",
-              "description": ""
+              "required": null
             },
             {
               "name": "anotherOne",
               "type": "any",
-              "required": null,
-              "shortDescription": "",
-              "description": ""
+              "required": null
             }
           ],
           "platform": null,
@@ -547,8 +542,7 @@
               "name": "tag",
               "type": "string",
               "required": null,
-              "shortDescription": "",
-              "description": ""
+              "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
             }
           ],
           "platform": null,
@@ -566,8 +560,7 @@
               "name": "tag",
               "type": "string",
               "required": null,
-              "shortDescription": "",
-              "description": ""
+              "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
             }
           ],
           "platform": null,
@@ -614,16 +607,13 @@
             {
               "name": "compact",
               "type": "boolean",
-              "required": null,
-              "shortDescription": "",
-              "description": ""
+              "required": null
             },
             {
               "name": "tag",
               "type": "string",
               "required": null,
-              "shortDescription": "",
-              "description": ""
+              "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
             }
           ],
           "platform": null,

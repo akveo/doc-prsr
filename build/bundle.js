@@ -498,13 +498,29 @@ var GetParams = (function () {
             name: obj[typedoc_parser_options_1.CommonOptions.name],
             type: this.getType(obj),
             required: null,
-            shortDescription: '',
-            description: ''
+            shortDescription: this.getShortDescription(obj),
+            description: this.getDescription(obj)
         });
     };
     GetParams.prototype.getType = function (obj) {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
             return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else {
+            return '';
+        }
+    };
+    GetParams.prototype.getDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['text'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetParams.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
         else {
             return '';

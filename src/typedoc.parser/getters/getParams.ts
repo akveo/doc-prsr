@@ -15,14 +15,30 @@ export class GetParams {                              //TODO ask about params de
       name: obj[CommonOptions.name],
       type: this.getType(obj),
       required: null,
-      shortDescription: '',
-      description: ''
+      shortDescription: this.getShortDescription(obj),
+      description: this.getDescription(obj)
     });
   }
 
   getType(obj: any): string {
     if(obj && obj[CommonOptions.type]) {
       return obj[CommonOptions.type][CommonOptions.name]
+    } else {
+      return '';
+    }
+  }
+
+  getDescription(obj: any): string {
+    if (obj && obj[CommonOptions.comment]) {
+      return obj[CommonOptions.comment]['text'];
+    } else {
+      return '';
+    }
+  }
+
+  getShortDescription(obj: any): string {
+    if (obj && obj[CommonOptions.comment]) {
+      return obj[CommonOptions.comment]['shortText'];
     } else {
       return '';
     }

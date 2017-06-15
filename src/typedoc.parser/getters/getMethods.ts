@@ -16,6 +16,7 @@ export class GetMethods {                                         //TODO ask abo
             return item;
           }
         })
+        // .filter((item: any) => item[CommonOptions.signatures][0][CommonOptions.comment])
         .map((item: any) => this.parseMethod(item));
     }
   }
