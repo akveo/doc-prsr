@@ -202,4 +202,22 @@ describe('#TypedocParser', () => {
     expect(getParams.getParams(test2).toString()).toBe([].toString());
     expect(getParams.getParams(test1).toString()).toBe(out1.toString());
   });
+
+  test('#GetParams -> getType', () => {
+    const getParams = new GetParams();
+    const test1 = {
+      "kindString": "Parameter",
+      "comment": {
+        "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+      },
+      "type": {
+        "type": "intrinsic",
+        "name": "string"
+      }
+    };
+    const test2 = {};
+
+    expect(getParams.getType(test2)).toBe('');
+    expect(getParams.getType(test1)).toBe('string');
+  });
 });
