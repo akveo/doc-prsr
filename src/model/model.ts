@@ -12,8 +12,8 @@ export class Model {
      */
     classes: Class[];
 
-    constructor(classes: Class[]/*, metadata: Metadata*/) {
-        // this.metadata = metadata;
+    constructor(classes: Class[], metadata: Metadata) {
+        this.metadata = metadata;
         this.classes = classes;
     }
 

@@ -2,7 +2,7 @@ import { Prop } from '../../model';
 import { Common } from './common'
 import {CommonOptions} from '../doc-js.parser.options';
 
-export class GetProperties {//TODO description and shortDescription form "static"
+export class GetProperties {
   protected common: Common = new Common();
 
   parsePropFromProperties(obj: any): Prop {
@@ -15,7 +15,7 @@ export class GetProperties {//TODO description and shortDescription form "static
         type: this.getTypeProperties(obj),
         required: null,
         name: this.common.getName(obj),
-        shortDescription: '',//this.getShortDescriptionProperties(obj),
+        shortDescription: '',
         description: this.getDescriptionProperties(obj)
       });
     } else {

@@ -1,6 +1,7 @@
 import {
   Model,
-  Class
+  Class,
+  Metadata
 } from '../model';
 import {CommonOptions} from './doc-js.parser.options';
 
@@ -20,9 +21,9 @@ export class DocJsParser {
   protected methods: GetMethods = new GetMethods();
   protected common: Common = new Common();
 
-  parse(json: any): Model {
+  parse(json: any, metadata: Metadata): Model {
     this.saveJSON(json);
-    return new Model(this.getClasses(this.json));
+    return new Model(this.getClasses(this.json), metadata);
   }
 
   saveJSON(json: any) {

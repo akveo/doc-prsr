@@ -10,6 +10,7 @@ import {
   GetStyles,
   GetExamples
 } from './getters';
+import {Metadata} from "../model/metadata/metadata";
 
 export class TypedocParser {
   protected examples: GetExamples = new GetExamples();
@@ -23,9 +24,9 @@ export class TypedocParser {
     this.json = json;
   }
 
-  parse(json: any): Model {
+  parse(json: any, metadata: Metadata): Model {
     this.saveJSON(json);
-    return new Model(this.getClasses(this.json));
+    return new Model(this.getClasses(this.json), metadata);
   }
 
   findAllClasses(obj: any) {

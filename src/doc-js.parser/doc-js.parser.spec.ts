@@ -66,7 +66,7 @@ describe('#DocJsParser', () => {
     };
     const testObj2 = {name: 'Obj name'};
 
-    expect(common.getShortDescription(testObj1)).toBe('Some short description');
+    expect(common.getShortDescription(testObj1)).toBe('Some short description  - part of a big description ');
     expect(common.getShortDescription(testObj2)).toBe('');
   });
 
@@ -247,7 +247,7 @@ describe('#DocJsParser', () => {
     };
     const test2 = {};
 
-    expect(params.getType(test1)).toBe('NameExpression');
+    expect(params.getType(test1)).toBe('string');
     expect(params.getType(test2)).toBe('');
   });
 

@@ -63,11 +63,36 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 26);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var metadata_1 = __webpack_require__(7);
+exports.Metadata = metadata_1.Metadata;
+var class_1 = __webpack_require__(17);
+exports.Class = class_1.Class;
+var example_1 = __webpack_require__(18);
+exports.Example = example_1.Example;
+var method_1 = __webpack_require__(19);
+exports.Method = method_1.Method;
+var param_1 = __webpack_require__(20);
+exports.Param = param_1.Param;
+var prop_1 = __webpack_require__(21);
+exports.Prop = prop_1.Prop;
+var model_1 = __webpack_require__(23);
+exports.Model = model_1.Model;
+var style_1 = __webpack_require__(22);
+exports.Style = style_1.Style;
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -96,38 +121,40 @@ exports.CommonOptions = {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var metadata_1 = __webpack_require__(20);
-exports.Metadata = metadata_1.Metadata;
-var class_1 = __webpack_require__(14);
-exports.Class = class_1.Class;
-var example_1 = __webpack_require__(15);
-exports.Example = example_1.Example;
-var method_1 = __webpack_require__(16);
-exports.Method = method_1.Method;
-var param_1 = __webpack_require__(17);
-exports.Param = param_1.Param;
-var prop_1 = __webpack_require__(18);
-exports.Prop = prop_1.Prop;
-var model_1 = __webpack_require__(21);
-exports.Model = model_1.Model;
-var style_1 = __webpack_require__(19);
-exports.Style = style_1.Style;
-
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var doc_js_parser_options_1 = __webpack_require__(0);
+exports.CommonOptions = {
+    children: 'children',
+    primKind: 'kindString',
+    name: 'name',
+    decorators: 'decorators',
+    comment: 'comment',
+    type: 'type',
+    flags: 'flags',
+    isStatic: 'isStatic',
+    signatures: 'signatures',
+    parameters: 'parameters',
+    tag: 'tag',
+    tags: 'tags',
+    text: 'text',
+    description: 'description',
+    shortDescription: 'shortDescription',
+    returns: 'returns'
+};
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var doc_js_parser_options_1 = __webpack_require__(1);
 var Common = (function () {
     function Common() {
     }
@@ -175,20 +202,20 @@ exports.Common = Common;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(1);
-var doc_js_parser_options_1 = __webpack_require__(0);
+var model_1 = __webpack_require__(0);
+var doc_js_parser_options_1 = __webpack_require__(1);
 var GetExamples = (function () {
     function GetExamples() {
     }
@@ -243,15 +270,15 @@ exports.GetExamples = GetExamples;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(1);
-var doc_js_parser_options_1 = __webpack_require__(0);
-var common_1 = __webpack_require__(2);
+var model_1 = __webpack_require__(0);
+var doc_js_parser_options_1 = __webpack_require__(1);
+var common_1 = __webpack_require__(3);
 var GetParams = (function () {
     function GetParams() {
         this.common = new common_1.Common();
@@ -283,34 +310,21 @@ exports.GetParams = GetParams;
 
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
-
-/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_output_1 = __webpack_require__(13);
-var io = new input_output_1.InputOutput();
-io.createFile();
-// import { TypedocParser } from './typedoc.parser/typedoc.parser';
-// import { GetExamples } from './typedoc.parser/getters';
-// import * as fs from 'fs';
-//
-//
-// const rdp = new TypedocParser();
-//
-//
-// fs.readFile('./right-examples/typedoc/new/docs.json', (err: any, data: any) => {
-//   const newdoc = new TypedocParser().parse(JSON.parse(data));
-//   const outputObj: any = JSON.stringify(newdoc, null, 2);
-//   fs.writeFile('./watchOut.json', outputObj);
-// });
+var Metadata = (function () {
+    function Metadata(language, generator, framework) {
+        this.language = language;
+        this.generator = generator;
+        this.framework = framework;
+    }
+    return Metadata;
+}());
+exports.Metadata = Metadata;
 
 
 /***/ }),
@@ -320,9 +334,46 @@ io.createFile();
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(1);
-var doc_js_parser_options_1 = __webpack_require__(0);
-var getters_1 = __webpack_require__(12);
+var getProperties_1 = __webpack_require__(27);
+exports.GetProperties = getProperties_1.GetProperties;
+var getMethods_1 = __webpack_require__(25);
+exports.GetMethods = getMethods_1.GetMethods;
+var getStyles_1 = __webpack_require__(28);
+exports.GetStyles = getStyles_1.GetStyles;
+var getParams_1 = __webpack_require__(26);
+exports.GetParams = getParams_1.GetParams;
+var getExamples_1 = __webpack_require__(24);
+exports.GetExamples = getExamples_1.GetExamples;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var input_output_1 = __webpack_require__(16);
+var io = new input_output_1.InputOutput();
+io.createFile();
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var doc_js_parser_options_1 = __webpack_require__(1);
+var getters_1 = __webpack_require__(15);
 var DocJsParser = (function () {
     function DocJsParser() {
         this.styles = new getters_1.GetStyles();
@@ -331,9 +382,9 @@ var DocJsParser = (function () {
         this.methods = new getters_1.GetMethods();
         this.common = new getters_1.Common();
     }
-    DocJsParser.prototype.parse = function (json) {
+    DocJsParser.prototype.parse = function (json, metadata) {
         this.saveJSON(json);
-        return new model_1.Model(this.getClasses(this.json));
+        return new model_1.Model(this.getClasses(this.json), metadata);
     };
     DocJsParser.prototype.saveJSON = function (json) {
         this.json = json;
@@ -363,17 +414,17 @@ exports.DocJsParser = DocJsParser;
 
 
 /***/ }),
-/* 9 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(1);
-var doc_js_parser_options_1 = __webpack_require__(0);
-var getParams_1 = __webpack_require__(5);
-var getExamples_1 = __webpack_require__(4);
-var common_1 = __webpack_require__(2);
+var model_1 = __webpack_require__(0);
+var doc_js_parser_options_1 = __webpack_require__(1);
+var getParams_1 = __webpack_require__(6);
+var getExamples_1 = __webpack_require__(5);
+var common_1 = __webpack_require__(3);
 var GetMethods = (function () {
     function GetMethods() {
         this.examples = new getExamples_1.GetExamples();
@@ -448,15 +499,15 @@ exports.GetMethods = GetMethods;
 
 
 /***/ }),
-/* 10 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(1);
-var common_1 = __webpack_require__(2);
-var doc_js_parser_options_1 = __webpack_require__(0);
+var model_1 = __webpack_require__(0);
+var common_1 = __webpack_require__(3);
+var doc_js_parser_options_1 = __webpack_require__(1);
 var GetProperties = (function () {
     function GetProperties() {
         this.common = new common_1.Common();
@@ -632,14 +683,14 @@ exports.GetProperties = GetProperties;
 
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(1);
-var doc_js_parser_options_1 = __webpack_require__(0);
+var model_1 = __webpack_require__(0);
+var doc_js_parser_options_1 = __webpack_require__(1);
 var GetStyles = (function () {
     function GetStyles() {
     }
@@ -703,66 +754,96 @@ exports.GetStyles = GetStyles;
 
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var common_1 = __webpack_require__(2);
+var common_1 = __webpack_require__(3);
 exports.Common = common_1.Common;
-var getExamples_1 = __webpack_require__(4);
+var getExamples_1 = __webpack_require__(5);
 exports.GetExamples = getExamples_1.GetExamples;
-var getMethods_1 = __webpack_require__(9);
+var getMethods_1 = __webpack_require__(12);
 exports.GetMethods = getMethods_1.GetMethods;
-var getParams_1 = __webpack_require__(5);
+var getParams_1 = __webpack_require__(6);
 exports.GetParams = getParams_1.GetParams;
-var getProperties_1 = __webpack_require__(10);
+var getProperties_1 = __webpack_require__(13);
 exports.GetProperties = getProperties_1.GetProperties;
-var getStyles_1 = __webpack_require__(11);
+var getStyles_1 = __webpack_require__(14);
 exports.GetStyles = getStyles_1.GetStyles;
 
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var doc_js_parser_1 = __webpack_require__(8);
-var fs = __webpack_require__(3);
-var Path = __webpack_require__(6);
-var program = __webpack_require__(22);
+var doc_js_parser_1 = __webpack_require__(11);
+var typedoc_parser_1 = __webpack_require__(29);
+var metadata_1 = __webpack_require__(7);
+var fs = __webpack_require__(4);
+var Path = __webpack_require__(9);
+var program = __webpack_require__(30);
 var InputOutput = (function () {
     function InputOutput() {
         this.inputStr = '';
         this.outputStr = '';
+        this.generator = '';
+        this.framework = '';
     }
-    InputOutput.prototype.setInputOutputPathes = function () {
+    InputOutput.prototype.setParams = function () {
         program
             .version('0.0.1')
+            .option('-g, --generator <value>', 'Generator:')
+            .option('-f, --framework <value>', 'Framework:')
             .option('-i, --input <value>', 'Path to input file:')
-            .option('-o, --output <value>', 'Path to output file: ')
-            .parse(process.argv);
-        if (program['input'] && program['output']) {
+            .option('-o, --output <value>', 'Path to output file: ');
+        program.on('--help', function () {
+            console.log('You have to specify:');
+            console.log('- generator (can be 2 types: typedoc, docjs)');
+            console.log('- framework (can be 2 types: angular, react)');
+            console.log('- pathes to input and output file (output file will be created)');
+            console.log('For example: ');
+            console.log('prsr -g typedoc -f angular -i input.json -o output.json');
+        });
+        program.parse(process.argv);
+        if (program['generator'] && program['framework'] && program['input'] && program['output']) {
             this.inputStr = Path.resolve(program['input']);
             this.outputStr = Path.resolve(program['output']);
+            this.generator = program['generator'];
+            this.framework = program['framework'];
             return true;
         }
         else {
-            console.log('U don\'t enter input and/or output pathes');
+            console.log('You entered the wrong data! Use --help for getting information');
             return false;
         }
     };
     InputOutput.prototype.createFile = function () {
         var _this = this;
-        if (this.setInputOutputPathes()) {
+        if (this.setParams() && this.generator === 'docjs' && this.framework === 'react') {
             fs.readFile(this.inputStr, function (err, data) {
-                var newdoc = new doc_js_parser_1.DocJsParser().parse(JSON.parse(data));
+                var metadata = new metadata_1.Metadata('javascript', 'documentationJS', 'react');
+                var newdoc = new doc_js_parser_1.DocJsParser().parse(JSON.parse(data), metadata);
                 var outputObj = JSON.stringify(newdoc, null, 2);
                 fs.writeFile(_this.outputStr, outputObj);
             });
+            console.log('You have successfully created a file.');
+        }
+        else if (this.setParams() && this.generator === 'typedoc' && this.framework === 'angular') {
+            fs.readFile(this.inputStr, function (err, data) {
+                var metadata = new metadata_1.Metadata('typescript', 'typeDoc', 'angular');
+                var newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data), metadata);
+                var outputObj = JSON.stringify(newdoc, null, 2);
+                fs.writeFile(_this.outputStr, outputObj);
+            });
+            console.log('You have successfully created a file.');
+        }
+        else {
+            console.log('You may have entered incorrect data.');
         }
     };
     return InputOutput;
@@ -771,7 +852,7 @@ exports.InputOutput = InputOutput;
 
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -795,7 +876,7 @@ exports.Class = Class;
 
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -813,7 +894,7 @@ exports.Example = Example;
 
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -836,7 +917,7 @@ exports.Method = Method;
 
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -856,7 +937,7 @@ exports.Param = Param;
 
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -879,7 +960,7 @@ exports.Prop = Prop;
 
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -896,33 +977,15 @@ exports.Style = Style;
 
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Metadata = (function () {
-    function Metadata(language, generator, framework) {
-        this.language = language;
-        this.generator = generator;
-        this.framework = framework;
-    }
-    return Metadata;
-}());
-exports.Metadata = Metadata;
-
-
-/***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var Model = (function () {
-    function Model(classes /*, metadata: Metadata*/) {
-        // this.metadata = metadata;
+    function Model(classes, metadata) {
+        this.metadata = metadata;
         this.classes = classes;
     }
     return Model;
@@ -931,20 +994,616 @@ exports.Model = Model;
 
 
 /***/ }),
-/* 22 */
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(2);
+var GetExamples = (function () {
+    function GetExamples() {
+    }
+    GetExamples.prototype.getExamples = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
+            obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'example'; })
+                .map(function (item) { return _this.parseExample(item); });
+        }
+        else {
+            return [];
+        }
+    };
+    GetExamples.prototype.parseExample = function (obj) {
+        return new model_1.Example({
+            code: this.getCode(obj),
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj)
+        });
+    };
+    GetExamples.prototype.getDescriptionArr = function (obj) {
+        var outArr = [];
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            var tempArr = obj[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
+            tempArr.forEach(function (item) {
+                if (!/```/g.test(item)) {
+                    outArr.push(item);
+                }
+            });
+            return outArr;
+        }
+        else {
+            return [];
+        }
+    };
+    GetExamples.prototype.getDescription = function (obj) {
+        if (obj && this.getDescriptionArr(obj).length) {
+            if (this.getDescriptionArr(obj)[1]) {
+                return this.getDescriptionArr(obj)[1];
+            }
+            else {
+                return '';
+            }
+        }
+        else {
+            return '';
+        }
+    };
+    GetExamples.prototype.getShortDescription = function (obj) {
+        if (obj && this.getDescriptionArr(obj).length && this.getDescriptionArr(obj)[0]) {
+            return this.getDescriptionArr(obj)[0];
+        }
+        else {
+            return '';
+        }
+    };
+    GetExamples.prototype.getCode = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            return obj[typedoc_parser_options_1.CommonOptions.text].split(/```/g)[1];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetExamples;
+}());
+exports.GetExamples = GetExamples;
+
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(2);
+var _1 = __webpack_require__(8);
+var GetMethods = (function () {
+    function GetMethods() {
+        this.params = new _1.GetParams();
+        this.examples = new _1.GetExamples();
+    }
+    GetMethods.prototype.getMethods = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
+            return obj[typedoc_parser_options_1.CommonOptions.children]
+                .filter(function (item) {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Method' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
+                    return item;
+                }
+            })
+                .map(function (item) { return _this.parseMethod(item); });
+        }
+        else {
+            return [];
+        }
+    };
+    GetMethods.prototype.parseMethod = function (obj) {
+        return new model_1.Method({
+            examples: this.examples.getExamples(obj),
+            params: this.params.getParams(obj),
+            platform: null,
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            type: this.getType(obj),
+            isStatic: this.isStatic(obj),
+            shortDescription: this.getShortDescription(obj),
+            description: this.getDescription(obj)
+        });
+    };
+    GetMethods.prototype.getDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['text'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetMethods.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['shortText'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetMethods.prototype.getType = function (obj) {
+        var returnsArray = [];
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+            if (obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.returns]) {
+                returnsArray.push(obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.returns].replace(/\n/g, ''));
+            }
+            else {
+                return ['void'];
+            }
+            return returnsArray;
+        }
+        else if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.type]) {
+            returnsArray.push(obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name]);
+            return returnsArray;
+        }
+        else {
+            return ['void'];
+        }
+    };
+    GetMethods.prototype.isStatic = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.flags] && obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
+            return obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
+        }
+        else {
+            return false;
+        }
+    };
+    return GetMethods;
+}());
+exports.GetMethods = GetMethods;
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(2);
+var GetParams = (function () {
+    function GetParams() {
+    }
+    GetParams.prototype.getParams = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]) {
+            return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]
+                .map(function (item) { return _this.parseParam(item); });
+        }
+        else {
+            return [];
+        }
+    };
+    GetParams.prototype.parseParam = function (obj) {
+        return new model_1.Param({
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            type: this.getType(obj),
+            required: null,
+            shortDescription: this.getShortDescription(obj),
+            description: this.getDescription(obj)
+        });
+    };
+    GetParams.prototype.getType = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
+            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else {
+            return '';
+        }
+    };
+    GetParams.prototype.getDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['text'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetParams.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetParams;
+}());
+exports.GetParams = GetParams;
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(2);
+var GetProperties = (function () {
+    function GetProperties() {
+    }
+    GetProperties.prototype.getProps = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
+            return obj[typedoc_parser_options_1.CommonOptions.children]
+                .filter(function (item) {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor') {
+                    return item;
+                }
+            })
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
+                .map(function (item) {
+                if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                    if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
+                        return _this.parseInput(item);
+                    }
+                    else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
+                        return _this.parseOutput(item);
+                    }
+                    else {
+                        return _this.parseProperty(item);
+                    }
+                }
+                else if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                    return _this.parseProperty(item);
+                }
+            });
+        }
+        else {
+            return [];
+        }
+    };
+    GetProperties.prototype.parseProperty = function (obj) {
+        return new model_1.Prop({
+            kind: 'property',
+            platform: null,
+            isStatic: this.isStatic(obj),
+            type: this.getType(obj),
+            required: null,
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj)
+        });
+    };
+    GetProperties.prototype.parseInput = function (obj) {
+        return new model_1.Prop({
+            kind: 'input',
+            platform: null,
+            isStatic: this.isStatic(obj),
+            type: this.getType(obj),
+            required: null,
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj)
+        });
+    };
+    GetProperties.prototype.parseOutput = function (obj) {
+        return new model_1.Prop({
+            kind: 'output',
+            platform: null,
+            isStatic: false,
+            type: this.getType(obj),
+            required: null,
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            shortDescription: '',
+            description: ''
+        });
+    };
+    GetProperties.prototype.getType = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
+            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.getDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['text'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.isStatic = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.flags] && obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
+            return obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
+        }
+        else {
+            return false;
+        }
+    };
+    return GetProperties;
+}());
+exports.GetProperties = GetProperties;
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var typedoc_parser_options_1 = __webpack_require__(2);
+var GetStyles = (function () {
+    function GetStyles() {
+    }
+    GetStyles.prototype.getStyles = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
+            obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'styles'; })
+                .map(function (item) { return _this.parserStyle(item); });
+        }
+        else {
+            return [];
+        }
+    };
+    GetStyles.prototype.parserStyle = function (obj) {
+        return new model_1.Style({
+            shortDescription: this.getShortDescription(obj),
+            styles: this.getStylesOfStyle(obj)
+        });
+    };
+    GetStyles.prototype.getStylesOfStyle = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            var arr = obj[typedoc_parser_options_1.CommonOptions.text].split('\n\n');
+            var tempArr = [];
+            var returnArr_1 = [];
+            arr.splice(0, 1);
+            tempArr = arr[0].split('\n');
+            tempArr.forEach(function (item) {
+                if (item) {
+                    var _a = item.split(':'), key = _a[0], value = _a[1];
+                    var styleObj = {};
+                    if (key) {
+                        styleObj['name'] = key.trim();
+                    }
+                    else {
+                        styleObj['name'] = '';
+                    }
+                    if (value) {
+                        styleObj['description'] = value.trim();
+                    }
+                    else {
+                        styleObj['description'] = '';
+                    }
+                    returnArr_1.push(styleObj);
+                }
+            });
+            return returnArr_1;
+        }
+        else {
+            return [];
+        }
+    };
+    GetStyles.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
+            var workString = obj[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
+            return workString[0];
+        }
+        else {
+            return '';
+        }
+    };
+    return GetStyles;
+}());
+exports.GetStyles = GetStyles;
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var typedoc_parser_options_1 = __webpack_require__(2);
+var model_1 = __webpack_require__(0);
+var getters_1 = __webpack_require__(8);
+var TypedocParser = (function () {
+    function TypedocParser() {
+        this.examples = new getters_1.GetExamples();
+        this.styles = new getters_1.GetStyles();
+        this.methods = new getters_1.GetMethods();
+        this.props = new getters_1.GetProperties();
+        this.classes = [];
+    }
+    TypedocParser.prototype.saveJSON = function (json) {
+        this.json = json;
+    };
+    TypedocParser.prototype.parse = function (json, metadata) {
+        this.saveJSON(json);
+        return new model_1.Model(this.getClasses(this.json), metadata);
+    };
+    TypedocParser.prototype.findAllClasses = function (obj) {
+        var _this = this;
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
+            obj[typedoc_parser_options_1.CommonOptions.children].forEach(function (item) {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface') {
+                    _this.classes.push(item);
+                }
+                else {
+                    _this.findAllClasses(item);
+                }
+            });
+        }
+    };
+    TypedocParser.prototype.getClasses = function (obj) {
+        var _this = this;
+        this.findAllClasses(obj);
+        var tempClasses = [];
+        tempClasses = this.classes
+            .filter(function (item) {
+            if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface') {
+                return item;
+            }
+        })
+            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
+            .map(function (item) {
+            if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class') {
+                    return _this.parseClass(item);
+                }
+                else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface') {
+                    return _this.parseInterface(item);
+                }
+            }
+            else if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Component') {
+                    return _this.parseComponent(item);
+                }
+                else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Injectable') {
+                    return _this.parseService(item);
+                }
+                else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Directive') {
+                    return _this.parseDirective(item);
+                }
+                else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'NgModule') {
+                    return _this.parseNgModule(item);
+                }
+            }
+        });
+        return tempClasses;
+    };
+    TypedocParser.prototype.parseComponent = function (obj) {
+        return new model_1.Class({
+            kind: 'component',
+            platform: null,
+            examples: this.examples.getExamples(obj),
+            props: this.props.getProps(obj),
+            methods: this.methods.getMethods(obj),
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj),
+            styles: this.styles.getStyles(obj)
+        });
+    };
+    TypedocParser.prototype.parseClass = function (obj) {
+        return new model_1.Class({
+            kind: 'class',
+            platform: null,
+            examples: this.examples.getExamples(obj),
+            props: this.props.getProps(obj),
+            methods: this.methods.getMethods(obj),
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj),
+            styles: this.styles.getStyles(obj)
+        });
+    };
+    TypedocParser.prototype.parseDirective = function (obj) {
+        return new model_1.Class({
+            kind: 'directive',
+            platform: null,
+            examples: this.examples.getExamples(obj),
+            props: this.props.getProps(obj),
+            methods: this.methods.getMethods(obj),
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj),
+            styles: this.styles.getStyles(obj)
+        });
+    };
+    TypedocParser.prototype.parseService = function (obj) {
+        return new model_1.Class({
+            kind: 'service',
+            platform: null,
+            examples: this.examples.getExamples(obj),
+            props: this.props.getProps(obj),
+            methods: this.methods.getMethods(obj),
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj),
+            styles: this.styles.getStyles(obj)
+        });
+    };
+    TypedocParser.prototype.parseInterface = function (obj) {
+        return new model_1.Class({
+            kind: 'interface',
+            platform: null,
+            examples: this.examples.getExamples(obj),
+            props: this.props.getProps(obj),
+            methods: this.methods.getMethods(obj),
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj),
+            styles: this.styles.getStyles(obj)
+        });
+    };
+    TypedocParser.prototype.parseNgModule = function (obj) {
+        return new model_1.Class({
+            kind: 'class',
+            platform: null,
+            examples: this.examples.getExamples(obj),
+            props: this.props.getProps(obj),
+            methods: this.methods.getMethods(obj),
+            name: obj[typedoc_parser_options_1.CommonOptions.name],
+            description: this.getDescription(obj),
+            shortDescription: this.getShortDescription(obj),
+            styles: this.styles.getStyles(obj)
+        });
+    };
+    TypedocParser.prototype.getDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['text'];
+        }
+        else {
+            return '';
+        }
+    };
+    TypedocParser.prototype.getShortDescription = function (obj) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
+            return obj[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
+        }
+        else {
+            return '';
+        }
+    };
+    return TypedocParser;
+}());
+exports.TypedocParser = TypedocParser;
+
+
+/***/ }),
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * Module dependencies.
  */
 
-var EventEmitter = __webpack_require__(25).EventEmitter;
-var spawn = __webpack_require__(24).spawn;
-var readlink = __webpack_require__(23).readlinkSync;
-var path = __webpack_require__(6);
+var EventEmitter = __webpack_require__(33).EventEmitter;
+var spawn = __webpack_require__(32).spawn;
+var readlink = __webpack_require__(31).readlinkSync;
+var path = __webpack_require__(9);
 var dirname = path.dirname;
 var basename = path.basename;
-var fs = __webpack_require__(3);
+var fs = __webpack_require__(4);
 
 /**
  * Expose the root command.
@@ -2047,10 +2706,10 @@ function exists(file) {
 
 
 /***/ }),
-/* 23 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var fs = __webpack_require__(3)
+var fs = __webpack_require__(4)
   , lstat = fs.lstatSync;
 
 exports.readlinkSync = function (p) {
@@ -2065,22 +2724,22 @@ exports.readlinkSync = function (p) {
 
 
 /***/ }),
-/* 24 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("child_process");
 
 /***/ }),
-/* 25 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = require("events");
 
 /***/ }),
-/* 26 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(7);
+module.exports = __webpack_require__(10);
 
 
 /***/ })
