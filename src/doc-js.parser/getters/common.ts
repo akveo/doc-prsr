@@ -7,8 +7,20 @@ export class Common {
   }
 
   getShortDescription(obj: any): string {
-    if (obj[CommonOptions.description]) {
-      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
+    // if (obj[CommonOptions.description]) {
+    //   return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
+    // } else {
+    //   return '';
+    // }
+    let shortDescription: string = '';
+    if (obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length) {
+      if (obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children].length) {
+        obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children]
+          .forEach((item: any) => {
+            shortDescription += item[CommonOptions.value] + ' ';
+          });
+      }
+      return shortDescription;
     } else {
       return '';
     }

@@ -2272,5 +2272,5 @@ describe('#TypedocParser', () => {
     expect(getProperties.getShortDescription(test1)).toBe('Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.');
   });
 
-  
+
 });
