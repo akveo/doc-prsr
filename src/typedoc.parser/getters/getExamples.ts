@@ -5,7 +5,7 @@ import {CommonOptions} from '../typedoc.parser.options';
 
 export class GetExamples {
 
-  getExamples(obj: any) {
+  getExamples(obj: any): Example[] {
     if (obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] &&
       obj[CommonOptions.comment][CommonOptions.tags].length) {
       return obj[CommonOptions.comment][CommonOptions.tags]
@@ -24,7 +24,7 @@ export class GetExamples {
     });
   }
 
-  getDescriptionArr(obj: any) {
+  getDescriptionArr(obj: any): string[] {
     const outArr: string[] = [];
     if (obj && obj[CommonOptions.text]) {
       const tempArr = obj[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
