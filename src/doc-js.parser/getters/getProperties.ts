@@ -6,16 +6,30 @@ export class GetProperties {//TODO description and shortDescription form "static
   protected common: Common = new Common();
 
   parsePropFromProperties(obj: any): Prop {
-    return new Prop({
-      kind: 'prop',
-      platform: null,
-      isStatic: false,
-      type: this.getTypeProperties(obj),
-      required: null,
-      name: this.common.getName(obj),
-      shortDescription: this.getShortDescriptionProperties(obj),
-      description: this.getDescription(obj)
-    });
+    if (this.getShortDescriptionProperties(obj).trim() === this.getDescriptionProperties(obj).trim() ||
+    this.getDescriptionProperties(obj).indexOf(this.getShortDescriptionProperties(obj)) != -1){
+      return new Prop({
+        kind: 'prop',
+        platform: null,
+        isStatic: false,
+        type: this.getTypeProperties(obj),
+        required: null,
+        name: this.common.getName(obj),
+        shortDescription: '',//this.getShortDescriptionProperties(obj),
+        description: this.getDescriptionProperties(obj)
+      });
+    } else {
+      return new Prop({
+        kind: 'prop',
+        platform: null,
+        isStatic: false,
+        type: this.getTypeProperties(obj),
+        required: null,
+        name: this.common.getName(obj),
+        shortDescription: this.getShortDescriptionProperties(obj),
+        description: this.getDescriptionProperties(obj)
+      });
+    }
   }
 
   parsePropFromInstance(obj: any): Prop {
@@ -76,9 +90,41 @@ export class GetProperties {//TODO description and shortDescription form "static
     return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
   }
 
+  getDescription(obj: any): string {
+    let str: string = '';
+    if (obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length > 1) {
+      obj[CommonOptions.description][CommonOptions.children]
+        .forEach((item: any) => {
+
+          console.log(item[CommonOptions.children]);
+          item[CommonOptions.children]
+            .forEach((item: any) => {
+              str += item[CommonOptions.value] + ' ';
+            });
+        });
+      return str.split('}')[1].trim();
+    } else {
+      return '';
+    }
+  }
+
+  getDescriptionProperties(obj: any): string {
+    let description: string = '';
+
+    if (obj && obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length) {
+      obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children]
+        .forEach((item: any) => {
+          description += item[CommonOptions.value] + ' ';
+        });
+      return description;
+    } else {
+      return '';
+    }
+  }
+
   getShortDescriptionProperties(obj: any): string {
     if (obj && obj[CommonOptions.description]) {
-      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
+      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value].trim();
     } else {
       return '';
     }
@@ -88,24 +134,6 @@ export class GetProperties {//TODO description and shortDescription form "static
     if (obj && obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
         .split('}')[1].trim();
-    } else {
-      return '';
-    }
-  }
-
-  getDescription(obj: any): string {
-    let str: string = '';
-    if (obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length > 1) {
-      obj[CommonOptions.description][CommonOptions.children]
-        .forEach((item: any) => {
-
-        console.log(item[CommonOptions.children]);
-          item[CommonOptions.children]
-            .forEach((item: any) => {
-              str += item[CommonOptions.value] + ' ';
-            });
-        });
-      return str.split('}')[1].trim();
     } else {
       return '';
     }

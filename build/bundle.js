@@ -135,11 +135,6 @@ var Common = (function () {
         return obj[doc_js_parser_options_1.CommonOptions.name] ? obj[doc_js_parser_options_1.CommonOptions.name] : '';
     };
     Common.prototype.getShortDescription = function (obj) {
-        // if (obj[CommonOptions.description]) {
-        //   return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value];
-        // } else {
-        //   return '';
-        // }
         var shortDescription = '';
         if (obj[doc_js_parser_options_1.CommonOptions.description] && obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children].length) {
             if (obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children].length) {
@@ -467,16 +462,31 @@ var GetProperties = (function () {
         this.common = new common_1.Common();
     }
     GetProperties.prototype.parsePropFromProperties = function (obj) {
-        return new model_1.Prop({
-            kind: 'prop',
-            platform: null,
-            isStatic: false,
-            type: this.getTypeProperties(obj),
-            required: null,
-            name: this.common.getName(obj),
-            shortDescription: this.getShortDescriptionProperties(obj),
-            description: this.getDescription(obj)
-        });
+        if (this.getShortDescriptionProperties(obj).trim() === this.getDescriptionProperties(obj).trim() ||
+            this.getDescriptionProperties(obj).indexOf(this.getShortDescriptionProperties(obj)) != -1) {
+            return new model_1.Prop({
+                kind: 'prop',
+                platform: null,
+                isStatic: false,
+                type: this.getTypeProperties(obj),
+                required: null,
+                name: this.common.getName(obj),
+                shortDescription: '',
+                description: this.getDescriptionProperties(obj)
+            });
+        }
+        else {
+            return new model_1.Prop({
+                kind: 'prop',
+                platform: null,
+                isStatic: false,
+                type: this.getTypeProperties(obj),
+                required: null,
+                name: this.common.getName(obj),
+                shortDescription: this.getShortDescriptionProperties(obj),
+                description: this.getDescriptionProperties(obj)
+            });
+        }
     };
     GetProperties.prototype.parsePropFromInstance = function (obj) {
         return new model_1.Prop({
@@ -536,23 +546,6 @@ var GetProperties = (function () {
     GetProperties.prototype.getProps = function (obj) {
         return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
     };
-    GetProperties.prototype.getShortDescriptionProperties = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.description]) {
-            return obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value];
-        }
-        else {
-            return '';
-        }
-    };
-    GetProperties.prototype.getShortDescriptionInstance = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.description]) {
-            return obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value]
-                .split('}')[1].trim();
-        }
-        else {
-            return '';
-        }
-    };
     GetProperties.prototype.getDescription = function (obj) {
         var str = '';
         if (obj[doc_js_parser_options_1.CommonOptions.description] && obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children].length > 1) {
@@ -565,6 +558,36 @@ var GetProperties = (function () {
                 });
             });
             return str.split('}')[1].trim();
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.getDescriptionProperties = function (obj) {
+        var description = '';
+        if (obj && obj[doc_js_parser_options_1.CommonOptions.description] && obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children].length) {
+            obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children]
+                .forEach(function (item) {
+                description += item[doc_js_parser_options_1.CommonOptions.value] + ' ';
+            });
+            return description;
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.getShortDescriptionProperties = function (obj) {
+        if (obj && obj[doc_js_parser_options_1.CommonOptions.description]) {
+            return obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value].trim();
+        }
+        else {
+            return '';
+        }
+    };
+    GetProperties.prototype.getShortDescriptionInstance = function (obj) {
+        if (obj && obj[doc_js_parser_options_1.CommonOptions.description]) {
+            return obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value]
+                .split('}')[1].trim();
         }
         else {
             return '';
