@@ -1132,4 +1132,1145 @@ describe('#TypedocParser', () => {
     expect(getMethods.getShortDescription(test2)).toBe('');
     expect(getMethods.getShortDescription(test1)).toBe('Toggle a sidebar');
   });
+
+  test('#GetProperties -> getProperties', () => {
+    const getProperties = new GetProperties();
+    const test1 = {
+      "name": "NgaSidebarComponent",
+      "kindString": "Class",
+      "children": [
+        {
+          "id": 450,
+          "name": "collapseSubscription",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isPrivate": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 181,
+              "character": 30
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "Subscription"
+          }
+        },
+        {
+          "id": 449,
+          "name": "expandSubscription",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isPrivate": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 180,
+              "character": 28
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "Subscription"
+          }
+        },
+        {
+          "id": 426,
+          "name": "fixedValue",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "decorators": [
+            {
+              "name": "HostBinding",
+              "type": {
+                "type": "reference",
+                "name": "HostBinding"
+              },
+              "arguments": {
+                "hostPropertyName": "'class.fixed'"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 118,
+              "character": 40
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "boolean"
+          },
+          "defaultValue": "false"
+        },
+        {
+          "id": 428,
+          "name": "leftValue",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "decorators": [
+            {
+              "name": "HostBinding",
+              "type": {
+                "type": "reference",
+                "name": "HostBinding"
+              },
+              "arguments": {
+                "hostPropertyName": "'class.left'"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 120,
+              "character": 38
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "boolean"
+          },
+          "defaultValue": "false"
+        },
+        {
+          "id": 427,
+          "name": "rightValue",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "decorators": [
+            {
+              "name": "HostBinding",
+              "type": {
+                "type": "reference",
+                "name": "HostBinding"
+              },
+              "arguments": {
+                "hostPropertyName": "'class.right'"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 119,
+              "character": 40
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "boolean"
+          },
+          "defaultValue": "false"
+        },
+        {
+          "id": 452,
+          "name": "sidebarService",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isPrivate": true,
+            "isConstructorProperty": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 183,
+              "character": 36
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "NgaSidebarService",
+            "id": 390
+          }
+        },
+        {
+          "id": 425,
+          "name": "stateValue",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true,
+            "isProtected": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 116,
+              "character": 22
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "string"
+          }
+        },
+        {
+          "id": 447,
+          "name": "tag",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.",
+            "tags": [
+              {
+                "tag": "type",
+                "text": "{string}\n"
+              }
+            ]
+          },
+          "decorators": [
+            {
+              "name": "Input",
+              "type": {
+                "type": "reference",
+                "name": "Input"
+              },
+              "arguments": {}
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 177,
+              "character": 14
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "string"
+          }
+        },
+        {
+          "id": 448,
+          "name": "toggleSubscription",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isPrivate": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 179,
+              "character": 28
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "Subscription"
+          }
+        },
+        {
+          "id": 423,
+          "name": "STATE_COLLAPSED",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isStatic": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 113,
+              "character": 33
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "string"
+          },
+          "defaultValue": "\"collapsed\""
+        },
+        {
+          "id": 424,
+          "name": "STATE_COMPACTED",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isStatic": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 114,
+              "character": 33
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "string"
+          },
+          "defaultValue": "\"compacted\""
+        },
+        {
+          "id": 422,
+          "name": "STATE_EXPANDED",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isStatic": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 112,
+              "character": 32
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "string"
+          },
+          "defaultValue": "\"expanded\""
+        },
+        {
+          "id": 431,
+          "name": "collapsed",
+          "kind": 262144,
+          "kindString": "Accessor",
+          "flags": {
+            "isExported": true
+          },
+          "decorators": [
+            {
+              "name": "HostBinding",
+              "type": {
+                "type": "reference",
+                "name": "HostBinding"
+              },
+              "arguments": {
+                "hostPropertyName": "'class.collapsed'"
+              }
+            }
+          ],
+          "getSignature": [
+            {
+              "id": 432,
+              "name": "__get",
+              "kind": 524288,
+              "kindString": "Get signature",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "boolean"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 127,
+              "character": 15
+            }
+          ]
+        },
+        {
+          "id": 433,
+          "name": "compacted",
+          "kind": 262144,
+          "kindString": "Accessor",
+          "flags": {
+            "isExported": true
+          },
+          "decorators": [
+            {
+              "name": "HostBinding",
+              "type": {
+                "type": "reference",
+                "name": "HostBinding"
+              },
+              "arguments": {
+                "hostPropertyName": "'class.compacted'"
+              }
+            }
+          ],
+          "getSignature": [
+            {
+              "id": 434,
+              "name": "__get",
+              "kind": 524288,
+              "kindString": "Get signature",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "boolean"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 131,
+              "character": 15
+            }
+          ]
+        },
+        {
+          "id": 429,
+          "name": "expanded",
+          "kind": 262144,
+          "kindString": "Accessor",
+          "flags": {
+            "isExported": true
+          },
+          "decorators": [
+            {
+              "name": "HostBinding",
+              "type": {
+                "type": "reference",
+                "name": "HostBinding"
+              },
+              "arguments": {
+                "hostPropertyName": "'class.expanded'"
+              }
+            }
+          ],
+          "getSignature": [
+            {
+              "id": 430,
+              "name": "__get",
+              "kind": 524288,
+              "kindString": "Get signature",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "boolean"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 123,
+              "character": 14
+            }
+          ]
+        },
+        {
+          "id": 441,
+          "name": "fixed",
+          "kind": 262144,
+          "kindString": "Accessor",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Makes sidebar fixed (shown above the layout content)",
+            "tags": [
+              {
+                "tag": "type",
+                "text": "{boolean}\n"
+              }
+            ]
+          },
+          "decorators": [
+            {
+              "name": "Input",
+              "type": {
+                "type": "reference",
+                "name": "Input"
+              },
+              "arguments": {}
+            }
+          ],
+          "setSignature": [
+            {
+              "id": 442,
+              "name": "__set",
+              "kind": 1048576,
+              "kindString": "Set signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Makes sidebar fixed (shown above the layout content)",
+                "tags": [
+                  {
+                    "tag": "type",
+                    "text": "{boolean}\n"
+                  }
+                ]
+              },
+              "parameters": [
+                {
+                  "id": 443,
+                  "name": "val",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "boolean"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 158,
+              "character": 11
+            }
+          ]
+        },
+        {
+          "id": 438,
+          "name": "left",
+          "kind": 262144,
+          "kindString": "Accessor",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Places sidebar on the right side",
+            "tags": [
+              {
+                "tag": "type",
+                "text": "{boolean}\n"
+              }
+            ]
+          },
+          "decorators": [
+            {
+              "name": "Input",
+              "type": {
+                "type": "reference",
+                "name": "Input"
+              },
+              "arguments": {}
+            }
+          ],
+          "setSignature": [
+            {
+              "id": 439,
+              "name": "__set",
+              "kind": 1048576,
+              "kindString": "Set signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Places sidebar on the right side",
+                "tags": [
+                  {
+                    "tag": "type",
+                    "text": "{boolean}\n"
+                  }
+                ]
+              },
+              "parameters": [
+                {
+                  "id": 440,
+                  "name": "val",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "boolean"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 149,
+              "character": 10
+            }
+          ]
+        },
+        {
+          "id": 435,
+          "name": "right",
+          "kind": 262144,
+          "kindString": "Accessor",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Places sidebar on the left side",
+            "tags": [
+              {
+                "tag": "type",
+                "text": "{boolean}\n"
+              }
+            ]
+          },
+          "decorators": [
+            {
+              "name": "Input",
+              "type": {
+                "type": "reference",
+                "name": "Input"
+              },
+              "arguments": {}
+            }
+          ],
+          "setSignature": [
+            {
+              "id": 436,
+              "name": "__set",
+              "kind": 1048576,
+              "kindString": "Set signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Places sidebar on the left side",
+                "tags": [
+                  {
+                    "tag": "type",
+                    "text": "{boolean}\n"
+                  }
+                ]
+              },
+              "parameters": [
+                {
+                  "id": 437,
+                  "name": "val",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "boolean"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 140,
+              "character": 11
+            }
+          ]
+        },
+        {
+          "id": 444,
+          "name": "state",
+          "kind": 262144,
+          "kindString": "Accessor",
+          "flags": {
+            "isExported": true
+          },
+          "comment": {
+            "shortText": "Initial sidebar state, `expanded`|`collapsed`|`compacted`",
+            "tags": [
+              {
+                "tag": "type",
+                "text": "{string}\n"
+              }
+            ]
+          },
+          "decorators": [
+            {
+              "name": "Input",
+              "type": {
+                "type": "reference",
+                "name": "Input"
+              },
+              "arguments": {}
+            }
+          ],
+          "setSignature": [
+            {
+              "id": 445,
+              "name": "__set",
+              "kind": 1048576,
+              "kindString": "Set signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Initial sidebar state, `expanded`|`collapsed`|`compacted`",
+                "tags": [
+                  {
+                    "tag": "type",
+                    "text": "{string}\n"
+                  }
+                ]
+              },
+              "parameters": [
+                {
+                  "id": 446,
+                  "name": "val",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 167,
+              "character": 11
+            }
+          ]
+        },
+        {
+          "id": 465,
+          "name": "collapse",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 466,
+              "name": "collapse",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Collapses the sidebar"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 240,
+              "character": 10
+            }
+          ]
+        },
+        {
+          "id": 469,
+          "name": "compact",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 470,
+              "name": "compact",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Compacts the sidebar (minimizes)"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 254,
+              "character": 9
+            }
+          ]
+        },
+        {
+          "id": 467,
+          "name": "expand",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 468,
+              "name": "expand",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Expands the sidebar"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 247,
+              "character": 8
+            }
+          ]
+        },
+        {
+          "id": 457,
+          "name": "ngOnDestroy",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 458,
+              "name": "ngOnDestroy",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 208,
+              "character": 13
+            }
+          ]
+        },
+        {
+          "id": 455,
+          "name": "ngOnInit",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 456,
+              "name": "ngOnInit",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 185,
+              "character": 10
+            }
+          ]
+        },
+        {
+          "id": 463,
+          "name": "returnSomeValue",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 464,
+              "name": "returnSomeValue",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Returns some value\n// TODO: remove this",
+                "returns": "number\n"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "number"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 233,
+              "character": 17
+            }
+          ]
+        },
+        {
+          "id": 471,
+          "name": "toggle",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 472,
+              "name": "toggle",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Toggles sidebar state (expanded|collapsed|compacted)",
+                "tags": [
+                  {
+                    "tag": "example",
+                    "text": "Toggle sidebar state\n\n```\nthis.sidebar.toggle(true);\n```\n"
+                  }
+                ]
+              },
+              "parameters": [
+                {
+                  "id": 473,
+                  "name": "compact",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {
+                    "text": "If true, then sidebar state will be changed between expanded & compacted,\notherwise - between expanded & collapsed. False by default.\n"
+                  },
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "boolean"
+                  },
+                  "defaultValue": "false"
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 269,
+              "character": 8
+            }
+          ]
+        },
+        {
+          "id": 459,
+          "name": "someTestMethod",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isStatic": true,
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 460,
+              "name": "someTestMethod",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Some Static method\n// TODO: remove this",
+                "returns": "\n"
+              },
+              "parameters": [
+                {
+                  "id": 461,
+                  "name": "test",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {},
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                },
+                {
+                  "id": 462,
+                  "name": "anotherOne",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "comment": {},
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "any"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "number"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.component.ts",
+              "line": 223,
+              "character": 23
+            }
+          ]
+        }
+      ]
+    };
+    const test2 = {};
+    const out1 = [
+      {
+        "kind": "input",
+        "platform": null,
+        "isStatic": false,
+        "type": "string",
+        "required": null,
+        "name": "tag",
+        "shortDescription": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page."
+      },
+      {
+        "kind": "input",
+        "platform": null,
+        "isStatic": false,
+        "type": "",
+        "required": null,
+        "name": "fixed",
+        "shortDescription": "Makes sidebar fixed (shown above the layout content)"
+      },
+      {
+        "kind": "input",
+        "platform": null,
+        "isStatic": false,
+        "type": "",
+        "required": null,
+        "name": "left",
+        "shortDescription": "Places sidebar on the right side"
+      },
+      {
+        "kind": "input",
+        "platform": null,
+        "isStatic": false,
+        "type": "",
+        "required": null,
+        "name": "right",
+        "shortDescription": "Places sidebar on the left side"
+      },
+      {
+        "kind": "input",
+        "platform": null,
+        "isStatic": false,
+        "type": "",
+        "required": null,
+        "name": "state",
+        "shortDescription": "Initial sidebar state, `expanded`|`collapsed`|`compacted`"
+      }
+    ];
+
+    expect(getProperties.getProps(test2).toString()).toBe([].toString());
+    expect(getProperties.getProps(test1).toString()).toBe(out1.toString());
+  });
+
+  test('#GetProperties -> getType', () => {
+    const getProperties = new GetProperties();
+    const test1 = {
+      "name": "collapseSubscription",
+      "kindString": "Property",
+      "type": {
+        "type": "reference",
+        "name": "Subscription"
+      }
+    };
+    const test2 = {};
+
+    expect(getProperties.getType(test2)).toBe('');
+    expect(getProperties.getType(test1)).toBe('Subscription');
+  });
+
+  test('#GetProperties -> isStatic', () => {
+    const getProperties = new GetProperties();
+    const test1 = {
+      "name": "collapseSubscription",
+      "kindString": "Property",
+      "flags": {
+        "isPrivate": true,
+        "isExported": true
+      }
+    };
+    const test2 = {};
+
+    expect(getProperties.isStatic(test2)).toBe(false);
+    expect(getProperties.isStatic(test1)).toBe(false);
+  });
+
+  test('#GetProperties -> getDescription', () => {
+    const getProperties = new GetProperties();
+    const test1 = {
+      "name": "tag",
+      "kindString": "Property",
+      "comment": {
+        "text": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.",
+      }
+    };
+    const test2 = {};
+
+    expect(getProperties.getDescription(test2)).toBe('');
+    expect(getProperties.getDescription(test1)).toBe('Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.');
+  });
+
+  test('#GetProperties -> getShortDescription', () => {
+    const getProperties = new GetProperties();
+    const test1 = {
+      "name": "tag",
+      "kindString": "Property",
+      "comment": {
+        "shortText": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.",
+      }
+    };
+    const test2 = {};
+
+    expect(getProperties.getShortDescription(test2)).toBe('');
+    expect(getProperties.getShortDescription(test1)).toBe('Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.');
+  });
+
+  
 });
