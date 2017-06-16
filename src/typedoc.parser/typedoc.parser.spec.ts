@@ -238,4 +238,22 @@ describe('#TypedocParser', () => {
     expect(getParams.getDescription(test2)).toBe('');
     expect(getParams.getDescription(test1)).toBe('tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n');
   });
+
+  test('#GetParams -> getShortDescription', () => {
+    const getParams = new GetParams();
+    const test1 = {
+      "kindString": "Parameter",
+      "comment": {
+        "shortText": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+      },
+      "type": {
+        "type": "intrinsic",
+        "name": "string"
+      }
+    };
+    const test2 = {};
+
+    expect(getParams.getShortDescription(test2)).toBe('');
+    expect(getParams.getShortDescription(test1)).toBe('tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n');
+  });
 });
