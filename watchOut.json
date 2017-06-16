@@ -72,6 +72,7 @@
       "platform": null,
       "examples": [],
       "props": [],
+      "methods": [],
       "name": "NgaCardBodyComponent",
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset body section.",
       "styles": []
@@ -92,6 +93,7 @@
       "platform": null,
       "examples": [],
       "props": [],
+      "methods": [],
       "name": "NgaCardFooterComponent",
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset footer section.",
       "styles": []
@@ -101,6 +103,7 @@
       "platform": null,
       "examples": [],
       "props": [],
+      "methods": [],
       "name": "NgaCardHeaderComponent",
       "shortDescription": "Component intended to be used within  the `<nga-card>` component.\nIt adds styles for a preset header section.",
       "styles": []
@@ -362,7 +365,9 @@
           "params": [],
           "platform": null,
           "name": "collapse",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Collapses the sidebar"
         },
@@ -371,7 +376,9 @@
           "params": [],
           "platform": null,
           "name": "compact",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Compacts the sidebar (minimizes)"
         },
@@ -380,7 +387,9 @@
           "params": [],
           "platform": null,
           "name": "expand",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Expands the sidebar"
         },
@@ -431,7 +440,9 @@
           ],
           "platform": null,
           "name": "toggle",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
         },
@@ -506,6 +517,7 @@
       "platform": null,
       "examples": [],
       "props": [],
+      "methods": [],
       "name": "NgaSidebarContentComponent",
       "description": "Placeholder which contains a sidebar main content.\n",
       "shortDescription": "Sidebar content container.",
@@ -516,6 +528,7 @@
       "platform": null,
       "examples": [],
       "props": [],
+      "methods": [],
       "name": "NgaSidebarFooterComponent",
       "description": "Placeholder which contains a sidebar footer content,\nplaced at the very bottom of the sidebar outside of the scroll area.\n",
       "shortDescription": "Sidebar footer container.",
@@ -526,6 +539,7 @@
       "platform": null,
       "examples": [],
       "props": [],
+      "methods": [],
       "name": "NgaSidebarHeaderComponent",
       "description": "Placeholder which contains a sidebar header content,\nplaced at the very top of the sidebar outside of the scroll area.\n",
       "shortDescription": "Sidebar header container.",
@@ -549,7 +563,9 @@
           ],
           "platform": null,
           "name": "collapse",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Collapses a sidebar"
         },
@@ -565,7 +581,9 @@
           ],
           "platform": null,
           "name": "expand",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Expands a sidebar"
         },
@@ -621,7 +639,9 @@
           ],
           "platform": null,
           "name": "toggle",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Toggle a sidebar"
         }
@@ -842,7 +862,9 @@
           "params": [],
           "platform": null,
           "name": "toggleMenu",
-          "type": [],
+          "type": [
+            "void"
+          ],
           "isStatic": false,
           "shortDescription": "Toggles a context menu"
         }

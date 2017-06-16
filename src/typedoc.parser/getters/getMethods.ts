@@ -8,7 +8,7 @@ export class GetMethods {                                         //TODO ask abo
   protected params: GetParams = new GetParams();
   protected examples: GetExamples = new GetExamples();
 
-  getMethods(obj: any) {
+  getMethods(obj: any): Method[] {
     if (obj && obj[CommonOptions.children]) {
       return obj[CommonOptions.children]
         .filter((item: any) => {
@@ -17,6 +17,8 @@ export class GetMethods {                                         //TODO ask abo
           }
         })
         .map((item: any) => this.parseMethod(item));
+    } else {
+      return [];
     }
   }
 
@@ -34,7 +36,7 @@ export class GetMethods {                                         //TODO ask abo
   }
 
   getDescription(obj: any): string {
-    if (obj && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
+    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
       return obj[CommonOptions.signatures][0][CommonOptions.comment]['text'];
     } else {
       return '';
@@ -42,7 +44,7 @@ export class GetMethods {                                         //TODO ask abo
   }
 
   getShortDescription(obj: any): string {
-    if (obj && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
+    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
       return obj[CommonOptions.signatures][0][CommonOptions.comment]['shortText'];
     } else {
       return '';
@@ -54,6 +56,8 @@ export class GetMethods {                                         //TODO ask abo
     if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
       if (obj[CommonOptions.signatures][0][CommonOptions.comment][CommonOptions.returns]) {
         returnsArray.push(obj[CommonOptions.signatures][0][CommonOptions.comment][CommonOptions.returns].replace(/\n/g, ''));
+      } else {
+        return ['void'];
       }
       return returnsArray;
     } else if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.type]) {

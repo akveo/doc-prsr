@@ -423,6 +423,9 @@ var GetMethods = (function () {
             })
                 .map(function (item) { return _this.parseMethod(item); });
         }
+        else {
+            return [];
+        }
     };
     GetMethods.prototype.parseMethod = function (obj) {
         return new model_1.Method({
@@ -457,6 +460,9 @@ var GetMethods = (function () {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
             if (obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.returns]) {
                 returnsArray.push(obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.returns].replace(/\n/g, ''));
+            }
+            else {
+                return ['void'];
             }
             return returnsArray;
         }

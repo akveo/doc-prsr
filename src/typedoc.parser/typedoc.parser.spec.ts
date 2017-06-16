@@ -334,4 +334,802 @@ describe('#TypedocParser', () => {
     expect(getExamples.getShortDescription(test2)).toBe('');
     expect(getExamples.getShortDescription(test1)).toBe('Fixed sidebar');
   });
+
+  test('#GetMethods -> getMethods', () => {
+    const getMethods = new GetMethods();
+    const test1 = {
+      "name": "NgaSidebarService",
+      "kindString": "Class",
+      "children": [
+        {
+          "id": 393,
+          "name": "collapse$",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isPrivate": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 22,
+              "character": 19
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "Subject",
+            "typeArguments": [
+              {
+                "type": "intrinsic",
+                "name": "Object"
+              }
+            ]
+          },
+          "defaultValue": " new Subject()"
+        },
+        {
+          "id": 392,
+          "name": "expand$",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isPrivate": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 21,
+              "character": 17
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "Subject",
+            "typeArguments": [
+              {
+                "type": "intrinsic",
+                "name": "Object"
+              }
+            ]
+          },
+          "defaultValue": " new Subject()"
+        },
+        {
+          "id": 391,
+          "name": "toggle$",
+          "kind": 1024,
+          "kindString": "Property",
+          "flags": {
+            "isPrivate": true,
+            "isExported": true
+          },
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 20,
+              "character": 17
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "Subject",
+            "typeArguments": [
+              {
+                "type": "intrinsic",
+                "name": "Object"
+              }
+            ]
+          },
+          "defaultValue": " new Subject()"
+        },
+        {
+          "id": 414,
+          "name": "collapse",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 415,
+              "name": "collapse",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Collapses a sidebar"
+              },
+              "parameters": [
+                {
+                  "id": 416,
+                  "name": "tag",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "text": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                  },
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 73,
+              "character": 10
+            }
+          ]
+        },
+        {
+          "id": 411,
+          "name": "expand",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 412,
+              "name": "expand",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Expands a sidebar"
+              },
+              "parameters": [
+                {
+                  "id": 413,
+                  "name": "tag",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                  },
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 64,
+              "character": 8
+            }
+          ]
+        },
+        {
+          "id": 403,
+          "name": "onCollapse",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 404,
+              "name": "onCollapse",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe to collapse evens",
+                "returns": "Observable<{ tag: string }>\n"
+              },
+              "type": {
+                "type": "reference",
+                "name": "Observable",
+                "typeArguments": [
+                  {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 405,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "children": [
+                        {
+                          "id": 406,
+                          "name": "tag",
+                          "kind": 32,
+                          "kindString": "Variable",
+                          "flags": {},
+                          "sources": [
+                            {
+                              "fileName": "theme/components/sidebar/sidebar.service.ts",
+                              "line": 45,
+                              "character": 32
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        }
+                      ],
+                      "groups": [
+                        {
+                          "title": "Variables",
+                          "kind": 32,
+                          "children": [
+                            406
+                          ]
+                        }
+                      ],
+                      "sources": [
+                        {
+                          "fileName": "theme/components/sidebar/sidebar.service.ts",
+                          "line": 45,
+                          "character": 27
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 45,
+              "character": 12
+            }
+          ]
+        },
+        {
+          "id": 399,
+          "name": "onExpand",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 400,
+              "name": "onExpand",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe to expand events",
+                "returns": "Observable<{ tag: string }>\n"
+              },
+              "type": {
+                "type": "reference",
+                "name": "Observable",
+                "typeArguments": [
+                  {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 401,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "children": [
+                        {
+                          "id": 402,
+                          "name": "tag",
+                          "kind": 32,
+                          "kindString": "Variable",
+                          "flags": {},
+                          "sources": [
+                            {
+                              "fileName": "theme/components/sidebar/sidebar.service.ts",
+                              "line": 37,
+                              "character": 30
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        }
+                      ],
+                      "groups": [
+                        {
+                          "title": "Variables",
+                          "kind": 32,
+                          "children": [
+                            402
+                          ]
+                        }
+                      ],
+                      "sources": [
+                        {
+                          "fileName": "theme/components/sidebar/sidebar.service.ts",
+                          "line": 37,
+                          "character": 25
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 37,
+              "character": 10
+            }
+          ]
+        },
+        {
+          "id": 394,
+          "name": "onToggle",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 395,
+              "name": "onToggle",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Subscribe to toggle events",
+                "returns": "Observable<{ compact: boolean, tag: string }>\n"
+              },
+              "type": {
+                "type": "reference",
+                "name": "Observable",
+                "typeArguments": [
+                  {
+                    "type": "reflection",
+                    "declaration": {
+                      "id": 396,
+                      "name": "__type",
+                      "kind": 65536,
+                      "kindString": "Type literal",
+                      "flags": {},
+                      "children": [
+                        {
+                          "id": 397,
+                          "name": "compact",
+                          "kind": 32,
+                          "kindString": "Variable",
+                          "flags": {},
+                          "sources": [
+                            {
+                              "fileName": "theme/components/sidebar/sidebar.service.ts",
+                              "line": 29,
+                              "character": 34
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "boolean"
+                          }
+                        },
+                        {
+                          "id": 398,
+                          "name": "tag",
+                          "kind": 32,
+                          "kindString": "Variable",
+                          "flags": {},
+                          "sources": [
+                            {
+                              "fileName": "theme/components/sidebar/sidebar.service.ts",
+                              "line": 29,
+                              "character": 48
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "string"
+                          }
+                        }
+                      ],
+                      "groups": [
+                        {
+                          "title": "Variables",
+                          "kind": 32,
+                          "children": [
+                            397,
+                            398
+                          ]
+                        }
+                      ],
+                      "sources": [
+                        {
+                          "fileName": "theme/components/sidebar/sidebar.service.ts",
+                          "line": 29,
+                          "character": 25
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 29,
+              "character": 10
+            }
+          ]
+        },
+        {
+          "id": 407,
+          "name": "toggle",
+          "kind": 2048,
+          "kindString": "Method",
+          "flags": {
+            "isExported": true
+          },
+          "signatures": [
+            {
+              "id": 408,
+              "name": "toggle",
+              "kind": 4096,
+              "kindString": "Call signature",
+              "flags": {},
+              "comment": {
+                "shortText": "Toggle a sidebar"
+              },
+              "parameters": [
+                {
+                  "id": 409,
+                  "name": "compact",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {},
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "boolean"
+                  },
+                  "defaultValue": "false"
+                },
+                {
+                  "id": 410,
+                  "name": "tag",
+                  "kind": 32768,
+                  "kindString": "Parameter",
+                  "flags": {
+                    "isOptional": true
+                  },
+                  "comment": {
+                    "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                  },
+                  "type": {
+                    "type": "intrinsic",
+                    "name": "string"
+                  }
+                }
+              ],
+              "type": {
+                "type": "intrinsic",
+                "name": "void"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "fileName": "theme/components/sidebar/sidebar.service.ts",
+              "line": 55,
+              "character": 8
+            }
+          ]
+        }
+      ]
+    };
+    const test2 = {};
+    const out1 = [
+      {
+        "examples": [],
+        "params": [
+          {
+            "name": "tag",
+            "type": "string",
+            "required": null,
+            "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+          }
+        ],
+        "platform": null,
+        "name": "collapse",
+        "type": [],
+        "isStatic": false,
+        "shortDescription": "Collapses a sidebar"
+      },
+      {
+        "examples": [],
+        "params": [
+          {
+            "name": "tag",
+            "type": "string",
+            "required": null,
+            "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+          }
+        ],
+        "platform": null,
+        "name": "expand",
+        "type": [],
+        "isStatic": false,
+        "shortDescription": "Expands a sidebar"
+      },
+      {
+        "examples": [],
+        "params": [],
+        "platform": null,
+        "name": "onCollapse",
+        "type": [
+          "Observable<{ tag: string }>"
+        ],
+        "isStatic": false,
+        "shortDescription": "Subscribe to collapse evens"
+      },
+      {
+        "examples": [],
+        "params": [],
+        "platform": null,
+        "name": "onExpand",
+        "type": [
+          "Observable<{ tag: string }>"
+        ],
+        "isStatic": false,
+        "shortDescription": "Subscribe to expand events"
+      },
+      {
+        "examples": [],
+        "params": [],
+        "platform": null,
+        "name": "onToggle",
+        "type": [
+          "Observable<{ compact: boolean, tag: string }>"
+        ],
+        "isStatic": false,
+        "shortDescription": "Subscribe to toggle events"
+      },
+      {
+        "examples": [],
+        "params": [
+          {
+            "name": "compact",
+            "type": "boolean",
+            "required": null,
+            "shortDescription": "",
+            "description": ""
+          },
+          {
+            "name": "tag",
+            "type": "string",
+            "required": null,
+            "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+          }
+        ],
+        "platform": null,
+        "name": "toggle",
+        "type": [],
+        "isStatic": false,
+        "shortDescription": "Toggle a sidebar"
+      }
+    ];
+
+    expect(getMethods.getMethods(test2).toString()).toBe([].toString());
+    expect(getMethods.getMethods(test1).toString()).toBe(out1.toString());
+  });
+
+  test('#GetMethods -> getType', () => {
+    const getMethods = new GetMethods();
+    const test1 = {
+      "name": "toggle",
+      "kindString": "Method",
+      "signatures": [
+        {
+          "name": "toggle",
+          "kindString": "Call signature",
+          "comment": {
+            "shortText": "Toggle a sidebar"
+          },
+          "parameters": [
+            {
+              "id": 409,
+              "name": "compact",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "boolean"
+              },
+              "defaultValue": "false"
+            },
+            {
+              "id": 410,
+              "name": "tag",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {
+                "isOptional": true
+              },
+              "comment": {
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "string"
+              }
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "void"
+          }
+        }
+      ],
+    };
+    const test2 = {};
+
+    expect(getMethods.getType(test2).toString()).toBe('void'.toString());
+    expect(getMethods.getType(test1).toString()).toBe(['void'].toString());
+  });
+
+  test('#GetMethods -> isStatic', () => {
+    const getMethods = new GetMethods();
+    const test1 = {
+      "name": "toggle",
+      "kindString": "Method",
+      "flags": {
+        "isExported": true
+      }
+    };
+    const test2 = {};
+
+    expect(getMethods.isStatic(test2)).toBe(false);
+    expect(getMethods.isStatic(test1)).toBe(false);
+  });
+
+  test('#GetMethods -> getDescription', () => {
+    const getMethods = new GetMethods();
+    const test1 = {
+      "name": "toggle",
+      "kindString": "Method",
+      "signatures": [
+        {
+          "id": 408,
+          "name": "toggle",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "text": "Toggle a sidebar"
+          },
+          "parameters": [
+            {
+              "id": 409,
+              "name": "compact",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "boolean"
+              },
+              "defaultValue": "false"
+            },
+            {
+              "id": 410,
+              "name": "tag",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {
+                "isOptional": true
+              },
+              "comment": {
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "string"
+              }
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "void"
+          }
+        }
+      ],
+    };
+    const test2 = {};
+
+    expect(getMethods.getDescription(test2)).toBe('');
+    expect(getMethods.getDescription(test1)).toBe('Toggle a sidebar');
+  });
+
+  test('#GetMethods -> getShortDescription', () => {
+    const getMethods = new GetMethods();
+    const test1 = {
+      "name": "toggle",
+      "kindString": "Method",
+      "signatures": [
+        {
+          "id": 408,
+          "name": "toggle",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "shortText": "Toggle a sidebar"
+          },
+          "parameters": [
+            {
+              "id": 409,
+              "name": "compact",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "boolean"
+              },
+              "defaultValue": "false"
+            },
+            {
+              "id": 410,
+              "name": "tag",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {
+                "isOptional": true
+              },
+              "comment": {
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "string"
+              }
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "void"
+          }
+        }
+      ],
+    };
+    const test2 = {};
+
+    expect(getMethods.getShortDescription(test2)).toBe('');
+    expect(getMethods.getShortDescription(test1)).toBe('Toggle a sidebar');
+  });
 });
