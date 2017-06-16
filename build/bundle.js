@@ -113,7 +113,8 @@ exports.CommonOptions = {
     tags: 'tags',
     text: 'text',
     description: 'description',
-    shortDescription: 'shortDescription'
+    shortDescription: 'shortDescription',
+    returns: 'returns'
 };
 
 
@@ -453,7 +454,13 @@ var GetMethods = (function () {
     };
     GetMethods.prototype.getType = function (obj) {
         var returnsArray = [];
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.type]) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+            if (obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.returns]) {
+                returnsArray.push(obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.returns].replace(/\n/g, ''));
+            }
+            return returnsArray;
+        }
+        else if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.type]) {
             returnsArray.push(obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name]);
             return returnsArray;
         }

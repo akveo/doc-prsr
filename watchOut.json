@@ -357,9 +357,7 @@
           "examples": [],
           "platform": null,
           "name": "collapse",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Collapses the sidebar"
         },
@@ -367,9 +365,7 @@
           "examples": [],
           "platform": null,
           "name": "compact",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Compacts the sidebar (minimizes)"
         },
@@ -377,9 +373,7 @@
           "examples": [],
           "platform": null,
           "name": "expand",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Expands the sidebar"
         },
@@ -427,9 +421,7 @@
           ],
           "platform": null,
           "name": "toggle",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Toggles sidebar state (expanded|collapsed|compacted)"
         },
@@ -450,7 +442,7 @@
           "platform": null,
           "name": "someTestMethod",
           "type": [
-            "number"
+            ""
           ],
           "isStatic": true,
           "shortDescription": "Some Static method\n// TODO: remove this"
@@ -547,9 +539,7 @@
           ],
           "platform": null,
           "name": "collapse",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Collapses a sidebar"
         },
@@ -560,14 +550,12 @@
               "name": "tag",
               "type": "string",
               "required": null,
-              "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+              "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
             }
           ],
           "platform": null,
           "name": "expand",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Expands a sidebar"
         },
@@ -576,7 +564,7 @@
           "platform": null,
           "name": "onCollapse",
           "type": [
-            "Observable"
+            "Observable<{ tag: string }>"
           ],
           "isStatic": false,
           "shortDescription": "Subscribe to collapse evens"
@@ -586,7 +574,7 @@
           "platform": null,
           "name": "onExpand",
           "type": [
-            "Observable"
+            "Observable<{ tag: string }>"
           ],
           "isStatic": false,
           "shortDescription": "Subscribe to expand events"
@@ -596,7 +584,7 @@
           "platform": null,
           "name": "onToggle",
           "type": [
-            "Observable"
+            "Observable<{ compact: boolean, tag: string }>"
           ],
           "isStatic": false,
           "shortDescription": "Subscribe to toggle events"
@@ -607,20 +595,20 @@
             {
               "name": "compact",
               "type": "boolean",
-              "required": null
+              "required": null,
+              "shortDescription": "",
+              "description": ""
             },
             {
               "name": "tag",
               "type": "string",
               "required": null,
-              "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+              "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
             }
           ],
           "platform": null,
           "name": "toggle",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Toggle a sidebar"
         }
@@ -838,9 +826,7 @@
           "examples": [],
           "platform": null,
           "name": "toggleMenu",
-          "type": [
-            "void"
-          ],
+          "type": [],
           "isStatic": false,
           "shortDescription": "Toggles a context menu"
         }

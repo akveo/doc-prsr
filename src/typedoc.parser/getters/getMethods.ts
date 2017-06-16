@@ -1,8 +1,8 @@
 import {
   Method
 } from '../../model';
-import { CommonOptions } from '../typedoc.parser.options';
-import { GetParams, GetExamples} from './';
+import {CommonOptions} from '../typedoc.parser.options';
+import {GetParams, GetExamples} from './';
 
 export class GetMethods {                                         //TODO ask about examples and its templates
   protected params: GetParams = new GetParams();
@@ -16,7 +16,6 @@ export class GetMethods {                                         //TODO ask abo
             return item;
           }
         })
-        // .filter((item: any) => item[CommonOptions.signatures][0][CommonOptions.comment])
         .map((item: any) => this.parseMethod(item));
     }
   }
@@ -52,15 +51,20 @@ export class GetMethods {                                         //TODO ask abo
 
   getType(obj: any): string[] {
     const returnsArray: string[] = [];
-    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.type]) {
-      returnsArray.push(obj[CommonOptions.signatures][0][CommonOptions.type][CommonOptions.name]);
+    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
+      if (obj[CommonOptions.signatures][0][CommonOptions.comment][CommonOptions.returns]) {
+        returnsArray.push(obj[CommonOptions.signatures][0][CommonOptions.comment][CommonOptions.returns].replace(/\n/g, ''));
+      }
       return returnsArray;
+    } else if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.type]) {
+      returnsArray.push(obj[CommonOptions.signatures][0][CommonOptions.type][CommonOptions.name]);
+      return returnsArray
     } else {
       return ['void'];
     }
   }
 
-  isStatic(obj: any):boolean {
+  isStatic(obj: any): boolean {
     if (obj && obj[CommonOptions.flags] && obj[CommonOptions.flags][CommonOptions.isStatic]) {
       return obj[CommonOptions.flags][CommonOptions.isStatic];
     } else {

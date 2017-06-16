@@ -13,5 +13,6 @@ export const CommonOptions = {
   tags: 'tags',
   text: 'text',
   description: 'description',
-  shortDescription: 'shortDescription'
+  shortDescription: 'shortDescription',
+  returns: 'returns'
 };
