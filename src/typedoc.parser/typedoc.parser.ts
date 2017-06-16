@@ -124,4 +124,5 @@ export class TypedocParser {
   isNgModule(obj: any) {
     return obj[CommonOptions.decorators][0][CommonOptions.name] === 'NgModule';
   }
+
 }

@@ -6,16 +6,16 @@ import {CommonOptions} from '../typedoc.parser.options';
 export class GetExamples {
 
   getExamples(obj: any): Example[] {
-    if (obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] && obj[CommonOptions.comment][CommonOptions.tags].length) {
+    if (obj && this.isHasExamples(obj)) {
       return obj[CommonOptions.comment][CommonOptions.tags]
-        .filter((item: any) => item[CommonOptions.tag] === 'example')
+        .filter((item: any) => this.isExample(item))
         .map((item: any) => this.parseExample(item));
     } else {
       return [];
     }
   }
 
-  parseExample(obj: any) {
+  parseExample(obj: any): Example {
     return new Example({
       code: this.getCode(obj),
       description: this.getDescription(obj),
@@ -23,36 +23,33 @@ export class GetExamples {
     });
   }
 
-  getDescriptionArr(obj: any): string[] {
+  getDescriptionArr(example: any): string[] {
     const outArr: string[] = [];
-    if (obj && obj[CommonOptions.text]) {
-      const tempArr = obj[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
+    if (example && example[CommonOptions.text]) {
+      const tempArr = example[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
       tempArr.forEach((item: any) => {
         if (!/```/g.test(item)) {
           outArr.push(item);
         }
       });
       return outArr;
+      // return tempArr.filter((item: any) => !/```/g.test(item))
     } else {
       return [];
     }
   }
 
-  getDescription(obj: any): string {
-    if (obj && this.getDescriptionArr(obj).length) {
-      if (this.getDescriptionArr(obj)[1]) {
-        return this.getDescriptionArr(obj)[1];
-      } else {
-        return '';
-      }
-    } else {
+  getDescription(example: any): string {
+    if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[1]) {
+      return this.getDescriptionArr(example)[1];
+     } else {
       return '';
     }
   }
 
-  getShortDescription(obj: any): string {
-    if (obj && this.getDescriptionArr(obj).length && this.getDescriptionArr(obj)[0]) {
-      return this.getDescriptionArr(obj)[0];
+  getShortDescription(example: any): string {
+    if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[0]) {
+      return this.getDescriptionArr(example)[0];
     } else {
       return '';
     }
@@ -65,4 +62,13 @@ export class GetExamples {
       return '';
     }
   }
+
+  isHasExamples(obj: any) {
+    return obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] && obj[CommonOptions.comment][CommonOptions.tags].length;
+  }
+
+  isExample(obj: any) {
+    return obj[CommonOptions.tag] === 'example';
+  }
+
 }

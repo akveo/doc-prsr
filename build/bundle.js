@@ -990,9 +990,9 @@ var GetExamples = (function () {
     }
     GetExamples.prototype.getExamples = function (obj) {
         var _this = this;
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
+        if (obj && this.isHasExamples(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
-                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'example'; })
+                .filter(function (item) { return _this.isExample(item); })
                 .map(function (item) { return _this.parseExample(item); });
         }
         else {
@@ -1006,37 +1006,33 @@ var GetExamples = (function () {
             shortDescription: this.getShortDescription(obj)
         });
     };
-    GetExamples.prototype.getDescriptionArr = function (obj) {
+    GetExamples.prototype.getDescriptionArr = function (example) {
         var outArr = [];
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
-            var tempArr = obj[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
+        if (example && example[typedoc_parser_options_1.CommonOptions.text]) {
+            var tempArr = example[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
             tempArr.forEach(function (item) {
                 if (!/```/g.test(item)) {
                     outArr.push(item);
                 }
             });
             return outArr;
+            // return tempArr.filter((item: any) => !/```/g.test(item))
         }
         else {
             return [];
         }
     };
-    GetExamples.prototype.getDescription = function (obj) {
-        if (obj && this.getDescriptionArr(obj).length) {
-            if (this.getDescriptionArr(obj)[1]) {
-                return this.getDescriptionArr(obj)[1];
-            }
-            else {
-                return '';
-            }
+    GetExamples.prototype.getDescription = function (example) {
+        if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[1]) {
+            return this.getDescriptionArr(example)[1];
         }
         else {
             return '';
         }
     };
-    GetExamples.prototype.getShortDescription = function (obj) {
-        if (obj && this.getDescriptionArr(obj).length && this.getDescriptionArr(obj)[0]) {
-            return this.getDescriptionArr(obj)[0];
+    GetExamples.prototype.getShortDescription = function (example) {
+        if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[0]) {
+            return this.getDescriptionArr(example)[0];
         }
         else {
             return '';
@@ -1049,6 +1045,12 @@ var GetExamples = (function () {
         else {
             return '';
         }
+    };
+    GetExamples.prototype.isHasExamples = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length;
+    };
+    GetExamples.prototype.isExample = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.tag] === 'example';
     };
     return GetExamples;
 }());
