@@ -1,4 +1,4 @@
-export type Generator = 'documentationJS' | 'typeDoc';
+export type Generator = 'docjs' | 'typedoc';
 export type Framework = 'react' | 'angular';
 export type Language = 'javascript' | 'typescript';
  

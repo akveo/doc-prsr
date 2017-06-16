@@ -359,9 +359,7 @@ module.exports = require("path");
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var input_output_1 = __webpack_require__(16);
-var io = new input_output_1.InputOutput();
-io.createFile();
+__webpack_require__(16);
 
 
 /***/ }),
@@ -787,68 +785,113 @@ var metadata_1 = __webpack_require__(7);
 var fs = __webpack_require__(4);
 var Path = __webpack_require__(9);
 var program = __webpack_require__(30);
-var InputOutput = (function () {
-    function InputOutput() {
-        this.inputStr = '';
-        this.outputStr = '';
-        this.generator = '';
-        this.framework = '';
+// export class InputOutput {
+//   inputStr: any = '';
+//   outputStr: any = '';
+//   generator: any = '';
+//   framework: any = '';
+//
+//   setParams(): boolean {
+//     program
+//       .version('0.0.1')
+//       .option('-g, --generator <value>', 'Generator:')
+//       .option('-f, --framework <value>', 'Framework:')
+//       .option('-i, --input <value>', 'Path to input file:')
+//       .option('-o, --output <value>', 'Path to output file: ');
+//
+//     program.on('--help', function(){
+//       console.log('You have to specify:');
+//       console.log('- generator (can be 2 types: typedoc, docjs)');
+//       console.log('- framework (can be 2 types: angular, react)');
+//       console.log('- pathes to input and output file (output file will be created)');
+//       console.log('For example: ');
+//       console.log('prsr -g typedoc -f angular -i input.json -o output.json');
+//     });
+//
+//     program.parse(process.argv);
+//
+//     if (program['generator'] && program['framework'] && program['input'] && program['output']) {
+//       this.inputStr = Path.resolve(program['input']);
+//       this.outputStr = Path.resolve(program['output']);
+//       this.generator = program['generator'];
+//       this.framework = program['framework'];
+//       return true;
+//     } else {
+//       console.log('You entered the wrong data! Use --help for getting information');
+//       return false;
+//     }
+//   }
+//
+//   createFile(): void {
+//     if (this.setParams() && this.generator === 'docjs' && this.framework === 'react') {
+//       fs.readFile(this.inputStr, (err: any, data: any) => {
+//         const metadata = new Metadata('javascript', 'documentationJS', 'react');
+//         const newdoc = new DocJsParser().parse(JSON.parse(data), metadata);
+//         const outputObj: string = JSON.stringify(newdoc, null, 2);
+//         fs.writeFile(this.outputStr, outputObj);
+//       });
+//       // console.log('You have successfully created a file.');
+//     } else if (this.setParams() && this.generator === 'typedoc' && this.framework === 'angular') {
+//       fs.readFile(this.inputStr, (err: any, data: any) => {
+//         const metadata = new Metadata('typescript', 'typeDoc', 'angular');
+//         const newdoc = new TypedocParser().parse(JSON.parse(data), metadata);
+//         const outputObj: any = JSON.stringify(newdoc, null, 2);
+//         fs.writeFile(this.outputStr, outputObj);
+//       });
+//       console.log('You have successfully created a file.');
+//     } else {
+//       console.log('You may have entered incorrect data.');
+//     }
+//   }
+//
+// }
+(function main() {
+    program
+        .version('0.0.1')
+        .option('-g, --generator <value>', 'Generator:')
+        .option('-f, --framework <value>', 'Framework:')
+        .option('-i, --input <value>', 'Path to input file:')
+        .option('-o, --output <value>', 'Path to output file: ');
+    program.on('--help', function () {
+        console.log('You have to specify:');
+        console.log('- generator (can be 2 types: typedoc, docjs)');
+        console.log('- framework (can be 2 types: angular, react)');
+        console.log('- pathes to input and output file (output file will be created)');
+        console.log('For example: ');
+        console.log('prsr -g typedoc -f angular -i input.json -o output.json');
+    });
+    program.parse(process.argv);
+    if (program['generator'] && program['framework'] && program['input'] && program['output']) {
+        create(program['generator'], program['framework'], Path.resolve(program['input']), Path.resolve(program['output']));
     }
-    InputOutput.prototype.setParams = function () {
-        program
-            .version('0.0.1')
-            .option('-g, --generator <value>', 'Generator:')
-            .option('-f, --framework <value>', 'Framework:')
-            .option('-i, --input <value>', 'Path to input file:')
-            .option('-o, --output <value>', 'Path to output file: ');
-        program.on('--help', function () {
-            console.log('You have to specify:');
-            console.log('- generator (can be 2 types: typedoc, docjs)');
-            console.log('- framework (can be 2 types: angular, react)');
-            console.log('- pathes to input and output file (output file will be created)');
-            console.log('For example: ');
-            console.log('prsr -g typedoc -f angular -i input.json -o output.json');
-        });
-        program.parse(process.argv);
-        if (program['generator'] && program['framework'] && program['input'] && program['output']) {
-            this.inputStr = Path.resolve(program['input']);
-            this.outputStr = Path.resolve(program['output']);
-            this.generator = program['generator'];
-            this.framework = program['framework'];
-            return true;
+    else {
+        console.log('You entered the wrong data! Use --help for getting information');
+    }
+})();
+function create(generator, framework, inputPath, outputPath) {
+    if (generator === 'docjs' && framework === 'react') {
+        selectedParser('docjs', inputPath, outputPath);
+    }
+    else if (generator === 'typedoc' && framework === 'angular') {
+        selectedParser('typedoc', inputPath, outputPath);
+    }
+    else {
+        console.log('You entered the wrong data! Use --help for getting information');
+    }
+}
+function selectedParser(parser, inputPath, outputPath) {
+    var newdoc = {};
+    fs.readFile(inputPath, function (err, data) {
+        if (parser === 'docjs') {
+            newdoc = new doc_js_parser_1.DocJsParser().parse(JSON.parse(data), new metadata_1.Metadata('javascript', 'docjs', 'react'));
         }
-        else {
-            console.log('You entered the wrong data! Use --help for getting information');
-            return false;
+        else if (parser === 'typedoc') {
+            newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data), new metadata_1.Metadata('typescript', 'typedoc', 'angular'));
         }
-    };
-    InputOutput.prototype.createFile = function () {
-        var _this = this;
-        if (this.setParams() && this.generator === 'docjs' && this.framework === 'react') {
-            fs.readFile(this.inputStr, function (err, data) {
-                var metadata = new metadata_1.Metadata('javascript', 'documentationJS', 'react');
-                var newdoc = new doc_js_parser_1.DocJsParser().parse(JSON.parse(data), metadata);
-                var outputObj = JSON.stringify(newdoc, null, 2);
-                fs.writeFile(_this.outputStr, outputObj);
-            });
-            console.log('You have successfully created a file.');
-        }
-        else if (this.setParams() && this.generator === 'typedoc' && this.framework === 'angular') {
-            fs.readFile(this.inputStr, function (err, data) {
-                var metadata = new metadata_1.Metadata('typescript', 'typeDoc', 'angular');
-                var newdoc = new typedoc_parser_1.TypedocParser().parse(JSON.parse(data), metadata);
-                var outputObj = JSON.stringify(newdoc, null, 2);
-                fs.writeFile(_this.outputStr, outputObj);
-            });
-            console.log('You have successfully created a file.');
-        }
-        else {
-            console.log('You may have entered incorrect data.');
-        }
-    };
-    return InputOutput;
-}());
-exports.InputOutput = InputOutput;
+        var outputObj = JSON.stringify(newdoc, null, 2);
+        fs.writeFile(outputPath, outputObj);
+    });
+}
 
 
 /***/ }),
@@ -1007,8 +1050,7 @@ var GetExamples = (function () {
     }
     GetExamples.prototype.getExamples = function (obj) {
         var _this = this;
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
-            obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
+        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
             return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
                 .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'example'; })
                 .map(function (item) { return _this.parseExample(item); });
