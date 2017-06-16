@@ -134,4 +134,72 @@ describe('#TypedocParser', () => {
     expect(getStyles.getShortDescription(test2)).toBe('');
     expect(getStyles.getShortDescription(test1)).toBe('Available component styles');
   });
+
+  test('#GetParams -> getParams', () => {
+    const getParams = new GetParams();
+    const test1 = {
+      "name": "toggle",
+      "kindString": "Method",
+      "signatures": [
+        {
+          "id": 408,
+          "name": "toggle",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "shortText": "Toggle a sidebar"
+          },
+          "parameters": [
+            {
+              "id": 409,
+              "name": "compact",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "boolean"
+              },
+              "defaultValue": "false"
+            },
+            {
+              "id": 410,
+              "name": "tag",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {
+                "isOptional": true
+              },
+              "comment": {
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+              },
+              "type": {
+                "type": "intrinsic",
+                "name": "string"
+              }
+            }
+          ]
+        }]
+    };
+    const test2 = {};
+    const out1 = [
+      {
+        "name": "compact",
+        "type": "boolean",
+        "required": null,
+        "shortDescription": "",
+        "description": ""
+      },
+      {
+        "name": "tag",
+        "type": "string",
+        "required": null,
+        "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+      }
+    ];
+
+    expect(getParams.getParams(test2).toString()).toBe([].toString());
+    expect(getParams.getParams(test1).toString()).toBe(out1.toString());
+  });
 });

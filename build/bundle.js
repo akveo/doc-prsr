@@ -499,6 +499,9 @@ var GetParams = (function () {
             return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]
                 .map(function (item) { return _this.parseParam(item); });
         }
+        else {
+            return [];
+        }
     };
     GetParams.prototype.parseParam = function (obj) {
         return new model_1.Param({

@@ -171,6 +171,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "ngAfterViewInit",
           "type": [
@@ -182,6 +183,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "ngOnDestroy",
           "type": [
@@ -225,6 +227,7 @@
       "methods": [
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "closeSearch",
           "type": [
@@ -236,6 +239,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "onBlur",
           "type": [
@@ -355,6 +359,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "collapse",
           "type": [],
@@ -363,6 +368,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "compact",
           "type": [],
@@ -371,6 +377,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "expand",
           "type": [],
@@ -379,6 +386,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "ngOnDestroy",
           "type": [
@@ -390,6 +398,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "ngOnInit",
           "type": [
@@ -401,6 +410,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "returnSomeValue",
           "type": [
@@ -561,6 +571,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "onCollapse",
           "type": [
@@ -571,6 +582,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "onExpand",
           "type": [
@@ -581,6 +593,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "onToggle",
           "type": [
@@ -755,6 +768,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "getInitials",
           "type": [
@@ -766,6 +780,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "hasMenu",
           "type": [
@@ -824,6 +839,7 @@
         },
         {
           "examples": [],
+          "params": [],
           "platform": null,
           "name": "toggleMenu",
           "type": [],

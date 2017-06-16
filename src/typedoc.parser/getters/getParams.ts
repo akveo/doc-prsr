@@ -3,10 +3,12 @@ import {CommonOptions} from '../typedoc.parser.options';
 
 export class GetParams {                              //TODO ask about params description and shortDescription
 
-  getParams(obj: any) {
+  getParams(obj: any): Param[] {
     if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.parameters]) {
       return obj[CommonOptions.signatures][0][CommonOptions.parameters]
         .map((item: any) => this.parseParam(item));
+    } else {
+      return [];
     }
   }
 
