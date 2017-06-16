@@ -266,7 +266,7 @@ var GetParams = (function () {
         });
     };
     GetParams.prototype.getType = function (obj) {
-        return obj[doc_js_parser_options_1.CommonOptions.paramType] ? obj[doc_js_parser_options_1.CommonOptions.paramType][doc_js_parser_options_1.CommonOptions.paramType] : '';
+        return obj[doc_js_parser_options_1.CommonOptions.paramType] ? obj[doc_js_parser_options_1.CommonOptions.paramType][doc_js_parser_options_1.CommonOptions.name] : '';
     };
     GetParams.prototype.getParams = function (obj) {
         var _this = this;

@@ -15,7 +15,7 @@ export class GetParams {
   }
 
   getType(obj: any) {
-    return obj[CommonOptions.paramType] ? obj[CommonOptions.paramType][CommonOptions.paramType] : '';
+    return obj[CommonOptions.paramType] ? obj[CommonOptions.paramType][CommonOptions.name] : '';
   }
 
   getParams(obj: any): Param[] {
