@@ -785,66 +785,6 @@ var metadata_1 = __webpack_require__(7);
 var fs = __webpack_require__(4);
 var Path = __webpack_require__(9);
 var program = __webpack_require__(30);
-// export class InputOutput {
-//   inputStr: any = '';
-//   outputStr: any = '';
-//   generator: any = '';
-//   framework: any = '';
-//
-//   setParams(): boolean {
-//     program
-//       .version('0.0.1')
-//       .option('-g, --generator <value>', 'Generator:')
-//       .option('-f, --framework <value>', 'Framework:')
-//       .option('-i, --input <value>', 'Path to input file:')
-//       .option('-o, --output <value>', 'Path to output file: ');
-//
-//     program.on('--help', function(){
-//       console.log('You have to specify:');
-//       console.log('- generator (can be 2 types: typedoc, docjs)');
-//       console.log('- framework (can be 2 types: angular, react)');
-//       console.log('- pathes to input and output file (output file will be created)');
-//       console.log('For example: ');
-//       console.log('prsr -g typedoc -f angular -i input.json -o output.json');
-//     });
-//
-//     program.parse(process.argv);
-//
-//     if (program['generator'] && program['framework'] && program['input'] && program['output']) {
-//       this.inputStr = Path.resolve(program['input']);
-//       this.outputStr = Path.resolve(program['output']);
-//       this.generator = program['generator'];
-//       this.framework = program['framework'];
-//       return true;
-//     } else {
-//       console.log('You entered the wrong data! Use --help for getting information');
-//       return false;
-//     }
-//   }
-//
-//   createFile(): void {
-//     if (this.setParams() && this.generator === 'docjs' && this.framework === 'react') {
-//       fs.readFile(this.inputStr, (err: any, data: any) => {
-//         const metadata = new Metadata('javascript', 'documentationJS', 'react');
-//         const newdoc = new DocJsParser().parse(JSON.parse(data), metadata);
-//         const outputObj: string = JSON.stringify(newdoc, null, 2);
-//         fs.writeFile(this.outputStr, outputObj);
-//       });
-//       // console.log('You have successfully created a file.');
-//     } else if (this.setParams() && this.generator === 'typedoc' && this.framework === 'angular') {
-//       fs.readFile(this.inputStr, (err: any, data: any) => {
-//         const metadata = new Metadata('typescript', 'typeDoc', 'angular');
-//         const newdoc = new TypedocParser().parse(JSON.parse(data), metadata);
-//         const outputObj: any = JSON.stringify(newdoc, null, 2);
-//         fs.writeFile(this.outputStr, outputObj);
-//       });
-//       console.log('You have successfully created a file.');
-//     } else {
-//       console.log('You may have entered incorrect data.');
-//     }
-//   }
-//
-// }
 (function main() {
     program
         .version('0.0.1')
@@ -1482,11 +1422,44 @@ var TypedocParser = (function () {
         this.saveJSON(json);
         return new model_1.Model(this.getClasses(this.json), metadata);
     };
+    TypedocParser.prototype.getClasses = function (obj) {
+        var _this = this;
+        this.findAllClasses(obj);
+        var tempClasses = [];
+        tempClasses = this.classes
+            .filter(function (item) { return _this.isClass(item) || _this.isInterface(item); })
+            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
+            .map(function (item) {
+            if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
+                if (_this.isComponent(item)) {
+                    return _this.parseClass(item, 'component');
+                }
+                else if (_this.isService(item)) {
+                    return _this.parseClass(item, 'service');
+                }
+                else if (_this.isDirective(item)) {
+                    return _this.parseClass(item, 'directive');
+                }
+                else if (_this.isNgModule(item)) {
+                    return _this.parseClass(item, 'class');
+                }
+            }
+            else {
+                if (_this.isClass(item)) {
+                    return _this.parseClass(item, 'class');
+                }
+                else if (_this.isInterface(item)) {
+                    return _this.parseClass(item, 'interface');
+                }
+            }
+        });
+        return tempClasses;
+    };
     TypedocParser.prototype.findAllClasses = function (obj) {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
             obj[typedoc_parser_options_1.CommonOptions.children].forEach(function (item) {
-                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface') {
+                if (_this.isClass(item) || _this.isInterface(item)) {
                     _this.classes.push(item);
                 }
                 else {
@@ -1495,111 +1468,9 @@ var TypedocParser = (function () {
             });
         }
     };
-    TypedocParser.prototype.getClasses = function (obj) {
-        var _this = this;
-        this.findAllClasses(obj);
-        var tempClasses = [];
-        tempClasses = this.classes
-            .filter(function (item) {
-            if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface') {
-                return item;
-            }
-        })
-            .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
-            .map(function (item) {
-            if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Class') {
-                    return _this.parseClass(item);
-                }
-                else if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface') {
-                    return _this.parseInterface(item);
-                }
-            }
-            else if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Component') {
-                    return _this.parseComponent(item);
-                }
-                else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Injectable') {
-                    return _this.parseService(item);
-                }
-                else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Directive') {
-                    return _this.parseDirective(item);
-                }
-                else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'NgModule') {
-                    return _this.parseNgModule(item);
-                }
-            }
-        });
-        return tempClasses;
-    };
-    TypedocParser.prototype.parseComponent = function (obj) {
+    TypedocParser.prototype.parseClass = function (obj, kind) {
         return new model_1.Class({
-            kind: 'component',
-            platform: null,
-            examples: this.examples.getExamples(obj),
-            props: this.props.getProps(obj),
-            methods: this.methods.getMethods(obj),
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            description: this.getDescription(obj),
-            shortDescription: this.getShortDescription(obj),
-            styles: this.styles.getStyles(obj)
-        });
-    };
-    TypedocParser.prototype.parseClass = function (obj) {
-        return new model_1.Class({
-            kind: 'class',
-            platform: null,
-            examples: this.examples.getExamples(obj),
-            props: this.props.getProps(obj),
-            methods: this.methods.getMethods(obj),
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            description: this.getDescription(obj),
-            shortDescription: this.getShortDescription(obj),
-            styles: this.styles.getStyles(obj)
-        });
-    };
-    TypedocParser.prototype.parseDirective = function (obj) {
-        return new model_1.Class({
-            kind: 'directive',
-            platform: null,
-            examples: this.examples.getExamples(obj),
-            props: this.props.getProps(obj),
-            methods: this.methods.getMethods(obj),
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            description: this.getDescription(obj),
-            shortDescription: this.getShortDescription(obj),
-            styles: this.styles.getStyles(obj)
-        });
-    };
-    TypedocParser.prototype.parseService = function (obj) {
-        return new model_1.Class({
-            kind: 'service',
-            platform: null,
-            examples: this.examples.getExamples(obj),
-            props: this.props.getProps(obj),
-            methods: this.methods.getMethods(obj),
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            description: this.getDescription(obj),
-            shortDescription: this.getShortDescription(obj),
-            styles: this.styles.getStyles(obj)
-        });
-    };
-    TypedocParser.prototype.parseInterface = function (obj) {
-        return new model_1.Class({
-            kind: 'interface',
-            platform: null,
-            examples: this.examples.getExamples(obj),
-            props: this.props.getProps(obj),
-            methods: this.methods.getMethods(obj),
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            description: this.getDescription(obj),
-            shortDescription: this.getShortDescription(obj),
-            styles: this.styles.getStyles(obj)
-        });
-    };
-    TypedocParser.prototype.parseNgModule = function (obj) {
-        return new model_1.Class({
-            kind: 'class',
+            kind: kind,
             platform: null,
             examples: this.examples.getExamples(obj),
             props: this.props.getProps(obj),
@@ -1625,6 +1496,24 @@ var TypedocParser = (function () {
         else {
             return '';
         }
+    };
+    TypedocParser.prototype.isClass = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Class';
+    };
+    TypedocParser.prototype.isInterface = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Interface';
+    };
+    TypedocParser.prototype.isComponent = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Component';
+    };
+    TypedocParser.prototype.isService = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Injectable';
+    };
+    TypedocParser.prototype.isDirective = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Directive';
+    };
+    TypedocParser.prototype.isNgModule = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'NgModule';
     };
     return TypedocParser;
 }());
