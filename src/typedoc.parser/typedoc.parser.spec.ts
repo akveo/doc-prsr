@@ -298,4 +298,40 @@ describe('#TypedocParser', () => {
     expect(getExamples.getExamples(test2).toString()).toBe([].toString());
     expect(getExamples.getExamples(test1).toString()).toBe(out1.toString());
   });
+
+  test('#GetExamples -> getCode', () => {
+    const getExamples = new GetExamples();
+    const test1 = {
+      "tag": "example",
+      "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
+    };
+    const test2 = {};
+
+    expect(getExamples.getCode(test2)).toBe('');
+    expect(getExamples.getCode(test1)).toBe('\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n');
+  });
+
+  test('#GetExamples -> getDescription', () => {
+    const getExamples = new GetExamples();
+    const test1 = {
+      "tag": "example",
+      "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
+    };
+    const test2 = {};
+
+    expect(getExamples.getDescription(test2)).toBe('');
+    expect(getExamples.getDescription(test1)).toBe('Example of fixed sidebar located on the left side, initially collapsed.');
+  });
+
+  test('#GetExamples -> getShortDescription', () => {
+    const getExamples = new GetExamples();
+    const test1 = {
+      "tag": "example",
+      "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
+    };
+    const test2 = {};
+
+    expect(getExamples.getShortDescription(test2)).toBe('');
+    expect(getExamples.getShortDescription(test1)).toBe('Fixed sidebar');
+  });
 });
