@@ -122,4 +122,16 @@ describe('#TypedocParser', () => {
     expect(getStyles.getStylesOfStyle(test2).toString()).toBe([].toString());
     expect(getStyles.getStylesOfStyle(test1).toString()).toBe(out1.toString());
   });
+
+  test('#GetStyles -> getShortDescription', () => {
+    const getStyles = new GetStyles();
+    const test1 = {
+      "tag": "styles",
+      "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
+    };
+    const test2 = {};
+
+    expect(getStyles.getShortDescription(test2)).toBe('');
+    expect(getStyles.getShortDescription(test1)).toBe('Available component styles');
+  });
 });
