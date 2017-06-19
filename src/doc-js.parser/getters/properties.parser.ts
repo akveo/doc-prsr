@@ -1,61 +1,12 @@
 import { Prop } from '../../model';
 import { Common } from './common'
-import {CommonOptions} from '../doc-js.parser.options';
+import { CommonOptions } from '../doc-js.parser.options';
 
-export class GetProperties {
+export class PropertiesParser {
   protected common: Common = new Common();
 
-  parsePropFromProperties(obj: any): Prop {
-    if (this.getShortDescriptionProperties(obj).trim() === this.getDescriptionProperties(obj).trim() ||
-    this.getDescriptionProperties(obj).indexOf(this.getShortDescriptionProperties(obj)) != -1){
-      return new Prop({
-        kind: 'prop',
-        platform: null,
-        isStatic: false,
-        type: this.getTypeProperties(obj),
-        required: null,
-        name: this.common.getName(obj),
-        shortDescription: '',
-        description: this.getDescriptionProperties(obj)
-      });
-    } else {
-      return new Prop({
-        kind: 'prop',
-        platform: null,
-        isStatic: false,
-        type: this.getTypeProperties(obj),
-        required: null,
-        name: this.common.getName(obj),
-        shortDescription: this.getShortDescriptionProperties(obj),
-        description: this.getDescriptionProperties(obj)
-      });
-    }
-  }
-
-  parsePropFromInstance(obj: any): Prop {
-    return new Prop({
-      kind: 'property',
-      platform: null,
-      isStatic: false,
-      type: this.getTypeInstance(obj),
-      required: null,
-      name: this.common.getName(obj),
-      shortDescription: this.getShortDescriptionInstance(obj),
-      description: this.getDescription(obj)
-    });
-  }
-
-  parsePropFromStatic(obj: any): Prop {
-    return new Prop({
-      kind: 'property',
-      platform: null,
-      isStatic: true,
-      type: this.getTypeStatic(obj),
-      required: null,
-      name: this.common.getName(obj),
-      shortDescription: this.getDescriptionStatic(obj),
-      description: this.getDescriptionStatic(obj)
-    });
+  getProps(obj: any): Prop[] {
+    return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
   }
 
   getPropsFromProperties(obj: any): Prop[] {
@@ -86,17 +37,50 @@ export class GetProperties {
     }
   }
 
-  getProps(obj: any): Prop[] {
-    return this.getPropsFromProperties(obj).concat(this.getPropsFromInstance(obj).concat(this.getPropsFromStatic(obj)));
+  parsePropFromProperties(obj: any): Prop {
+      return new Prop({
+        kind: 'prop',
+        platform: null,
+        isStatic: false,
+        type: this.getTypeProperties(obj),
+        required: null,
+        name: this.common.getName(obj),
+        shortDescription: this.isDescriptionsCoincide(obj) ? '' : this.getShortDescriptionProperties(obj),
+        description: this.getDescriptionProperties(obj)
+      });
   }
 
-  getDescription(obj: any): string {
+  parsePropFromInstance(obj: any): Prop {
+    return new Prop({
+      kind: 'property',
+      platform: null,
+      isStatic: false,
+      type: this.getTypeInstance(obj),
+      required: null,
+      name: this.common.getName(obj),
+      shortDescription: this.getShortDescriptionInstance(obj),
+      description: this.getDescriptionInstance(obj)
+    });
+  }
+
+  parsePropFromStatic(obj: any): Prop {
+    return new Prop({
+      kind: 'property',
+      platform: null,
+      isStatic: true,
+      type: this.getTypeStatic(obj),
+      required: null,
+      name: this.common.getName(obj),
+      shortDescription: this.getDescriptionStatic(obj),
+      description: this.getDescriptionStatic(obj)
+    });
+  }
+
+  getDescriptionInstance(obj: any): string {
     let str: string = '';
     if (obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length > 1) {
       obj[CommonOptions.description][CommonOptions.children]
         .forEach((item: any) => {
-
-          console.log(item[CommonOptions.children]);
           item[CommonOptions.children]
             .forEach((item: any) => {
               str += item[CommonOptions.value] + ' ';
@@ -122,6 +106,14 @@ export class GetProperties {
     }
   }
 
+  getDescriptionStatic(obj: any) {
+    if (obj && obj[CommonOptions.tags]) {
+      return obj[CommonOptions.tags][0][CommonOptions.description];
+    } else {
+      return '';
+    }
+  }
+
   getShortDescriptionProperties(obj: any): string {
     if (obj && obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value].trim();
@@ -134,14 +126,6 @@ export class GetProperties {
     if (obj && obj[CommonOptions.description]) {
       return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
         .split('}')[1].trim();
-    } else {
-      return '';
-    }
-  }
-
-  getDescriptionStatic(obj: any) { //??????????
-    if (obj && obj[CommonOptions.tags]) {
-      return obj[CommonOptions.tags][0][CommonOptions.description];
     } else {
       return '';
     }
@@ -171,5 +155,10 @@ export class GetProperties {
     } else {
       return '';
     }
+  }
+
+  isDescriptionsCoincide(obj: any) {
+    return this.getShortDescriptionProperties(obj).trim() === this.getDescriptionProperties(obj).trim() ||
+      this.getDescriptionProperties(obj).indexOf(this.getShortDescriptionProperties(obj)) != -1;
   }
 }

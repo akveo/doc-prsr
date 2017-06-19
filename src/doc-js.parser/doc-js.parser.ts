@@ -7,7 +7,7 @@ import {CommonOptions} from './doc-js.parser.options';
 
 import {
   GetStyles,
-  GetProperties,
+  PropertiesParser,
   ExamplesParser,
   MethodsParser,
   Common
@@ -16,7 +16,7 @@ import {
 export class DocJsParser {
   protected json: any;
   protected styles: GetStyles = new GetStyles();
-  protected props: GetProperties = new GetProperties();
+  protected props: PropertiesParser = new PropertiesParser();
   protected examples: ExamplesParser = new ExamplesParser();
   protected methods: MethodsParser = new MethodsParser();
   protected common: Common = new Common();
