@@ -12,35 +12,35 @@ export class GetParams {
     }
   }
 
-  parseParam(obj: any) {
+  parseParam(param: any) {
     return new Param({
-      name: obj[CommonOptions.name],
-      type: this.getType(obj),
+      name: param[CommonOptions.name],
+      type: this.getType(param),
       required: null,
-      shortDescription: this.getShortDescription(obj),
-      description: this.getDescription(obj)
+      shortDescription: this.getShortDescription(param),
+      description: this.getDescription(param)
     });
   }
 
-  getType(obj: any): string {
-    if(obj && obj[CommonOptions.type]) {
-      return obj[CommonOptions.type][CommonOptions.name]
+  getType(param: any): string {
+    if(param && param[CommonOptions.type]) {
+      return param[CommonOptions.type][CommonOptions.name]
     } else {
       return '';
     }
   }
 
-  getDescription(obj: any): string {
-    if (obj && obj[CommonOptions.comment]) {
-      return obj[CommonOptions.comment]['text'];
+  getDescription(param: any): string {
+    if (param && param[CommonOptions.comment]) {
+      return param[CommonOptions.comment]['text'];
     } else {
       return '';
     }
   }
 
-  getShortDescription(obj: any): string {
-    if (obj && obj[CommonOptions.comment]) {
-      return obj[CommonOptions.comment]['shortText'];
+  getShortDescription(param: any): string {
+    if (param && param[CommonOptions.comment]) {
+      return param[CommonOptions.comment]['shortText'];
     } else {
       return '';
     }

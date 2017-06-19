@@ -1174,34 +1174,34 @@ var GetParams = (function () {
             return [];
         }
     };
-    GetParams.prototype.parseParam = function (obj) {
+    GetParams.prototype.parseParam = function (param) {
         return new model_1.Param({
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            type: this.getType(obj),
+            name: param[typedoc_parser_options_1.CommonOptions.name],
+            type: this.getType(param),
             required: null,
-            shortDescription: this.getShortDescription(obj),
-            description: this.getDescription(obj)
+            shortDescription: this.getShortDescription(param),
+            description: this.getDescription(param)
         });
     };
-    GetParams.prototype.getType = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
-            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+    GetParams.prototype.getType = function (param) {
+        if (param && param[typedoc_parser_options_1.CommonOptions.type]) {
+            return param[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
         }
         else {
             return '';
         }
     };
-    GetParams.prototype.getDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
-            return obj[typedoc_parser_options_1.CommonOptions.comment]['text'];
+    GetParams.prototype.getDescription = function (param) {
+        if (param && param[typedoc_parser_options_1.CommonOptions.comment]) {
+            return param[typedoc_parser_options_1.CommonOptions.comment]['text'];
         }
         else {
             return '';
         }
     };
-    GetParams.prototype.getShortDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
-            return obj[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
+    GetParams.prototype.getShortDescription = function (param) {
+        if (param && param[typedoc_parser_options_1.CommonOptions.comment]) {
+            return param[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
         else {
             return '';
@@ -1231,26 +1231,22 @@ var GetProperties = (function () {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
             return obj[typedoc_parser_options_1.CommonOptions.children]
-                .filter(function (item) {
-                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Property' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor') {
-                    return item;
-                }
-            })
+                .filter(function (item) { return _this.isProperty(item) || _this.isAccessor(item); })
                 .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
                 .map(function (item) {
                 if (item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                    if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Input') {
-                        return _this.parseInput(item);
+                    if (_this.isInput(item)) {
+                        return _this.parseProperty(item, 'input');
                     }
-                    else if (item[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Output') {
-                        return _this.parseOutput(item);
+                    else if (_this.isOutput(item)) {
+                        return _this.parseProperty(item, 'output');
                     }
                     else {
-                        return _this.parseProperty(item);
+                        return _this.parseProperty(item, 'property');
                     }
                 }
-                else if (!item[typedoc_parser_options_1.CommonOptions.decorators]) {
-                    return _this.parseProperty(item);
+                else {
+                    return _this.parseProperty(item, 'property');
                 }
             });
         }
@@ -1258,9 +1254,9 @@ var GetProperties = (function () {
             return [];
         }
     };
-    GetProperties.prototype.parseProperty = function (obj) {
+    GetProperties.prototype.parseProperty = function (obj, kind) {
         return new model_1.Prop({
-            kind: 'property',
+            kind: kind,
             platform: null,
             isStatic: this.isStatic(obj),
             type: this.getType(obj),
@@ -1270,61 +1266,54 @@ var GetProperties = (function () {
             shortDescription: this.getShortDescription(obj)
         });
     };
-    GetProperties.prototype.parseInput = function (obj) {
-        return new model_1.Prop({
-            kind: 'input',
-            platform: null,
-            isStatic: this.isStatic(obj),
-            type: this.getType(obj),
-            required: null,
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            description: this.getDescription(obj),
-            shortDescription: this.getShortDescription(obj)
-        });
-    };
-    GetProperties.prototype.parseOutput = function (obj) {
-        return new model_1.Prop({
-            kind: 'output',
-            platform: null,
-            isStatic: false,
-            type: this.getType(obj),
-            required: null,
-            name: obj[typedoc_parser_options_1.CommonOptions.name],
-            shortDescription: '',
-            description: ''
-        });
-    };
-    GetProperties.prototype.getType = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.type]) {
-            return obj[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+    GetProperties.prototype.getType = function (prop) {
+        if (prop && prop[typedoc_parser_options_1.CommonOptions.type]) {
+            return prop[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
+        }
+        else if (prop && prop[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]) {
+            return prop[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
+                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'type'; })[0][typedoc_parser_options_1.CommonOptions.text]
+                .replace(/[{}\n]/g, '');
         }
         else {
             return '';
         }
     };
-    GetProperties.prototype.getDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
-            return obj[typedoc_parser_options_1.CommonOptions.comment]['text'];
+    GetProperties.prototype.getDescription = function (prop) {
+        if (prop && prop[typedoc_parser_options_1.CommonOptions.comment]) {
+            return prop[typedoc_parser_options_1.CommonOptions.comment]['text'];
         }
         else {
             return '';
         }
     };
-    GetProperties.prototype.getShortDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment]) {
-            return obj[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
+    GetProperties.prototype.getShortDescription = function (prop) {
+        if (prop && prop[typedoc_parser_options_1.CommonOptions.comment]) {
+            return prop[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
         else {
             return '';
         }
     };
-    GetProperties.prototype.isStatic = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.flags] && obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
-            return obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
+    GetProperties.prototype.isStatic = function (prop) {
+        if (prop && prop[typedoc_parser_options_1.CommonOptions.flags] && prop[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
+            return prop[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
         }
         else {
             return false;
         }
+    };
+    GetProperties.prototype.isProperty = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Property';
+    };
+    GetProperties.prototype.isAccessor = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor';
+    };
+    GetProperties.prototype.isInput = function (prop) {
+        return prop[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Input';
+    };
+    GetProperties.prototype.isOutput = function (prop) {
+        return prop[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Output';
     };
     return GetProperties;
 }());
