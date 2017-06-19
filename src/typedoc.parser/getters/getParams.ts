@@ -4,7 +4,7 @@ import {CommonOptions} from '../typedoc.parser.options';
 export class GetParams {
 
   getParams(obj: any): Param[] {
-    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.parameters]) {
+    if (this.isHasParams(obj)) {
       return obj[CommonOptions.signatures][0][CommonOptions.parameters]
         .map((item: any) => this.parseParam(item));
     } else {
@@ -44,5 +44,9 @@ export class GetParams {
     } else {
       return '';
     }
+  }
+
+  isHasParams(obj: any) {
+    return obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.parameters];
   }
 }

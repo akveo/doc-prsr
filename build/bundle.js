@@ -1166,7 +1166,7 @@ var GetParams = (function () {
     }
     GetParams.prototype.getParams = function (obj) {
         var _this = this;
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]) {
+        if (this.isHasParams(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]
                 .map(function (item) { return _this.parseParam(item); });
         }
@@ -1206,6 +1206,9 @@ var GetParams = (function () {
         else {
             return '';
         }
+    };
+    GetParams.prototype.isHasParams = function (obj) {
+        return obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters];
     };
     return GetParams;
 }());
