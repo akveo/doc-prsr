@@ -76,10 +76,10 @@ export class PropertiesParser {
     });
   }
 
-  getDescriptionInstance(obj: any): string {
+  getDescriptionInstance(prop: any): string {
     let str: string = '';
-    if (obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length > 1) {
-      obj[CommonOptions.description][CommonOptions.children]
+    if (prop[CommonOptions.description] && prop[CommonOptions.description][CommonOptions.children].length > 1) {
+      prop[CommonOptions.description][CommonOptions.children]
         .forEach((item: any) => {
           item[CommonOptions.children]
             .forEach((item: any) => {
@@ -92,11 +92,11 @@ export class PropertiesParser {
     }
   }
 
-  getDescriptionProperties(obj: any): string {
+  getDescriptionProperties(prop: any): string {
     let description: string = '';
 
-    if (obj && obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length) {
-      obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children]
+    if (prop && prop[CommonOptions.description] && prop[CommonOptions.description][CommonOptions.children].length) {
+      prop[CommonOptions.description][CommonOptions.children][0][CommonOptions.children]
         .forEach((item: any) => {
           description += item[CommonOptions.value] + ' ';
         });
@@ -106,50 +106,50 @@ export class PropertiesParser {
     }
   }
 
-  getDescriptionStatic(obj: any) {
-    if (obj && obj[CommonOptions.tags]) {
-      return obj[CommonOptions.tags][0][CommonOptions.description];
+  getDescriptionStatic(prop: any) {
+    if (prop && prop[CommonOptions.tags]) {
+      return prop[CommonOptions.tags][0][CommonOptions.description];
     } else {
       return '';
     }
   }
 
-  getShortDescriptionProperties(obj: any): string {
-    if (obj && obj[CommonOptions.description]) {
-      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value].trim();
+  getShortDescriptionProperties(prop: any): string {
+    if (prop && prop[CommonOptions.description]) {
+      return prop[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value].trim();
     } else {
       return '';
     }
   }
 
-  getShortDescriptionInstance(obj: any): string {
-    if (obj && obj[CommonOptions.description]) {
-      return obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
+  getShortDescriptionInstance(prop: any): string {
+    if (prop && prop[CommonOptions.description]) {
+      return prop[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
         .split('}')[1].trim();
     } else {
       return '';
     }
   }
 
-  getTypeProperties(obj: any): string {
-    if (obj && obj[CommonOptions.type]) {
-      return (obj[CommonOptions.type][CommonOptions.name]);
+  getTypeProperties(prop: any): string {
+    if (prop && prop[CommonOptions.type]) {
+      return (prop[CommonOptions.type][CommonOptions.name]);
     } else {
       return '';
     }
   }
 
-  getTypeStatic(obj: any): string {
-    if (obj && obj[CommonOptions.properties]) {
-      return obj[CommonOptions.properties][0][CommonOptions.type][CommonOptions.name];
+  getTypeStatic(prop: any): string {
+    if (prop && prop[CommonOptions.properties]) {
+      return prop[CommonOptions.properties][0][CommonOptions.type][CommonOptions.name];
     } else {
       return '';
     }
   }
 
-  getTypeInstance(obj: any): string {
-    if (obj && obj[CommonOptions.description]) {
-      return obj[CommonOptions.description][CommonOptions.children][0]
+  getTypeInstance(prop: any): string {
+    if (prop && prop[CommonOptions.description]) {
+      return prop[CommonOptions.description][CommonOptions.children][0]
         [CommonOptions.children][0][CommonOptions.value]
         .split(' ')[0].replace(/[{}]/g, '');
     } else {

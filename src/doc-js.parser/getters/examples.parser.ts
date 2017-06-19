@@ -20,18 +20,18 @@ export class ExamplesParser {
   }
 
 
-  getCode(obj: any) {
-    if (obj[CommonOptions.description]) {
-      return obj[CommonOptions.description].split(/```/g)[1];
+  getCode(example: any) {
+    if (example[CommonOptions.description]) {
+      return example[CommonOptions.description].split(/```/g)[1];
     } else {
       return '';
     }
   }
 
-  getDescriptionArr(obj: any) {
+  getDescriptionArr(example: any) {
     let outArr: any[] = [];
-    if (obj[CommonOptions.description]) {
-      const temp = obj[CommonOptions.description].replace(/\r\n\r\n/g, '\n\n').split('\n\n');
+    if (example[CommonOptions.description]) {
+      const temp = example[CommonOptions.description].replace(/\r\n\r\n/g, '\n\n').split('\n\n');
       temp.forEach((item: any) => {
         if(!/```/g.test(item)) {
           outArr.push(item);
@@ -43,12 +43,12 @@ export class ExamplesParser {
     }
   }
 
-  getDescription(obj: any): string {
-    return this.getDescriptionArr(obj)[1];
+  getDescription(example: any): string {
+    return this.getDescriptionArr(example)[1];
   }
 
-  getShortDescription(obj: any): string {
-    return this.getDescriptionArr(obj)[0];
+  getShortDescription(example: any): string {
+    return this.getDescriptionArr(example)[0];
   }
 
 }

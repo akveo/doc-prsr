@@ -6,6 +6,14 @@ export class ParamsParser {
 
   protected common: Common = new Common();
 
+  getParams(obj: any): Param[] {
+    if (obj[CommonOptions.params] && obj[CommonOptions.params].length) {
+      return obj[CommonOptions.params].map((item: any) => this.parseParam(item));
+    } else {
+      return [];
+    }
+  }
+
   parseParam(obj: any): Param {
     return new Param({
       name: this.common.getName(obj),
@@ -16,15 +24,8 @@ export class ParamsParser {
     });
   }
 
-  getType(obj: any) {
-    return obj[CommonOptions.paramType] ? obj[CommonOptions.paramType][CommonOptions.name] : '';
+  getType(param: any) {
+    return param[CommonOptions.paramType] ? param[CommonOptions.paramType][CommonOptions.name] : '';
   }
 
-  getParams(obj: any): Param[] {
-    if (obj[CommonOptions.params] && obj[CommonOptions.params].length) {
-      return obj[CommonOptions.params].map((item: any) => this.parseParam(item));
-    } else {
-      return [];
-    }
-  }
 }
