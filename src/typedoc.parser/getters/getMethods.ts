@@ -11,11 +11,7 @@ export class GetMethods {
   getMethods(obj: any): Method[] {
     if (obj && obj[CommonOptions.children]) {
       return obj[CommonOptions.children]
-        .filter((item: any) => {
-          if (item[CommonOptions.primKind] === 'Method' || item[CommonOptions.primKind] === 'Constructor') {
-            return item;
-          }
-        })
+        .filter((item: any) => this.isMethod(item) || this.isConstructor(item))
         .map((item: any) => this.parseMethod(item));
     } else {
       return [];
@@ -36,7 +32,7 @@ export class GetMethods {
   }
 
   getDescription(obj: any): string {
-    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
+    if (this.isHasDescription(obj)) {
       return obj[CommonOptions.signatures][0][CommonOptions.comment]['text'];
     } else {
       return '';
@@ -44,7 +40,7 @@ export class GetMethods {
   }
 
   getShortDescription(obj: any): string {
-    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
+    if (this.isHasDescription(obj)) {
       return obj[CommonOptions.signatures][0][CommonOptions.comment]['shortText'];
     } else {
       return '';
@@ -74,5 +70,17 @@ export class GetMethods {
     } else {
       return false;
     }
+  }
+
+  isMethod(obj: any) {
+    return obj[CommonOptions.primKind] === 'Method';
+  }
+
+  isConstructor(obj: any) {
+    return obj[CommonOptions.primKind] === 'Constructor';
+  }
+
+  isHasDescription(obj: any) {
+    return obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment];
   }
 }

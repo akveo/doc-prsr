@@ -34,7 +34,7 @@ export class TypedocParser {
     this.findAllClasses(obj);
     let tempClasses: any[] = [];
 
-    tempClasses = this.classes
+    tempClasses = this.classes                                            //TODO issue about return
       .filter((item: any) => this.isClass(item) || this.isInterface(item))
       .filter((item: any) => item[CommonOptions.comment])
       .map((item: any) => {

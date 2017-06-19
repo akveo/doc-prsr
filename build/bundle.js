@@ -1076,11 +1076,7 @@ var GetMethods = (function () {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
             return obj[typedoc_parser_options_1.CommonOptions.children]
-                .filter(function (item) {
-                if (item[typedoc_parser_options_1.CommonOptions.primKind] === 'Method' || item[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor') {
-                    return item;
-                }
-            })
+                .filter(function (item) { return _this.isMethod(item) || _this.isConstructor(item); })
                 .map(function (item) { return _this.parseMethod(item); });
         }
         else {
@@ -1100,7 +1096,7 @@ var GetMethods = (function () {
         });
     };
     GetMethods.prototype.getDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+        if (this.isHasDescription(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['text'];
         }
         else {
@@ -1108,7 +1104,7 @@ var GetMethods = (function () {
         }
     };
     GetMethods.prototype.getShortDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
+        if (this.isHasDescription(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
         else {
@@ -1141,6 +1137,15 @@ var GetMethods = (function () {
         else {
             return false;
         }
+    };
+    GetMethods.prototype.isMethod = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Method';
+    };
+    GetMethods.prototype.isConstructor = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor';
+    };
+    GetMethods.prototype.isHasDescription = function (obj) {
+        return obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment];
     };
     return GetMethods;
 }());
@@ -1428,7 +1433,7 @@ var TypedocParser = (function () {
         var _this = this;
         this.findAllClasses(obj);
         var tempClasses = [];
-        tempClasses = this.classes
+        tempClasses = this.classes //TODO issue about return
             .filter(function (item) { return _this.isClass(item) || _this.isInterface(item); })
             .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
             .map(function (item) {

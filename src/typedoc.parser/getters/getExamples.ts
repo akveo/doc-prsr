@@ -23,7 +23,7 @@ export class GetExamples {
     });
   }
 
-  getDescriptionArr(example: any): string[] {
+  getDescriptionArr(example: any): string[] {                                            //TODO issue about return
     const outArr: string[] = [];
     if (example && example[CommonOptions.text]) {
       const tempArr = example[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
