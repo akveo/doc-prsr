@@ -6,18 +6,18 @@ import {
 } from '../model';
 
 import {
-  GetProperties,
-  GetMethods,
-  GetStyles,
-  GetExamples
-} from './getters';
+  PropertiesParser,
+  MethodsParser,
+  StylesParser,
+  ExamplesParser
+} from './parsers';
 import {Metadata} from "../model/metadata/metadata";
 
 export class TypedocParser {
-  protected examples: GetExamples = new GetExamples();
-  protected styles: GetStyles = new GetStyles();
-  protected methods: GetMethods = new GetMethods();
-  protected props: GetProperties = new GetProperties();
+  protected examples: ExamplesParser = new ExamplesParser();
+  protected styles: StylesParser = new StylesParser();
+  protected methods: MethodsParser = new MethodsParser();
+  protected props: PropertiesParser = new PropertiesParser();
   protected json: any;
   protected classes: any[] = [];
 

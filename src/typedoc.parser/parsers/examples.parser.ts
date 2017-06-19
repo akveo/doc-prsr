@@ -1,9 +1,7 @@
-import {
-  Example
-} from '../../model';
-import {CommonOptions} from '../typedoc.parser.options';
+import { Example } from '../../model';
+import { CommonOptions } from '../typedoc.parser.options';
 
-export class GetExamples {
+export class ExamplesParser {
 
   getExamples(obj: any): Example[] {
     if (obj && this.isHasExamples(obj)) {

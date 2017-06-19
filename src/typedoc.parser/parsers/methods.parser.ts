@@ -1,12 +1,10 @@
-import {
-  Method
-} from '../../model';
-import {CommonOptions} from '../typedoc.parser.options';
-import {GetParams, GetExamples} from './';
+import { Method } from '../../model';
+import { CommonOptions } from '../typedoc.parser.options';
+import { ParamsParser, ExamplesParser } from './';
 
-export class GetMethods {
-  protected params: GetParams = new GetParams();
-  protected examples: GetExamples = new GetExamples();
+export class MethodsParser {
+  protected params: ParamsParser = new ParamsParser();
+  protected examples: ExamplesParser = new ExamplesParser();
 
   getMethods(obj: any): Method[] {
     if (obj && obj[CommonOptions.children]) {

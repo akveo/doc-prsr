@@ -334,16 +334,16 @@ exports.Metadata = Metadata;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var getProperties_1 = __webpack_require__(27);
-exports.GetProperties = getProperties_1.GetProperties;
-var getMethods_1 = __webpack_require__(25);
-exports.GetMethods = getMethods_1.GetMethods;
-var getStyles_1 = __webpack_require__(28);
-exports.GetStyles = getStyles_1.GetStyles;
-var getParams_1 = __webpack_require__(26);
-exports.GetParams = getParams_1.GetParams;
-var getExamples_1 = __webpack_require__(24);
-exports.GetExamples = getExamples_1.GetExamples;
+var properties_parser_1 = __webpack_require__(27);
+exports.PropertiesParser = properties_parser_1.PropertiesParser;
+var methods_parser_1 = __webpack_require__(25);
+exports.MethodsParser = methods_parser_1.MethodsParser;
+var styles_parser_1 = __webpack_require__(28);
+exports.StylesParser = styles_parser_1.StylesParser;
+var params_parser_1 = __webpack_require__(26);
+exports.ParamsParser = params_parser_1.ParamsParser;
+var examples_parser_1 = __webpack_require__(24);
+exports.ExamplesParser = examples_parser_1.ExamplesParser;
 
 
 /***/ }),
@@ -785,29 +785,27 @@ var metadata_1 = __webpack_require__(7);
 var fs = __webpack_require__(4);
 var Path = __webpack_require__(9);
 var program = __webpack_require__(30);
-(function main() {
-    program
-        .version('0.0.1')
-        .option('-g, --generator <value>', 'Generator:')
-        .option('-f, --framework <value>', 'Framework:')
-        .option('-i, --input <value>', 'Path to input file:')
-        .option('-o, --output <value>', 'Path to output file: ');
-    program.on('--help', function () {
-        console.log('You have to specify:');
-        console.log('- generator (can be 2 types: typedoc, docjs)');
-        console.log('- framework (can be 2 types: angular, react)');
-        console.log('- pathes to input and output file (output file will be created)');
-        console.log('For example: ');
-        console.log('prsr -g typedoc -f angular -i input.json -o output.json');
-    });
-    program.parse(process.argv);
-    if (program['generator'] && program['framework'] && program['input'] && program['output']) {
-        create(program['generator'], program['framework'], Path.resolve(program['input']), Path.resolve(program['output']));
-    }
-    else {
-        console.log('You entered the wrong data! Use --help for getting information');
-    }
-})();
+program
+    .version('0.0.1')
+    .option('-g, --generator <value>', 'Generator:')
+    .option('-f, --framework <value>', 'Framework:')
+    .option('-i, --input <value>', 'Path to input file:')
+    .option('-o, --output <value>', 'Path to output file: ');
+program.on('--help', function () {
+    console.log('You have to specify:');
+    console.log('- generator (can be 2 types: typedoc, docjs)');
+    console.log('- framework (can be 2 types: angular, react)');
+    console.log('- pathes to input and output file (output file will be created)');
+    console.log('For example: ');
+    console.log('prsr -g typedoc -f angular -i input.json -o output.json');
+});
+program.parse(process.argv);
+if (program['generator'] && program['framework'] && program['input'] && program['output']) {
+    create(program['generator'], program['framework'], Path.resolve(program['input']), Path.resolve(program['output']));
+}
+else {
+    console.log('You entered the wrong data! Use --help for getting information');
+}
 function create(generator, framework, inputPath, outputPath) {
     if (generator === 'docjs' && framework === 'react') {
         selectedParser('docjs', inputPath, outputPath);
@@ -985,10 +983,10 @@ exports.Model = Model;
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(2);
-var GetExamples = (function () {
-    function GetExamples() {
+var ExamplesParser = (function () {
+    function ExamplesParser() {
     }
-    GetExamples.prototype.getExamples = function (obj) {
+    ExamplesParser.prototype.getExamples = function (obj) {
         var _this = this;
         if (obj && this.isHasExamples(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
@@ -999,14 +997,14 @@ var GetExamples = (function () {
             return [];
         }
     };
-    GetExamples.prototype.parseExample = function (obj) {
+    ExamplesParser.prototype.parseExample = function (obj) {
         return new model_1.Example({
             code: this.getCode(obj),
             description: this.getDescription(obj),
             shortDescription: this.getShortDescription(obj)
         });
     };
-    GetExamples.prototype.getDescriptionArr = function (example) {
+    ExamplesParser.prototype.getDescriptionArr = function (example) {
         var outArr = [];
         if (example && example[typedoc_parser_options_1.CommonOptions.text]) {
             var tempArr = example[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
@@ -1022,7 +1020,7 @@ var GetExamples = (function () {
             return [];
         }
     };
-    GetExamples.prototype.getDescription = function (example) {
+    ExamplesParser.prototype.getDescription = function (example) {
         if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[1]) {
             return this.getDescriptionArr(example)[1];
         }
@@ -1030,7 +1028,7 @@ var GetExamples = (function () {
             return '';
         }
     };
-    GetExamples.prototype.getShortDescription = function (example) {
+    ExamplesParser.prototype.getShortDescription = function (example) {
         if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[0]) {
             return this.getDescriptionArr(example)[0];
         }
@@ -1038,7 +1036,7 @@ var GetExamples = (function () {
             return '';
         }
     };
-    GetExamples.prototype.getCode = function (obj) {
+    ExamplesParser.prototype.getCode = function (obj) {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
             return obj[typedoc_parser_options_1.CommonOptions.text].split(/```/g)[1];
         }
@@ -1046,15 +1044,15 @@ var GetExamples = (function () {
             return '';
         }
     };
-    GetExamples.prototype.isHasExamples = function (obj) {
+    ExamplesParser.prototype.isHasExamples = function (obj) {
         return obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length;
     };
-    GetExamples.prototype.isExample = function (obj) {
+    ExamplesParser.prototype.isExample = function (obj) {
         return obj[typedoc_parser_options_1.CommonOptions.tag] === 'example';
     };
-    return GetExamples;
+    return ExamplesParser;
 }());
-exports.GetExamples = GetExamples;
+exports.ExamplesParser = ExamplesParser;
 
 
 /***/ }),
@@ -1067,12 +1065,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(2);
 var _1 = __webpack_require__(8);
-var GetMethods = (function () {
-    function GetMethods() {
-        this.params = new _1.GetParams();
-        this.examples = new _1.GetExamples();
+var MethodsParser = (function () {
+    function MethodsParser() {
+        this.params = new _1.ParamsParser();
+        this.examples = new _1.ExamplesParser();
     }
-    GetMethods.prototype.getMethods = function (obj) {
+    MethodsParser.prototype.getMethods = function (obj) {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
             return obj[typedoc_parser_options_1.CommonOptions.children]
@@ -1083,7 +1081,7 @@ var GetMethods = (function () {
             return [];
         }
     };
-    GetMethods.prototype.parseMethod = function (obj) {
+    MethodsParser.prototype.parseMethod = function (obj) {
         return new model_1.Method({
             examples: this.examples.getExamples(obj),
             params: this.params.getParams(obj),
@@ -1095,7 +1093,7 @@ var GetMethods = (function () {
             description: this.getDescription(obj)
         });
     };
-    GetMethods.prototype.getDescription = function (obj) {
+    MethodsParser.prototype.getDescription = function (obj) {
         if (this.isHasDescription(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['text'];
         }
@@ -1103,7 +1101,7 @@ var GetMethods = (function () {
             return '';
         }
     };
-    GetMethods.prototype.getShortDescription = function (obj) {
+    MethodsParser.prototype.getShortDescription = function (obj) {
         if (this.isHasDescription(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
@@ -1111,7 +1109,7 @@ var GetMethods = (function () {
             return '';
         }
     };
-    GetMethods.prototype.getType = function (obj) {
+    MethodsParser.prototype.getType = function (obj) {
         var returnsArray = [];
         if (obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment]) {
             if (obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.returns]) {
@@ -1130,7 +1128,7 @@ var GetMethods = (function () {
             return ['void'];
         }
     };
-    GetMethods.prototype.isStatic = function (obj) {
+    MethodsParser.prototype.isStatic = function (obj) {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.flags] && obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
             return obj[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
         }
@@ -1138,18 +1136,18 @@ var GetMethods = (function () {
             return false;
         }
     };
-    GetMethods.prototype.isMethod = function (obj) {
+    MethodsParser.prototype.isMethod = function (obj) {
         return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Method';
     };
-    GetMethods.prototype.isConstructor = function (obj) {
+    MethodsParser.prototype.isConstructor = function (obj) {
         return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Constructor';
     };
-    GetMethods.prototype.isHasDescription = function (obj) {
+    MethodsParser.prototype.isHasDescription = function (obj) {
         return obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.comment];
     };
-    return GetMethods;
+    return MethodsParser;
 }());
-exports.GetMethods = GetMethods;
+exports.MethodsParser = MethodsParser;
 
 
 /***/ }),
@@ -1161,10 +1159,10 @@ exports.GetMethods = GetMethods;
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(2);
-var GetParams = (function () {
-    function GetParams() {
+var ParamsParser = (function () {
+    function ParamsParser() {
     }
-    GetParams.prototype.getParams = function (obj) {
+    ParamsParser.prototype.getParams = function (obj) {
         var _this = this;
         if (this.isHasParams(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters]
@@ -1174,7 +1172,7 @@ var GetParams = (function () {
             return [];
         }
     };
-    GetParams.prototype.parseParam = function (param) {
+    ParamsParser.prototype.parseParam = function (param) {
         return new model_1.Param({
             name: param[typedoc_parser_options_1.CommonOptions.name],
             type: this.getType(param),
@@ -1183,7 +1181,7 @@ var GetParams = (function () {
             description: this.getDescription(param)
         });
     };
-    GetParams.prototype.getType = function (param) {
+    ParamsParser.prototype.getType = function (param) {
         if (param && param[typedoc_parser_options_1.CommonOptions.type]) {
             return param[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
         }
@@ -1191,7 +1189,7 @@ var GetParams = (function () {
             return '';
         }
     };
-    GetParams.prototype.getDescription = function (param) {
+    ParamsParser.prototype.getDescription = function (param) {
         if (param && param[typedoc_parser_options_1.CommonOptions.comment]) {
             return param[typedoc_parser_options_1.CommonOptions.comment]['text'];
         }
@@ -1199,7 +1197,7 @@ var GetParams = (function () {
             return '';
         }
     };
-    GetParams.prototype.getShortDescription = function (param) {
+    ParamsParser.prototype.getShortDescription = function (param) {
         if (param && param[typedoc_parser_options_1.CommonOptions.comment]) {
             return param[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
@@ -1207,12 +1205,12 @@ var GetParams = (function () {
             return '';
         }
     };
-    GetParams.prototype.isHasParams = function (obj) {
+    ParamsParser.prototype.isHasParams = function (obj) {
         return obj && obj[typedoc_parser_options_1.CommonOptions.signatures] && obj[typedoc_parser_options_1.CommonOptions.signatures][0][typedoc_parser_options_1.CommonOptions.parameters];
     };
-    return GetParams;
+    return ParamsParser;
 }());
-exports.GetParams = GetParams;
+exports.ParamsParser = ParamsParser;
 
 
 /***/ }),
@@ -1224,10 +1222,10 @@ exports.GetParams = GetParams;
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(2);
-var GetProperties = (function () {
-    function GetProperties() {
+var PropertiesParser = (function () {
+    function PropertiesParser() {
     }
-    GetProperties.prototype.getProps = function (obj) {
+    PropertiesParser.prototype.getProps = function (obj) {
         var _this = this;
         if (obj && obj[typedoc_parser_options_1.CommonOptions.children]) {
             return obj[typedoc_parser_options_1.CommonOptions.children]
@@ -1254,7 +1252,7 @@ var GetProperties = (function () {
             return [];
         }
     };
-    GetProperties.prototype.parseProperty = function (obj, kind) {
+    PropertiesParser.prototype.parseProperty = function (obj, kind) {
         return new model_1.Prop({
             kind: kind,
             platform: null,
@@ -1266,7 +1264,7 @@ var GetProperties = (function () {
             shortDescription: this.getShortDescription(obj)
         });
     };
-    GetProperties.prototype.getType = function (prop) {
+    PropertiesParser.prototype.getType = function (prop) {
         if (prop && prop[typedoc_parser_options_1.CommonOptions.type]) {
             return prop[typedoc_parser_options_1.CommonOptions.type][typedoc_parser_options_1.CommonOptions.name];
         }
@@ -1279,7 +1277,7 @@ var GetProperties = (function () {
             return '';
         }
     };
-    GetProperties.prototype.getDescription = function (prop) {
+    PropertiesParser.prototype.getDescription = function (prop) {
         if (prop && prop[typedoc_parser_options_1.CommonOptions.comment]) {
             return prop[typedoc_parser_options_1.CommonOptions.comment]['text'];
         }
@@ -1287,7 +1285,7 @@ var GetProperties = (function () {
             return '';
         }
     };
-    GetProperties.prototype.getShortDescription = function (prop) {
+    PropertiesParser.prototype.getShortDescription = function (prop) {
         if (prop && prop[typedoc_parser_options_1.CommonOptions.comment]) {
             return prop[typedoc_parser_options_1.CommonOptions.comment]['shortText'];
         }
@@ -1295,7 +1293,7 @@ var GetProperties = (function () {
             return '';
         }
     };
-    GetProperties.prototype.isStatic = function (prop) {
+    PropertiesParser.prototype.isStatic = function (prop) {
         if (prop && prop[typedoc_parser_options_1.CommonOptions.flags] && prop[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic]) {
             return prop[typedoc_parser_options_1.CommonOptions.flags][typedoc_parser_options_1.CommonOptions.isStatic];
         }
@@ -1303,21 +1301,21 @@ var GetProperties = (function () {
             return false;
         }
     };
-    GetProperties.prototype.isProperty = function (obj) {
+    PropertiesParser.prototype.isProperty = function (obj) {
         return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Property';
     };
-    GetProperties.prototype.isAccessor = function (obj) {
+    PropertiesParser.prototype.isAccessor = function (obj) {
         return obj[typedoc_parser_options_1.CommonOptions.primKind] === 'Accessor';
     };
-    GetProperties.prototype.isInput = function (prop) {
+    PropertiesParser.prototype.isInput = function (prop) {
         return prop[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Input';
     };
-    GetProperties.prototype.isOutput = function (prop) {
+    PropertiesParser.prototype.isOutput = function (prop) {
         return prop[typedoc_parser_options_1.CommonOptions.decorators][0][typedoc_parser_options_1.CommonOptions.name] === 'Output';
     };
-    return GetProperties;
+    return PropertiesParser;
 }());
-exports.GetProperties = GetProperties;
+exports.PropertiesParser = PropertiesParser;
 
 
 /***/ }),
@@ -1329,10 +1327,10 @@ exports.GetProperties = GetProperties;
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var typedoc_parser_options_1 = __webpack_require__(2);
-var GetStyles = (function () {
-    function GetStyles() {
+var StylesParser = (function () {
+    function StylesParser() {
     }
-    GetStyles.prototype.getStyles = function (obj) {
+    StylesParser.prototype.getStyles = function (obj) {
         var _this = this;
         if (this.isHasTags(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
@@ -1343,13 +1341,13 @@ var GetStyles = (function () {
             return [];
         }
     };
-    GetStyles.prototype.parserStyle = function (obj) {
+    StylesParser.prototype.parserStyle = function (obj) {
         return new model_1.Style({
             shortDescription: this.getShortDescription(obj),
             styles: this.getStylesOfStyle(obj)
         });
     };
-    GetStyles.prototype.getStylesOfStyle = function (obj) {
+    StylesParser.prototype.getStylesOfStyle = function (obj) {
         if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
             var arr = obj[typedoc_parser_options_1.CommonOptions.text].split('\n\n');
             var tempArr = [];
@@ -1371,7 +1369,7 @@ var GetStyles = (function () {
             return [];
         }
     };
-    GetStyles.prototype.getShortDescription = function (style) {
+    StylesParser.prototype.getShortDescription = function (style) {
         if (style && style[typedoc_parser_options_1.CommonOptions.text]) {
             var workString = style[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
             return workString[0];
@@ -1380,16 +1378,16 @@ var GetStyles = (function () {
             return '';
         }
     };
-    GetStyles.prototype.isHasTags = function (obj) {
+    StylesParser.prototype.isHasTags = function (obj) {
         return obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
             obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length;
     };
-    GetStyles.prototype.isStyle = function (obj) {
+    StylesParser.prototype.isStyle = function (obj) {
         return obj[typedoc_parser_options_1.CommonOptions.tag] === 'styles';
     };
-    return GetStyles;
+    return StylesParser;
 }());
-exports.GetStyles = GetStyles;
+exports.StylesParser = StylesParser;
 
 
 /***/ }),
@@ -1401,13 +1399,13 @@ exports.GetStyles = GetStyles;
 Object.defineProperty(exports, "__esModule", { value: true });
 var typedoc_parser_options_1 = __webpack_require__(2);
 var model_1 = __webpack_require__(0);
-var getters_1 = __webpack_require__(8);
+var parsers_1 = __webpack_require__(8);
 var TypedocParser = (function () {
     function TypedocParser() {
-        this.examples = new getters_1.GetExamples();
-        this.styles = new getters_1.GetStyles();
-        this.methods = new getters_1.GetMethods();
-        this.props = new getters_1.GetProperties();
+        this.examples = new parsers_1.ExamplesParser();
+        this.styles = new parsers_1.StylesParser();
+        this.methods = new parsers_1.MethodsParser();
+        this.props = new parsers_1.PropertiesParser();
         this.classes = [];
     }
     TypedocParser.prototype.saveJSON = function (json) {

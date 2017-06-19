@@ -1,7 +1,7 @@
 import { Prop, PropKind } from '../../model';
 import { CommonOptions } from '../typedoc.parser.options';
 
-export class GetProperties {
+export class PropertiesParser {
 
   getProps(obj: any): Prop[] {
     if (obj && obj[CommonOptions.children]) {

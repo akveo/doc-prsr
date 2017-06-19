@@ -5,7 +5,7 @@ import {
   GetMethods,
   GetProperties,
   GetParams
-} from './getters';
+} from './parsers';
 
 describe('#TypedocParser', () => {
   test('#GetStyles -> getStyles', () => {

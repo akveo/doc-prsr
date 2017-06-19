@@ -1,5 +1,5 @@
-import { DocJsParser } from './doc-js.parser/doc-js.parser';
-import { TypedocParser } from './typedoc.parser/typedoc.parser';
+import {DocJsParser} from './doc-js.parser/doc-js.parser';
+import {TypedocParser} from './typedoc.parser/typedoc.parser';
 import {
   Metadata,
   Generator,
@@ -9,31 +9,30 @@ import * as fs from 'fs';
 import * as Path from 'path';
 const program = require('commander');
 
-(function main() {
-  program
-    .version('0.0.1')
-    .option('-g, --generator <value>', 'Generator:')
-    .option('-f, --framework <value>', 'Framework:')
-    .option('-i, --input <value>', 'Path to input file:')
-    .option('-o, --output <value>', 'Path to output file: ');
+program
+  .version('0.0.1')
+  .option('-g, --generator <value>', 'Generator:')
+  .option('-f, --framework <value>', 'Framework:')
+  .option('-i, --input <value>', 'Path to input file:')
+  .option('-o, --output <value>', 'Path to output file: ');
 
-  program.on('--help', function(){
-    console.log('You have to specify:');
-    console.log('- generator (can be 2 types: typedoc, docjs)');
-    console.log('- framework (can be 2 types: angular, react)');
-    console.log('- pathes to input and output file (output file will be created)');
-    console.log('For example: ');
-    console.log('prsr -g typedoc -f angular -i input.json -o output.json');
-  });
+program.on('--help', function () {
+  console.log('You have to specify:');
+  console.log('- generator (can be 2 types: typedoc, docjs)');
+  console.log('- framework (can be 2 types: angular, react)');
+  console.log('- pathes to input and output file (output file will be created)');
+  console.log('For example: ');
+  console.log('prsr -g typedoc -f angular -i input.json -o output.json');
+});
 
-  program.parse(process.argv);
+program.parse(process.argv);
 
-  if (program['generator'] && program['framework'] && program['input'] && program['output']) {
-    create(program['generator'], program['framework'], Path.resolve(program['input']), Path.resolve(program['output']));
-  } else {
-    console.log('You entered the wrong data! Use --help for getting information');
-  }
-})();
+if (program['generator'] && program['framework'] && program['input'] && program['output']) {
+  create(program['generator'], program['framework'], Path.resolve(program['input']), Path.resolve(program['output']));
+} else {
+  console.log('You entered the wrong data! Use --help for getting information');
+}
+
 
 function create(generator: Generator, framework: Framework, inputPath: string, outputPath: string) {
   if (generator === 'docjs' && framework === 'react') {

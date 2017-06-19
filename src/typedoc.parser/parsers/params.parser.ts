@@ -1,7 +1,7 @@
 import {Param} from '../../model';
 import {CommonOptions} from '../typedoc.parser.options';
 
-export class GetParams {
+export class ParamsParser {
 
   getParams(obj: any): Param[] {
     if (this.isHasParams(obj)) {

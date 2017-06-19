@@ -3,7 +3,7 @@ import {
 } from '../../model';
 import {CommonOptions} from '../typedoc.parser.options';
 
-export  class GetStyles {
+export  class StylesParser {
 
   getStyles(obj: any): Style[] {
     if (this.isHasTags(obj)){
