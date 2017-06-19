@@ -1334,10 +1334,9 @@ var GetStyles = (function () {
     }
     GetStyles.prototype.getStyles = function (obj) {
         var _this = this;
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
-            obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length) {
+        if (this.isHasTags(obj)) {
             return obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags]
-                .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.tag] === 'styles'; })
+                .filter(function (item) { return _this.isStyle(item); })
                 .map(function (item) { return _this.parserStyle(item); });
         }
         else {
@@ -1361,18 +1360,8 @@ var GetStyles = (function () {
                 if (item) {
                     var _a = item.split(':'), key = _a[0], value = _a[1];
                     var styleObj = {};
-                    if (key) {
-                        styleObj['name'] = key.trim();
-                    }
-                    else {
-                        styleObj['name'] = '';
-                    }
-                    if (value) {
-                        styleObj['description'] = value.trim();
-                    }
-                    else {
-                        styleObj['description'] = '';
-                    }
+                    styleObj['name'] = key ? key.trim() : '';
+                    styleObj['description'] = value ? value.trim() : '';
                     returnArr_1.push(styleObj);
                 }
             });
@@ -1382,14 +1371,21 @@ var GetStyles = (function () {
             return [];
         }
     };
-    GetStyles.prototype.getShortDescription = function (obj) {
-        if (obj && obj[typedoc_parser_options_1.CommonOptions.text]) {
-            var workString = obj[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
+    GetStyles.prototype.getShortDescription = function (style) {
+        if (style && style[typedoc_parser_options_1.CommonOptions.text]) {
+            var workString = style[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
             return workString[0];
         }
         else {
             return '';
         }
+    };
+    GetStyles.prototype.isHasTags = function (obj) {
+        return obj && obj[typedoc_parser_options_1.CommonOptions.comment] && obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags] &&
+            obj[typedoc_parser_options_1.CommonOptions.comment][typedoc_parser_options_1.CommonOptions.tags].length;
+    };
+    GetStyles.prototype.isStyle = function (obj) {
+        return obj[typedoc_parser_options_1.CommonOptions.tag] === 'styles';
     };
     return GetStyles;
 }());

@@ -6,10 +6,9 @@ import {CommonOptions} from '../typedoc.parser.options';
 export  class GetStyles {
 
   getStyles(obj: any): Style[] {
-    if (obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] &&
-      obj[CommonOptions.comment][CommonOptions.tags].length){
+    if (this.isHasTags(obj)){
       return obj[CommonOptions.comment][CommonOptions.tags]
-        .filter((item: any) => item[CommonOptions.tag] === 'styles')
+        .filter((item: any) => this.isStyle(item))
         .map((item: any) => this.parserStyle(item));
     } else {
       return [];
@@ -34,16 +33,8 @@ export  class GetStyles {
         if (item) {
           const [key, value] = item.split(':');
           const styleObj: any = {};
-          if (key) {
-            styleObj['name'] = key.trim();
-          } else {
-            styleObj['name'] = '';
-          }
-          if (value) {
-            styleObj['description'] = value.trim();
-          } else {
-            styleObj['description'] = '';
-          }
+          styleObj['name'] = key ? key.trim() : '';
+          styleObj['description'] = value ? value.trim() : '';
           returnArr.push(styleObj);
         }
       });
@@ -53,12 +44,21 @@ export  class GetStyles {
     }
   }
 
-  getShortDescription(obj: any): string {
-    if (obj && obj[CommonOptions.text]) {
-      const workString = obj[CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
+  getShortDescription(style: any): string {
+    if (style && style[CommonOptions.text]) {
+      const workString = style[CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
       return workString[0];
     } else {
       return '';
     }
+  }
+
+  isHasTags(obj: any) {
+    return obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] &&
+      obj[CommonOptions.comment][CommonOptions.tags].length;
+  }
+
+  isStyle(obj: any) {
+    return obj[CommonOptions.tag] === 'styles';
   }
 }
