@@ -8,8 +8,8 @@ import {CommonOptions} from './doc-js.parser.options';
 import {
   GetStyles,
   GetProperties,
-  GetExamples,
-  GetMethods,
+  ExamplesParser,
+  MethodsParser,
   Common
 } from './getters';
 
@@ -17,8 +17,8 @@ export class DocJsParser {
   protected json: any;
   protected styles: GetStyles = new GetStyles();
   protected props: GetProperties = new GetProperties();
-  protected examples: GetExamples = new GetExamples();
-  protected methods: GetMethods = new GetMethods();
+  protected examples: ExamplesParser = new ExamplesParser();
+  protected methods: MethodsParser = new MethodsParser();
   protected common: Common = new Common();
 
   parse(json: any, metadata: Metadata): Model {
@@ -32,7 +32,7 @@ export class DocJsParser {
 
   getClasses(json: any[]): Class[] {
     return json
-      .filter((item: any) => item[CommonOptions.classKind] === 'class')
+      .filter((item: any) => this.isClass(item))
       .map((item: any) => this.parseClass(item));
   }
 
@@ -48,6 +48,10 @@ export class DocJsParser {
       description: this.common.getDescription(obj),
       styles: this.styles.getStyles(obj)
     });
+  }
+
+  isClass(obj: any): boolean {
+    return obj[CommonOptions.classKind] === 'class';
   }
 
 }

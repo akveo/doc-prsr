@@ -1,7 +1,8 @@
-import {CommonOptions} from '../doc-js.parser.options';
+import { CommonOptions } from '../doc-js.parser.options';
 import { ClassKind } from '../../model';
 
 export class Common {
+
   getName(obj: any): string {
     return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
   }

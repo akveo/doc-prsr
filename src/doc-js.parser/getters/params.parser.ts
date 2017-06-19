@@ -2,8 +2,10 @@ import {Param} from '../../model';
 import {CommonOptions} from '../doc-js.parser.options';
 import {Common} from "./common";
 
-export class GetParams {
+export class ParamsParser {
+
   protected common: Common = new Common();
+
   parseParam(obj: any): Param {
     return new Param({
       name: this.common.getName(obj),

@@ -1,6 +1,6 @@
 export { Common } from './common';
-export { GetExamples } from './getExamples';
-export { GetMethods } from './getMethods';
-export { GetParams } from './getParams';
+export { ExamplesParser } from './examples.parser';
+export { MethodsParser } from './getMethods';
+export { ParamsParser } from './params.parser';
 export { GetProperties } from './getProperties';
 export { GetStyles } from './getStyles';

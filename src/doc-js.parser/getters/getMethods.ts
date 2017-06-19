@@ -1,13 +1,36 @@
-import {Method} from '../../model';
-import {CommonOptions} from '../doc-js.parser.options';
-import {GetParams} from './getParams';
-import {GetExamples} from './getExamples';
-import {Common} from './common';
+import { Method } from '../../model';
+import { CommonOptions } from '../doc-js.parser.options';
+import { ParamsParser, ExamplesParser } from './';
+import { Common } from './common';
 
-export class GetMethods {
-  protected examples: GetExamples = new GetExamples();
-  protected params: GetParams = new GetParams();
+export class MethodsParser {
+  protected examples: ExamplesParser = new ExamplesParser();
+  protected params: ParamsParser = new ParamsParser();
   protected common: Common = new Common();
+
+  getMethods(obj: any): Method[] {
+    return this.getMethodsInstance(obj).concat(this.getMethodsStatic(obj));
+  }
+
+  getMethodsInstance(obj: any): Method[] {
+    if (this.isHasMethodsFrom(obj, 'instance')) {
+      return obj[CommonOptions.members][CommonOptions.instance]
+        .filter((item: any) => this.isFunction(item))
+        .map((item: any) => this.parseMethodFromInstance(item));
+    } else {
+      return [];
+    }
+  }
+
+  getMethodsStatic(obj: any): Method[] {
+    if (this.isHasMethodsFrom(obj, 'static')) {
+      return obj[CommonOptions.members][CommonOptions.static]
+        .filter((item: any) => this.isFunction(item))
+        .map((item: any) => this.parseMethodFromStatic(item));
+    } else {
+      return [];
+    }
+  }
 
   parseMethodFromInstance(obj: any): Method {
     return new Method({
@@ -35,30 +58,6 @@ export class GetMethods {
     });
   }
 
-  getMethodsInstance(obj: any): Method[] {
-    if (obj[CommonOptions.members] && obj[CommonOptions.members][CommonOptions.instance].length) {
-      return obj[CommonOptions.members][CommonOptions.instance]
-        .filter((item: any) => item[CommonOptions.kind] === 'function')
-        .map((item: any) => this.parseMethodFromInstance(item));
-    } else {
-      return [];
-    }
-  }
-
-  getMethodsStatic(obj: any): Method[] {
-    if (obj[CommonOptions.members] && obj[CommonOptions.members][CommonOptions.static].length) {
-      return obj[CommonOptions.members][CommonOptions.static]
-        .filter((item: any) => item[CommonOptions.kind] === 'function')
-        .map((item: any) => this.parseMethodFromStatic(item));
-    } else {
-      return [];
-    }
-  }
-
-  getMethods(obj: any): Method[] {
-    return this.getMethodsInstance(obj).concat(this.getMethodsStatic(obj));
-  }
-
   getType(obj: any) {
     let temp: any[] = [];
     if (obj[CommonOptions.methodType] && obj[CommonOptions.methodType].length) {
@@ -70,5 +69,13 @@ export class GetMethods {
     } else {
       return ['void'];
     }
+  }
+
+  isFunction(obj: any) {
+    return obj[CommonOptions.kind] === 'function';
+  }
+
+  isHasMethodsFrom(obj: any, from: string) {
+    return obj[CommonOptions.members] && obj[CommonOptions.members][from].length;
   }
 }
