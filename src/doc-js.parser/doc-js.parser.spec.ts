@@ -1,11 +1,11 @@
 import {
-  GetStyles,
-  GetProperties,
-  GetExamples,
-  GetMethods,
+  StylesParser,
+  PropertiesParser,
+  ExamplesParser,
+  MethodsParser,
   Common,
-  GetParams
-} from './getters';
+  ParamsParser
+} from './parsers';
 
 describe('#DocJsParser', () => {
   test('#Common -> getName', () => {
@@ -202,7 +202,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetExamples -> getCode', () => {
-    const examples = new GetExamples();
+    const examples = new ExamplesParser();
     const testObj1 = {
       "description": "Advanced Styling\n\nIt's also possible to implement more detailed styling. `RkButton` consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to `RkButton`:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```"
     };
@@ -213,7 +213,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetExamples -> getDescription', () => {
-    const examples = new GetExamples();
+    const examples = new ExamplesParser();
     const testObj1 = {
       "description": "Advanced Styling\n\nIts also possible to implement more detailed styling. RkButton consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to RkButton:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```"
     };
@@ -224,7 +224,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetExamples -> getShortDescription', () => {
-    const examples = new GetExamples();
+    const examples = new ExamplesParser();
     const testObj1 = {
       "description": "Advanced Styling\n\nIts also possible to implement more detailed styling. RkButton consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to RkButton:\n\n```\nimport {RkTheme} from 'react-native-ui-kitten';\n\nRkTheme.setType('RkButton', 'faded', {\n  content: {\n    opacity: 0.6,\n  }\n});\n```"
     };
@@ -235,7 +235,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetParams -> getType', () => {
-    const params = new GetParams();
+    const params = new ParamsParser();
     const test1 = {
       "title": "param",
       "name": "additionalTypes",
@@ -252,7 +252,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetParams -> getParams', () => {
-    const params = new GetParams();
+    const params = new ParamsParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -468,7 +468,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetStyles -> getShortDescription', () => {
-    const styles = new GetStyles();
+    const styles = new StylesParser();
     const test1 = {
       "title": "styles",
       "description": "Available properties\n- `color` : Color of content of `RkButton`. Usually text or icon.\n- `backgroundColor` : Background color of `RkButton`.\n- `borderWidth` : Width of outer border.\n- `borderRadius` : Border radius of `RkButton`.\n- `borderColor` : Color of border.\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\n- `width` : Width of `RkButton`.\n- `height` : Height of `RkButton`.",
@@ -481,7 +481,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetStyles -> getStylesOfStyle', () => {
-    const styles = new GetStyles();
+    const styles = new StylesParser();
     const test1 = {
       "title": "styles",
       "description": "Available properties\n- `color` : Color of content of `RkButton`. Usually text or icon.\n- `backgroundColor` : Background color of `RkButton`.\n- `borderWidth` : Width of outer border.\n- `borderRadius` : Border radius of `RkButton`.\n- `borderColor` : Color of border.\n- `fontSize` : Size of content inside. Applied only for first level children of `RkButton`.\n- `width` : Width of `RkButton`.\n- `height` : Height of `RkButton`.",
@@ -520,7 +520,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getDescription', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "title": "property",
       "name": "style",
@@ -584,12 +584,12 @@ describe('#DocJsParser', () => {
     };
     const test2 = {};
 
-    expect(props.getDescription(test1)).toBe('');
-    expect(props.getDescription(test2)).toBe('');
+    expect(props.getDescriptionInstance(test1)).toBe('');
+    expect(props.getDescriptionInstance(test2)).toBe('');
   });
 
   test('#GetProperties -> getDescriptionStatic', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "description": "",
       "tags": [
@@ -728,7 +728,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getTypeProperties', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "title": "property",
       "name": "style",
@@ -797,7 +797,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getTypeStatic', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "description": "",
       "tags": [
@@ -936,7 +936,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getTypeInstance', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -1053,7 +1053,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getShortDescriptionProperties', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "title": "property",
       "name": "style",
@@ -1122,7 +1122,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getShortDescriptionInstance', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -1239,7 +1239,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getPropsFromProperties', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -2372,7 +2372,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getPropsFromInstance', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -3778,7 +3778,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetProperties -> getPropsFromStatic', () => {
-    const props = new GetProperties();
+    const props = new PropertiesParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -4860,7 +4860,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetMethods -> getType', () => {
-    const methods = new GetMethods();
+    const methods = new MethodsParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -5067,7 +5067,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetMethods -> getMethodsInstance', () => {
-    const methods = new GetMethods();
+    const methods = new MethodsParser();
     const test1 = {
       "description": {
         "type": "root",
@@ -6085,7 +6085,7 @@ describe('#DocJsParser', () => {
   });
 
   test('#GetMethods -> getMethodsStatic', () => {
-    const methods = new GetMethods();
+    const methods = new MethodsParser();
     const test1 = {
       "description": {
         "type": "root",

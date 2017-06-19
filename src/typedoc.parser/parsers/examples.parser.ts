@@ -21,17 +21,11 @@ export class ExamplesParser {
     });
   }
 
-  getDescriptionArr(example: any): string[] {                                            //TODO issue about return
+  getDescriptionArr(example: any): string[] {
     const outArr: string[] = [];
     if (example && example[CommonOptions.text]) {
       const tempArr = example[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
-      tempArr.forEach((item: any) => {
-        if (!/```/g.test(item)) {
-          outArr.push(item);
-        }
-      });
-      return outArr;
-      // return tempArr.filter((item: any) => !/```/g.test(item))
+      return tempArr.filter((item: any) => !/```/g.test(item))
     } else {
       return [];
     }

@@ -1,8 +1,7 @@
-import {Example} from './example';
-import {Prop} from './prop';
-import {Method} from './method';
-import {Platform} from './platform';
-import {Style} from './style';
+import { Example } from './example';
+import { Prop } from './prop';
+import { Method } from './method';
+import { Style } from './style';
 
 export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface' | 'ng-module';
 

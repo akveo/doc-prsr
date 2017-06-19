@@ -218,14 +218,14 @@ var common_1 = __webpack_require__(3);
 exports.Common = common_1.Common;
 var examples_parser_1 = __webpack_require__(11);
 exports.ExamplesParser = examples_parser_1.ExamplesParser;
-var methods_parser_1 = __webpack_require__(13);
+var methods_parser_1 = __webpack_require__(12);
 exports.MethodsParser = methods_parser_1.MethodsParser;
-var params_parser_1 = __webpack_require__(14);
+var params_parser_1 = __webpack_require__(13);
 exports.ParamsParser = params_parser_1.ParamsParser;
-var properties_parser_1 = __webpack_require__(15);
+var properties_parser_1 = __webpack_require__(14);
 exports.PropertiesParser = properties_parser_1.PropertiesParser;
-var getStyles_1 = __webpack_require__(12);
-exports.GetStyles = getStyles_1.GetStyles;
+var styles_parser_1 = __webpack_require__(15);
+exports.StylesParser = styles_parser_1.StylesParser;
 
 
 /***/ }),
@@ -290,14 +290,14 @@ __webpack_require__(16);
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(0);
 var doc_js_parser_options_1 = __webpack_require__(1);
-var getters_1 = __webpack_require__(5);
+var parsers_1 = __webpack_require__(5);
 var DocJsParser = (function () {
     function DocJsParser() {
-        this.styles = new getters_1.GetStyles();
-        this.props = new getters_1.PropertiesParser();
-        this.examples = new getters_1.ExamplesParser();
-        this.methods = new getters_1.MethodsParser();
-        this.common = new getters_1.Common();
+        this.styles = new parsers_1.StylesParser();
+        this.props = new parsers_1.PropertiesParser();
+        this.examples = new parsers_1.ExamplesParser();
+        this.methods = new parsers_1.MethodsParser();
+        this.common = new parsers_1.Common();
     }
     DocJsParser.prototype.parse = function (json, metadata) {
         this.saveJSON(json);
@@ -361,34 +361,28 @@ var ExamplesParser = (function () {
             shortDescription: this.getShortDescription(obj)
         });
     };
-    ExamplesParser.prototype.getCode = function (obj) {
-        if (obj[doc_js_parser_options_1.CommonOptions.description]) {
-            return obj[doc_js_parser_options_1.CommonOptions.description].split(/```/g)[1];
+    ExamplesParser.prototype.getCode = function (example) {
+        if (example[doc_js_parser_options_1.CommonOptions.description]) {
+            return example[doc_js_parser_options_1.CommonOptions.description].split(/```/g)[1];
         }
         else {
             return '';
         }
     };
-    ExamplesParser.prototype.getDescriptionArr = function (obj) {
-        var outArr = [];
-        if (obj[doc_js_parser_options_1.CommonOptions.description]) {
-            var temp = obj[doc_js_parser_options_1.CommonOptions.description].replace(/\r\n\r\n/g, '\n\n').split('\n\n');
-            temp.forEach(function (item) {
-                if (!/```/g.test(item)) {
-                    outArr.push(item);
-                }
-            });
-            return outArr;
+    ExamplesParser.prototype.getDescriptionArr = function (example) {
+        if (example[doc_js_parser_options_1.CommonOptions.description]) {
+            var temp = example[doc_js_parser_options_1.CommonOptions.description].replace(/\r\n\r\n/g, '\n\n').split('\n\n');
+            return temp.filter(function (item) { return !/```/g.test(item); });
         }
         else {
             return [];
         }
     };
-    ExamplesParser.prototype.getDescription = function (obj) {
-        return this.getDescriptionArr(obj)[1];
+    ExamplesParser.prototype.getDescription = function (example) {
+        return this.getDescriptionArr(example)[1];
     };
-    ExamplesParser.prototype.getShortDescription = function (obj) {
-        return this.getDescriptionArr(obj)[0];
+    ExamplesParser.prototype.getShortDescription = function (example) {
+        return this.getDescriptionArr(example)[0];
     };
     return ExamplesParser;
 }());
@@ -397,77 +391,6 @@ exports.ExamplesParser = ExamplesParser;
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(0);
-var doc_js_parser_options_1 = __webpack_require__(1);
-var GetStyles = (function () {
-    function GetStyles() {
-    }
-    GetStyles.prototype.getStyles = function (obj) {
-        var _this = this;
-        if (obj[doc_js_parser_options_1.CommonOptions.tags] && obj[doc_js_parser_options_1.CommonOptions.tags].length) {
-            return obj[doc_js_parser_options_1.CommonOptions.tags]
-                .filter(function (item) { return item[doc_js_parser_options_1.CommonOptions.title] === 'styles'; })
-                .map(function (item) { return _this.parseStyle(item); });
-        }
-        else
-            return [];
-    };
-    GetStyles.prototype.parseStyle = function (obj) {
-        return new model_1.Style({
-            shortDescription: this.getShortDescription(obj),
-            styles: this.getStylesOfStyle(obj)
-        });
-    };
-    GetStyles.prototype.getShortDescription = function (obj) {
-        if (obj[doc_js_parser_options_1.CommonOptions.description]) {
-            return obj[doc_js_parser_options_1.CommonOptions.description].split('\n')[0];
-        }
-        else {
-            return '';
-        }
-    };
-    GetStyles.prototype.getStylesOfStyle = function (obj) {
-        if (obj[doc_js_parser_options_1.CommonOptions.description]) {
-            var arr = obj[doc_js_parser_options_1.CommonOptions.description].split('\n');
-            var arrTemp_1 = [];
-            arr.splice(0, 1);
-            arr.forEach(function (item) {
-                var _a = item.split(':'), key = _a[0], value = _a[1];
-                // console.log(item.split(':'));
-                var styleObj = {};
-                // styleObj[key.replace(/[`-]/g, '').trim()] = value.trim();
-                if (key) {
-                    styleObj['name'] = key.replace(/[`-]/g, '').trim();
-                }
-                else {
-                    styleObj['name'] = '';
-                }
-                if (value) {
-                    styleObj['description'] = value.trim();
-                }
-                else {
-                    styleObj['description'] = '';
-                }
-                arrTemp_1.push(styleObj);
-            });
-            return arrTemp_1;
-        }
-        else {
-            return [];
-        }
-    };
-    return GetStyles;
-}());
-exports.GetStyles = GetStyles;
-
-
-/***/ }),
-/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -557,7 +480,7 @@ exports.MethodsParser = MethodsParser;
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -570,18 +493,6 @@ var ParamsParser = (function () {
     function ParamsParser() {
         this.common = new common_1.Common();
     }
-    ParamsParser.prototype.parseParam = function (obj) {
-        return new model_1.Param({
-            name: this.common.getName(obj),
-            type: this.getType(obj),
-            required: null,
-            shortDescription: this.common.getShortDescription(obj),
-            description: this.common.getDescription(obj)
-        });
-    };
-    ParamsParser.prototype.getType = function (obj) {
-        return obj[doc_js_parser_options_1.CommonOptions.paramType] ? obj[doc_js_parser_options_1.CommonOptions.paramType][doc_js_parser_options_1.CommonOptions.name] : '';
-    };
     ParamsParser.prototype.getParams = function (obj) {
         var _this = this;
         if (obj[doc_js_parser_options_1.CommonOptions.params] && obj[doc_js_parser_options_1.CommonOptions.params].length) {
@@ -591,13 +502,25 @@ var ParamsParser = (function () {
             return [];
         }
     };
+    ParamsParser.prototype.parseParam = function (obj) {
+        return new model_1.Param({
+            name: this.common.getName(obj),
+            type: this.getType(obj),
+            required: null,
+            shortDescription: this.common.getShortDescription(obj),
+            description: this.common.getDescription(obj)
+        });
+    };
+    ParamsParser.prototype.getType = function (param) {
+        return param[doc_js_parser_options_1.CommonOptions.paramType] ? param[doc_js_parser_options_1.CommonOptions.paramType][doc_js_parser_options_1.CommonOptions.name] : '';
+    };
     return ParamsParser;
 }());
 exports.ParamsParser = ParamsParser;
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -680,10 +603,10 @@ var PropertiesParser = (function () {
             description: this.getDescriptionStatic(obj)
         });
     };
-    PropertiesParser.prototype.getDescriptionInstance = function (obj) {
+    PropertiesParser.prototype.getDescriptionInstance = function (prop) {
         var str = '';
-        if (obj[doc_js_parser_options_1.CommonOptions.description] && obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children].length > 1) {
-            obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children]
+        if (prop[doc_js_parser_options_1.CommonOptions.description] && prop[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children].length > 1) {
+            prop[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children]
                 .forEach(function (item) {
                 item[doc_js_parser_options_1.CommonOptions.children]
                     .forEach(function (item) {
@@ -696,10 +619,10 @@ var PropertiesParser = (function () {
             return '';
         }
     };
-    PropertiesParser.prototype.getDescriptionProperties = function (obj) {
+    PropertiesParser.prototype.getDescriptionProperties = function (prop) {
         var description = '';
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.description] && obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children].length) {
-            obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children]
+        if (prop && prop[doc_js_parser_options_1.CommonOptions.description] && prop[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children].length) {
+            prop[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children]
                 .forEach(function (item) {
                 description += item[doc_js_parser_options_1.CommonOptions.value] + ' ';
             });
@@ -709,50 +632,50 @@ var PropertiesParser = (function () {
             return '';
         }
     };
-    PropertiesParser.prototype.getDescriptionStatic = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.tags]) {
-            return obj[doc_js_parser_options_1.CommonOptions.tags][0][doc_js_parser_options_1.CommonOptions.description];
+    PropertiesParser.prototype.getDescriptionStatic = function (prop) {
+        if (prop && prop[doc_js_parser_options_1.CommonOptions.tags]) {
+            return prop[doc_js_parser_options_1.CommonOptions.tags][0][doc_js_parser_options_1.CommonOptions.description];
         }
         else {
             return '';
         }
     };
-    PropertiesParser.prototype.getShortDescriptionProperties = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.description]) {
-            return obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value].trim();
+    PropertiesParser.prototype.getShortDescriptionProperties = function (prop) {
+        if (prop && prop[doc_js_parser_options_1.CommonOptions.description]) {
+            return prop[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value].trim();
         }
         else {
             return '';
         }
     };
-    PropertiesParser.prototype.getShortDescriptionInstance = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.description]) {
-            return obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value]
+    PropertiesParser.prototype.getShortDescriptionInstance = function (prop) {
+        if (prop && prop[doc_js_parser_options_1.CommonOptions.description]) {
+            return prop[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value]
                 .split('}')[1].trim();
         }
         else {
             return '';
         }
     };
-    PropertiesParser.prototype.getTypeProperties = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.type]) {
-            return (obj[doc_js_parser_options_1.CommonOptions.type][doc_js_parser_options_1.CommonOptions.name]);
+    PropertiesParser.prototype.getTypeProperties = function (prop) {
+        if (prop && prop[doc_js_parser_options_1.CommonOptions.type]) {
+            return (prop[doc_js_parser_options_1.CommonOptions.type][doc_js_parser_options_1.CommonOptions.name]);
         }
         else {
             return '';
         }
     };
-    PropertiesParser.prototype.getTypeStatic = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.properties]) {
-            return obj[doc_js_parser_options_1.CommonOptions.properties][0][doc_js_parser_options_1.CommonOptions.type][doc_js_parser_options_1.CommonOptions.name];
+    PropertiesParser.prototype.getTypeStatic = function (prop) {
+        if (prop && prop[doc_js_parser_options_1.CommonOptions.properties]) {
+            return prop[doc_js_parser_options_1.CommonOptions.properties][0][doc_js_parser_options_1.CommonOptions.type][doc_js_parser_options_1.CommonOptions.name];
         }
         else {
             return '';
         }
     };
-    PropertiesParser.prototype.getTypeInstance = function (obj) {
-        if (obj && obj[doc_js_parser_options_1.CommonOptions.description]) {
-            return obj[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value]
+    PropertiesParser.prototype.getTypeInstance = function (prop) {
+        if (prop && prop[doc_js_parser_options_1.CommonOptions.description]) {
+            return prop[doc_js_parser_options_1.CommonOptions.description][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.children][0][doc_js_parser_options_1.CommonOptions.value]
                 .split(' ')[0].replace(/[{}]/g, '');
         }
         else {
@@ -766,6 +689,68 @@ var PropertiesParser = (function () {
     return PropertiesParser;
 }());
 exports.PropertiesParser = PropertiesParser;
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(0);
+var doc_js_parser_options_1 = __webpack_require__(1);
+var StylesParser = (function () {
+    function StylesParser() {
+    }
+    StylesParser.prototype.getStyles = function (obj) {
+        var _this = this;
+        if (obj[doc_js_parser_options_1.CommonOptions.tags] && obj[doc_js_parser_options_1.CommonOptions.tags].length) {
+            return obj[doc_js_parser_options_1.CommonOptions.tags]
+                .filter(function (item) { return _this.isStyle(item); })
+                .map(function (item) { return _this.parseStyle(item); });
+        }
+        else
+            return [];
+    };
+    StylesParser.prototype.parseStyle = function (obj) {
+        return new model_1.Style({
+            shortDescription: this.getShortDescription(obj),
+            styles: this.getStylesOfStyle(obj)
+        });
+    };
+    StylesParser.prototype.getShortDescription = function (style) {
+        if (style[doc_js_parser_options_1.CommonOptions.description]) {
+            return style[doc_js_parser_options_1.CommonOptions.description].split('\n')[0];
+        }
+        else {
+            return '';
+        }
+    };
+    StylesParser.prototype.getStylesOfStyle = function (style) {
+        if (style[doc_js_parser_options_1.CommonOptions.description]) {
+            var arr = style[doc_js_parser_options_1.CommonOptions.description].split('\n');
+            var arrTemp_1 = [];
+            arr.splice(0, 1);
+            arr.forEach(function (item) {
+                var _a = item.split(':'), key = _a[0], value = _a[1];
+                var styleObj = {};
+                styleObj['name'] = key ? key.replace(/[`-]/g, '').trim() : '';
+                styleObj['description'] = value ? value.trim() : '';
+                arrTemp_1.push(styleObj);
+            });
+            return arrTemp_1;
+        }
+        else {
+            return [];
+        }
+    };
+    StylesParser.prototype.isStyle = function (obj) {
+        return obj[doc_js_parser_options_1.CommonOptions.title] === 'styles';
+    };
+    return StylesParser;
+}());
+exports.StylesParser = StylesParser;
 
 
 /***/ }),
@@ -1004,13 +989,7 @@ var ExamplesParser = (function () {
         var outArr = [];
         if (example && example[typedoc_parser_options_1.CommonOptions.text]) {
             var tempArr = example[typedoc_parser_options_1.CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
-            tempArr.forEach(function (item) {
-                if (!/```/g.test(item)) {
-                    outArr.push(item);
-                }
-            });
-            return outArr;
-            // return tempArr.filter((item: any) => !/```/g.test(item))
+            return tempArr.filter(function (item) { return !/```/g.test(item); });
         }
         else {
             return [];
@@ -1414,8 +1393,7 @@ var TypedocParser = (function () {
     TypedocParser.prototype.getClasses = function (obj) {
         var _this = this;
         this.findAllClasses(obj);
-        var tempClasses = [];
-        tempClasses = this.classes //TODO issue about return
+        return this.classes
             .filter(function (item) { return _this.isClass(item) || _this.isInterface(item); })
             .filter(function (item) { return item[typedoc_parser_options_1.CommonOptions.comment]; })
             .map(function (item) {
@@ -1429,20 +1407,19 @@ var TypedocParser = (function () {
                 else if (_this.isDirective(item)) {
                     return _this.parseClass(item, 'directive');
                 }
-                else if (_this.isNgModule(item)) {
+                else {
                     return _this.parseClass(item, 'class');
                 }
             }
             else {
-                if (_this.isClass(item)) {
-                    return _this.parseClass(item, 'class');
-                }
-                else if (_this.isInterface(item)) {
+                if (_this.isInterface(item)) {
                     return _this.parseClass(item, 'interface');
+                }
+                else {
+                    return _this.parseClass(item, 'class');
                 }
             }
         });
-        return tempClasses;
     };
     TypedocParser.prototype.findAllClasses = function (obj) {
         var _this = this;

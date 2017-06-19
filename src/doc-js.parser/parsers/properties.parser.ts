@@ -106,7 +106,7 @@ export class PropertiesParser {
     }
   }
 
-  getDescriptionStatic(prop: any) {
+  getDescriptionStatic(prop: any): string {
     if (prop && prop[CommonOptions.tags]) {
       return prop[CommonOptions.tags][0][CommonOptions.description];
     } else {
@@ -157,7 +157,7 @@ export class PropertiesParser {
     }
   }
 
-  isDescriptionsCoincide(obj: any) {
+  isDescriptionsCoincide(obj: any): boolean {
     return this.getShortDescriptionProperties(obj).trim() === this.getDescriptionProperties(obj).trim() ||
       this.getDescriptionProperties(obj).indexOf(this.getShortDescriptionProperties(obj)) != -1;
   }

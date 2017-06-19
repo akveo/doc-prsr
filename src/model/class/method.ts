@@ -1,6 +1,5 @@
 import { Example } from './example';
 import { Param } from './param';
-import { Platform } from './platform';
 
 export class Method {
     examples: Example[];

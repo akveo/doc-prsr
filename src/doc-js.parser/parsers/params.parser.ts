@@ -1,6 +1,6 @@
-import {Param} from '../../model';
-import {CommonOptions} from '../doc-js.parser.options';
-import {Common} from "./common";
+import { Param } from '../../model';
+import { CommonOptions } from '../doc-js.parser.options';
+import { Common } from "./common";
 
 export class ParamsParser {
 
@@ -24,7 +24,7 @@ export class ParamsParser {
     });
   }
 
-  getType(param: any) {
+  getType(param: any): string {
     return param[CommonOptions.paramType] ? param[CommonOptions.paramType][CommonOptions.name] : '';
   }
 

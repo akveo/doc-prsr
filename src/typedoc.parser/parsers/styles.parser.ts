@@ -1,7 +1,5 @@
-import {
-  Style
-} from '../../model';
-import {CommonOptions} from '../typedoc.parser.options';
+import { Style } from '../../model';
+import { CommonOptions } from '../typedoc.parser.options';
 
 export  class StylesParser {
 

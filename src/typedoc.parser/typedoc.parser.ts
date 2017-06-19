@@ -32,9 +32,8 @@ export class TypedocParser {
 
   getClasses(obj: any): Class[] {
     this.findAllClasses(obj);
-    let tempClasses: any[] = [];
 
-    tempClasses = this.classes                                            //TODO issue about return
+    return this.classes
       .filter((item: any) => this.isClass(item) || this.isInterface(item))
       .filter((item: any) => item[CommonOptions.comment])
       .map((item: any) => {
@@ -45,18 +44,17 @@ export class TypedocParser {
             return this.parseClass(item, 'service');
           } else if (this.isDirective(item)) {
             return this.parseClass(item, 'directive');
-          } else if (this.isNgModule(item)) {
+          } else {
             return this.parseClass(item, 'class');
           }
         } else {
-          if (this.isClass(item)) {
-            return this.parseClass(item, 'class');
-          } else if (this.isInterface(item)) {
+          if (this.isInterface(item)) {
             return this.parseClass(item, 'interface');
+          } else {
+            return this.parseClass(item, 'class');
           }
         }
       });
-    return tempClasses;
   }
 
   findAllClasses(obj: any) {
@@ -71,7 +69,7 @@ export class TypedocParser {
     }
   }
 
-  parseClass(obj: any, kind: ClassKind) {
+  parseClass(obj: any, kind: ClassKind): Class {
     return new Class({
       kind: kind,
       platform: null,

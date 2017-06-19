@@ -3,7 +3,7 @@ import {
   Class,
   Metadata
 } from '../model';
-import {CommonOptions} from './doc-js.parser.options';
+import { CommonOptions } from './doc-js.parser.options';
 
 import {
   StylesParser,
@@ -11,7 +11,7 @@ import {
   ExamplesParser,
   MethodsParser,
   Common
-} from './getters';
+} from './parsers';
 
 export class DocJsParser {
   protected json: any;

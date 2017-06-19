@@ -29,15 +29,9 @@ export class ExamplesParser {
   }
 
   getDescriptionArr(example: any) {
-    let outArr: any[] = [];
     if (example[CommonOptions.description]) {
       const temp = example[CommonOptions.description].replace(/\r\n\r\n/g, '\n\n').split('\n\n');
-      temp.forEach((item: any) => {
-        if(!/```/g.test(item)) {
-          outArr.push(item);
-        }
-      });
-      return outArr;
+      return temp.filter((item: any) => !/```/g.test(item));
     } else {
       return [];
     }

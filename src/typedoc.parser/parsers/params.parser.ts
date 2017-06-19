@@ -1,5 +1,5 @@
-import {Param} from '../../model';
-import {CommonOptions} from '../typedoc.parser.options';
+import { Param } from '../../model';
+import { CommonOptions } from '../typedoc.parser.options';
 
 export class ParamsParser {
 

@@ -65,7 +65,7 @@ export class MethodsParser {
         .forEach((item: any) => {
           temp.push(item[CommonOptions.type][CommonOptions.type]);
         });
-      return temp
+      return temp;
     } else {
       return ['void'];
     }
