@@ -2,13 +2,12 @@
   "name": "doc-tool",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "watch": "tsc --watch",
-    "compile": "webpack",
-    "dev": "node build/bundle.js",
-    "start": "npm run compile && node build/bundle.js"
+    "start": "tsc --watch",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -29,16 +28,12 @@
     "@types/jest": "^19.2.4",
     "@types/node": "^7.0.27",
     "@types/tape": "^4.2.30",
-    "@webpack-blocks/babel6": "^0.4.1",
-    "@webpack-blocks/typescript": "^0.4.1",
-    "@webpack-blocks/webpack2": "^0.4.0",
     "fs": "0.0.1-security",
     "npm-run-all": "^4.0.2",
     "tape": "^4.6.3",
     "ts-jest": "^20.0.5",
     "ts-node": "^3.0.4",
-    "typings": "^2.1.1",
-    "webpack": "^2.6.1"
+    "typings": "^2.1.1"
   },
   "jest": {
     "transform": {
