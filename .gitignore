@@ -1,5 +1,7 @@
 .idea
 .vscode
+input.json
+output.json
 node_modules
 dist
 typings
