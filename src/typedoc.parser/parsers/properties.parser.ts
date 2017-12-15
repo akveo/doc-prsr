@@ -42,7 +42,11 @@ export class PropertiesParser {
 
   getType(prop: any): string {
     if (prop && prop[CommonOptions.type]) {
-      return prop[CommonOptions.type][CommonOptions.name];
+      if (prop[CommonOptions.type][CommonOptions.name]) {
+        return prop[CommonOptions.type][CommonOptions.name];
+      } else {
+        return prop[CommonOptions.type][CommonOptions.elementType][CommonOptions.name] + '[]';
+      }
     } else if(prop && prop[CommonOptions.comment][CommonOptions.tags]) {
       return prop[CommonOptions.comment][CommonOptions.tags]
         .filter((item: any) => item[CommonOptions.tag] === 'type')[0][CommonOptions.text]
