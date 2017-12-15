@@ -63,7 +63,7 @@ export class MethodsParser {
     if (obj[CommonOptions.methodType] && obj[CommonOptions.methodType].length) {
       obj[CommonOptions.methodType]
         .forEach((item: any) => {
-          temp.push(item[CommonOptions.type][CommonOptions.type]);
+          temp.push(item[CommonOptions.type][CommonOptions.name]);
         });
       return temp;
     } else {
