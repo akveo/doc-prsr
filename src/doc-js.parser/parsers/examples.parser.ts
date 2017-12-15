@@ -19,30 +19,39 @@ export class ExamplesParser {
     });
   }
 
-
-  getCode(example: any) {
+  splitExample(example: any) {
     if (example[CommonOptions.description]) {
-      return example[CommonOptions.description].split(/```/g)[1];
-    } else {
-      return '';
-    }
-  }
-
-  getDescriptionArr(example: any) {
-    if (example[CommonOptions.description]) {
-      const temp = example[CommonOptions.description].replace(/\r\n\r\n/g, '\n\n').split('\n\n');
-      return temp.filter((item: any) => !/```/g.test(item));
+      return example[CommonOptions.description].split(/```/g);
     } else {
       return [];
     }
   }
 
-  getDescription(example: any): string {
-    return this.getDescriptionArr(example)[1];
+  getCode(example: any) {
+    const splittedExample = this.splitExample(example);
+    if (splittedExample.length !== 0) {
+      return splittedExample[1];
+    } else {
+      return ''
+    }
   }
 
-  getShortDescription(example: any): string {
-    return this.getDescriptionArr(example)[0];
+  getDescription(example: any) {
+    const splittedExample = this.splitExample(example);
+    const shortDescription = splittedExample[0].split('\r\n')[0];
+    if (splittedExample.length !== 0) {
+      return splittedExample[0].replace(shortDescription, '');
+    } else {
+      return ''
+    }
   }
 
+  getShortDescription(example: any) {
+    const splittedExample = this.splitExample(example);
+    if (splittedExample.length !== 0) {
+      return splittedExample[0].split('\r\n')[0];
+    } else {
+      return ''
+    }
+  }
 }
