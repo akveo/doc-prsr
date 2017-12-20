@@ -64,13 +64,13 @@ export class MethodsParser {
     return obj[CO.name];
   }
 
-  parseTypeFromArray(obj: any): any { //todo simpleType no else if
-    if (this.isTypeSimple(obj[CO.elementType][CO.type])) {
-      return this.parseTypeSimple(obj[CO.elementType]) + '[]';
-    } else if (this.isTypeReflection(obj[CO.elementType][CO.type])) {
+  parseTypeFromArray(obj: any): any {
+    if (this.isTypeReflection(obj[CO.elementType][CO.type])) {
       return this.parseTypeFromReflection({obj: obj[CO.elementType], fromArray: true});
     } else if (this.isTypeArray(obj[CO.elementType][CO.type])) {
       return this.parseTypeFromArray(obj[CO.elementType]);
+    } else {
+      return this.parseTypeSimple(obj[CO.elementType]) + '[]';
     }
   }
 
