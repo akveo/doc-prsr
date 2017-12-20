@@ -64,7 +64,7 @@ export class MethodsParser {
     return obj[CO.name];
   }
 
-  parseTypeFromArray(obj: any): any {
+  parseTypeFromArray(obj: any): any { //todo simpleType no else if
     if (this.isTypeSimple(obj[CO.elementType][CO.type])) {
       return this.parseTypeSimple(obj[CO.elementType]) + '[]';
     } else if (this.isTypeReflection(obj[CO.elementType][CO.type])) {
@@ -123,8 +123,8 @@ export class MethodsParser {
     obj[CO.declaration][CO.indexSignature].forEach((item: any) => {
       item[CO.parameters].forEach((itemsItem: any) => {
         indexSignatureObjectHelper[itemsItem[CO.name]] = itemsItem[CO.type][CO.name];
-        indexSignatureObject['[' + JSON.stringify(indexSignatureObjectHelper).replace(/[{}]+/g, '') + ']'] =
-          item[CO.type][CO.name];
+        indexSignatureObject['[' + JSON.stringify(indexSignatureObjectHelper)
+          .replace(/[{}]+/g, '') + ']'] = item[CO.type][CO.name];
       });
     });
     return this.editTypeString(JSON.stringify(indexSignatureObject), true);

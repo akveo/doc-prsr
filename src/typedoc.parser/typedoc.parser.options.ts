@@ -17,5 +17,6 @@ export const CO = {
   text: 'text',
   description: 'description',
   shortDescription: 'shortDescription',
-  returns: 'returns'
+  returns: 'returns',
+  setSignature: 'setSignature',
 };

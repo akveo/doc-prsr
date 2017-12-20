@@ -51,6 +51,8 @@ export class PropertiesParser {
       return prop[CO.comment][CO.tags]
         .filter((item: any) => item[CO.tag] === 'type')[0][CO.text]
         .replace(/[{}\n]/g, '');
+    } else if(prop && prop[CO.setSignature][0][CO.parameters] && prop[CO.setSignature][0][CO.parameters].length !== 0) {
+      return prop[CO.setSignature][0][CO.parameters][0][CO.type][CO.name];
     } else {
       return '';
     }
