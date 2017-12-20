@@ -1,15 +1,15 @@
 import { Prop, PropKind } from '../../model';
-import { CommonOptions } from '../typedoc.parser.options';
+import { CO } from '../typedoc.parser.options';
 
 export class PropertiesParser {
 
   getProps(obj: any): Prop[] {
-    if (obj && obj[CommonOptions.children]) {
-      return obj[CommonOptions.children]
+    if (obj && obj[CO.children]) {
+      return obj[CO.children]
         .filter((item: any) => this.isProperty(item) || this.isAccessor(item))
-        .filter((item: any) => item[CommonOptions.comment])
+        .filter((item: any) => item[CO.comment])
         .map((item: any) => {
-          if (item[CommonOptions.decorators]) {
+          if (item[CO.decorators]) {
             if (this.isInput(item)) {
               return this.parseProperty(item, 'input');
             } else if (this.isOutput(item)) {
@@ -34,22 +34,22 @@ export class PropertiesParser {
       isStatic: this.isStatic(obj),
       type: this.getType(obj),
       required: null,
-      name: obj[CommonOptions.name],
+      name: obj[CO.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj)
     });
   }
 
   getType(prop: any): string {
-    if (prop && prop[CommonOptions.type]) {
-      if (prop[CommonOptions.type][CommonOptions.name]) {
-        return prop[CommonOptions.type][CommonOptions.name];
+    if (prop && prop[CO.type]) {
+      if (prop[CO.type][CO.name]) {
+        return prop[CO.type][CO.name];
       } else {
-        return prop[CommonOptions.type][CommonOptions.elementType][CommonOptions.name] + '[]';
+        return prop[CO.type][CO.elementType][CO.name] + '[]';
       }
-    } else if(prop && prop[CommonOptions.comment][CommonOptions.tags]) {
-      return prop[CommonOptions.comment][CommonOptions.tags]
-        .filter((item: any) => item[CommonOptions.tag] === 'type')[0][CommonOptions.text]
+    } else if(prop && prop[CO.comment][CO.tags]) {
+      return prop[CO.comment][CO.tags]
+        .filter((item: any) => item[CO.tag] === 'type')[0][CO.text]
         .replace(/[{}\n]/g, '');
     } else {
       return '';
@@ -57,42 +57,42 @@ export class PropertiesParser {
   }
 
   getDescription(prop: any): string {
-    if (prop && prop[CommonOptions.comment]) {
-      return prop[CommonOptions.comment]['text'];
+    if (prop && prop[CO.comment]) {
+      return prop[CO.comment]['text'];
     } else {
       return '';
     }
   }
 
   getShortDescription(prop: any): string {
-    if (prop && prop[CommonOptions.comment]) {
-      return prop[CommonOptions.comment]['shortText'];
+    if (prop && prop[CO.comment]) {
+      return prop[CO.comment]['shortText'];
     } else {
       return '';
     }
   }
 
   isStatic(prop: any): boolean {
-    if (prop && prop[CommonOptions.flags] && prop[CommonOptions.flags][CommonOptions.isStatic]) {
-      return prop[CommonOptions.flags][CommonOptions.isStatic];
+    if (prop && prop[CO.flags] && prop[CO.flags][CO.isStatic]) {
+      return prop[CO.flags][CO.isStatic];
     } else {
       return false;
     }
   }
 
   isProperty(obj: any) {
-    return obj[CommonOptions.primKind] === 'Property';
+    return obj[CO.primKind] === 'Property';
   }
 
   isAccessor(obj: any) {
-    return obj[CommonOptions.primKind] === 'Accessor';
+    return obj[CO.primKind] === 'Accessor';
   }
 
   isInput(prop: any) {
-    return prop[CommonOptions.decorators][0][CommonOptions.name] === 'Input';
+    return prop[CO.decorators][0][CO.name] === 'Input';
   }
 
   isOutput(prop: any) {
-    return prop[CommonOptions.decorators][0][CommonOptions.name] === 'Output';
+    return prop[CO.decorators][0][CO.name] === 'Output';
   }
 }

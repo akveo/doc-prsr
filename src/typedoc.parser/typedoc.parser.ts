@@ -1,4 +1,4 @@
-import {CommonOptions} from './typedoc.parser.options';
+import {CO} from './typedoc.parser.options';
 import {
   Model,
   Class,
@@ -35,9 +35,9 @@ export class TypedocParser {
 
     return this.classes
       .filter((item: any) => this.isClass(item) || this.isInterface(item))
-      .filter((item: any) => item[CommonOptions.comment])
+      .filter((item: any) => item[CO.comment])
       .map((item: any) => {
-        if (item[CommonOptions.decorators]) {
+        if (item[CO.decorators]) {
           if (this.isComponent(item)) {
             return this.parseClass(item, 'component');
           } else if (this.isService(item)) {
@@ -58,8 +58,8 @@ export class TypedocParser {
   }
 
   findAllClasses(obj: any) {
-    if (obj && obj[CommonOptions.children]) {
-      obj[CommonOptions.children].forEach((item: any) => {
+    if (obj && obj[CO.children]) {
+      obj[CO.children].forEach((item: any) => {
         if (this.isClass(item) || this.isInterface(item)) {
           this.classes.push(item);
         } else {
@@ -76,7 +76,7 @@ export class TypedocParser {
       examples: this.examples.getExamples(obj),
       props: this.props.getProps(obj),
       methods: this.methods.getMethods(obj),
-      name: obj[CommonOptions.name],
+      name: obj[CO.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
       styles: this.styles.getStyles(obj)
@@ -84,43 +84,43 @@ export class TypedocParser {
   }
 
   getDescription(obj: any): string {
-    if (obj && obj[CommonOptions.comment]) {
-      return obj[CommonOptions.comment]['text'];
+    if (obj && obj[CO.comment]) {
+      return obj[CO.comment]['text'];
     } else {
       return '';
     }
   }
 
   getShortDescription(obj: any): string {
-    if (obj && obj[CommonOptions.comment]) {
-      return obj[CommonOptions.comment]['shortText'];
+    if (obj && obj[CO.comment]) {
+      return obj[CO.comment]['shortText'];
     } else {
       return '';
     }
   }
 
   isClass(obj: any) {
-    return obj[CommonOptions.primKind] === 'Class';
+    return obj[CO.primKind] === 'Class';
   }
 
   isInterface(obj: any) {
-    return obj[CommonOptions.primKind] === 'Interface';
+    return obj[CO.primKind] === 'Interface';
   }
 
   isComponent(obj: any) {
-    return obj[CommonOptions.decorators][0][CommonOptions.name] === 'Component';
+    return obj[CO.decorators][0][CO.name] === 'Component';
   }
 
   isService(obj: any) {
-    return obj[CommonOptions.decorators][0][CommonOptions.name] === 'Injectable';
+    return obj[CO.decorators][0][CO.name] === 'Injectable';
   }
 
   isDirective(obj: any) {
-    return obj[CommonOptions.decorators][0][CommonOptions.name] === 'Directive';
+    return obj[CO.decorators][0][CO.name] === 'Directive';
   }
 
   isNgModule(obj: any) {
-    return obj[CommonOptions.decorators][0][CommonOptions.name] === 'NgModule';
+    return obj[CO.decorators][0][CO.name] === 'NgModule';
   }
 
 }

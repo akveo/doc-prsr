@@ -1,6 +1,6 @@
 import { Prop } from '../../model';
 import { Common } from './common'
-import { CommonOptions } from '../doc-js.parser.options';
+import { CO } from '../doc-js.parser.options';
 
 export class PropertiesParser {
   protected common: Common = new Common();
@@ -10,17 +10,17 @@ export class PropertiesParser {
   }
 
   getPropsFromProperties(obj: any): Prop[] {
-    if (obj[CommonOptions.properties] && obj[CommonOptions.properties].length) {
-      return obj[CommonOptions.properties].map((item: any) => this.parsePropFromProperties(item));
+    if (obj[CO.properties] && obj[CO.properties].length) {
+      return obj[CO.properties].map((item: any) => this.parsePropFromProperties(item));
     } else {
       return [];
     }
   }
 
   getPropsFromInstance(obj: any): Prop[] {
-    if (obj[CommonOptions.members] && obj[CommonOptions.members][CommonOptions.instance].length) {
-      return obj[CommonOptions.members][CommonOptions.instance]
-        .filter((item: any) => item[CommonOptions.kind] === 'member')
+    if (obj[CO.members] && obj[CO.members][CO.instance].length) {
+      return obj[CO.members][CO.instance]
+        .filter((item: any) => item[CO.kind] === 'member')
         .map((item: any) => this.parsePropFromInstance(item));
     } else {
       return [];
@@ -28,9 +28,9 @@ export class PropertiesParser {
   }
 
   getPropsFromStatic(obj: any): Prop[] {
-    if (obj[CommonOptions.members] && obj[CommonOptions.members][CommonOptions.static].length) {
-      return obj[CommonOptions.members][CommonOptions.static]
-        .filter((item: any) => item[CommonOptions.kind] === 'member')
+    if (obj[CO.members] && obj[CO.members][CO.static].length) {
+      return obj[CO.members][CO.static]
+        .filter((item: any) => item[CO.kind] === 'member')
         .map((item: any) => this.parsePropFromStatic(item));
     } else {
       return [];
@@ -78,12 +78,12 @@ export class PropertiesParser {
 
   getDescriptionInstance(prop: any): string {
     let str: string = '';
-    if (prop[CommonOptions.description] && prop[CommonOptions.description][CommonOptions.children].length > 1) {
-      prop[CommonOptions.description][CommonOptions.children]
+    if (prop[CO.description] && prop[CO.description][CO.children].length > 1) {
+      prop[CO.description][CO.children]
         .forEach((item: any) => {
-          item[CommonOptions.children]
+          item[CO.children]
             .forEach((item: any) => {
-              str += item[CommonOptions.value] + ' ';
+              str += item[CO.value] + ' ';
             });
         });
       return str.split('}')[1].trim();
@@ -95,10 +95,10 @@ export class PropertiesParser {
   getDescriptionProperties(prop: any): string {
     let description: string = '';
 
-    if (prop && prop[CommonOptions.description] && prop[CommonOptions.description][CommonOptions.children].length) {
-      prop[CommonOptions.description][CommonOptions.children][0][CommonOptions.children]
+    if (prop && prop[CO.description] && prop[CO.description][CO.children].length) {
+      prop[CO.description][CO.children][0][CO.children]
         .forEach((item: any) => {
-          description += item[CommonOptions.value] + ' ';
+          description += item[CO.value] + ' ';
         });
       return description;
     } else {
@@ -107,24 +107,24 @@ export class PropertiesParser {
   }
 
   getDescriptionStatic(prop: any): string {
-    if (prop && prop[CommonOptions.tags]) {
-      return prop[CommonOptions.tags][0][CommonOptions.description];
+    if (prop && prop[CO.tags]) {
+      return prop[CO.tags][0][CO.description];
     } else {
       return '';
     }
   }
 
   getShortDescriptionProperties(prop: any): string {
-    if (prop && prop[CommonOptions.description]) {
-      return prop[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value].trim();
+    if (prop && prop[CO.description]) {
+      return prop[CO.description][CO.children][0][CO.children][0][CO.value].trim();
     } else {
       return '';
     }
   }
 
   getShortDescriptionInstance(prop: any): string {
-    if (prop && prop[CommonOptions.description]) {
-      return prop[CommonOptions.description][CommonOptions.children][0][CommonOptions.children][0][CommonOptions.value]
+    if (prop && prop[CO.description]) {
+      return prop[CO.description][CO.children][0][CO.children][0][CO.value]
         .split('}')[1].trim();
     } else {
       return '';
@@ -132,25 +132,25 @@ export class PropertiesParser {
   }
 
   getTypeProperties(prop: any): string {
-    if (prop && prop[CommonOptions.type]) {
-      return (prop[CommonOptions.type][CommonOptions.name]);
+    if (prop && prop[CO.type]) {
+      return (prop[CO.type][CO.name]);
     } else {
       return '';
     }
   }
 
   getTypeStatic(prop: any): string {
-    if (prop && prop[CommonOptions.properties]) {
-      return prop[CommonOptions.properties][0][CommonOptions.type][CommonOptions.name];
+    if (prop && prop[CO.properties]) {
+      return prop[CO.properties][0][CO.type][CO.name];
     } else {
       return '';
     }
   }
 
   getTypeInstance(prop: any): string {
-    if (prop && prop[CommonOptions.description]) {
-      return prop[CommonOptions.description][CommonOptions.children][0]
-        [CommonOptions.children][0][CommonOptions.value]
+    if (prop && prop[CO.description]) {
+      return prop[CO.description][CO.children][0]
+        [CO.children][0][CO.value]
         .split(' ')[0].replace(/[{}]/g, '');
     } else {
       return '';

@@ -3,7 +3,7 @@ import {
   Class,
   Metadata
 } from '../model';
-import { CommonOptions } from './doc-js.parser.options';
+import { CO } from './doc-js.parser.options';
 
 import {
   StylesParser,
@@ -51,7 +51,7 @@ export class DocJsParser {
   }
 
   isClass(obj: any): boolean {
-    return obj[CommonOptions.classKind] === 'class';
+    return obj[CO.classKind] === 'class';
   }
 
 }

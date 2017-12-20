@@ -1,11 +1,11 @@
 import { Example } from '../../model';
-import { CommonOptions } from '../typedoc.parser.options';
+import { CO } from '../typedoc.parser.options';
 
 export class ExamplesParser {
 
   getExamples(obj: any): Example[] {
     if (obj && this.isHasExamples(obj)) {
-      return obj[CommonOptions.comment][CommonOptions.tags]
+      return obj[CO.comment][CO.tags]
         .filter((item: any) => this.isExample(item))
         .map((item: any) => this.parseExample(item));
     } else {
@@ -23,8 +23,8 @@ export class ExamplesParser {
 
   getDescriptionArr(example: any): string[] {
     const outArr: string[] = [];
-    if (example && example[CommonOptions.text]) {
-      const tempArr = example[CommonOptions.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
+    if (example && example[CO.text]) {
+      const tempArr = example[CO.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
       return tempArr.filter((item: any) => !/```/g.test(item))
     } else {
       return [];
@@ -48,19 +48,19 @@ export class ExamplesParser {
   }
 
   getCode(obj: any): string {
-    if (obj && obj[CommonOptions.text]) {
-      return obj[CommonOptions.text].split(/```/g)[1];
+    if (obj && obj[CO.text]) {
+      return obj[CO.text].split(/```/g)[1];
     } else {
       return '';
     }
   }
 
   isHasExamples(obj: any) {
-    return obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] && obj[CommonOptions.comment][CommonOptions.tags].length;
+    return obj[CO.comment] && obj[CO.comment][CO.tags] && obj[CO.comment][CO.tags].length;
   }
 
   isExample(obj: any) {
-    return obj[CommonOptions.tag] === 'example';
+    return obj[CO.tag] === 'example';
   }
 
 }

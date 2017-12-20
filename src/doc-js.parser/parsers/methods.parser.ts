@@ -1,5 +1,5 @@
 import { Method } from '../../model';
-import { CommonOptions } from '../doc-js.parser.options';
+import { CO } from '../doc-js.parser.options';
 import { ParamsParser, ExamplesParser } from './';
 import { Common } from './common';
 
@@ -14,7 +14,7 @@ export class MethodsParser {
 
   getMethodsInstance(obj: any): Method[] {
     if (this.isHasMethodsFrom(obj, 'instance')) {
-      return obj[CommonOptions.members][CommonOptions.instance]
+      return obj[CO.members][CO.instance]
         .filter((item: any) => this.isFunction(item))
         .map((item: any) => this.parseMethodFromInstance(item));
     } else {
@@ -24,7 +24,7 @@ export class MethodsParser {
 
   getMethodsStatic(obj: any): Method[] {
     if (this.isHasMethodsFrom(obj, 'static')) {
-      return obj[CommonOptions.members][CommonOptions.static]
+      return obj[CO.members][CO.static]
         .filter((item: any) => this.isFunction(item))
         .map((item: any) => this.parseMethodFromStatic(item));
     } else {
@@ -60,10 +60,10 @@ export class MethodsParser {
 
   getType(obj: any) {
     let temp: any[] = [];
-    if (obj[CommonOptions.methodType] && obj[CommonOptions.methodType].length) {
-      obj[CommonOptions.methodType]
+    if (obj[CO.methodType] && obj[CO.methodType].length) {
+      obj[CO.methodType]
         .forEach((item: any) => {
-          temp.push(item[CommonOptions.type][CommonOptions.name]);
+          temp.push(item[CO.type][CO.name]);
         });
       return temp;
     } else {
@@ -72,10 +72,10 @@ export class MethodsParser {
   }
 
   isFunction(obj: any) {
-    return obj[CommonOptions.kind] === 'function';
+    return obj[CO.kind] === 'function';
   }
 
   isHasMethodsFrom(obj: any, from: string) {
-    return obj[CommonOptions.members] && obj[CommonOptions.members][from].length;
+    return obj[CO.members] && obj[CO.members][from].length;
   }
 }

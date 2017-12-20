@@ -1,11 +1,11 @@
 import { Example } from '../../model';
-import { CommonOptions } from '../doc-js.parser.options';
+import { CO } from '../doc-js.parser.options';
 
 export class ExamplesParser {
 
   getExamples(obj: any): Example[] {
-    if (obj[CommonOptions.examples].length) {
-      return obj[CommonOptions.examples].map((item: any) => this.parseExample(item));
+    if (obj[CO.examples].length) {
+      return obj[CO.examples].map((item: any) => this.parseExample(item));
     } else {
       return [];
     }
@@ -20,8 +20,8 @@ export class ExamplesParser {
   }
 
   splitExample(example: any) {
-    if (example[CommonOptions.description]) {
-      return example[CommonOptions.description].split(/```/g);
+    if (example[CO.description]) {
+      return example[CO.description].split(/```/g);
     } else {
       return [];
     }

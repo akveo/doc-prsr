@@ -1,4 +1,4 @@
-export const CommonOptions = {
+export const CO = {
   classKind: 'kind',
   name: 'name',
   platform: 'platform',

@@ -1,19 +1,19 @@
-import { CommonOptions } from '../doc-js.parser.options';
+import { CO } from '../doc-js.parser.options';
 import { ClassKind } from '../../model';
 
 export class Common {
 
   getName(obj: any): string {
-    return obj[CommonOptions.name] ? obj[CommonOptions.name] : '';
+    return obj[CO.name] ? obj[CO.name] : '';
   }
 
   getShortDescription(obj: any): string {
     let shortDescription: string = '';
-    if (obj[CommonOptions.description] && obj[CommonOptions.description][CommonOptions.children].length) {
-      if (obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children].length) {
-        obj[CommonOptions.description][CommonOptions.children][0][CommonOptions.children]
+    if (obj[CO.description] && obj[CO.description][CO.children].length) {
+      if (obj[CO.description][CO.children][0][CO.children].length) {
+        obj[CO.description][CO.children][0][CO.children]
           .forEach((item: any) => {
-            shortDescription += item[CommonOptions.value] + ' ';
+            shortDescription += item[CO.value] + ' ';
           });
       }
       return shortDescription;
@@ -24,13 +24,13 @@ export class Common {
 
   getDescription(obj: any): string {
     let str: string = '';
-    if (obj[CommonOptions.description]) {
-      if (obj[CommonOptions.description][CommonOptions.children].length > 1)
-        obj[CommonOptions.description][CommonOptions.children]
+    if (obj[CO.description]) {
+      if (obj[CO.description][CO.children].length > 1)
+        obj[CO.description][CO.children]
           .forEach((item: any) => {
-            item[CommonOptions.children]
+            item[CO.children]
               .forEach((item: any) => {
-                str += item[CommonOptions.value] + ' ';
+                str += item[CO.value] + ' ';
               });
           });
       return str;
@@ -41,6 +41,6 @@ export class Common {
   }
 
   getKind(obj: any): ClassKind {
-    return obj[CommonOptions.classKind] ? obj[CommonOptions.classKind] : 'class';
+    return obj[CO.classKind] ? obj[CO.classKind] : 'class';
   }
 }
