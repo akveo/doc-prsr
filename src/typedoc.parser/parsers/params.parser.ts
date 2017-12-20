@@ -24,7 +24,17 @@ export class ParamsParser {
 
   getType(param: any): string {
     if(param && param[CO.type]) {
-      return param[CO.type][CO.name]
+      let type = '';
+      if (param[CO.type][CO.type] && param[CO.type][CO.type] === 'reference') {
+        if (param[CO.comment] && param[CO.comment][CO.text]) {
+          type = param[CO.comment][CO.text];
+        } else {
+          type = param[CO.type][CO.name]
+        }
+      } else if (param[CO.type][CO.type] && param[CO.type][CO.type] === 'intrinsic') {
+        type = param[CO.type][CO.name]
+      }
+      return type;
     } else {
       return '';
     }

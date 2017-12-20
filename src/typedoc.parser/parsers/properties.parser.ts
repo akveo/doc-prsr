@@ -41,10 +41,12 @@ export class PropertiesParser {
   }
 
   getName(obj: any) {
-    if (this.isInput(obj) && obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName]) {
-      return obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName].replace(/'/g, '');
-    } else {
-      return obj[CO.name];
+    if (obj[CO.decorators]) {
+      if (this.isInput(obj) && obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName]) {
+        return obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName].replace(/'/g, '');
+      } else {
+        return obj[CO.name];
+      }
     }
   }
 
