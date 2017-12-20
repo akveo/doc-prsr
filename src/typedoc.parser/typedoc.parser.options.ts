@@ -19,4 +19,6 @@ export const CO = {
   shortDescription: 'shortDescription',
   returns: 'returns',
   setSignature: 'setSignature',
+  arguments: 'arguments',
+  bindingPropertyName: 'bindingPropertyName',
 };

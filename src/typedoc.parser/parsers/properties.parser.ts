@@ -34,10 +34,18 @@ export class PropertiesParser {
       isStatic: this.isStatic(obj),
       type: this.getType(obj),
       required: null,
-      name: obj[CO.name],
+      name: this.getName(obj),
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj)
     });
+  }
+
+  getName(obj: any) {
+    if (this.isInput(obj) && obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName]) {
+      return obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName].replace(/'/g, '');
+    } else {
+      return obj[CO.name];
+    }
   }
 
   getType(prop: any): string {
