@@ -1,5 +1,6 @@
-import { Prop, PropKind } from '../../model';
-import { CO } from '../typedoc.parser.options';
+import {Prop, PropKind} from '../../model';
+import {CO} from '../typedoc.parser.options';
+import {type} from "os";
 
 export class PropertiesParser {
 
@@ -51,20 +52,38 @@ export class PropertiesParser {
   }
 
   getType(prop: any): string {
-    if (prop && prop[CO.type]) {
-      if (prop[CO.type][CO.name]) {
-        return prop[CO.type][CO.name];
-      } else {
-        return prop[CO.type][CO.elementType][CO.name] + '[]';
+    if (prop[CO.type] && prop[CO.type][CO.type]) {
+      let type = '';
+      if (prop[CO.type][CO.type] === 'intrinsic') {
+        type = this.getTypeIntrinsicProp(prop);
+      } else if (prop[CO.type][CO.type] === 'array') {
+        type = this.getTypeArrayProp(prop);
+      } else if (prop[CO.type][CO.type] === 'reference') {
+        type = this.getTypeReferenceProp(prop);
       }
-    } else if(prop && prop[CO.comment][CO.tags]) {
-      return prop[CO.comment][CO.tags]
-        .filter((item: any) => item[CO.tag] === 'type')[0][CO.text]
-        .replace(/[{}\n]/g, '');
-    } else if(prop && prop[CO.setSignature][0][CO.parameters] && prop[CO.setSignature][0][CO.parameters].length !== 0) {
-      return prop[CO.setSignature][0][CO.parameters][0][CO.type][CO.name];
+      return type;
     } else {
-      return '';
+      return this.getTypeOther(prop);
+    }
+  }
+
+  getTypeIntrinsicProp(prop: any) {
+    return prop[CO.type][CO.name];
+  }
+
+  getTypeArrayProp(prop: any) {
+    return prop[CO.type][CO.elementType][CO.name] + '[]';
+  }
+
+  getTypeReferenceProp(prop: any) {
+    return prop[CO.type][CO.name] + '<' + prop[CO.type][CO.typeArguments][0][CO.name] + '>';
+  }
+
+  getTypeOther(prop: any) {
+    if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !==0) {
+      return prop[CO.comment][CO.tags][0][CO.text].replace(/[\n{}]+/g, '');
+    } else {
+      return prop[CO.setSignature][0][CO.parameters][0][CO.type][CO.name];
     }
   }
 

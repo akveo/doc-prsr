@@ -21,4 +21,5 @@ export const CO = {
   setSignature: 'setSignature',
   arguments: 'arguments',
   bindingPropertyName: 'bindingPropertyName',
+  typeArguments: 'typeArguments',
 };

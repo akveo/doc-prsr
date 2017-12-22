@@ -49,7 +49,7 @@ export class MethodsParser {
     const returnsArray = [];
     if (obj[CO.signatures] && obj[CO.signatures][0][CO.type]) {
       if (this.isTypeSimple(obj[CO.signatures][0][CO.type][CO.type])) {
-        returnsArray.push(this.parseTypeSimple(obj[CO.signatures][0][CO.type]));
+        returnsArray.push(this.parseTypeSimple(obj[CO.signatures][0]));
       } else if (this.isTypeReflection(obj[CO.signatures][0][CO.type][CO.type])) {
         returnsArray.push(this.parseTypeFromReflection(obj[CO.signatures][0][CO.type]));
       } else if (this.isTypeArray(obj[CO.signatures][0][CO.type][CO.type])) {
@@ -61,7 +61,17 @@ export class MethodsParser {
   }
 
   parseTypeSimple(obj: any) {
-    return obj[CO.name];
+    if (obj[CO.type][CO.type] === 'reference' && obj[CO.type][CO.typeArguments]) {
+      let type = '';
+      if (obj[CO.comment] && obj[CO.comment][CO.returns]) {
+        type = obj[CO.comment][CO.returns];
+      } else {
+        type = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
+      }
+      return type;
+    } else {
+      return obj[CO.type][CO.name];
+    }
   }
 
   parseTypeFromArray(obj: any): any {

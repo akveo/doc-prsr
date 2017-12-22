@@ -1,5 +1,5 @@
-import { Param } from '../../model';
-import { CO } from '../typedoc.parser.options';
+import {Param} from '../../model';
+import {CO} from '../typedoc.parser.options';
 
 export class ParamsParser {
 
@@ -33,6 +33,8 @@ export class ParamsParser {
         }
       } else if (param[CO.type][CO.type] && param[CO.type][CO.type] === 'intrinsic') {
         type = param[CO.type][CO.name]
+      } else if (param[CO.type][CO.type] && param[CO.type][CO.type] === 'array') {
+        type = param[CO.type][CO.elementType][CO.name] + '[]';
       }
       return type;
     } else {
