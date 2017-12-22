@@ -1,6 +1,7 @@
 import {Method} from '../../model';
 import {CO} from '../typedoc.parser.options';
 import {ParamsParser, ExamplesParser} from './';
+import {type} from "os";
 
 export class MethodsParser {
   protected params: ParamsParser = new ParamsParser();
@@ -61,14 +62,42 @@ export class MethodsParser {
   }
 
   parseTypeSimple(obj: any) {
-    if (obj[CO.type][CO.type] === 'reference' && obj[CO.type][CO.typeArguments]) {
-      let type = '';
-      if (obj[CO.comment] && obj[CO.comment][CO.returns]) {
-        type = obj[CO.comment][CO.returns];
+    if (obj[CO.type] === 'reference') {
+      return obj[CO.name] + '[]';
+    } else if (obj[CO.type][CO.type] === 'reference' && obj[CO.type][CO.typeArguments]) {
+      let commonType = '';
+      if (!obj[CO.type][CO.typeArguments][0][CO.declaration]) {
+        if (obj[CO.type][CO.typeArguments][0][CO.type] === 'reference') {
+          commonType = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
+        } else if (obj[CO.type][CO.typeArguments][0][CO.type] === 'array') {
+          commonType = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.elementType][CO.name] + '[]>';
+        }
+      } else if (obj[CO.type][CO.typeArguments][0][CO.declaration] && obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children] &&
+        obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].length !== 0) {
+        let returnsArray: any[] = [];
+        obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].forEach((item: any) => {
+          if (this.isTypeSimple(item[CO.type][CO.type])) {
+            const type = this.parseTypeSimple(item);
+            returnsArray.push(item[CO.name] + ': ' + type);
+          } else if (this.isTypeReflection(item[CO.type][CO.type])) {
+            const type = this.parseTypeFromReflection(item);
+            returnsArray.push(item[CO.name] + ': ' + type);
+          } else if (this.isTypeArray(item[CO.type][CO.type])) {
+            const type = this.parseTypeFromArray(item);
+            returnsArray.push(item[CO.name] + ': ' + type);
+          }
+        });
+        commonType = obj[CO.type][CO.name] + '<' + returnsArray.toString().replace(/,/g, ', ') + '>';
       } else {
-        type = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
+        let type = '';
+        if (obj[CO.comment] && obj[CO.comment][CO.returns]) {
+          type = obj[CO.comment][CO.returns];
+        } else {
+          type = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
+        }
+        commonType = type;
       }
-      return type;
+      return commonType;
     } else {
       return obj[CO.type][CO.name];
     }
@@ -80,7 +109,7 @@ export class MethodsParser {
     } else if (this.isTypeArray(obj[CO.elementType][CO.type])) {
       return this.parseTypeFromArray(obj[CO.elementType]);
     } else {
-      return this.parseTypeSimple(obj[CO.elementType]) + '[]';
+      return this.parseTypeSimple(obj[CO.elementType]);
     }
   }
 
