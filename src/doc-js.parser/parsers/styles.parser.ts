@@ -1,11 +1,11 @@
 import { Style } from '../../model';
-import { CommonOptions } from '../doc-js.parser.options';
+import { CO } from '../doc-js.parser.options';
 
 export class StylesParser {
 
   getStyles(obj: any): Style[] {
-    if (obj[CommonOptions.tags] && obj[CommonOptions.tags].length) {
-      return obj[CommonOptions.tags]
+    if (obj[CO.tags] && obj[CO.tags].length) {
+      return obj[CO.tags]
         .filter((item: any) => this.isStyle(item))
         .map((item: any) => this.parseStyle(item));
     } else
@@ -20,16 +20,16 @@ export class StylesParser {
   }
 
   getShortDescription(style: any): string {
-    if (style[CommonOptions.description]) {
-      return style[CommonOptions.description].split('\n')[0];
+    if (style[CO.description]) {
+      return style[CO.description].split('\n')[0];
     } else {
       return '';
     }
   }
 
   getStylesOfStyle(style: any): any[] {
-    if (style[CommonOptions.description]) {
-      const arr = style[CommonOptions.description].split('\n');
+    if (style[CO.description]) {
+      const arr = style[CO.description].split('\n');
       const arrTemp: any = [];
       arr.splice(0, 1);
       arr.forEach((item: any) => {
@@ -46,6 +46,6 @@ export class StylesParser {
   }
 
   isStyle(obj: any) {
-    return obj[CommonOptions.title] === 'styles';
+    return obj[CO.title] === 'styles';
   }
 }
