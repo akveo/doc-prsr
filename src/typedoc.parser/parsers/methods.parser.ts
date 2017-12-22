@@ -87,7 +87,7 @@ export class MethodsParser {
             returnsArray.push(item[CO.name] + ': ' + type);
           }
         });
-        commonType = obj[CO.type][CO.name] + '<' + returnsArray.toString().replace(/,/g, ', ') + '>';
+        commonType = obj[CO.type][CO.name] + '<{' + returnsArray.toString().replace(/,/g, ', ') + '}>';
       } else {
         let type = '';
         if (obj[CO.comment] && obj[CO.comment][CO.returns]) {
