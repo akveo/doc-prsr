@@ -47,126 +47,117 @@ export class MethodsParser {
   }
 
   getType(obj: any): string[] {
-    const returnsArray = [];
+    let returnedType = '';
     if (obj[CO.signatures] && obj[CO.signatures][0][CO.type]) {
-      if (this.isTypeSimple(obj[CO.signatures][0][CO.type][CO.type])) {
-        returnsArray.push(this.parseTypeSimple(obj[CO.signatures][0]));
-      } else if (this.isTypeReflection(obj[CO.signatures][0][CO.type][CO.type])) {
-        returnsArray.push(this.parseTypeFromReflection(obj[CO.signatures][0][CO.type]));
-      } else if (this.isTypeArray(obj[CO.signatures][0][CO.type][CO.type])) {
-        returnsArray.push(this.parseTypeFromArray(obj[CO.signatures][0][CO.type]));
-      }
+      returnedType = this.determineType(obj[CO.signatures][0]);
     }
-
-    return returnsArray;
+    return [returnedType];
   }
 
-  parseTypeSimple(obj: any) {
-    if (obj[CO.type] === 'reference') {
-      return obj[CO.name] + '[]';
-    } else if (obj[CO.type][CO.type] === 'reference' && obj[CO.type][CO.typeArguments]) {
-      let commonType = '';
-      if (!obj[CO.type][CO.typeArguments][0][CO.declaration]) {
-        if (obj[CO.type][CO.typeArguments][0][CO.type] === 'reference') {
-          commonType = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
-        } else if (obj[CO.type][CO.typeArguments][0][CO.type] === 'array') {
-          commonType = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.elementType][CO.name] + '[]>';
-        }
-      } else if (obj[CO.type][CO.typeArguments][0][CO.declaration] && obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children] &&
-        obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].length !== 0) {
-        let returnsArray: any[] = [];
-        obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].forEach((item: any) => {
-          if (this.isTypeSimple(item[CO.type][CO.type])) {
-            const type = this.parseTypeSimple(item);
-            returnsArray.push(item[CO.name] + ': ' + type);
-          } else if (this.isTypeReflection(item[CO.type][CO.type])) {
-            const type = this.parseTypeFromReflection(item);
-            returnsArray.push(item[CO.name] + ': ' + type);
-          } else if (this.isTypeArray(item[CO.type][CO.type])) {
-            const type = this.parseTypeFromArray(item);
-            returnsArray.push(item[CO.name] + ': ' + type);
-          }
-        });
-        commonType = obj[CO.type][CO.name] + '<{' + returnsArray.toString().replace(/,/g, ', ') + '}>';
+  determineType(obj: any) {
+    if (this.isIntrinsic(obj[CO.type])) {
+      return this.parseIntrinsic(obj);
+    } else if (this.isReflection(obj[CO.type])) {
+      return this.parseReflection(obj);
+    } else if (this.isReference(obj[CO.type])) {
+      return this.parseReference(obj);
+    } else if (this.isArray(obj[CO.type])) {
+      return this.parseArray(obj);
+    }
+  }
+
+  parseIntrinsic(obj: any) {
+    return obj[CO.type][CO.name];
+  }
+
+  parseReference(obj: any) {
+    let returnedType = '';
+    if (obj[CO.comment] && obj[CO.comment][CO.returns]) {
+      const checkString = obj[CO.comment][CO.returns].replace(/[{}<>]+/g, '');
+      if (checkString.length > 1) {
+        returnedType = obj[CO.comment][CO.returns];
       } else {
-        let type = '';
-        if (obj[CO.comment] && obj[CO.comment][CO.returns]) {
-          type = obj[CO.comment][CO.returns];
-        } else {
-          type = obj[CO.type][CO.name] + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
-        }
-        commonType = type;
+       returnedType = this.parseReferenceFromTypeArguments(obj);
       }
-      return commonType;
+      return returnedType;
+    } else {
+     return this.parseReferenceFromTypeArguments(obj);
+    }
+  }
+
+  parseReferenceFromTypeArguments(obj: any) {
+    const mainTypeName = obj[CO.type][CO.name];
+    let helperType = '';
+    if (obj[CO.type] && obj[CO.type][CO.typeArguments] && obj[CO.type][CO.typeArguments].length !== 0) {
+      if (obj[CO.type][CO.typeArguments][0][CO.declaration] &&
+        obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].length !== 0) {
+        return mainTypeName + this.parseReferenceFromTypeArgumentsChildren(obj);
+      } else if (obj[CO.type][CO.typeArguments][0][CO.elementType]) {
+        return mainTypeName + this.parseReferenceFromTypeArgumentsElementType(obj);
+      } else {
+        return mainTypeName + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
+      }
     } else {
       return obj[CO.type][CO.name];
     }
   }
 
-  parseTypeFromArray(obj: any): any {
-    if (this.isTypeReflection(obj[CO.elementType][CO.type])) {
-      return this.parseTypeFromReflection({obj: obj[CO.elementType], fromArray: true});
-    } else if (this.isTypeArray(obj[CO.elementType][CO.type])) {
-      return this.parseTypeFromArray(obj[CO.elementType]);
-    } else {
-      return this.parseTypeSimple(obj[CO.elementType]);
-    }
+  parseReferenceFromTypeArgumentsChildren(obj: any) {
+    let helperType = '';
+    let helperItemsArray: any[] = [];
+    obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].forEach((item: any) => {
+      helperType = this.determineType(item);
+      helperItemsArray.push(item[CO.name] + ': ' + helperType)
+    });
+    return '<{' + helperItemsArray.toString().replace(',', '; ') + '}>';
   }
 
-  parseTypeFromReflection(obj: any) {
-    return obj.fromArray ? this.parseReflection(obj.obj) : this.parseReflection(obj);
+  parseReferenceFromTypeArgumentsElementType(obj: any) {
+    let helperType = '';
+    // todo find another kind of such preparation
+    obj[CO.type][CO.typeArguments][0].type = {
+      type: obj[CO.type][CO.typeArguments][0][CO.type],
+      elementType: obj[CO.type][CO.typeArguments][0][CO.elementType],
+    };
+    helperType = this.determineType(obj[CO.type][CO.typeArguments][0]);
+    return '<' + helperType + '>';
   }
 
   parseReflection(obj: any) {
-    if (obj[CO.declaration][CO.children] && obj[CO.declaration][CO.children].length !== 0) {
-      return this.parserReflectionFromChildren(obj);
-    } else if (obj[CO.declaration][CO.indexSignature] && obj[CO.declaration][CO.indexSignature].length !== 0) {
-      return this.parseReflectionFromIndexSignature(obj);
-    }
-  }
-
-  parserReflectionFromChildren(obj: any) {
-    const childrenObject: any = {};
-    const childrenObjectHelper: any = {};
-
-    if (obj[CO.declaration][CO.children].every((item: any) => this.isTypeSimple(item[CO.type][CO.type]))) {
-      obj[CO.declaration][CO.children].forEach((item: any) => {
-        childrenObject[item[CO.name]] = item[CO.type][CO.name];
-      });
-      return this.editTypeString(JSON.stringify(childrenObject), true);
+    if (obj[CO.type][CO.declaration][CO.children] && obj[CO.type][CO.declaration][CO.children].length !== 0) {
+      return this.parseTypeFromReflectionChildren(obj);
     } else {
-      obj[CO.declaration][CO.children].forEach((item: any) => {
-        if (this.isTypeSimple(item[CO.type][CO.type])) {
-          childrenObject[item[CO.name]] = item[CO.type][CO.name];
-        } else {
-          item[CO.type][CO.declaration][CO.children].forEach((itemsItem: any) => {
-            if (this.isTypeArray(itemsItem[CO.type][CO.type])) {
-              childrenObjectHelper[itemsItem[CO.name]] = this.parseTypeFromArray(itemsItem[CO.type]);
-            } else if (this.isTypeSimple(itemsItem[CO.type][CO.type])) {
-              childrenObjectHelper[itemsItem[CO.name]] = this.parseTypeSimple(itemsItem[CO.type]);
-            } else if (this.isTypeReflection(itemsItem[CO.type][CO.type])) {
-              childrenObjectHelper[itemsItem[CO.name]] = this.parseTypeFromReflection(itemsItem[CO.type]);
-            }
-            childrenObject[item[CO.name]] = childrenObjectHelper;
-          });
-        }
-      });
-      return this.editTypeString(JSON.stringify(childrenObject), true);
+      return this.parseTypeFromReflectionIndexSignature(obj);
     }
   }
 
-  parseReflectionFromIndexSignature(obj: any) {
+  parseTypeFromReflectionChildren(obj: any) {
+    let helperType = '';
+    let helperItemsArray: any[] = [];
+    obj[CO.type][CO.declaration][CO.children].forEach((item: any) => {
+      helperType = this.determineType(item);
+      helperItemsArray.push(item[CO.name] + ': ' + helperType);
+    });
+    return '{' + helperItemsArray.toString().replace(',', ', ') + '}';
+  }
+
+  parseTypeFromReflectionIndexSignature(obj: any) {
     const indexSignatureObject: any = {};
     const indexSignatureObjectHelper: any = {};
-
-    obj[CO.declaration][CO.indexSignature].forEach((item: any) => {
+    obj[CO.type][CO.declaration][CO.indexSignature].forEach((item: any) => {
       item[CO.parameters].forEach((itemsItem: any) => {
         indexSignatureObjectHelper[itemsItem[CO.name]] = itemsItem[CO.type][CO.name];
         indexSignatureObject['[' + JSON.stringify(indexSignatureObjectHelper)
           .replace(/[{}]+/g, '') + ']'] = item[CO.type][CO.name];
       });
     });
-    return this.editTypeString(JSON.stringify(indexSignatureObject), true);
+    return JSON.stringify(indexSignatureObject)
+      .replace(/[\\'"]+/g, '')
+      .replace(/:/g, ': ');
+  }
+
+  parseArray(obj: any) {
+    return obj[CO.type][CO.elementType][CO.name] + '[]';
   }
 
   isStatic(obj: any): boolean {
@@ -189,21 +180,19 @@ export class MethodsParser {
     return obj && obj[CO.signatures] && obj[CO.signatures][0][CO.comment];
   }
 
-
-  isTypeSimple(type: string) {
-    return type === 'intrinsic' || type === 'reference';
+  isIntrinsic(obj: any) {
+    return obj[CO.type] === 'intrinsic';
   }
 
-  isTypeArray(type: string) {
-    return type === 'array';
+  isReference(obj: any) {
+    return obj[CO.type] === 'reference';
   }
 
-  isTypeReflection(type: string) {
-    return type === 'reflection';
+  isReflection(obj: any) {
+    return obj[CO.type] === 'reflection';
   }
 
-  editTypeString(str: string, isFull: boolean) {
-    return isFull ? str.replace(/[\\'"]+/g, '')
-      .replace(/:/g, ': ') : str.replace(/[\\'"]+/g, '');
+  isArray(obj: any) {
+    return obj[CO.type] === 'array';
   }
 }
