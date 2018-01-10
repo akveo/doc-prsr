@@ -1,15 +1,16 @@
-import { Prop, PropKind } from '../../model';
-import { CommonOptions } from '../typedoc.parser.options';
+import {Prop, PropKind} from '../../model';
+import {CO} from '../typedoc.parser.options';
+import {type} from "os";
 
 export class PropertiesParser {
 
   getProps(obj: any): Prop[] {
-    if (obj && obj[CommonOptions.children]) {
-      return obj[CommonOptions.children]
+    if (obj && obj[CO.children]) {
+      return obj[CO.children]
         .filter((item: any) => this.isProperty(item) || this.isAccessor(item))
-        .filter((item: any) => item[CommonOptions.comment])
+        .filter((item: any) => item[CO.comment])
         .map((item: any) => {
-          if (item[CommonOptions.decorators]) {
+          if (item[CO.decorators]) {
             if (this.isInput(item)) {
               return this.parseProperty(item, 'input');
             } else if (this.isOutput(item)) {
@@ -34,61 +35,95 @@ export class PropertiesParser {
       isStatic: this.isStatic(obj),
       type: this.getType(obj),
       required: null,
-      name: obj[CommonOptions.name],
+      name: this.getName(obj),
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj)
     });
   }
 
+  getName(obj: any) {
+    if (obj[CO.decorators]) {
+      if (this.isInput(obj) && obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName]) {
+        return obj[CO.decorators][0][CO.arguments][CO.bindingPropertyName].replace(/'/g, '');
+      } else {
+        return obj[CO.name];
+      }
+    }
+  }
+
   getType(prop: any): string {
-    if (prop && prop[CommonOptions.type]) {
-      return prop[CommonOptions.type][CommonOptions.name];
-    } else if(prop && prop[CommonOptions.comment][CommonOptions.tags]) {
-      return prop[CommonOptions.comment][CommonOptions.tags]
-        .filter((item: any) => item[CommonOptions.tag] === 'type')[0][CommonOptions.text]
-        .replace(/[{}\n]/g, '');
+    if (prop[CO.type] && prop[CO.type][CO.type]) {
+      let type = '';
+      if (prop[CO.type][CO.type] === 'intrinsic') {
+        type = this.getTypeIntrinsicProp(prop);
+      } else if (prop[CO.type][CO.type] === 'array') {
+        type = this.getTypeArrayProp(prop);
+      } else if (prop[CO.type][CO.type] === 'reference') {
+        type = this.getTypeReferenceProp(prop);
+      }
+      return type;
     } else {
-      return '';
+      return this.getTypeOther(prop);
+    }
+  }
+
+  getTypeIntrinsicProp(prop: any) {
+    return prop[CO.type][CO.name];
+  }
+
+  getTypeArrayProp(prop: any) {
+    return prop[CO.type][CO.elementType][CO.name] + '[]';
+  }
+
+  getTypeReferenceProp(prop: any) {
+    return prop[CO.type][CO.name] + '<' + prop[CO.type][CO.typeArguments][0][CO.name] + '>';
+  }
+
+  getTypeOther(prop: any) {
+    if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !==0) {
+      return prop[CO.comment][CO.tags][0][CO.text].replace(/[\n{}]+/g, '');
+    } else {
+      return prop[CO.setSignature][0][CO.parameters][0][CO.type][CO.name];
     }
   }
 
   getDescription(prop: any): string {
-    if (prop && prop[CommonOptions.comment]) {
-      return prop[CommonOptions.comment]['text'];
+    if (prop && prop[CO.comment]) {
+      return prop[CO.comment]['text'];
     } else {
       return '';
     }
   }
 
   getShortDescription(prop: any): string {
-    if (prop && prop[CommonOptions.comment]) {
-      return prop[CommonOptions.comment]['shortText'];
+    if (prop && prop[CO.comment]) {
+      return prop[CO.comment]['shortText'];
     } else {
       return '';
     }
   }
 
   isStatic(prop: any): boolean {
-    if (prop && prop[CommonOptions.flags] && prop[CommonOptions.flags][CommonOptions.isStatic]) {
-      return prop[CommonOptions.flags][CommonOptions.isStatic];
+    if (prop && prop[CO.flags] && prop[CO.flags][CO.isStatic]) {
+      return prop[CO.flags][CO.isStatic];
     } else {
       return false;
     }
   }
 
   isProperty(obj: any) {
-    return obj[CommonOptions.primKind] === 'Property';
+    return obj[CO.primKind] === 'Property';
   }
 
   isAccessor(obj: any) {
-    return obj[CommonOptions.primKind] === 'Accessor';
+    return obj[CO.primKind] === 'Accessor';
   }
 
   isInput(prop: any) {
-    return prop[CommonOptions.decorators][0][CommonOptions.name] === 'Input';
+    return prop[CO.decorators][0][CO.name] === 'Input';
   }
 
   isOutput(prop: any) {
-    return prop[CommonOptions.decorators][0][CommonOptions.name] === 'Output';
+    return prop[CO.decorators][0][CO.name] === 'Output';
   }
 }

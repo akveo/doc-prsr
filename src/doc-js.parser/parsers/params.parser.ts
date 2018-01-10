@@ -1,5 +1,5 @@
 import { Param } from '../../model';
-import { CommonOptions } from '../doc-js.parser.options';
+import { CO } from '../doc-js.parser.options';
 import { Common } from "./common";
 
 export class ParamsParser {
@@ -7,8 +7,8 @@ export class ParamsParser {
   protected common: Common = new Common();
 
   getParams(obj: any): Param[] {
-    if (obj[CommonOptions.params] && obj[CommonOptions.params].length) {
-      return obj[CommonOptions.params].map((item: any) => this.parseParam(item));
+    if (obj[CO.params] && obj[CO.params].length) {
+      return obj[CO.params].map((item: any) => this.parseParam(item));
     } else {
       return [];
     }
@@ -25,7 +25,7 @@ export class ParamsParser {
   }
 
   getType(param: any): string {
-    return param[CommonOptions.paramType] ? param[CommonOptions.paramType][CommonOptions.name] : '';
+    return param[CO.paramType] ? param[CO.paramType][CO.name] : '';
   }
 
 }

@@ -54,6 +54,6 @@ function selectedParser(parser: string, inputPath: string, outputPath: string) {
       newdoc = new TypedocParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'angular'));
     }
     const outputObj: string = JSON.stringify(newdoc, null, 2);
-    fs.writeFile(outputPath, outputObj);
+    fs.writeFileSync(outputPath, outputObj);
   });
 }

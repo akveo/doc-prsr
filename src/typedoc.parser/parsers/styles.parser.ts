@@ -1,11 +1,11 @@
 import { Style } from '../../model';
-import { CommonOptions } from '../typedoc.parser.options';
+import { CO } from '../typedoc.parser.options';
 
 export  class StylesParser {
 
   getStyles(obj: any): Style[] {
     if (this.isHasTags(obj)){
-      return obj[CommonOptions.comment][CommonOptions.tags]
+      return obj[CO.comment][CO.tags]
         .filter((item: any) => this.isStyle(item))
         .map((item: any) => this.parserStyle(item));
     } else {
@@ -21,8 +21,8 @@ export  class StylesParser {
   }
 
   getStylesOfStyle(obj: any): any[] {
-    if (obj && obj[CommonOptions.text]) {
-      const arr = obj[CommonOptions.text].split('\n\n');
+    if (obj && obj[CO.text]) {
+      const arr = obj[CO.text].split('\n\n');
       let tempArr: any[] = [];
       const returnArr: any[] = [];
       arr.splice(0, 1);
@@ -43,8 +43,8 @@ export  class StylesParser {
   }
 
   getShortDescription(style: any): string {
-    if (style && style[CommonOptions.text]) {
-      const workString = style[CommonOptions.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
+    if (style && style[CO.text]) {
+      const workString = style[CO.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
       return workString[0];
     } else {
       return '';
@@ -52,11 +52,11 @@ export  class StylesParser {
   }
 
   isHasTags(obj: any) {
-    return obj && obj[CommonOptions.comment] && obj[CommonOptions.comment][CommonOptions.tags] &&
-      obj[CommonOptions.comment][CommonOptions.tags].length;
+    return obj && obj[CO.comment] && obj[CO.comment][CO.tags] &&
+      obj[CO.comment][CO.tags].length;
   }
 
   isStyle(obj: any) {
-    return obj[CommonOptions.tag] === 'styles';
+    return obj[CO.tag] === 'styles';
   }
 }

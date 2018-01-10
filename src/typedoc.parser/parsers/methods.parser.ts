@@ -1,14 +1,15 @@
-import { Method } from '../../model';
-import { CommonOptions } from '../typedoc.parser.options';
-import { ParamsParser, ExamplesParser } from './';
+import {Method} from '../../model';
+import {CO} from '../typedoc.parser.options';
+import {ParamsParser, ExamplesParser} from './';
+import {type} from "os";
 
 export class MethodsParser {
   protected params: ParamsParser = new ParamsParser();
   protected examples: ExamplesParser = new ExamplesParser();
 
   getMethods(obj: any): Method[] {
-    if (obj && obj[CommonOptions.children]) {
-      return obj[CommonOptions.children]
+    if (obj && obj[CO.children]) {
+      return obj[CO.children]
         .filter((item: any) => this.isMethod(item) || this.isConstructor(item))
         .map((item: any) => this.parseMethod(item));
     } else {
@@ -21,7 +22,7 @@ export class MethodsParser {
       examples: this.examples.getExamples(obj),
       params: this.params.getParams(obj),
       platform: null,
-      name: obj[CommonOptions.name],
+      name: obj[CO.name],
       type: this.getType(obj),
       isStatic: this.isStatic(obj),
       shortDescription: this.getShortDescription(obj),
@@ -31,7 +32,7 @@ export class MethodsParser {
 
   getDescription(obj: any): string {
     if (this.isHasDescription(obj)) {
-      return obj[CommonOptions.signatures][0][CommonOptions.comment]['text'];
+      return obj[CO.signatures][0][CO.comment]['text'];
     } else {
       return '';
     }
@@ -39,46 +40,159 @@ export class MethodsParser {
 
   getShortDescription(obj: any): string {
     if (this.isHasDescription(obj)) {
-      return obj[CommonOptions.signatures][0][CommonOptions.comment]['shortText'];
+      return obj[CO.signatures][0][CO.comment]['shortText'];
     } else {
       return '';
     }
   }
 
   getType(obj: any): string[] {
-    const returnsArray: string[] = [];
-    if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment]) {
-      if (obj[CommonOptions.signatures][0][CommonOptions.comment][CommonOptions.returns]) {
-        returnsArray.push(obj[CommonOptions.signatures][0][CommonOptions.comment][CommonOptions.returns].replace(/\n/g, ''));
-      } else {
-        return ['void'];
-      }
-      return returnsArray;
-    } else if (obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.type]) {
-      returnsArray.push(obj[CommonOptions.signatures][0][CommonOptions.type][CommonOptions.name]);
-      return returnsArray
-    } else {
-      return ['void'];
+    let returnedType = '';
+    if (obj[CO.signatures] && obj[CO.signatures][0][CO.type]) {
+      returnedType = this.determineType(obj[CO.signatures][0]);
+    }
+    return [returnedType];
+  }
+
+  determineType(obj: any) {
+    if (this.isIntrinsic(obj[CO.type])) {
+      return this.parseIntrinsic(obj);
+    } else if (this.isReflection(obj[CO.type])) {
+      return this.parseReflection(obj);
+    } else if (this.isReference(obj[CO.type])) {
+      return this.parseReference(obj);
+    } else if (this.isArray(obj[CO.type])) {
+      return this.parseArray(obj);
     }
   }
 
+  parseIntrinsic(obj: any) {
+    return obj[CO.type][CO.name];
+  }
+
+  parseReference(obj: any) {
+    let returnedType = '';
+    if (obj[CO.comment] && obj[CO.comment][CO.returns]) {
+      const checkString = obj[CO.comment][CO.returns].replace(/[{}<>]+/g, '');
+      if (checkString.length > 1) {
+        returnedType = obj[CO.comment][CO.returns];
+      } else {
+       returnedType = this.parseReferenceFromTypeArguments(obj);
+      }
+      return returnedType;
+    } else {
+     return this.parseReferenceFromTypeArguments(obj);
+    }
+  }
+
+  parseReferenceFromTypeArguments(obj: any) {
+    const mainTypeName = obj[CO.type][CO.name];
+    let helperType = '';
+    if (obj[CO.type] && obj[CO.type][CO.typeArguments] && obj[CO.type][CO.typeArguments].length !== 0) {
+      if (obj[CO.type][CO.typeArguments][0][CO.declaration] &&
+        obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].length !== 0) {
+        return mainTypeName + this.parseReferenceFromTypeArgumentsChildren(obj);
+      } else if (obj[CO.type][CO.typeArguments][0][CO.elementType]) {
+        return mainTypeName + this.parseReferenceFromTypeArgumentsElementType(obj);
+      } else {
+        return mainTypeName + '<' + obj[CO.type][CO.typeArguments][0][CO.name] + '>';
+      }
+    } else {
+      return obj[CO.type][CO.name];
+    }
+  }
+
+  parseReferenceFromTypeArgumentsChildren(obj: any) {
+    let helperType = '';
+    let helperItemsArray: any[] = [];
+    obj[CO.type][CO.typeArguments][0][CO.declaration][CO.children].forEach((item: any) => {
+      helperType = this.determineType(item);
+      helperItemsArray.push(item[CO.name] + ': ' + helperType)
+    });
+    return '<{' + helperItemsArray.toString().replace(',', '; ') + '}>';
+  }
+
+  parseReferenceFromTypeArgumentsElementType(obj: any) {
+    let helperType = '';
+    // todo find another kind of such preparation
+    obj[CO.type][CO.typeArguments][0].type = {
+      type: obj[CO.type][CO.typeArguments][0][CO.type],
+      elementType: obj[CO.type][CO.typeArguments][0][CO.elementType],
+    };
+    helperType = this.determineType(obj[CO.type][CO.typeArguments][0]);
+    return '<' + helperType + '>';
+  }
+
+  parseReflection(obj: any) {
+    if (obj[CO.type][CO.declaration][CO.children] && obj[CO.type][CO.declaration][CO.children].length !== 0) {
+      return this.parseTypeFromReflectionChildren(obj);
+    } else {
+      return this.parseTypeFromReflectionIndexSignature(obj);
+    }
+  }
+
+  parseTypeFromReflectionChildren(obj: any) {
+    let helperType = '';
+    let helperItemsArray: any[] = [];
+    obj[CO.type][CO.declaration][CO.children].forEach((item: any) => {
+      helperType = this.determineType(item);
+      helperItemsArray.push(item[CO.name] + ': ' + helperType);
+    });
+    return '{' + helperItemsArray.toString().replace(',', ', ') + '}';
+  }
+
+  parseTypeFromReflectionIndexSignature(obj: any) {
+    const indexSignatureObject: any = {};
+    const indexSignatureObjectHelper: any = {};
+    obj[CO.type][CO.declaration][CO.indexSignature].forEach((item: any) => {
+      item[CO.parameters].forEach((itemsItem: any) => {
+        indexSignatureObjectHelper[itemsItem[CO.name]] = itemsItem[CO.type][CO.name];
+        indexSignatureObject['[' + JSON.stringify(indexSignatureObjectHelper)
+          .replace(/[{}]+/g, '') + ']'] = item[CO.type][CO.name];
+      });
+    });
+    return JSON.stringify(indexSignatureObject)
+      .replace(/[\\'"]+/g, '')
+      .replace(/:/g, ': ');
+  }
+
+  parseArray(obj: any) {
+    return obj[CO.type][CO.elementType][CO.name] + '[]';
+  }
+
   isStatic(obj: any): boolean {
-    if (obj && obj[CommonOptions.flags] && obj[CommonOptions.flags][CommonOptions.isStatic]) {
-      return obj[CommonOptions.flags][CommonOptions.isStatic];
+    if (obj && obj[CO.flags] && obj[CO.flags][CO.isStatic]) {
+      return obj[CO.flags][CO.isStatic];
     } else {
       return false;
     }
   }
 
   isMethod(obj: any) {
-    return obj[CommonOptions.primKind] === 'Method';
+    return obj[CO.primKind] === 'Method';
   }
 
   isConstructor(obj: any) {
-    return obj[CommonOptions.primKind] === 'Constructor';
+    return obj[CO.primKind] === 'Constructor';
   }
 
   isHasDescription(obj: any) {
-    return obj && obj[CommonOptions.signatures] && obj[CommonOptions.signatures][0][CommonOptions.comment];
+    return obj && obj[CO.signatures] && obj[CO.signatures][0][CO.comment];
+  }
+
+  isIntrinsic(obj: any) {
+    return obj[CO.type] === 'intrinsic';
+  }
+
+  isReference(obj: any) {
+    return obj[CO.type] === 'reference';
+  }
+
+  isReflection(obj: any) {
+    return obj[CO.type] === 'reflection';
+  }
+
+  isArray(obj: any) {
+    return obj[CO.type] === 'array';
   }
 }
