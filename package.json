@@ -29,6 +29,7 @@
     "@types/node": "^7.0.27",
     "@types/tape": "^4.2.30",
     "fs": "0.0.1-security",
+    "jest": "^22.0.6",
     "npm-run-all": "^4.0.2",
     "tape": "^4.6.3",
     "ts-jest": "^20.0.5",
