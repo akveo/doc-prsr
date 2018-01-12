@@ -1,6 +1,6 @@
 {
   "name": "doc-prsr",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -8,18 +8,19 @@
     "test": "jest",
     "start": "tsc --watch",
     "build": "tsc",
-    "release:changelog": "conventional-changelog -i CHANGELOG.md -s"
+    "release:changelog": "conventional-changelog -i CHANGELOG.md -s",
+    "release": "npm run build && npm test && npm publish --access=public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/32penkin/doc-tool.git"
+    "url": "git+https://github.com/akveo/doc-prsr.git"
   },
-  "author": "Yauhen",
-  "license": "ISC",
+  "author": "Akveo",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/32penkin/doc-tool/issues"
+    "url": "https://github.com/akveo/doc-prsr/issues"
   },
-  "homepage": "https://github.com/32penkin/doc-tool#readme",
+  "homepage": "https://github.com/akveo/doc-prsr#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "path": "^0.12.7",
