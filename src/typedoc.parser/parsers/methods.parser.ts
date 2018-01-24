@@ -24,6 +24,7 @@ export class MethodsParser {
       platform: null,
       name: obj[CO.name],
       type: this.getType(obj),
+      // type: ['string'],
       isStatic: this.isStatic(obj),
       shortDescription: this.getShortDescription(obj),
       description: this.getDescription(obj)
@@ -63,6 +64,8 @@ export class MethodsParser {
       return this.parseReference(obj);
     } else if (this.isArray(obj[CO.type])) {
       return this.parseArray(obj);
+    } else if (this.isTypeParameter(obj[CO.type])) {
+      return this.parseTypeParameter(obj);
     }
   }
 
@@ -126,8 +129,11 @@ export class MethodsParser {
   parseReflection(obj: any) {
     if (obj[CO.type][CO.declaration][CO.children] && obj[CO.type][CO.declaration][CO.children].length !== 0) {
       return this.parseTypeFromReflectionChildren(obj);
-    } else {
+    } else if(obj[CO.type][CO.declaration][CO.indexSignature] &&
+      obj[CO.type][CO.declaration][CO.indexSignature].length !== 0) {
       return this.parseTypeFromReflectionIndexSignature(obj);
+    } else {
+      return this.parseTypeFromSignature(obj);
     }
   }
 
@@ -154,6 +160,24 @@ export class MethodsParser {
     return JSON.stringify(indexSignatureObject)
       .replace(/[\\'"]+/g, '')
       .replace(/:/g, ': ');
+  }
+
+  parseTypeFromSignature(obj: any) {
+    const mainReturnedType: any = this.determineType(obj[CO.type][CO.declaration][CO.signatures][0]);
+    let parameters: any[] = [];
+    obj[CO.type][CO.declaration][CO.signatures][0][CO.parameters].forEach((item: any) => {
+      parameters.push(item[CO.name] + ': ' + this.determineType(item));
+    });
+    let returnedTypePrepared: string = '';
+    parameters.forEach((item: any) => {
+      returnedTypePrepared += item.toString() + ', ';
+    });
+
+    return ('(' + returnedTypePrepared + ') => ' + mainReturnedType).replace(/, \)/g, ')');
+  }
+
+  parseTypeParameter(obj: any) {
+    return obj[CO.type][CO.name];
   }
 
   parseArray(obj: any) {
@@ -194,5 +218,9 @@ export class MethodsParser {
 
   isArray(obj: any) {
     return obj[CO.type] === 'array';
+  }
+
+  isTypeParameter(obj: any) {
+    return obj[CO.type] === 'typeParameter';
   }
 }
