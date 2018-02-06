@@ -24,7 +24,6 @@ export class MethodsParser {
       platform: null,
       name: obj[CO.name],
       type: this.getType(obj),
-      // type: ['string'],
       isStatic: this.isStatic(obj),
       shortDescription: this.getShortDescription(obj),
       description: this.getDescription(obj)
