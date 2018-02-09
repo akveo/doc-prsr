@@ -48,6 +48,8 @@ export class PropertiesParser {
       } else {
         return obj[CO.name];
       }
+    } else {
+      return obj[CO.name];
     }
   }
 
@@ -76,14 +78,21 @@ export class PropertiesParser {
   }
 
   getTypeReferenceProp(prop: any) {
-    return prop[CO.type][CO.name] + '<' + prop[CO.type][CO.typeArguments][0][CO.name] + '>';
+    if (prop[CO.type][CO.typeArguments] && prop[CO.type][CO.typeArguments].length !== 0) {
+      return prop[CO.type][CO.name] + '<' + prop[CO.type][CO.typeArguments][0][CO.name] + '>';
+    } else {
+      return prop[CO.type][CO.name];
+    }
   }
 
   getTypeOther(prop: any) {
     if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !==0) {
       return prop[CO.comment][CO.tags][0][CO.text].replace(/[\n{}]+/g, '');
-    } else {
+    } else if(prop[CO.setSignature] && prop[CO.setSignature].length !== 0 &&
+      prop[CO.setSignature][0][CO.parameters] && prop[CO.setSignature][0][CO.parameters].length !== 0) {
       return prop[CO.setSignature][0][CO.parameters][0][CO.type][CO.name];
+    } else if (prop[CO.getSignature] && prop[CO.getSignature].length !== 0) {
+      return prop[CO.getSignature][0][CO.type][CO.name];
     }
   }
 

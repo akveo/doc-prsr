@@ -1,5 +1,12 @@
-<a name="2.0.0"></a>
-# 2.0.0 (2018-01-12)
+<a name="2.0.2"></a>
+## 2.0.2 (2018-02-06)
+
+* fix(type-doc): fix properties parser fix ([3912a6b](https://github.com/akveo/doc-prsr/commit/3912a6b))
+* feat,fix(type-doc): feat/fit new method type implement ([e071b1d](https://github.com/akveo/doc-prsr/commit/e071b1d))
+
+
+<a name="2.0.1"></a>
+# 2.0.1 (2018-01-12)
 
 * fix(doc-js): examples parser fix ([57be4b5](https://github.com/32penkin/doc-tool/commit/57be4b5))
 * fix(doc-js): methods returning value type fix ([5c19850](https://github.com/32penkin/doc-tool/commit/5c19850))
@@ -14,8 +21,6 @@
 * fix(type-doc): properties types fix ([79d0a41](https://github.com/32penkin/doc-tool/commit/79d0a41))
 * build(common): jest update ([34c070c](https://github.com/32penkin/doc-tool/commit/34c070c))
 * refactor(typedoc): method parser refactor ([5638572](https://github.com/32penkin/doc-tool/commit/5638572))
-
-
 
 
 
