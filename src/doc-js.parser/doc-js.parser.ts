@@ -12,7 +12,6 @@ import {
   MethodsParser,
   Common
 } from './parsers';
-import { LiveExamplesParser } from '../typedoc.parser/parsers';
 
 export class DocJsParser {
   protected json: any;
@@ -20,7 +19,6 @@ export class DocJsParser {
   protected props: PropertiesParser = new PropertiesParser();
   protected examples: ExamplesParser = new ExamplesParser();
   protected methods: MethodsParser = new MethodsParser();
-  protected liveExamples: LiveExamplesParser = new LiveExamplesParser();
   protected common: Common = new Common();
 
   parse(json: any, metadata: Metadata): Model {
@@ -49,7 +47,8 @@ export class DocJsParser {
       shortDescription: this.common.getShortDescription(obj),
       description: this.common.getDescription(obj),
       styles: this.styles.getStyles(obj),
-      liveExamples: this.liveExamples.getExamples(obj)
+      // TODO create docs-js examples parser
+      liveExamples: []
     });
   }
 
