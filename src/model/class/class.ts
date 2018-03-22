@@ -21,6 +21,7 @@ export class Class {
   shortDescription: string;
   description: string;
   styles: Style[];
+  liveExamples: string[];
 
   constructor(options: Class) {
     this.kind = options.kind;
@@ -32,5 +33,6 @@ export class Class {
     this.description = options.description;
     this.shortDescription = options.shortDescription;
     this.styles = options.styles;
+    this.liveExamples = options.liveExamples;
   }
 }

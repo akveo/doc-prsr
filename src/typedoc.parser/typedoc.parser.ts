@@ -9,7 +9,8 @@ import {
   PropertiesParser,
   MethodsParser,
   StylesParser,
-  ExamplesParser
+  ExamplesParser,
+  LiveExamplesParser,
 } from './parsers';
 import {Metadata} from "../model/metadata/metadata";
 
@@ -18,6 +19,7 @@ export class TypedocParser {
   protected styles: StylesParser = new StylesParser();
   protected methods: MethodsParser = new MethodsParser();
   protected props: PropertiesParser = new PropertiesParser();
+  protected liveExamples: LiveExamplesParser = new LiveExamplesParser();
   protected json: any;
   protected classes: any[] = [];
 
@@ -79,7 +81,8 @@ export class TypedocParser {
       name: obj[CO.name],
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
-      styles: this.styles.getStyles(obj)
+      styles: this.styles.getStyles(obj),
+      liveExamples: this.liveExamples.getExamples(obj)
     });
   }
 
