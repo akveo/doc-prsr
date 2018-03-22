@@ -1,9 +1,10 @@
 export { Metadata, Language, Framework, Generator } from './metadata/metadata';
 export { Class, ClassKind } from './class/class';
-export { Example } from './class/example';
+export { Example, InlineExample } from './class/example';
 export { Method } from './class/method';
 export { Param } from './class/param';
 export { Platform } from './class/platform';
 export { Prop, PropKind } from './class/prop';
 export { Model } from './model';
 export { Style } from './class/style';
+export { OverviewNode } from './class/overview';
