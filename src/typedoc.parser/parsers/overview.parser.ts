@@ -55,17 +55,20 @@ export class OverviewParser {
    * inline-example(some-example-2, scss, 11, 16)
    * */
   private parseInlineExample(raw: string): InlineExample {
-    const example = raw.match(/\((.*),(.*),(.*),(.*)\)/);
+    const example = raw.match(/\((.*)\)/);
 
     if (!example) {
       throw new Error(`Can't parse inline example: ${raw}`);
     }
 
+    const [id, lang, firstLine, lastLine] = example[1]
+      .split(',')
+      .map(x => x.trim());
+
     return {
-      id: example[1],
-      lang: example[2],
-      firstLine: +example[3],
-      lastLine: +example[4],
+      id, lang,
+      firstLine: +firstLine,
+      lastLine: +lastLine,
     };
   }
 
