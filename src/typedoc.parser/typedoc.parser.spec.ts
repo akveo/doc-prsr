@@ -1,11 +1,5 @@
-import {TypedocParser} from './typedoc.parser';
-import {
-  ExamplesParser,
-  StylesParser,
-  MethodsParser,
-  PropertiesParser,
-  ParamsParser
-} from './parsers';
+import { ExamplesParser, MethodsParser, ParamsParser, PropertiesParser, StylesParser } from './parsers';
+import { OverviewParser } from './parsers/overview.parser';
 
 describe('#TypedocParser', () => {
   test('#GetStyles -> getStyles', () => {
@@ -19,18 +13,18 @@ describe('#TypedocParser', () => {
         "tags": [
           {
             "tag": "styles",
-            "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
+            "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n",
           },
           {
             "tag": "example",
-            "text": "Min sidebar example\n\n```\n<nga-sidebar><nga-sidebar-content>Sidebar content</nga-sidebar-content></nga-sidebar>\n```\n"
+            "text": "Min sidebar example\n\n```\n<nga-sidebar><nga-sidebar-content>Sidebar content</nga-sidebar-content></nga-sidebar>\n```\n",
           },
           {
             "tag": "example",
-            "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
-          }
-        ]
-      }
+            "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n",
+          },
+        ],
+      },
     };
     const test2 = {};
     const out1 = [
@@ -39,38 +33,38 @@ describe('#TypedocParser', () => {
         "styles": [
           {
             "name": "$nga-sidebar-foreground",
-            "description": "$nga-foreground-inverse !default;"
+            "description": "$nga-foreground-inverse !default;",
           },
           {
             "name": "$nga-sidebar-background",
-            "description": "$nga-background-inverse !default;"
+            "description": "$nga-background-inverse !default;",
           },
           {
             "name": "$nga-sidebar-height",
-            "description": "100vh !default;"
+            "description": "100vh !default;",
           },
           {
             "name": "$nga-sidebar-width",
-            "description": "12rem !default;"
+            "description": "12rem !default;",
           },
           {
             "name": "$nga-sidebar-width-compact",
-            "description": "4rem !default;"
+            "description": "4rem !default;",
           },
           {
             "name": "$nga-sidebar-padding",
-            "description": "$nga-padding !default;"
+            "description": "$nga-padding !default;",
           },
           {
             "name": "$nga-sidebar-header-height",
-            "description": "3.5rem !default;"
+            "description": "3.5rem !default;",
           },
           {
             "name": "$nga-sidebar-footer-height",
-            "description": "3.5rem !default;"
-          }
-        ]
-      }
+            "description": "3.5rem !default;",
+          },
+        ],
+      },
     ];
 
     expect(getStyles.getStyles(test2).toString()).toBe([].toString());
@@ -81,42 +75,42 @@ describe('#TypedocParser', () => {
     const getStyles = new StylesParser();
     const test1 = {
       "tag": "styles",
-      "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
+      "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n",
     };
     const test2 = {};
     const out1 = [
       {
         "name": "$nga-sidebar-foreground",
-        "description": "$nga-foreground-inverse !default;"
+        "description": "$nga-foreground-inverse !default;",
       },
       {
         "name": "$nga-sidebar-background",
-        "description": "$nga-background-inverse !default;"
+        "description": "$nga-background-inverse !default;",
       },
       {
         "name": "$nga-sidebar-height",
-        "description": "100vh !default;"
+        "description": "100vh !default;",
       },
       {
         "name": "$nga-sidebar-width",
-        "description": "12rem !default;"
+        "description": "12rem !default;",
       },
       {
         "name": "$nga-sidebar-width-compact",
-        "description": "4rem !default;"
+        "description": "4rem !default;",
       },
       {
         "name": "$nga-sidebar-padding",
-        "description": "$nga-padding !default;"
+        "description": "$nga-padding !default;",
       },
       {
         "name": "$nga-sidebar-header-height",
-        "description": "3.5rem !default;"
+        "description": "3.5rem !default;",
       },
       {
         "name": "$nga-sidebar-footer-height",
-        "description": "3.5rem !default;"
-      }
+        "description": "3.5rem !default;",
+      },
     ];
 
     expect(getStyles.getStylesOfStyle(test2).toString()).toBe([].toString());
@@ -127,7 +121,7 @@ describe('#TypedocParser', () => {
     const getStyles = new StylesParser();
     const test1 = {
       "tag": "styles",
-      "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
+      "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n",
     };
     const test2 = {};
 
@@ -148,7 +142,7 @@ describe('#TypedocParser', () => {
           "kindString": "Call signature",
           "flags": {},
           "comment": {
-            "shortText": "Toggle a sidebar"
+            "shortText": "Toggle a sidebar",
           },
           "parameters": [
             {
@@ -159,9 +153,9 @@ describe('#TypedocParser', () => {
               "flags": {},
               "type": {
                 "type": "intrinsic",
-                "name": "boolean"
+                "name": "boolean",
               },
-              "defaultValue": "false"
+              "defaultValue": "false",
             },
             {
               "id": 410,
@@ -169,18 +163,18 @@ describe('#TypedocParser', () => {
               "kind": 32768,
               "kindString": "Parameter",
               "flags": {
-                "isOptional": true
+                "isOptional": true,
               },
               "comment": {
-                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
               },
               "type": {
                 "type": "intrinsic",
-                "name": "string"
-              }
-            }
-          ]
-        }]
+                "name": "string",
+              },
+            },
+          ],
+        }],
     };
     const test2 = {};
     const out1 = [
@@ -189,14 +183,14 @@ describe('#TypedocParser', () => {
         "type": "boolean",
         "required": null,
         "shortDescription": "",
-        "description": ""
+        "description": "",
       },
       {
         "name": "tag",
         "type": "string",
         "required": null,
-        "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
-      }
+        "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
+      },
     ];
 
     expect(getParams.getParams(test2).toString()).toBe([].toString());
@@ -208,12 +202,12 @@ describe('#TypedocParser', () => {
     const test1 = {
       "kindString": "Parameter",
       "comment": {
-        "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+        "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
       },
       "type": {
         "type": "intrinsic",
-        "name": "string"
-      }
+        "name": "string",
+      },
     };
     const test2 = {};
 
@@ -226,12 +220,12 @@ describe('#TypedocParser', () => {
     const test1 = {
       "kindString": "Parameter",
       "comment": {
-        "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+        "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
       },
       "type": {
         "type": "intrinsic",
-        "name": "string"
-      }
+        "name": "string",
+      },
     };
     const test2 = {};
 
@@ -244,95 +238,17 @@ describe('#TypedocParser', () => {
     const test1 = {
       "kindString": "Parameter",
       "comment": {
-        "shortText": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+        "shortText": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
       },
       "type": {
         "type": "intrinsic",
-        "name": "string"
-      }
+        "name": "string",
+      },
     };
     const test2 = {};
 
     expect(getParams.getShortDescription(test2)).toBe('');
     expect(getParams.getShortDescription(test1)).toBe('tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n');
-  });
-
-  test('#GetExamples -> getExamples', () => {
-    const getExamples = new ExamplesParser();
-    const test1 = {
-      "name": "NgaSidebarComponent",
-      "kindString": "Class",
-      "comment": {
-        "shortText": "Main sidebar component.",
-        "text": "Sidebar can be place on the left or right side of the layout, can be fixed (shown above the content)\nor can push the layout when opened.\n",
-        "tags": [
-          {
-            "tag": "styles",
-            "text": "Available component styles\n\n$nga-sidebar-foreground: $nga-foreground-inverse !default;\n$nga-sidebar-background: $nga-background-inverse !default;\n$nga-sidebar-height: 100vh !default;\n$nga-sidebar-width: 12rem !default;\n$nga-sidebar-width-compact: 4rem !default;\n$nga-sidebar-padding: $nga-padding !default;\n$nga-sidebar-header-height: 3.5rem !default;\n$nga-sidebar-footer-height: 3.5rem !default;\n"
-          },
-          {
-            "tag": "example",
-            "text": "Min sidebar example\n\n```\n<nga-sidebar><nga-sidebar-content>Sidebar content</nga-sidebar-content></nga-sidebar>\n```\n"
-          },
-          {
-            "tag": "example",
-            "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
-          }
-        ]
-      }
-    };
-    const test2 = {};
-    const out1 = [
-      {
-        "shortDescription": "Min sidebar example",
-        "description": "",
-        "code": "\n<nga-sidebar><nga-sidebar-content>Sidebar content</nga-sidebar-content></nga-sidebar>\n"
-      },
-      {
-        "shortDescription": "Fixed sidebar",
-        "description": "Example of fixed sidebar located on the left side, initially collapsed.",
-        "code": "\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n"
-      }
-    ];
-
-    expect(getExamples.getExamples(test2).toString()).toBe([].toString());
-    expect(getExamples.getExamples(test1).toString()).toBe(out1.toString());
-  });
-
-  test('#GetExamples -> getCode', () => {
-    const getExamples = new ExamplesParser();
-    const test1 = {
-      "tag": "example",
-      "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
-    };
-    const test2 = {};
-
-    expect(getExamples.getCode(test2)).toBe('');
-    expect(getExamples.getCode(test1)).toBe('\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n');
-  });
-
-  test('#GetExamples -> getDescription', () => {
-    const getExamples = new ExamplesParser();
-    const test1 = {
-      "tag": "example",
-      "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
-    };
-    const test2 = {};
-
-    expect(getExamples.getDescription(test2)).toBe('');
-    expect(getExamples.getDescription(test1)).toBe('Example of fixed sidebar located on the left side, initially collapsed.');
-  });
-
-  test('#GetExamples -> getShortDescription', () => {
-    const getExamples = new ExamplesParser();
-    const test1 = {
-      "tag": "example",
-      "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n"
-    };
-    const test2 = {};
-
-    expect(getExamples.getShortDescription(test2)).toBe('');
-    expect(getExamples.getShortDescription(test1)).toBe('Fixed sidebar');
   });
 
   test('#GetMethods -> getMethods', () => {
@@ -348,14 +264,14 @@ describe('#TypedocParser', () => {
           "kindString": "Property",
           "flags": {
             "isPrivate": true,
-            "isExported": true
+            "isExported": true,
           },
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 22,
-              "character": 19
-            }
+              "character": 19,
+            },
           ],
           "type": {
             "type": "reference",
@@ -363,11 +279,11 @@ describe('#TypedocParser', () => {
             "typeArguments": [
               {
                 "type": "intrinsic",
-                "name": "Object"
-              }
-            ]
+                "name": "Object",
+              },
+            ],
           },
-          "defaultValue": " new Subject()"
+          "defaultValue": " new Subject()",
         },
         {
           "id": 392,
@@ -376,14 +292,14 @@ describe('#TypedocParser', () => {
           "kindString": "Property",
           "flags": {
             "isPrivate": true,
-            "isExported": true
+            "isExported": true,
           },
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 21,
-              "character": 17
-            }
+              "character": 17,
+            },
           ],
           "type": {
             "type": "reference",
@@ -391,11 +307,11 @@ describe('#TypedocParser', () => {
             "typeArguments": [
               {
                 "type": "intrinsic",
-                "name": "Object"
-              }
-            ]
+                "name": "Object",
+              },
+            ],
           },
-          "defaultValue": " new Subject()"
+          "defaultValue": " new Subject()",
         },
         {
           "id": 391,
@@ -404,14 +320,14 @@ describe('#TypedocParser', () => {
           "kindString": "Property",
           "flags": {
             "isPrivate": true,
-            "isExported": true
+            "isExported": true,
           },
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 20,
-              "character": 17
-            }
+              "character": 17,
+            },
           ],
           "type": {
             "type": "reference",
@@ -419,11 +335,11 @@ describe('#TypedocParser', () => {
             "typeArguments": [
               {
                 "type": "intrinsic",
-                "name": "Object"
-              }
-            ]
+                "name": "Object",
+              },
+            ],
           },
-          "defaultValue": " new Subject()"
+          "defaultValue": " new Subject()",
         },
         {
           "id": 414,
@@ -431,7 +347,7 @@ describe('#TypedocParser', () => {
           "kind": 2048,
           "kindString": "Method",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "signatures": [
             {
@@ -441,7 +357,7 @@ describe('#TypedocParser', () => {
               "kindString": "Call signature",
               "flags": {},
               "comment": {
-                "shortText": "Collapses a sidebar"
+                "shortText": "Collapses a sidebar",
               },
               "parameters": [
                 {
@@ -450,30 +366,30 @@ describe('#TypedocParser', () => {
                   "kind": 32768,
                   "kindString": "Parameter",
                   "flags": {
-                    "isOptional": true
+                    "isOptional": true,
                   },
                   "comment": {
-                    "text": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                    "text": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
                   },
                   "type": {
                     "type": "intrinsic",
-                    "name": "string"
-                  }
-                }
+                    "name": "string",
+                  },
+                },
               ],
               "type": {
                 "type": "intrinsic",
-                "name": "void"
-              }
-            }
+                "name": "void",
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 73,
-              "character": 10
-            }
-          ]
+              "character": 10,
+            },
+          ],
         },
         {
           "id": 411,
@@ -481,7 +397,7 @@ describe('#TypedocParser', () => {
           "kind": 2048,
           "kindString": "Method",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "signatures": [
             {
@@ -491,7 +407,7 @@ describe('#TypedocParser', () => {
               "kindString": "Call signature",
               "flags": {},
               "comment": {
-                "shortText": "Expands a sidebar"
+                "shortText": "Expands a sidebar",
               },
               "parameters": [
                 {
@@ -500,30 +416,30 @@ describe('#TypedocParser', () => {
                   "kind": 32768,
                   "kindString": "Parameter",
                   "flags": {
-                    "isOptional": true
+                    "isOptional": true,
                   },
                   "comment": {
-                    "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                    "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
                   },
                   "type": {
                     "type": "intrinsic",
-                    "name": "string"
-                  }
-                }
+                    "name": "string",
+                  },
+                },
               ],
               "type": {
                 "type": "intrinsic",
-                "name": "void"
-              }
-            }
+                "name": "void",
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 64,
-              "character": 8
-            }
-          ]
+              "character": 8,
+            },
+          ],
         },
         {
           "id": 403,
@@ -531,7 +447,7 @@ describe('#TypedocParser', () => {
           "kind": 2048,
           "kindString": "Method",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "signatures": [
             {
@@ -542,7 +458,7 @@ describe('#TypedocParser', () => {
               "flags": {},
               "comment": {
                 "shortText": "Subscribe to collapse evens",
-                "returns": "Observable<{ tag: string }>\n"
+                "returns": "Observable<{ tag: string }>\n",
               },
               "type": {
                 "type": "reference",
@@ -567,44 +483,44 @@ describe('#TypedocParser', () => {
                             {
                               "fileName": "theme/components/sidebar/sidebar.service.ts",
                               "line": 45,
-                              "character": 32
-                            }
+                              "character": 32,
+                            },
                           ],
                           "type": {
                             "type": "intrinsic",
-                            "name": "string"
-                          }
-                        }
+                            "name": "string",
+                          },
+                        },
                       ],
                       "groups": [
                         {
                           "title": "Variables",
                           "kind": 32,
                           "children": [
-                            406
-                          ]
-                        }
+                            406,
+                          ],
+                        },
                       ],
                       "sources": [
                         {
                           "fileName": "theme/components/sidebar/sidebar.service.ts",
                           "line": 45,
-                          "character": 27
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
+                          "character": 27,
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 45,
-              "character": 12
-            }
-          ]
+              "character": 12,
+            },
+          ],
         },
         {
           "id": 399,
@@ -612,7 +528,7 @@ describe('#TypedocParser', () => {
           "kind": 2048,
           "kindString": "Method",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "signatures": [
             {
@@ -623,7 +539,7 @@ describe('#TypedocParser', () => {
               "flags": {},
               "comment": {
                 "shortText": "Subscribe to expand events",
-                "returns": "Observable<{ tag: string }>\n"
+                "returns": "Observable<{ tag: string }>\n",
               },
               "type": {
                 "type": "reference",
@@ -648,44 +564,44 @@ describe('#TypedocParser', () => {
                             {
                               "fileName": "theme/components/sidebar/sidebar.service.ts",
                               "line": 37,
-                              "character": 30
-                            }
+                              "character": 30,
+                            },
                           ],
                           "type": {
                             "type": "intrinsic",
-                            "name": "string"
-                          }
-                        }
+                            "name": "string",
+                          },
+                        },
                       ],
                       "groups": [
                         {
                           "title": "Variables",
                           "kind": 32,
                           "children": [
-                            402
-                          ]
-                        }
+                            402,
+                          ],
+                        },
                       ],
                       "sources": [
                         {
                           "fileName": "theme/components/sidebar/sidebar.service.ts",
                           "line": 37,
-                          "character": 25
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
+                          "character": 25,
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 37,
-              "character": 10
-            }
-          ]
+              "character": 10,
+            },
+          ],
         },
         {
           "id": 394,
@@ -693,7 +609,7 @@ describe('#TypedocParser', () => {
           "kind": 2048,
           "kindString": "Method",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "signatures": [
             {
@@ -704,7 +620,7 @@ describe('#TypedocParser', () => {
               "flags": {},
               "comment": {
                 "shortText": "Subscribe to toggle events",
-                "returns": "Observable<{ compact: boolean, tag: string }>\n"
+                "returns": "Observable<{ compact: boolean, tag: string }>\n",
               },
               "type": {
                 "type": "reference",
@@ -729,13 +645,13 @@ describe('#TypedocParser', () => {
                             {
                               "fileName": "theme/components/sidebar/sidebar.service.ts",
                               "line": 29,
-                              "character": 34
-                            }
+                              "character": 34,
+                            },
                           ],
                           "type": {
                             "type": "intrinsic",
-                            "name": "boolean"
-                          }
+                            "name": "boolean",
+                          },
                         },
                         {
                           "id": 398,
@@ -747,14 +663,14 @@ describe('#TypedocParser', () => {
                             {
                               "fileName": "theme/components/sidebar/sidebar.service.ts",
                               "line": 29,
-                              "character": 48
-                            }
+                              "character": 48,
+                            },
                           ],
                           "type": {
                             "type": "intrinsic",
-                            "name": "string"
-                          }
-                        }
+                            "name": "string",
+                          },
+                        },
                       ],
                       "groups": [
                         {
@@ -762,30 +678,30 @@ describe('#TypedocParser', () => {
                           "kind": 32,
                           "children": [
                             397,
-                            398
-                          ]
-                        }
+                            398,
+                          ],
+                        },
                       ],
                       "sources": [
                         {
                           "fileName": "theme/components/sidebar/sidebar.service.ts",
                           "line": 29,
-                          "character": 25
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            }
+                          "character": 25,
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 29,
-              "character": 10
-            }
-          ]
+              "character": 10,
+            },
+          ],
         },
         {
           "id": 407,
@@ -793,7 +709,7 @@ describe('#TypedocParser', () => {
           "kind": 2048,
           "kindString": "Method",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "signatures": [
             {
@@ -803,7 +719,7 @@ describe('#TypedocParser', () => {
               "kindString": "Call signature",
               "flags": {},
               "comment": {
-                "shortText": "Toggle a sidebar"
+                "shortText": "Toggle a sidebar",
               },
               "parameters": [
                 {
@@ -814,9 +730,9 @@ describe('#TypedocParser', () => {
                   "flags": {},
                   "type": {
                     "type": "intrinsic",
-                    "name": "boolean"
+                    "name": "boolean",
                   },
-                  "defaultValue": "false"
+                  "defaultValue": "false",
                 },
                 {
                   "id": 410,
@@ -824,32 +740,32 @@ describe('#TypedocParser', () => {
                   "kind": 32768,
                   "kindString": "Parameter",
                   "flags": {
-                    "isOptional": true
+                    "isOptional": true,
                   },
                   "comment": {
-                    "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                    "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
                   },
                   "type": {
                     "type": "intrinsic",
-                    "name": "string"
-                  }
-                }
+                    "name": "string",
+                  },
+                },
               ],
               "type": {
                 "type": "intrinsic",
-                "name": "void"
-              }
-            }
+                "name": "void",
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/sidebar/sidebar.service.ts",
               "line": 55,
-              "character": 8
-            }
-          ]
-        }
-      ]
+              "character": 8,
+            },
+          ],
+        },
+      ],
     };
     const test2 = {};
     const out1 = [
@@ -860,14 +776,14 @@ describe('#TypedocParser', () => {
             "name": "tag",
             "type": "string",
             "required": null,
-            "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
-          }
+            "description": "If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
+          },
         ],
         "platform": null,
         "name": "collapse",
         "type": [],
         "isStatic": false,
-        "shortDescription": "Collapses a sidebar"
+        "shortDescription": "Collapses a sidebar",
       },
       {
         "examples": [],
@@ -876,14 +792,14 @@ describe('#TypedocParser', () => {
             "name": "tag",
             "type": "string",
             "required": null,
-            "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
-          }
+            "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
+          },
         ],
         "platform": null,
         "name": "expand",
         "type": [],
         "isStatic": false,
-        "shortDescription": "Expands a sidebar"
+        "shortDescription": "Expands a sidebar",
       },
       {
         "examples": [],
@@ -891,10 +807,10 @@ describe('#TypedocParser', () => {
         "platform": null,
         "name": "onCollapse",
         "type": [
-          "Observable<{ tag: string }>"
+          "Observable<{ tag: string }>",
         ],
         "isStatic": false,
-        "shortDescription": "Subscribe to collapse evens"
+        "shortDescription": "Subscribe to collapse evens",
       },
       {
         "examples": [],
@@ -902,10 +818,10 @@ describe('#TypedocParser', () => {
         "platform": null,
         "name": "onExpand",
         "type": [
-          "Observable<{ tag: string }>"
+          "Observable<{ tag: string }>",
         ],
         "isStatic": false,
-        "shortDescription": "Subscribe to expand events"
+        "shortDescription": "Subscribe to expand events",
       },
       {
         "examples": [],
@@ -913,10 +829,10 @@ describe('#TypedocParser', () => {
         "platform": null,
         "name": "onToggle",
         "type": [
-          "Observable<{ compact: boolean, tag: string }>"
+          "Observable<{ compact: boolean, tag: string }>",
         ],
         "isStatic": false,
-        "shortDescription": "Subscribe to toggle events"
+        "shortDescription": "Subscribe to toggle events",
       },
       {
         "examples": [],
@@ -926,21 +842,21 @@ describe('#TypedocParser', () => {
             "type": "boolean",
             "required": null,
             "shortDescription": "",
-            "description": ""
+            "description": "",
           },
           {
             "name": "tag",
             "type": "string",
             "required": null,
-            "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
-          }
+            "description": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
+          },
         ],
         "platform": null,
         "name": "toggle",
         "type": [],
         "isStatic": false,
-        "shortDescription": "Toggle a sidebar"
-      }
+        "shortDescription": "Toggle a sidebar",
+      },
     ];
 
     expect(getMethods.getMethods(test2).toString()).toBe([].toString());
@@ -957,7 +873,7 @@ describe('#TypedocParser', () => {
           "name": "toggle",
           "kindString": "Call signature",
           "comment": {
-            "shortText": "Toggle a sidebar"
+            "shortText": "Toggle a sidebar",
           },
           "parameters": [
             {
@@ -968,9 +884,9 @@ describe('#TypedocParser', () => {
               "flags": {},
               "type": {
                 "type": "intrinsic",
-                "name": "boolean"
+                "name": "boolean",
               },
-              "defaultValue": "false"
+              "defaultValue": "false",
             },
             {
               "id": 410,
@@ -978,22 +894,22 @@ describe('#TypedocParser', () => {
               "kind": 32768,
               "kindString": "Parameter",
               "flags": {
-                "isOptional": true
+                "isOptional": true,
               },
               "comment": {
-                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
               },
               "type": {
                 "type": "intrinsic",
-                "name": "string"
-              }
-            }
+                "name": "string",
+              },
+            },
           ],
           "type": {
             "type": "intrinsic",
-            "name": "void"
-          }
-        }
+            "name": "void",
+          },
+        },
       ],
     };
     const test2 = {};
@@ -1008,8 +924,8 @@ describe('#TypedocParser', () => {
       "name": "toggle",
       "kindString": "Method",
       "flags": {
-        "isExported": true
-      }
+        "isExported": true,
+      },
     };
     const test2 = {};
 
@@ -1030,7 +946,7 @@ describe('#TypedocParser', () => {
           "kindString": "Call signature",
           "flags": {},
           "comment": {
-            "text": "Toggle a sidebar"
+            "text": "Toggle a sidebar",
           },
           "parameters": [
             {
@@ -1041,9 +957,9 @@ describe('#TypedocParser', () => {
               "flags": {},
               "type": {
                 "type": "intrinsic",
-                "name": "boolean"
+                "name": "boolean",
               },
-              "defaultValue": "false"
+              "defaultValue": "false",
             },
             {
               "id": 410,
@@ -1051,22 +967,22 @@ describe('#TypedocParser', () => {
               "kind": 32768,
               "kindString": "Parameter",
               "flags": {
-                "isOptional": true
+                "isOptional": true,
               },
               "comment": {
-                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
               },
               "type": {
                 "type": "intrinsic",
-                "name": "string"
-              }
-            }
+                "name": "string",
+              },
+            },
           ],
           "type": {
             "type": "intrinsic",
-            "name": "void"
-          }
-        }
+            "name": "void",
+          },
+        },
       ],
     };
     const test2 = {};
@@ -1088,7 +1004,7 @@ describe('#TypedocParser', () => {
           "kindString": "Call signature",
           "flags": {},
           "comment": {
-            "shortText": "Toggle a sidebar"
+            "shortText": "Toggle a sidebar",
           },
           "parameters": [
             {
@@ -1099,9 +1015,9 @@ describe('#TypedocParser', () => {
               "flags": {},
               "type": {
                 "type": "intrinsic",
-                "name": "boolean"
+                "name": "boolean",
               },
-              "defaultValue": "false"
+              "defaultValue": "false",
             },
             {
               "id": 410,
@@ -1109,22 +1025,22 @@ describe('#TypedocParser', () => {
               "kind": 32768,
               "kindString": "Parameter",
               "flags": {
-                "isOptional": true
+                "isOptional": true,
               },
               "comment": {
-                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n"
+                "text": "tag If you have multiple sidebars on the page, mark them with `tag` input property and pass it here\nto specify which sidebar you want to control\n",
               },
               "type": {
                 "type": "intrinsic",
-                "name": "string"
-              }
-            }
+                "name": "string",
+              },
+            },
           ],
           "type": {
             "type": "intrinsic",
-            "name": "void"
-          }
-        }
+            "name": "void",
+          },
+        },
       ],
     };
     const test2 = {};
@@ -1141,22 +1057,22 @@ describe('#TypedocParser', () => {
       "kind": 128,
       "kindString": "Class",
       "flags": {
-        "isExported": true
+        "isExported": true,
       },
       "comment": {
-        "shortText": "Action item, display a link with an icon, or any other content provided instead."
+        "shortText": "Action item, display a link with an icon, or any other content provided instead.",
       },
       "decorators": [
         {
           "name": "Component",
           "type": {
             "type": "reference",
-            "name": "Component"
+            "name": "Component",
           },
           "arguments": {
-            "obj": "{\r\n  selector: 'nb-action',\r\n  template: `\r\n    <a class=\"icon-container\" href=\"#\" *ngIf=\"icon; else showContent\" (click)=\"$event.preventDefault()\">\r\n      <i class=\"control-icon {{ icon }}\"></i>\r\n    </a>\r\n    <ng-template #showContent>\r\n      <ng-content></ng-content>\r\n    </ng-template>\r\n  `,\r\n}"
-          }
-        }
+            "obj": "{\r\n  selector: 'nb-action',\r\n  template: `\r\n    <a class=\"icon-container\" href=\"#\" *ngIf=\"icon; else showContent\" (click)=\"$event.preventDefault()\">\r\n      <i class=\"control-icon {{ icon }}\"></i>\r\n    </a>\r\n    <ng-template #showContent>\r\n      <ng-content></ng-content>\r\n    </ng-template>\r\n  `,\r\n}",
+          },
+        },
       ],
       "children": [
         {
@@ -1165,32 +1081,32 @@ describe('#TypedocParser', () => {
           "kind": 1024,
           "kindString": "Property",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "decorators": [
             {
               "name": "HostBinding",
               "type": {
                 "type": "reference",
-                "name": "HostBinding"
+                "name": "HostBinding",
               },
               "arguments": {
-                "hostPropertyName": "'class.disabled'"
-              }
-            }
+                "hostPropertyName": "'class.disabled'",
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/actions/actions.component.ts",
               "line": 31,
-              "character": 46
-            }
+              "character": 46,
+            },
           ],
           "type": {
             "type": "intrinsic",
-            "name": "boolean"
+            "name": "boolean",
           },
-          "defaultValue": "false"
+          "defaultValue": "false",
         },
         {
           "id": 1412,
@@ -1198,38 +1114,38 @@ describe('#TypedocParser', () => {
           "kind": 1024,
           "kindString": "Property",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "comment": {
             "shortText": "Icon class to display",
             "tags": [
               {
                 "tag": "type",
-                "text": "string\n"
-              }
-            ]
+                "text": "string\n",
+              },
+            ],
           },
           "decorators": [
             {
               "name": "Input",
               "type": {
                 "type": "reference",
-                "name": "Input"
+                "name": "Input",
               },
-              "arguments": {}
-            }
+              "arguments": {},
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/actions/actions.component.ts",
               "line": 37,
-              "character": 15
-            }
+              "character": 15,
+            },
           ],
           "type": {
             "type": "intrinsic",
-            "name": "string"
-          }
+            "name": "string",
+          },
         },
         {
           "id": 1413,
@@ -1237,26 +1153,26 @@ describe('#TypedocParser', () => {
           "kind": 262144,
           "kindString": "Accessor",
           "flags": {
-            "isExported": true
+            "isExported": true,
           },
           "comment": {
             "shortText": "Disables the item (changes item opacity and mouse cursor)",
             "tags": [
               {
                 "tag": "type",
-                "text": "boolean\n"
-              }
-            ]
+                "text": "boolean\n",
+              },
+            ],
           },
           "decorators": [
             {
               "name": "Input",
               "type": {
                 "type": "reference",
-                "name": "Input"
+                "name": "Input",
               },
-              "arguments": {}
-            }
+              "arguments": {},
+            },
           ],
           "setSignature": [
             {
@@ -1270,9 +1186,9 @@ describe('#TypedocParser', () => {
                 "tags": [
                   {
                     "tag": "type",
-                    "text": "boolean\n"
-                  }
-                ]
+                    "text": "boolean\n",
+                  },
+                ],
               },
               "parameters": [
                 {
@@ -1283,24 +1199,24 @@ describe('#TypedocParser', () => {
                   "flags": {},
                   "type": {
                     "type": "intrinsic",
-                    "name": "boolean"
-                  }
-                }
+                    "name": "boolean",
+                  },
+                },
               ],
               "type": {
                 "type": "intrinsic",
-                "name": "void"
-              }
-            }
+                "name": "void",
+              },
+            },
           ],
           "sources": [
             {
               "fileName": "theme/components/actions/actions.component.ts",
               "line": 44,
-              "character": 14
-            }
-          ]
-        }
+              "character": 14,
+            },
+          ],
+        },
       ],
       "groups": [
         {
@@ -1308,24 +1224,24 @@ describe('#TypedocParser', () => {
           "kind": 1024,
           "children": [
             1411,
-            1412
-          ]
+            1412,
+          ],
         },
         {
           "title": "Accessors",
           "kind": 262144,
           "children": [
-            1413
-          ]
-        }
+            1413,
+          ],
+        },
       ],
       "sources": [
         {
           "fileName": "theme/components/actions/actions.component.ts",
           "line": 29,
-          "character": 30
-        }
-      ]
+          "character": 30,
+        },
+      ],
     };
     const test2 = {};
     const out1 = [
@@ -1336,7 +1252,7 @@ describe('#TypedocParser', () => {
         "type": "string",
         "required": null,
         "name": "icon",
-        "shortDescription": "Icon class to display"
+        "shortDescription": "Icon class to display",
       },
       {
         "kind": "input",
@@ -1345,8 +1261,8 @@ describe('#TypedocParser', () => {
         "type": "boolean",
         "required": null,
         "name": "disabled",
-        "shortDescription": "Disables the item (changes item opacity and mouse cursor)"
-      }
+        "shortDescription": "Disables the item (changes item opacity and mouse cursor)",
+      },
     ];
 
     expect(getProperties.getProps(test2).toString()).toBe([].toString());
@@ -1361,38 +1277,38 @@ describe('#TypedocParser', () => {
       "kind": 1024,
       "kindString": "Property",
       "flags": {
-        "isExported": true
+        "isExported": true,
       },
       "comment": {
         "shortText": "Icon class to display",
         "tags": [
           {
             "tag": "type",
-            "text": "string\n"
-          }
-        ]
+            "text": "string\n",
+          },
+        ],
       },
       "decorators": [
         {
           "name": "Input",
           "type": {
             "type": "reference",
-            "name": "Input"
+            "name": "Input",
           },
-          "arguments": {}
-        }
+          "arguments": {},
+        },
       ],
       "sources": [
         {
           "fileName": "theme/components/actions/actions.component.ts",
           "line": 37,
-          "character": 15
-        }
+          "character": 15,
+        },
       ],
       "type": {
         "type": "intrinsic",
-        "name": "string"
-      }
+        "name": "string",
+      },
     };
     const test2 = {};
 
@@ -1407,8 +1323,8 @@ describe('#TypedocParser', () => {
       "kindString": "Property",
       "flags": {
         "isPrivate": true,
-        "isExported": true
-      }
+        "isExported": true,
+      },
     };
     const test2 = {};
 
@@ -1423,7 +1339,7 @@ describe('#TypedocParser', () => {
       "kindString": "Property",
       "comment": {
         "text": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.",
-      }
+      },
     };
     const test2 = {};
 
@@ -1438,11 +1354,44 @@ describe('#TypedocParser', () => {
       "kindString": "Property",
       "comment": {
         "shortText": "Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.",
-      }
+      },
     };
     const test2 = {};
 
     expect(getProperties.getShortDescription(test2)).toBe('');
     expect(getProperties.getShortDescription(test1)).toBe('Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.');
   });
+
+  test('#GetOverview -> getOverview', () => {
+    const overviewParser = new OverviewParser();
+    const tags = [
+      { tag: 'inline-example(popover/popover-example.component)', text: '' },
+      { tag: 'inline-example(popover/popover-example.component.ts)', text: '' },
+      { tag: 'live-example(popover)', text: '' },
+    ];
+    const res = overviewParser.getOverview({ comment: { tags } });
+    const correct = [
+      {
+        "type": "inline-example",
+        "content": {
+          "path": "popover/popover-example.component",
+          "firstLine": NaN,
+          "lastLine": NaN,
+        },
+      },
+      {
+        "type": "inline-example",
+        "content": {
+          "path": "popover/popover-example.component.ts",
+          "firstLine": NaN,
+          "lastLine": NaN,
+        },
+      },
+      {
+        "type": "live-example",
+        "content": "popover",
+      },
+    ];
+    expect(res).toEqual(correct);
+  })
 });

@@ -48,11 +48,11 @@ export class OverviewParser {
 
   /**
    * Parses with the following pattern:
-   * inline-example(example-id, lang, row-start, row-end)
+   * inline-example(example-path, lang, row-start, row-end)
    *
    * @example:
-   * inline-example(some-example-1, ts, 21, 46)
-   * inline-example(some-example-2, scss, 11, 16)
+   * inline-example(some-component/some.component.ts, 21, 46)
+   * inline-example(some-component/some.component)
    * */
   private parseInlineExample(raw: string): InlineExample {
     const example = raw.match(/\((.*)\)/);
@@ -61,12 +61,12 @@ export class OverviewParser {
       throw new Error(`Can't parse inline example: ${raw}`);
     }
 
-    const [id, lang, firstLine, lastLine] = example[1]
+    const [path, firstLine, lastLine] = example[1]
       .split(',')
       .map(x => x.trim());
 
     return {
-      id, lang,
+      path,
       firstLine: +firstLine,
       lastLine: +lastLine,
     };

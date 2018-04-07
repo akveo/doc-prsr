@@ -12,8 +12,7 @@ export class Example {
 }
 
 export class InlineExample {
-  id: string;
-  lang: string;
+  path: string;
   firstLine: number;
   lastLine: number;
 }
