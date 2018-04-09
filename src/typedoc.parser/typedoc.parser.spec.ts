@@ -1393,5 +1393,24 @@ describe('#TypedocParser', () => {
       },
     ];
     expect(res).toEqual(correct);
-  })
+  });
+
+  test('#GetExamples -> getExamples', () => {
+    const examplesParser = new ExamplesParser();
+    const tags = [
+      { tag: 'inline-example(popover/popover-example.component)', text: '' },
+      { tag: 'inline-example(popover/popover-example.component.ts)', text: '' },
+      { tag: 'live-example(popover)', text: '\n' },
+      { tag: 'more-live-examples', text: '\npopover1\npopover2\npopover3\n' },
+      { tag: 'styles', text: '\n\npopover-fg\npopover-bg\npopover-border\npopover-shadow\n' },
+    ];
+    const res = examplesParser.getExamples({comment: {tags}});
+    const correct = [
+      'popover',
+      'popover1',
+      'popover2',
+      'popover3',
+    ];
+    expect(res).toEqual(correct);
+  });
 });
