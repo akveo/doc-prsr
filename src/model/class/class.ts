@@ -2,6 +2,7 @@ import { Example } from './example';
 import { Prop } from './prop';
 import { Method } from './method';
 import { Style } from './style';
+import { OverviewNode } from './overview';
 
 export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface' | 'ng-module';
 
@@ -14,13 +15,18 @@ export class Class {
    * Working platform.
    */
   platform: null;
+  /** @deprecated*/
   examples: Example[];
   props: Prop[];
   methods: Method[];
   name: string;
+  /** @deprecated*/
   shortDescription: string;
+  /** @deprecated*/
   description: string;
   styles: Style[];
+  liveExamples: string[];
+  overview: OverviewNode[];
 
   constructor(options: Class) {
     this.kind = options.kind;
@@ -32,5 +38,7 @@ export class Class {
     this.description = options.description;
     this.shortDescription = options.shortDescription;
     this.styles = options.styles;
+    this.liveExamples = options.liveExamples;
+    this.overview = options.overview;
   }
 }

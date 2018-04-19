@@ -2,6 +2,7 @@ import { Example } from './example';
 import { Param } from './param';
 
 export class Method {
+    /** @deprecated */
     examples: Example[];
     params: Param[];
     /**

@@ -8,7 +8,10 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
-    "declaration": true
+    "declaration": true,
+    "lib": [
+      "es6"
+    ]
   },
   "files": [
     "src/index.ts"

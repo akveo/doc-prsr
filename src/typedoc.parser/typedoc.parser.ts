@@ -1,23 +1,15 @@
-import {CO} from './typedoc.parser.options';
-import {
-  Model,
-  Class,
-  ClassKind
-} from '../model';
+import { CO } from './typedoc.parser.options';
+import { Class, ClassKind, Metadata, Model } from '../model';
 
-import {
-  PropertiesParser,
-  MethodsParser,
-  StylesParser,
-  ExamplesParser
-} from './parsers';
-import {Metadata} from "../model/metadata/metadata";
+import { ExamplesParser, MethodsParser, PropertiesParser, StylesParser, } from './parsers';
+import { OverviewParser } from './parsers/overview.parser';
 
 export class TypedocParser {
-  protected examples: ExamplesParser = new ExamplesParser();
   protected styles: StylesParser = new StylesParser();
   protected methods: MethodsParser = new MethodsParser();
   protected props: PropertiesParser = new PropertiesParser();
+  protected examples: ExamplesParser = new ExamplesParser();
+  protected overview: OverviewParser = new OverviewParser();
   protected json: any;
   protected classes: any[] = [];
 
@@ -73,30 +65,16 @@ export class TypedocParser {
     return new Class({
       kind: kind,
       platform: null,
-      examples: this.examples.getExamples(obj),
+      examples: [],
       props: this.props.getProps(obj),
       methods: this.methods.getMethods(obj),
       name: obj[CO.name],
-      description: this.getDescription(obj),
-      shortDescription: this.getShortDescription(obj),
-      styles: this.styles.getStyles(obj)
+      description: '',
+      shortDescription: '',
+      styles: this.styles.getStyles(obj),
+      liveExamples: this.examples.getExamples(obj),
+      overview: this.overview.getOverview(obj),
     });
-  }
-
-  getDescription(obj: any): string {
-    if (obj && obj[CO.comment]) {
-      return obj[CO.comment]['text'];
-    } else {
-      return '';
-    }
-  }
-
-  getShortDescription(obj: any): string {
-    if (obj && obj[CO.comment]) {
-      return obj[CO.comment]['shortText'];
-    } else {
-      return '';
-    }
   }
 
   isClass(obj: any) {

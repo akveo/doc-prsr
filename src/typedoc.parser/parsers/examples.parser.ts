@@ -1,66 +1,53 @@
-import { Example } from '../../model';
 import { CO } from '../typedoc.parser.options';
 
 export class ExamplesParser {
 
-  getExamples(obj: any): Example[] {
+  getExamples(obj: any): string[] {
     if (obj && this.isHasExamples(obj)) {
-      return obj[CO.comment][CO.tags]
-        .filter((item: any) => this.isExample(item))
-        .map((item: any) => this.parseExample(item));
+      const tags = obj[CO.comment][CO.tags];
+      const liveExamples = this.getInline(tags);
+      const moreLiveExamples = this.getListed(tags);
+
+      return liveExamples.concat(moreLiveExamples);
     } else {
       return [];
     }
   }
 
-  parseExample(obj: any): Example {
-    return new Example({
-      code: this.getCode(obj),
-      description: this.getDescription(obj),
-      shortDescription: this.getShortDescription(obj)
-    });
+  private getInline(tags: [{ tag: string, text: string }]): string[] {
+    return tags.filter(tag => this.isLiveExample(tag))
+      .map(tag => tag.tag)
+      .map(tag => {
+        const example = tag.match(/\((.*)\)/);
+        return example ? example[1] : '';
+      })
+      .filter(example => example);
   }
 
-  getDescriptionArr(example: any): string[] {
-    const outArr: string[] = [];
-    if (example && example[CO.text]) {
-      const tempArr = example[CO.text].replace(/\r\n\r\n/g, '\n\n').split(/\n\n/g);
-      return tempArr.filter((item: any) => !/```/g.test(item))
-    } else {
-      return [];
-    }
+  private getListed(tags: [{ tag: string, text: string }]): string[] {
+    const examples = tags.find(tag => this.isMoreLiveExamples(tag));
+    return this.parseMoreExamples(examples);
   }
 
-  getDescription(example: any): string {
-    if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[1]) {
-      return this.getDescriptionArr(example)[1];
-     } else {
-      return '';
-    }
-  }
-
-  getShortDescription(example: any): string {
-    if (example && this.getDescriptionArr(example).length && this.getDescriptionArr(example)[0]) {
-      return this.getDescriptionArr(example)[0];
-    } else {
-      return '';
-    }
-  }
-
-  getCode(obj: any): string {
-    if (obj && obj[CO.text]) {
-      return obj[CO.text].split(/```/g)[1];
-    } else {
-      return '';
-    }
-  }
-
-  isHasExamples(obj: any) {
+  private isHasExamples(obj: any) {
     return obj[CO.comment] && obj[CO.comment][CO.tags] && obj[CO.comment][CO.tags].length;
   }
 
-  isExample(obj: any) {
-    return obj[CO.tag] === 'example';
+  private isLiveExample(obj: any): boolean {
+    return obj[CO.tag].startsWith('live-example');
   }
 
+  private isMoreLiveExamples(obj: any): boolean {
+    return obj[CO.tag] === 'more-live-examples';
+  }
+
+  private parseMoreExamples(liveExamples: any): string[] {
+    const parsed = this.parseExamplesText(liveExamples);
+
+    return parsed ? parsed.filter((exampleId: string) => exampleId) : [];
+  }
+
+  private parseExamplesText(liveExamples: any): string[] {
+    return liveExamples && liveExamples.text && liveExamples.text.split('\n');
+  }
 }
