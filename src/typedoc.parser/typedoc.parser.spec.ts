@@ -1368,6 +1368,7 @@ describe('#TypedocParser', () => {
       { tag: 'inline-example(popover/popover-example.component)', text: '' },
       { tag: 'inline-example(popover/popover-example.component.ts)', text: '' },
       { tag: 'live-example(popover)', text: '' },
+      { tag: 'example(popover/popover-example.component)', text: '' },
     ];
     const res = overviewParser.getOverview({ comment: { tags } });
     const correct = [
@@ -1391,6 +1392,10 @@ describe('#TypedocParser', () => {
         "type": "live-example",
         "content": "popover",
       },
+      {
+        "type": "example",
+        "content": "popover/popover-example.component",
+      }
     ];
     expect(res).toEqual(correct);
   });

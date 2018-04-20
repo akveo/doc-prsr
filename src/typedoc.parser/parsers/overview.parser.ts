@@ -14,6 +14,10 @@ export class OverviewParser {
         if (example.tag.startsWith('live-example')) {
           return this.parseLiveTag(example);
         }
+
+        if (example.tag.startsWith('example')) {
+          return this.parseExampleTag(example);
+        }
       });
 
     return [
@@ -39,11 +43,21 @@ export class OverviewParser {
   private parseLiveTag(example: any): OverviewNode[] {
     return [{
       type: 'live-example',
-      content: this.parseLiveExample(example.tag),
+      content: this.parseExample(example.tag),
     }, {
       type: 'text',
       content: example.text.trim(),
     }];
+  }
+
+  private parseExampleTag(example: any): OverviewNode[] {
+    return [{
+      type: 'example',
+      content: this.parseExample(example.tag),
+    },{
+      type: 'text',
+      content: example.text.trim(),
+    }]
   }
 
   /**
@@ -72,7 +86,7 @@ export class OverviewParser {
     };
   }
 
-  private parseLiveExample(raw: string) {
+  private parseExample(raw: string) {
     const example = raw.match(/\((.*)\)/);
     return example ? example[1] : '';
   }
