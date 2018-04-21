@@ -15,13 +15,14 @@ export class ExamplesParser {
   }
 
   private getInline(tags: [{ tag: string, text: string }]): string[] {
-    return tags.filter(tag => this.isLiveExample(tag))
+    const examples = tags.filter(tag => this.isExample(tag))
       .map(tag => tag.tag)
       .map(tag => {
         const example = tag.match(/\((.*)\)/);
         return example ? example[1] : '';
       })
       .filter(example => example);
+    return Array.from(new Set(examples));
   }
 
   private getListed(tags: [{ tag: string, text: string }]): string[] {
@@ -33,8 +34,8 @@ export class ExamplesParser {
     return obj[CO.comment] && obj[CO.comment][CO.tags] && obj[CO.comment][CO.tags].length;
   }
 
-  private isLiveExample(obj: any): boolean {
-    return obj[CO.tag].startsWith('live-example');
+  private isExample(obj: any): boolean {
+    return obj[CO.tag].startsWith('live-example') || obj[CO.tag].startsWith('example');
   }
 
   private isMoreLiveExamples(obj: any): boolean {
