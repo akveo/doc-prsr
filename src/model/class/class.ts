@@ -1,4 +1,4 @@
-import { Example } from './example';
+import { Sample } from './example';
 import { Prop } from './prop';
 import { Method } from './method';
 import { Style } from './style';
@@ -16,7 +16,7 @@ export class Class {
    */
   platform: null;
   /** @deprecated*/
-  examples: Example[];
+  examples: Sample[];
   props: Prop[];
   methods: Method[];
   name: string;

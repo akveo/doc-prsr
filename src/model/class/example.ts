@@ -1,5 +1,5 @@
 /** @deprecated */
-export class Example {
+export class Sample {
   code: string;
   description: string;
   shortDescription: string;
@@ -11,8 +11,12 @@ export class Example {
   }
 }
 
-export class InlineExample {
-  path: string;
+export class Example {
+  name: string;
+  id: string;
+}
+
+export class InlineExample extends Example {
   firstLine: number;
   lastLine: number;
 }

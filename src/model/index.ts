@@ -1,6 +1,6 @@
 export { Metadata, Language, Framework, Generator } from './metadata/metadata';
 export { Class, ClassKind } from './class/class';
-export { Example, InlineExample } from './class/example';
+export { Sample, InlineExample } from './class/example';
 export { Method } from './class/method';
 export { Param } from './class/param';
 export { Platform } from './class/platform';

@@ -21,7 +21,7 @@ describe('#TypedocParser', () => {
           },
           {
             "tag": "example",
-            "text": "Fixed sidebar\n\nExample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n",
+            "text": "Fixed sidebar\n\nSample of fixed sidebar located on the left side, initially collapsed.\n\n```\n<nga-sidebar left fixed state=\"collapsed\">\n <nga-sidebar-header>Header</nga-sidebar-header>\n <nga-sidebar-content>\n   Menu or another component here\n </nga-sidebar-content>\n <nga-sidebar-footer>\n   Footer components here\n </nga-sidebar-footer>\n</nga-sidebar>\n```\n",
           },
         ],
       },
@@ -1365,17 +1365,18 @@ describe('#TypedocParser', () => {
   test('#GetOverview -> getOverview', () => {
     const overviewParser = new OverviewParser();
     const tags = [
-      { tag: 'inline-example(popover/popover-example.component)', text: '' },
-      { tag: 'inline-example(popover/popover-example.component.ts)', text: '' },
-      { tag: 'live-example(popover)', text: '' },
-      { tag: 'example(popover/popover-example.component)', text: '' },
+      { tag: 'inline-example(Super example, popover/popover-example.component)', text: '' },
+      { tag: 'inline-example(Super example, popover/popover-example.component.ts)', text: '' },
+      { tag: 'live-example(Super example, popover)', text: '' },
+      { tag: 'stacked-example(Super example, popover/popover-example.component)', text: '' },
     ];
     const res = overviewParser.getOverview({ comment: { tags } });
     const correct = [
       {
         "type": "inline-example",
         "content": {
-          "path": "popover/popover-example.component",
+          "name": "Super example",
+          "id": "popover/popover-example.component",
           "firstLine": NaN,
           "lastLine": NaN,
         },
@@ -1383,19 +1384,26 @@ describe('#TypedocParser', () => {
       {
         "type": "inline-example",
         "content": {
-          "path": "popover/popover-example.component.ts",
+          "name": "Super example",
+          "id": "popover/popover-example.component.ts",
           "firstLine": NaN,
           "lastLine": NaN,
         },
       },
       {
         "type": "live-example",
-        "content": "popover",
+        "content": {
+          "name": "Super example",
+          "id": "popover",
+        },
       },
       {
-        "type": "example",
-        "content": "popover/popover-example.component",
-      }
+        "type": "stacked-example",
+        "content": {
+          "name": "Super example",
+          "id": "popover/popover-example.component",
+        },
+      },
     ];
     expect(res).toEqual(correct);
   });
@@ -1403,13 +1411,13 @@ describe('#TypedocParser', () => {
   test('#GetExamples -> getExamples', () => {
     const examplesParser = new ExamplesParser();
     const tags = [
-      { tag: 'inline-example(popover/popover-example.component)', text: '' },
-      { tag: 'inline-example(popover/popover-example.component.ts)', text: '' },
-      { tag: 'live-example(popover)', text: '\n' },
+      { tag: 'inline-example(Sample, popover/popover-example.component)', text: '' },
+      { tag: 'inline-example(Sample, popover/popover-example.component.ts)', text: '' },
+      { tag: 'live-example(Sample, popover)', text: '\n' },
       { tag: 'more-live-examples', text: '\npopover1\npopover2\npopover3\n' },
       { tag: 'styles', text: '\n\npopover-fg\npopover-bg\npopover-border\npopover-shadow\n' },
     ];
-    const res = examplesParser.getExamples({comment: {tags}});
+    const res = examplesParser.getExamples({ comment: { tags } });
     const correct = [
       'popover',
       'popover1',

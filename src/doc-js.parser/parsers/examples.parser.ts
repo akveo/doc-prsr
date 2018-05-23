@@ -1,9 +1,9 @@
-import { Example } from '../../model';
+import { Sample } from '../../model';
 import { CO } from '../doc-js.parser.options';
 
 export class ExamplesParser {
 
-  getExamples(obj: any): Example[] {
+  getExamples(obj: any): Sample[] {
     if (obj[CO.examples].length) {
       return obj[CO.examples].map((item: any) => this.parseExample(item));
     } else {
@@ -11,8 +11,8 @@ export class ExamplesParser {
     }
   }
 
-  parseExample(obj: any): Example {
-    return new Example({
+  parseExample(obj: any): Sample {
+    return new Sample({
       code: this.getCode(obj),
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj)
