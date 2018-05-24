@@ -9,6 +9,7 @@ export enum OverviewNodeType {
   TEXT = 'text',
   LIVE_EXAMPLE = 'live-example',
   INLINE_EXAMPLE = 'inline-example',
-  STACKED_EXAMPLE = 'stacked-example'
+  STACKED_EXAMPLE = 'stacked-example',
+  ADDITIONAL_EXAMPLE = 'additional-example',
 }
 

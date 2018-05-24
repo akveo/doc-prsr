@@ -1,4 +1,4 @@
-import { ExamplesParser, MethodsParser, ParamsParser, PropertiesParser, StylesParser } from './parsers';
+import { AdditionalExamplesParser, MethodsParser, ParamsParser, PropertiesParser, StylesParser } from './parsers';
 import { OverviewParser } from './parsers/overview.parser';
 
 describe('#TypedocParser', () => {
@@ -1409,20 +1409,55 @@ describe('#TypedocParser', () => {
   });
 
   test('#GetExamples -> getExamples', () => {
-    const examplesParser = new ExamplesParser();
+    const additionalExamples = new AdditionalExamplesParser();
     const tags = [
       { tag: 'inline-example(Sample, popover/popover-example.component)', text: '' },
       { tag: 'inline-example(Sample, popover/popover-example.component.ts)', text: '' },
       { tag: 'live-example(Sample, popover)', text: '\n' },
-      { tag: 'more-live-examples', text: '\npopover1\npopover2\npopover3\n' },
+      { tag: 'additional-examples(First,', text: 'popover)' },
+      { tag: 'additional-examples(Second,', text: 'popover)' },
+      { tag: 'additional-examples(Third,', text: 'popover)' },
+      { tag: 'additional-examples(Fourth,', text: 'popover)' },
       { tag: 'styles', text: '\n\npopover-fg\npopover-bg\npopover-border\npopover-shadow\n' },
     ];
-    const res = examplesParser.getExamples({ comment: { tags } });
+    const res = additionalExamples.getAdditionalExamples({ comment: { tags } });
+
     const correct = [
-      'popover',
-      'popover1',
-      'popover2',
-      'popover3',
+      {
+        "content": {
+          "id": "popover",
+          "name": "Sample",
+        },
+        "type": "live-example",
+      },
+      {
+        "content": {
+          "id": "popover",
+          "name": "First",
+        },
+        "type": "additional-example",
+      },
+      {
+        "content": {
+          "id": "popover",
+          "name": "Second",
+        },
+        "type": "additional-example",
+      },
+      {
+        "content": {
+          "id": "popover",
+          "name": "Third",
+        },
+        "type": "additional-example",
+      },
+      {
+        "content": {
+          "id": "popover",
+          "name": "Fourth",
+        },
+        "type": "additional-example",
+      },
     ];
     expect(res).toEqual(correct);
   });
