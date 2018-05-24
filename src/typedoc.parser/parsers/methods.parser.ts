@@ -1,7 +1,6 @@
-import {Method} from '../../model';
-import {CO} from '../typedoc.parser.options';
-import {ParamsParser, ExamplesParser} from './';
-import {type} from "os";
+import { Method } from '../../model';
+import { CO } from '../typedoc.parser.options';
+import { ExamplesParser, ParamsParser } from './';
 
 export class MethodsParser {
   protected params: ParamsParser = new ParamsParser();
@@ -19,14 +18,14 @@ export class MethodsParser {
 
   parseMethod(obj: any): Method {
     return new Method({
-      examples: this.examples.getExamples(obj),
+      examples: [],
       params: this.params.getParams(obj),
       platform: null,
       name: obj[CO.name],
       type: this.getType(obj),
       isStatic: this.isStatic(obj),
       shortDescription: this.getShortDescription(obj),
-      description: this.getDescription(obj)
+      description: this.getDescription(obj),
     });
   }
 
@@ -79,11 +78,11 @@ export class MethodsParser {
       if (checkString.length > 1) {
         returnedType = obj[CO.comment][CO.returns];
       } else {
-       returnedType = this.parseReferenceFromTypeArguments(obj);
+        returnedType = this.parseReferenceFromTypeArguments(obj);
       }
       return returnedType;
     } else {
-     return this.parseReferenceFromTypeArguments(obj);
+      return this.parseReferenceFromTypeArguments(obj);
     }
   }
 
@@ -128,7 +127,7 @@ export class MethodsParser {
   parseReflection(obj: any) {
     if (obj[CO.type][CO.declaration][CO.children] && obj[CO.type][CO.declaration][CO.children].length !== 0) {
       return this.parseTypeFromReflectionChildren(obj);
-    } else if(obj[CO.type][CO.declaration][CO.indexSignature] &&
+    } else if (obj[CO.type][CO.declaration][CO.indexSignature] &&
       obj[CO.type][CO.declaration][CO.indexSignature].length !== 0) {
       return this.parseTypeFromReflectionIndexSignature(obj);
     } else {

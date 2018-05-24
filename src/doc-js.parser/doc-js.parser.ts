@@ -1,7 +1,7 @@
 import {
   Model,
   Class,
-  Metadata
+  Metadata,
 } from '../model';
 import { CO } from './doc-js.parser.options';
 
@@ -46,7 +46,11 @@ export class DocJsParser {
       name: this.common.getName(obj),
       shortDescription: this.common.getShortDescription(obj),
       description: this.common.getDescription(obj),
-      styles: this.styles.getStyles(obj)
+      styles: this.styles.getStyles(obj),
+      // TODO create docs-js examples parser
+      liveExamples: [],
+      // TODO create docs-js overview parser
+      overview: []
     });
   }
 

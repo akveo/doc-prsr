@@ -1,8 +1,9 @@
-import { Example } from './example';
+import { Sample } from './example';
 import { Param } from './param';
 
 export class Method {
-    examples: Example[];
+    /** @deprecated */
+    examples: Sample[];
     params: Param[];
     /**
      * Working platform.
