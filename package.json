@@ -24,7 +24,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "path": "^0.12.7",
-    "typescript": "^2.3.3"
+    "typescript": "^2.4.2"
   },
   "devDependencies": {
     "@types/jest": "^19.2.4",
