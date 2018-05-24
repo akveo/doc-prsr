@@ -1,14 +1,14 @@
 import { CO } from './typedoc.parser.options';
 import { Class, ClassKind, Metadata, Model } from '../model';
 
-import { ExamplesParser, MethodsParser, PropertiesParser, StylesParser, } from './parsers';
+import { MethodsParser, PropertiesParser, StylesParser, AdditionalExamplesParser } from './parsers';
 import { OverviewParser } from './parsers/overview.parser';
 
 export class TypedocParser {
   protected styles: StylesParser = new StylesParser();
   protected methods: MethodsParser = new MethodsParser();
   protected props: PropertiesParser = new PropertiesParser();
-  protected examples: ExamplesParser = new ExamplesParser();
+  protected additionalExamples: AdditionalExamplesParser = new AdditionalExamplesParser();
   protected overview: OverviewParser = new OverviewParser();
   protected json: any;
   protected classes: any[] = [];
@@ -72,7 +72,7 @@ export class TypedocParser {
       description: '',
       shortDescription: '',
       styles: this.styles.getStyles(obj),
-      liveExamples: this.examples.getExamples(obj),
+      liveExamples: this.additionalExamples.getAdditionalExamples(obj),
       overview: this.overview.getOverview(obj),
     });
   }
