@@ -1,3 +1,10 @@
+## <small>2.0.3 (2018-09-18)</small>
+
+* build(common): add missing conventional-changelog dependencies ([35263f3](https://github.com/akveo/doc-prsr/commit/35263f3))
+* fix(parser): new line parser compatible with macOS ([e3de8be](https://github.com/akveo/doc-prsr/commit/e3de8be))
+
+
+
 <a name="2.0.2"></a>
 ## 2.0.2 (2018-02-06)
 
