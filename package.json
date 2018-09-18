@@ -30,6 +30,8 @@
     "@types/jest": "^19.2.4",
     "@types/node": "^7.0.27",
     "@types/tape": "^4.2.30",
+    "conventional-changelog": "^2.0.3",
+    "conventional-changelog-cli": "^2.0.5",
     "fs": "0.0.1-security",
     "jest": "^22.0.6",
     "npm-run-all": "^4.0.2",
