@@ -44,7 +44,7 @@ export  class StylesParser {
 
   getShortDescription(style: any): string {
     if (style && style[CO.text]) {
-      const workString = style[CO.text].replace(/\r\n\r\n/g, '/n/n').split(/\n\n/g);
+      const workString = style[CO.text].split(/[\n\r]/g);
       return workString[0];
     } else {
       return '';

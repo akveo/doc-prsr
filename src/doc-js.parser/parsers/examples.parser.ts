@@ -38,7 +38,7 @@ export class ExamplesParser {
 
   getDescription(example: any) {
     const splittedExample = this.splitExample(example);
-    const shortDescription = splittedExample[0].split('\r\n')[0];
+    const shortDescription = splittedExample[0].split(/[\n\r]/g)[0];
     if (splittedExample.length !== 0) {
       return splittedExample[0].replace(shortDescription, '');
     } else {
@@ -49,7 +49,7 @@ export class ExamplesParser {
   getShortDescription(example: any) {
     const splittedExample = this.splitExample(example);
     if (splittedExample.length !== 0) {
-      return splittedExample[0].split('\r\n')[0];
+      return splittedExample[0].split(/[\n\r]/g)[0];
     } else {
       return ''
     }

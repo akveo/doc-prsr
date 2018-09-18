@@ -219,7 +219,7 @@ describe('#DocJsParser', () => {
     };
     const testObj2 = {name: 'name'};
 
-    expect(examples.getShortDescription(testObj1)).toBe('Advanced Styling\n\nIts also possible to implement more detailed styling. RkButton consists from couple of base react component.\nYou can easily set styles for each component.\n\nFor example you can change the opacity of content passed to RkButton:\n\n');
+    expect(examples.getShortDescription(testObj1)).toBe('Advanced Styling');
     expect(examples.getShortDescription(testObj2)).toBe('');
   });
 
