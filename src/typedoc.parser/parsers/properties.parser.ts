@@ -89,10 +89,10 @@ export class PropertiesParser {
     if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !==0) {
       return prop[CO.comment][CO.tags][0][CO.text].replace(/[\n{}]+/g, '');
     } else if(prop[CO.setSignature] && prop[CO.setSignature].length !== 0 &&
-      prop[CO.setSignature][0][CO.parameters] && prop[CO.setSignature][0][CO.parameters].length !== 0) {
-      return prop[CO.setSignature][0][CO.parameters][0][CO.type][CO.name];
+      prop[CO.setSignature][CO.parameters] && prop[CO.setSignature][CO.parameters].length !== 0) {
+      return prop[CO.setSignature][CO.parameters][0][CO.type][CO.name];
     } else if (prop[CO.getSignature] && prop[CO.getSignature].length !== 0) {
-      return prop[CO.getSignature][0][CO.type][CO.name];
+      return prop[CO.getSignature][CO.type][CO.name];
     }
   }
 
