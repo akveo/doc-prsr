@@ -1,3 +1,10 @@
+<a name="2.1.1"></a>
+## <small>2.1.1 (2018-09-23)</small>
+
+* fix: update ts parser to work with latest typedoc version ([15c524f](https://github.com/akveo/doc-prsr/commit/15c524f))
+
+
+
 <a name="2.1.0"></a>
 ## 2.1.0 (2018-05-24)
 
