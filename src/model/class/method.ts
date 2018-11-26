@@ -2,29 +2,29 @@ import { Sample } from './example';
 import { Param } from './param';
 
 export class Method {
-    /** @deprecated */
-    examples: Sample[];
-    params: Param[];
-    /**
-     * Working platform.
-     */
-    platform: null;
-    name: string;
-    type: string[];
-    isStatic: boolean;
-    shortDescription: string;
-    description: string;
-    isPrivate?: boolean;
+  /** @deprecated */
+  examples: Sample[];
+  params: Param[];
+  /**
+   * Working platform.
+   */
+  platform: null;
+  name: string;
+  type: string[];
+  isStatic: boolean;
+  shortDescription: string;
+  description: string;
+  isPrivate?: boolean;
 
-    constructor(options: Method) {
-        this.examples = options.examples;
-        this.params = options.params;
-        this.platform = options.platform;
-        this.name = options.name;
-        this.type = options.type;
-        this.isStatic = options.isStatic;
-        this.shortDescription = options.shortDescription;
-        this.description = options.description;
-        this.isPrivate = options.isPrivate;
-    }
+  constructor(options: Method) {
+    this.examples = options.examples;
+    this.params = options.params;
+    this.platform = options.platform;
+    this.name = options.name;
+    this.type = options.type;
+    this.isStatic = options.isStatic;
+    this.shortDescription = options.shortDescription;
+    this.description = options.description;
+    this.isPrivate = options.isPrivate;
+  }
 }

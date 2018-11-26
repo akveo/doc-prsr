@@ -1,6 +1,5 @@
-import {Prop, PropKind} from '../../model';
-import {CO} from '../typedoc.parser.options';
-import {type} from "os";
+import { Prop, PropKind } from '../../model';
+import { CO } from '../typedoc.parser.options';
 
 export class PropertiesParser {
 
@@ -86,9 +85,9 @@ export class PropertiesParser {
   }
 
   getTypeOther(prop: any) {
-    if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !==0) {
+    if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !== 0) {
       return prop[CO.comment][CO.tags][0][CO.text].replace(/[\n{}]+/g, '');
-    } else if(prop[CO.setSignature] && prop[CO.setSignature].length !== 0 &&
+    } else if (prop[CO.setSignature] && prop[CO.setSignature].length !== 0 &&
       prop[CO.setSignature][CO.parameters] && prop[CO.setSignature][CO.parameters].length !== 0) {
       return prop[CO.setSignature][CO.parameters][0][CO.type][CO.name];
     } else if (prop[CO.getSignature] && prop[CO.getSignature].length !== 0) {

@@ -38,16 +38,16 @@ export class PropertiesParser {
   }
 
   parsePropFromProperties(obj: any): Prop {
-      return new Prop({
-        kind: 'prop',
-        platform: null,
-        isStatic: false,
-        type: this.getTypeProperties(obj),
-        required: null,
-        name: this.common.getName(obj),
-        shortDescription: this.isDescriptionsCoincide(obj) ? '' : this.getShortDescriptionProperties(obj),
-        description: this.getDescriptionProperties(obj)
-      });
+    return new Prop({
+      kind: 'prop',
+      platform: null,
+      isStatic: false,
+      type: this.getTypeProperties(obj),
+      required: null,
+      name: this.common.getName(obj),
+      shortDescription: this.isDescriptionsCoincide(obj) ? '' : this.getShortDescriptionProperties(obj),
+      description: this.getDescriptionProperties(obj)
+    });
   }
 
   parsePropFromInstance(obj: any): Prop {

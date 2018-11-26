@@ -1,5 +1,5 @@
-import {Param} from '../../model';
-import {CO} from '../typedoc.parser.options';
+import { Param } from '../../model';
+import { CO } from '../typedoc.parser.options';
 
 export class ParamsParser {
 
@@ -23,7 +23,7 @@ export class ParamsParser {
   }
 
   getType(param: any): string {
-    if(param && param[CO.type]) {
+    if (param && param[CO.type]) {
       let type = '';
       if (param[CO.type][CO.type] && param[CO.type][CO.type] === 'reference') {
         if (param[CO.comment] && param[CO.comment][CO.text]) {
