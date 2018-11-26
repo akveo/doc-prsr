@@ -14,6 +14,7 @@ export class Method {
     isStatic: boolean;
     shortDescription: string;
     description: string;
+    isPrivate?: boolean;
 
     constructor(options: Method) {
         this.examples = options.examples;
@@ -24,5 +25,6 @@ export class Method {
         this.isStatic = options.isStatic;
         this.shortDescription = options.shortDescription;
         this.description = options.description;
+        this.isPrivate = options.isPrivate;
     }
 }
