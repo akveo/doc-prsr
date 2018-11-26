@@ -24,3 +24,7 @@ export const CO = {
   typeArguments: 'typeArguments',
   getSignature: 'getSignature',
 };
+
+export enum TagSearchItems {
+  docsPrivate = 'docs-private',
+}
