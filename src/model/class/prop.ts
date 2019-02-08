@@ -15,6 +15,7 @@ export class Prop {
   name: string;
   shortDescription: string;
   description: string;
+  isDocsPrivate?: boolean = false;
 
   constructor(options: Prop) {
     this.kind = options.kind;
@@ -25,5 +26,6 @@ export class Prop {
     this.name = options.name;
     this.shortDescription = options.shortDescription;
     this.description = options.description;
+    this.isDocsPrivate = options.isDocsPrivate;
   }
 }

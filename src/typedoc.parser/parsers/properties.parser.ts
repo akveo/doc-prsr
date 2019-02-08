@@ -1,5 +1,5 @@
 import { Prop, PropKind } from '../../model';
-import { CO } from '../typedoc.parser.options';
+import { CO, TagSearchItems } from '../typedoc.parser.options';
 
 export class PropertiesParser {
 
@@ -36,7 +36,8 @@ export class PropertiesParser {
       required: null,
       name: this.getName(obj),
       description: this.getDescription(obj),
-      shortDescription: this.getShortDescription(obj)
+      shortDescription: this.getShortDescription(obj),
+      isDocsPrivate: this.getIsPrivate(obj),
     });
   }
 
@@ -66,6 +67,12 @@ export class PropertiesParser {
     } else {
       return this.getTypeOther(prop);
     }
+  }
+
+  getIsPrivate(obj: any): boolean {
+    return obj[CO.comment] && obj[CO.comment][CO.tags] &&
+      obj[CO.comment][CO.tags].some((item: any) =>
+        item.tag === TagSearchItems.docsPrivate);
   }
 
   getTypeIntrinsicProp(prop: any) {

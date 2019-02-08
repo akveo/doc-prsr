@@ -42,7 +42,7 @@ export class MethodsParser {
     const tagsMatrix: any[] = obj[CO.signatures]
       .map((signature: any) => {
         if (signature[CO.comment]) {
-          if (signature[CO.comment][CO.tags] && signature[CO.comment][CO.tags].length !==0 ) {
+          if (signature[CO.comment][CO.tags] && signature[CO.comment][CO.tags].length !== 0 ) {
             return signature[CO.comment][CO.tags];
           } else {
             return [];
