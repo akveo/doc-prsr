@@ -1553,7 +1553,7 @@ describe('#TypedocParser', () => {
     const parser = new PropertiesParser();
 
     expect(parser.getIsPrivate(test1)).toBe(true);
-    expect(parser.getIsPrivate(test2)).toBe(false);
+    expect(parser.getIsPrivate(test2)).toBe(undefined);
   });
 
   test('#GetOverview -> getOverview', () => {
