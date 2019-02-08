@@ -1,3 +1,10 @@
+<a name="2.2.0"></a>
+## 2.2.0 (2019-02-08)
+
+* feat(parser): add `inherited` and `isDocsPrivate` properties (#20) ([62c3673](https://github.com/akveo/doc-prsr/commit/62c3673)), closes [#20](https://github.com/akveo/doc-prsr/issues/20)
+
+
+
 <a name="2.1.1"></a>
 ## <small>2.1.1 (2018-09-23)</small>
 
