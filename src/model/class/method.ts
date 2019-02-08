@@ -15,6 +15,7 @@ export class Method {
   shortDescription: string;
   description: string;
   isDocsPrivate?: boolean;
+  inherited?: boolean;
 
   constructor(options: Method) {
     this.examples = options.examples;
@@ -26,5 +27,6 @@ export class Method {
     this.shortDescription = options.shortDescription;
     this.description = options.description;
     this.isDocsPrivate = options.isDocsPrivate;
+    this.inherited = options.inherited;
   }
 }

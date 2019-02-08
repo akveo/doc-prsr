@@ -38,6 +38,7 @@ export class PropertiesParser {
       description: this.getDescription(obj),
       shortDescription: this.getShortDescription(obj),
       isDocsPrivate: this.getIsPrivate(obj),
+      inherited: this.getIsInherited(obj),
     });
   }
 
@@ -73,6 +74,10 @@ export class PropertiesParser {
     return obj[CO.comment] && obj[CO.comment][CO.tags] &&
       obj[CO.comment][CO.tags].some((item: any) =>
         item.tag === TagSearchItems.docsPrivate);
+  }
+
+  getIsInherited(obj: any): boolean {
+    return obj[CO.inheritedFrom] && obj[CO.inheritedFrom][CO.name];
   }
 
   getTypeIntrinsicProp(prop: any) {

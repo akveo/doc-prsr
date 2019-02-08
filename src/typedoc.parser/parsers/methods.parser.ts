@@ -27,6 +27,7 @@ export class MethodsParser {
       shortDescription: this.getShortDescription(obj),
       description: this.getDescription(obj),
       isDocsPrivate: this.getIsPrivate(obj),
+      inherited: this.getIsInherited(obj),
     });
   }
 
@@ -54,6 +55,10 @@ export class MethodsParser {
       .map((item: any) => item.map((subItem: any) => subItem[CO.tag] ? subItem[CO.tag] : ''));
 
     return [].concat(...tagsMatrix).some((item: string) => item.includes(TagSearchItems.docsPrivate));
+  }
+
+  getIsInherited(obj: any): boolean {
+    return obj[CO.inheritedFrom] && obj[CO.inheritedFrom][CO.name];
   }
 
   getShortDescription(obj: any): string {

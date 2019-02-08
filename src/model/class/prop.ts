@@ -16,6 +16,7 @@ export class Prop {
   shortDescription: string;
   description: string;
   isDocsPrivate?: boolean = false;
+  inherited?: boolean = false;
 
   constructor(options: Prop) {
     this.kind = options.kind;
@@ -27,5 +28,6 @@ export class Prop {
     this.shortDescription = options.shortDescription;
     this.description = options.description;
     this.isDocsPrivate = options.isDocsPrivate;
+    this.inherited = options.inherited;
   }
 }

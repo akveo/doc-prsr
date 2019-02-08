@@ -23,6 +23,7 @@ export const CO = {
   bindingPropertyName: 'bindingPropertyName',
   typeArguments: 'typeArguments',
   getSignature: 'getSignature',
+  inheritedFrom: 'inheritedFrom',
 };
 
 export enum TagSearchItems {
