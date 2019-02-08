@@ -40,7 +40,7 @@ export class ExamplesParser {
   }
 
   private parse(example: any, exampleType: OverviewNodeType, parser: Parser): OverviewNode[] {
-    const { tag, comment } = this.prepareExample(example);
+    const {tag, comment} = this.prepareExample(example);
     return this.createNodes(exampleType, parser.call(this, tag), comment);
   }
 
@@ -49,13 +49,13 @@ export class ExamplesParser {
     const tagFinish = example.text.indexOf(')') + 1;
     const tag = `${type}(${this.handleName(name)}${example.text.substring(0, tagFinish)}`;
     const comment = example.text.substring(tagFinish).trim();
-    return { tag, comment };
+    return {tag, comment};
   }
 
   private createNodes(exampleType: OverviewNodeType, example: Example, comment: string): OverviewNode[] {
     return [
-      { type: exampleType, content: example },
-      { type: OverviewNodeType.TEXT, content: comment },
+      {type: exampleType, content: example},
+      {type: OverviewNodeType.TEXT, content: comment},
     ]
   }
 

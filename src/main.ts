@@ -1,5 +1,5 @@
-import {DocJsParser} from './doc-js.parser/doc-js.parser';
-import {TypedocParser} from './typedoc.parser/typedoc.parser';
+import { DocJsParser } from './doc-js.parser/doc-js.parser';
+import { TypedocParser } from './typedoc.parser/typedoc.parser';
 import {
   Metadata,
   Generator,

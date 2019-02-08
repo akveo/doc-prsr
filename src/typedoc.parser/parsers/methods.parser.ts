@@ -1,5 +1,5 @@
 import { Method } from '../../model';
-import { CO } from '../typedoc.parser.options';
+import { CO, TagSearchItems } from '../typedoc.parser.options';
 import { ExamplesParser, ParamsParser } from './';
 
 export class MethodsParser {
@@ -26,6 +26,8 @@ export class MethodsParser {
       isStatic: this.isStatic(obj),
       shortDescription: this.getShortDescription(obj),
       description: this.getDescription(obj),
+      isDocsPrivate: this.getIsPrivate(obj),
+      inherited: this.getIsInherited(obj),
     });
   }
 
@@ -35,6 +37,28 @@ export class MethodsParser {
     } else {
       return '';
     }
+  }
+
+  getIsPrivate(obj: any): boolean {
+    const tagsMatrix: any[] = obj[CO.signatures]
+      .map((signature: any) => {
+        if (signature[CO.comment]) {
+          if (signature[CO.comment][CO.tags] && signature[CO.comment][CO.tags].length !== 0 ) {
+            return signature[CO.comment][CO.tags];
+          } else {
+            return [];
+          }
+        } else {
+          return [];
+        }
+      })
+      .map((item: any) => item.map((subItem: any) => subItem[CO.tag] ? subItem[CO.tag] : ''));
+
+    return [].concat(...tagsMatrix).some((item: string) => item.includes(TagSearchItems.docsPrivate));
+  }
+
+  getIsInherited(obj: any): boolean {
+    return obj[CO.inheritedFrom] && obj[CO.inheritedFrom][CO.name];
   }
 
   getShortDescription(obj: any): string {

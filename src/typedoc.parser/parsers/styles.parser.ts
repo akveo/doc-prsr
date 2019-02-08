@@ -1,10 +1,10 @@
 import { Style } from '../../model';
 import { CO } from '../typedoc.parser.options';
 
-export  class StylesParser {
+export class StylesParser {
 
   getStyles(obj: any): Style[] {
-    if (this.isHasTags(obj)){
+    if (this.isHasTags(obj)) {
       return obj[CO.comment][CO.tags]
         .filter((item: any) => this.isStyle(item))
         .map((item: any) => this.parserStyle(item));

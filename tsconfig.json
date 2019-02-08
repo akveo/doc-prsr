@@ -11,7 +11,8 @@
     "declaration": true,
     "lib": [
       "es6"
-    ]
+    ],
+    "strictPropertyInitialization": false
   },
   "files": [
     "src/index.ts"

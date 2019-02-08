@@ -1049,6 +1049,143 @@ describe('#TypedocParser', () => {
     expect(getMethods.getShortDescription(test1)).toBe('Toggle a sidebar');
   });
 
+  test('#GetMethods -> getIsPrivate', () => {
+    const methodsParser: MethodsParser = new MethodsParser();
+    const testMethodDocsPrivate: any = {
+      "id": 1816,
+      "name": "setDisposeFn",
+      "kind": 2048,
+      "kindString": "Method",
+      "flags": {
+        "isExported": true
+      },
+      "signatures": [
+        {
+          "id": 1817,
+          "name": "setDisposeFn",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "comment": {
+            "tags": [
+              {
+                "tag": "docs-private",
+                "text": ""
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "id": 1818,
+              "name": "fn",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {},
+              "type": {
+                "type": "reflection",
+                "declaration": {
+                  "id": 1819,
+                  "name": "__type",
+                  "kind": 65536,
+                  "kindString": "Type literal",
+                  "flags": {},
+                  "signatures": [
+                    {
+                      "id": 1820,
+                      "name": "__call",
+                      "kind": 4096,
+                      "kindString": "Call signature",
+                      "flags": {},
+                      "type": {
+                        "type": "intrinsic",
+                        "name": "void"
+                      }
+                    }
+                  ],
+                  "sources": [
+                    {
+                      "fileName": "/Users/nixa/Development/Projects/Akveo/nebular/node_modules/@angular/cdk/portal/typings/portal.d.ts",
+                      "line": 101,
+                      "character": 20
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "type": {
+            "type": "intrinsic",
+            "name": "void"
+          },
+          "inheritedFrom": {
+            "type": "reference",
+            "name": "BasePortalOutlet.setDisposeFn"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "fileName": "/Users/nixa/Development/Projects/Akveo/nebular/node_modules/@angular/cdk/portal/typings/portal.d.ts",
+          "line": 101,
+          "character": 16
+        }
+      ],
+      "inheritedFrom": {
+        "type": "reference",
+        "name": "BasePortalOutlet.setDisposeFn"
+      }
+    };
+    const testMethodDocsPublic: any = {
+      "id": 1078,
+      "name": "forRoot",
+      "kind": 2048,
+      "kindString": "Method",
+      "flags": {
+        "isStatic": true,
+        "isExported": true
+      },
+      "signatures": [
+        {
+          "id": 1079,
+          "name": "forRoot",
+          "kind": 4096,
+          "kindString": "Call signature",
+          "flags": {},
+          "parameters": [
+            {
+              "id": 1080,
+              "name": "nbAuthOptions",
+              "kind": 32768,
+              "kindString": "Parameter",
+              "flags": {
+                "isOptional": true
+              },
+              "type": {
+                "type": "reference",
+                "name": "NbAuthOptions",
+                "id": 718
+              }
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "name": "ModuleWithProviders"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "fileName": "auth/auth.module.ts",
+          "line": 118,
+          "character": 16
+        }
+      ]
+    };
+
+    expect(methodsParser.getIsPrivate(testMethodDocsPrivate)).toBe(true);
+    expect(methodsParser.getIsPrivate(testMethodDocsPublic)).toBe(false);
+  });
+
   test('#GetProperties -> getProperties', () => {
     const getProperties = new PropertiesParser();
     const test1 = {
@@ -1360,6 +1497,63 @@ describe('#TypedocParser', () => {
 
     expect(getProperties.getShortDescription(test2)).toBe('');
     expect(getProperties.getShortDescription(test1)).toBe('Tags a sidebar with some ID, can be later used in sidebar service\nto determine which sidebar triggered the action, if multiple sidebars exist on the page.');
+  });
+
+  test('#GetProperties -> getIsPrivate', () => {
+    const test1 = {
+      "id": 3544,
+      "name": "fullWidth",
+      "kind": 1024,
+      "kindString": "Property",
+      "flags": {
+        "isExported": true
+      },
+      "comment": {
+        "shortText": "Some thing",
+        "tags": [
+          {
+            "tag": "docs-private",
+            "text": "\n"
+          }
+        ]
+      },
+    };
+    const test2 = {
+      "id": 3539,
+      "name": "hero",
+      "kind": 1024,
+      "kindString": "Property",
+      "flags": {
+        "isExported": true
+      },
+      "decorators": [
+        {
+          "name": "HostBinding",
+          "type": {
+            "type": "reference",
+            "name": "HostBinding"
+          },
+          "arguments": {
+            "hostPropertyName": "'class.btn-hero'"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "fileName": "theme/components/button/button.component.ts",
+          "line": 200,
+          "character": 37
+        }
+      ],
+      "type": {
+        "type": "intrinsic",
+        "name": "boolean"
+      }
+    };
+    const parser = new PropertiesParser();
+
+    expect(parser.getIsPrivate(test1)).toBe(true);
+    expect(parser.getIsPrivate(test2)).toBe(undefined);
   });
 
   test('#GetOverview -> getOverview', () => {

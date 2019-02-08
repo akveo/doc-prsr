@@ -1,6 +1,5 @@
-import {Prop, PropKind} from '../../model';
-import {CO} from '../typedoc.parser.options';
-import {type} from "os";
+import { Prop, PropKind } from '../../model';
+import { CO, TagSearchItems } from '../typedoc.parser.options';
 
 export class PropertiesParser {
 
@@ -37,7 +36,9 @@ export class PropertiesParser {
       required: null,
       name: this.getName(obj),
       description: this.getDescription(obj),
-      shortDescription: this.getShortDescription(obj)
+      shortDescription: this.getShortDescription(obj),
+      isDocsPrivate: this.getIsPrivate(obj),
+      inherited: this.getIsInherited(obj),
     });
   }
 
@@ -69,6 +70,16 @@ export class PropertiesParser {
     }
   }
 
+  getIsPrivate(obj: any): boolean {
+    return obj[CO.comment] && obj[CO.comment][CO.tags] &&
+      obj[CO.comment][CO.tags].some((item: any) =>
+        item.tag === TagSearchItems.docsPrivate);
+  }
+
+  getIsInherited(obj: any): boolean {
+    return obj[CO.inheritedFrom] && obj[CO.inheritedFrom][CO.name];
+  }
+
   getTypeIntrinsicProp(prop: any) {
     return prop[CO.type][CO.name];
   }
@@ -86,9 +97,9 @@ export class PropertiesParser {
   }
 
   getTypeOther(prop: any) {
-    if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !==0) {
+    if (prop[CO.comment][CO.tags] && prop[CO.comment][CO.tags].length !== 0) {
       return prop[CO.comment][CO.tags][0][CO.text].replace(/[\n{}]+/g, '');
-    } else if(prop[CO.setSignature] && prop[CO.setSignature].length !== 0 &&
+    } else if (prop[CO.setSignature] && prop[CO.setSignature].length !== 0 &&
       prop[CO.setSignature][CO.parameters] && prop[CO.setSignature][CO.parameters].length !== 0) {
       return prop[CO.setSignature][CO.parameters][0][CO.type][CO.name];
     } else if (prop[CO.getSignature] && prop[CO.getSignature].length !== 0) {
