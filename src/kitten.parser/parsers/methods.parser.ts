@@ -2,7 +2,7 @@ import { CO } from '../kitten.parser.options';
 import {
   Method,
   Param,
-} from '../../../dist/model';
+} from '../../model';
 
 export class MethodsParser {
 

@@ -36,9 +36,9 @@ if (program['generator'] && program['framework'] && program['input'] && program[
 
 function create(generator: Generator, framework: Framework, inputPath: string, outputPath: string) {
   if (generator === 'typedoc' && framework === 'react') {
-    selectedParser('typedoc', framework, inputPath, outputPath);
+    selectedParser('typedoc', 'react', inputPath, outputPath);
   } else if (generator === 'typedoc' && framework === 'angular') {
-    selectedParser('typedoc', framework, inputPath, outputPath);
+    selectedParser('typedoc', 'angular', inputPath, outputPath);
   } else {
     console.log('You entered the wrong data! Use --help for getting information');
   }
