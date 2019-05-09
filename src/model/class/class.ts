@@ -3,6 +3,7 @@ import { Prop } from './prop';
 import { Method } from './method';
 import { Style } from './style';
 import { OverviewNode } from './overview';
+import { Type } from './type';
 
 export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface' | 'ng-module';
 
@@ -27,6 +28,7 @@ export class Class {
   styles: Style[];
   liveExamples: string[];
   overview: OverviewNode[];
+  types?: Type[];
 
   constructor(options: Class) {
     this.kind = options.kind;
@@ -40,5 +42,6 @@ export class Class {
     this.styles = options.styles;
     this.liveExamples = options.liveExamples;
     this.overview = options.overview;
+    this.types = options.types;
   }
 }

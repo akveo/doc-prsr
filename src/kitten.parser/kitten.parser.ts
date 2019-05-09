@@ -9,6 +9,7 @@ import {
   PropsParser,
   ExamplesParser,
   MethodsParser,
+  TypesParser,
 } from './parsers';
 
 export class KittenParser {
@@ -17,6 +18,7 @@ export class KittenParser {
   protected propsParser: PropsParser = new PropsParser();
   protected examplesParser: ExamplesParser = new ExamplesParser();
   protected methodParser: MethodsParser = new MethodsParser();
+  protected typesParser: TypesParser = new TypesParser();
   protected json: any;
 
   saveJSON(json: any) {
@@ -43,6 +45,7 @@ export class KittenParser {
       examples: this.examplesParser.getExamples(component[CO.comment]),
       props: this.propsParser.getProps(component[CO.comment]),
       methods: this.methodParser.getMethods(component[CO.comment]),
+      types: this.typesParser.getTypes(component[CO.comment]),
       name: component[CO.name],
       description: component[CO.comment][CO.shortText],
       shortDescription: '',
