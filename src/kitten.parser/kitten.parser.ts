@@ -46,7 +46,7 @@ export class KittenParser {
       props: this.propsParser.getProps(component[CO.comment]),
       methods: this.methodParser.getMethods(component[CO.comment]),
       types: this.typesParser.getTypes(component[CO.comment]),
-      name: component[CO.name],
+      name: component[CO.name].replace('Component', ''),
       description: component[CO.comment][CO.shortText],
       shortDescription: '',
       styles: [],
