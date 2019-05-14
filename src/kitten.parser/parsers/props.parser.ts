@@ -33,8 +33,9 @@ export class PropsParser {
   }
 
   private getDescription(prop: string): string {
-    const description: string = prop.split('-')[1];
-    return description ? description.trim() : ''
+    const descriptionArray: string[] = prop.split('-');
+    descriptionArray.shift();
+    return descriptionArray.join('-');
   }
 
   private getType(prop: string): string {

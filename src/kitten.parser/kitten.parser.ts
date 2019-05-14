@@ -10,6 +10,7 @@ import {
   ExamplesParser,
   MethodsParser,
   TypesParser,
+  HocParamsParser,
 } from './parsers';
 
 export class KittenParser {
@@ -19,7 +20,9 @@ export class KittenParser {
   protected examplesParser: ExamplesParser = new ExamplesParser();
   protected methodParser: MethodsParser = new MethodsParser();
   protected typesParser: TypesParser = new TypesParser();
+  protected hocParamsParser: HocParamsParser = new HocParamsParser();
   protected json: any;
+  private descriptionIsOddCodeChar: boolean = true;
 
   saveJSON(json: any) {
     this.json = json;
@@ -35,7 +38,7 @@ export class KittenParser {
 
     return this.classes
       .filter((component: any) => component[CO.comment])
-      .map((component: any) => this.parseClass(component, this.getClassKind(component[CO.name])));
+      .map((component: any) => this.parseClass(component, this.getClassKind(component)));
   }
 
   private parseClass(component: any, kind: ClassKind): Class {
@@ -47,11 +50,12 @@ export class KittenParser {
       methods: this.methodParser.getMethods(component[CO.comment]),
       types: this.typesParser.getTypes(component[CO.comment]),
       name: component[CO.name].replace('Component', ''),
-      description: component[CO.comment][CO.shortText],
+      description: this.getDescription(component),
       shortDescription: '',
       styles: [],
       liveExamples: [],
       overview: [],
+      params: this.hocParamsParser.getParams(component),
     });
   }
 
@@ -61,7 +65,7 @@ export class KittenParser {
         .forEach((file: any) => {
           file[CO.children]
             .forEach((entity: any) => {
-              if (entity[CO.primKind] === 'Class') {
+              if (entity[CO.primKind] === 'Class' || entity[CO.primKind] === 'Function') {
                 this.classes.push(entity);
               }
             });
@@ -69,9 +73,35 @@ export class KittenParser {
     }
   }
 
-  private getClassKind(className: string): ClassKind {
-    const isService: boolean = className.toLowerCase().includes('service');
-    return isService ? 'service' : 'component';
+  private getDescription(obj: any): string {
+    const description: string = obj[CO.comment][CO.shortText] + '\n' + obj[CO.comment][CO.text];
+    return description
+      .split('')
+      .map((char: string, index: number) => {
+        if (char === '`' && this.descriptionIsOddCodeChar) {
+          char = '<code>';
+          this.descriptionIsOddCodeChar = false;
+          return char;
+        } else if (char === '`' && !this.descriptionIsOddCodeChar) {
+          char = '</code>';
+          this.descriptionIsOddCodeChar = true;
+          return char;
+        } else {
+          return char;
+        }
+      })
+      .join('')
+      .replace(/(?:\r\n|\r|\n)/g, '<br>');
+  }
+
+  private getClassKind(obj: any): ClassKind {
+    if (obj[CO.name].toLowerCase().includes('service')) {
+      return 'service';
+    } else if (obj[CO.primKind] === 'Function') {
+      return 'HOC';
+    } else {
+      return 'component';
+    }
   }
 
 }

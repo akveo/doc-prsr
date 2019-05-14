@@ -4,8 +4,9 @@ import { Method } from './method';
 import { Style } from './style';
 import { OverviewNode } from './overview';
 import { Type } from './type';
+import { Param } from './param';
 
-export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface' | 'ng-module';
+export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface' | 'ng-module' | 'HOC';
 
 export class Class {
   /**
@@ -29,6 +30,7 @@ export class Class {
   liveExamples: string[];
   overview: OverviewNode[];
   types?: Type[];
+  params?: Param[];
 
   constructor(options: Class) {
     this.kind = options.kind;
@@ -43,5 +45,6 @@ export class Class {
     this.liveExamples = options.liveExamples;
     this.overview = options.overview;
     this.types = options.types;
+    this.params = options.params;
   }
 }
