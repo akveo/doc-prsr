@@ -1,5 +1,6 @@
 import { TypedocParser } from './typedoc.parser/typedoc.parser';
 import { KittenParser } from './kitten.parser/kitten.parser';
+import { DocJsParser } from './doc-js.parser/doc-js.parser';
 import {
   Metadata,
   Generator,
@@ -39,6 +40,8 @@ function create(generator: Generator, framework: Framework, inputPath: string, o
     selectedParser('typedoc', 'react', inputPath, outputPath);
   } else if (generator === 'typedoc' && framework === 'angular') {
     selectedParser('typedoc', 'angular', inputPath, outputPath);
+  } else if (generator === 'docjs' && framework === 'react') {
+    selectedParser('docjs', 'react', inputPath, outputPath);
   } else {
     console.log('You entered the wrong data! Use --help for getting information');
   }
@@ -52,6 +55,8 @@ function selectedParser(parser: string, framework: string, inputPath: string, ou
       newdoc = new KittenParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'react'));
     } else if (parser === 'typedoc' && framework === 'angular') {
       newdoc = new TypedocParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'angular'));
+    } else if (parser === 'docjs' && framework === 'react') {
+      newdoc = new DocJsParser().parse(JSON.parse(data), new Metadata('javascript', 'docjs', 'react'));
     }
     const outputObj: string = JSON.stringify(newdoc, null, 2);
     fs.writeFileSync(outputPath, outputObj);
