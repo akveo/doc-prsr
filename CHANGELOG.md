@@ -1,3 +1,17 @@
+<a name="2.2.1"></a>
+## <small>2.2.1 (2019-06-06)</small>
+
+* refactor(prsr): package.lock revert ([741feab](https://github.com/akveo/doc-prsr/commit/741feab))
+* refactor(prsr): save ability to parse doc-js json ([152d158](https://github.com/akveo/doc-prsr/commit/152d158))
+* refactor(rn-parser): rn-parser rename ([f24481d](https://github.com/akveo/doc-prsr/commit/f24481d))
+* feat(kitten): add hoc-components parsing ability ([ee99955](https://github.com/akveo/doc-prsr/commit/ee99955))
+* feat(kitten): kitten-types-parser add ([e485cf8](https://github.com/akveo/doc-prsr/commit/e485cf8))
+* feat(kitten): part of kitten-parser implement ([5063579](https://github.com/akveo/doc-prsr/commit/5063579))
+* feat(kitten): remove "component" word from name ([0789b6b](https://github.com/akveo/doc-prsr/commit/0789b6b))
+* fix(kitten): kitten-parser fix ([8ffa4ce](https://github.com/akveo/doc-prsr/commit/8ffa4ce))
+
+
+
 <a name="2.2.0"></a>
 ## 2.2.0 (2019-02-08)
 

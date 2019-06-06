@@ -14,7 +14,7 @@ const parsers: string[] = ['typedoc', 'docjs'];
 const frameworks: string[] = ['angular', 'react'];
 
 program
-  .version('2.2.0')
+  .version('2.2.1')
   .option('-g, --generator <value>', 'Generator:')
   .option('-f, --framework <value>', 'Framework:')
   .option('-i, --input <value>', 'Path to input file:')
