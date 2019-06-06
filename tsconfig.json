@@ -6,6 +6,7 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "resolveJsonModule": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
     "declaration": true,

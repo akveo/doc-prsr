@@ -1,16 +1,20 @@
-import { DocJsParser } from './doc-js.parser/doc-js.parser';
 import { TypedocParser } from './typedoc.parser/typedoc.parser';
+import { ReactNativeParser } from './reactNative.parser/reactNative.parser';
+import { DocJsParser } from './doc-js.parser/doc-js.parser';
 import {
   Metadata,
   Generator,
   Framework
-} from './model/metadata/metadata';
+} from './model';
 import * as fs from 'fs';
 import * as Path from 'path';
+
 const program = require('commander');
+const parsers: string[] = ['typedoc', 'docjs'];
+const frameworks: string[] = ['angular', 'react'];
 
 program
-  .version('0.0.1')
+  .version('2.2.0')
   .option('-g, --generator <value>', 'Generator:')
   .option('-f, --framework <value>', 'Framework:')
   .option('-i, --input <value>', 'Path to input file:')
@@ -35,23 +39,28 @@ if (program['generator'] && program['framework'] && program['input'] && program[
 
 
 function create(generator: Generator, framework: Framework, inputPath: string, outputPath: string) {
-  if (generator === 'docjs' && framework === 'react') {
-    selectedParser('docjs', inputPath, outputPath);
-  } else if (generator === 'typedoc' && framework === 'angular') {
-    selectedParser('typedoc', inputPath, outputPath);
+  const generatorValid: boolean = parsers
+    .some((parser: string) => parser === generator);
+  const frameworkValid: boolean = frameworks
+    .some((frameworkItem: string) => frameworkItem === framework);
+
+  if (generatorValid && frameworkValid) {
+    selectedParser(generator, framework, inputPath, outputPath);
   } else {
     console.log('You entered the wrong data! Use --help for getting information');
   }
 }
 
-function selectedParser(parser: string, inputPath: string, outputPath: string) {
+function selectedParser(parser: string, framework: string, inputPath: string, outputPath: string) {
   let newdoc: any = {};
 
   fs.readFile(inputPath, (err: any, data: any) => {
-    if (parser === 'docjs') {
-      newdoc = new DocJsParser().parse(JSON.parse(data), new Metadata('javascript', 'docjs', 'react'));
-    } else if (parser === 'typedoc') {
+    if (parser === 'typedoc' && framework === 'react') {
+      newdoc = new ReactNativeParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'react'));
+    } else if (parser === 'typedoc' && framework === 'angular') {
       newdoc = new TypedocParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'angular'));
+    } else if (parser === 'docjs' && framework === 'react') {
+      newdoc = new DocJsParser().parse(JSON.parse(data), new Metadata('javascript', 'docjs', 'react'));
     }
     const outputObj: string = JSON.stringify(newdoc, null, 2);
     fs.writeFileSync(outputPath, outputObj);

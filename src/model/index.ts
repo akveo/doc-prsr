@@ -8,3 +8,4 @@ export { Prop, PropKind } from './class/prop';
 export { Model } from './model';
 export { Style } from './class/style';
 export { OverviewNode } from './class/overview';
+export { Type } from './class/type';
