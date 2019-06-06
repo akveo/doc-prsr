@@ -1,5 +1,5 @@
 import { TypedocParser } from './typedoc.parser/typedoc.parser';
-import { KittenParser } from './kitten.parser/kitten.parser';
+import { ReactNativeParser } from './reactNative.parser/reactNative.parser';
 import { DocJsParser } from './doc-js.parser/doc-js.parser';
 import {
   Metadata,
@@ -8,7 +8,10 @@ import {
 } from './model';
 import * as fs from 'fs';
 import * as Path from 'path';
+
 const program = require('commander');
+const parsers: string[] = ['typedoc', 'docjs'];
+const frameworks: string[] = ['angular', 'react'];
 
 program
   .version('2.2.0')
@@ -36,12 +39,13 @@ if (program['generator'] && program['framework'] && program['input'] && program[
 
 
 function create(generator: Generator, framework: Framework, inputPath: string, outputPath: string) {
-  if (generator === 'typedoc' && framework === 'react') {
-    selectedParser('typedoc', 'react', inputPath, outputPath);
-  } else if (generator === 'typedoc' && framework === 'angular') {
-    selectedParser('typedoc', 'angular', inputPath, outputPath);
-  } else if (generator === 'docjs' && framework === 'react') {
-    selectedParser('docjs', 'react', inputPath, outputPath);
+  const generatorValid: boolean = parsers
+    .some((parser: string) => parser === generator);
+  const frameworkValid: boolean = frameworks
+    .some((frameworkItem: string) => frameworkItem === framework);
+
+  if (generatorValid && frameworkValid) {
+    selectedParser(generator, framework, inputPath, outputPath);
   } else {
     console.log('You entered the wrong data! Use --help for getting information');
   }
@@ -52,7 +56,7 @@ function selectedParser(parser: string, framework: string, inputPath: string, ou
 
   fs.readFile(inputPath, (err: any, data: any) => {
     if (parser === 'typedoc' && framework === 'react') {
-      newdoc = new KittenParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'react'));
+      newdoc = new ReactNativeParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'react'));
     } else if (parser === 'typedoc' && framework === 'angular') {
       newdoc = new TypedocParser().parse(JSON.parse(data), new Metadata('typescript', 'typedoc', 'angular'));
     } else if (parser === 'docjs' && framework === 'react') {

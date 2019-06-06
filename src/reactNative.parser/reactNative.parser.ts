@@ -4,7 +4,7 @@ import {
   Metadata,
   Model,
 } from '../model';
-import { CO } from './kitten.parser.options';
+import { CO } from './reactNative.parser.options';
 import {
   PropsParser,
   ExamplesParser,
@@ -13,7 +13,7 @@ import {
   HocParamsParser,
 } from './parsers';
 
-export class KittenParser {
+export class ReactNativeParser {
 
   protected classes: any[] = [];
   protected propsParser: PropsParser = new PropsParser();

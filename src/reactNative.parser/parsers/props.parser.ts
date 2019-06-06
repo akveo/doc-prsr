@@ -2,7 +2,7 @@ import {
   Prop,
   PropKind,
 } from '../../model';
-import { CO } from '../kitten.parser.options';
+import { CO } from '../reactNative.parser.options';
 
 
 export class PropsParser {

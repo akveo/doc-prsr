@@ -1,4 +1,4 @@
-import { CO } from '../kitten.parser.options';
+import { CO } from '../reactNative.parser.options';
 import {
   Method,
   Param,
