@@ -57,7 +57,12 @@ export class MethodsParser {
       .slice(method.indexOf('{') + 1, method.lastIndexOf('}'))
       .replace(/(\r\n|\n|\r)/gm, '');
     const paramsString: string = type.slice(type.indexOf('(') + 1, type.lastIndexOf(')'));
-    const paramsArray: string[] = paramsString.split(',');
+
+    const paramsArray: string[] = paramsString
+      .split(',')
+      .filter((param: string): boolean => {
+        return !!param && param.length > 0;
+      });
 
     return paramsArray.map(this.parseParam);
   }
@@ -71,7 +76,6 @@ export class MethodsParser {
       description: '',
     });
   }
-
 }
 
 function getParamName(param: string): string {
