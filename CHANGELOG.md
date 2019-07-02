@@ -1,3 +1,10 @@
+<a name="2.2.2"></a>
+## <small>2.2.2 (2019-07-02)</small>
+
+* fix(prsr): react-native method params parser ([ea14157](https://github.com/akveo/doc-prsr/commit/ea14157))
+
+
+
 <a name="2.2.1"></a>
 ## <small>2.2.1 (2019-06-06)</small>
 
