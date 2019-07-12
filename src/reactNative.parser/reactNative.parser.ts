@@ -12,7 +12,6 @@ import {
   PropsParser,
   TypesParser,
 } from './parsers';
-import { ExampleType } from './parsers/extampleType.enum';
 
 export class ReactNativeParser {
 
@@ -46,8 +45,8 @@ export class ReactNativeParser {
     return new Class({
       kind: kind,
       platform: null,
-      examples: this.examplesParser.getExamples(component[CO.comment], ExampleType.EXAMPLE),
-      overviewExamples: this.examplesParser.getExamples(component[CO.comment], ExampleType.OVERVIEW),
+      examples: this.examplesParser.getExamples(component[CO.comment], 'example'),
+      overviewExamples: this.examplesParser.getExamples(component[CO.comment], 'overview-example'),
       props: this.propsParser.getProps(component[CO.comment]),
       methods: this.methodParser.getMethods(component[CO.comment]),
       types: this.typesParser.getTypes(component[CO.comment]),
