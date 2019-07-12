@@ -6,12 +6,13 @@ import {
 } from '../model';
 import { CO } from './reactNative.parser.options';
 import {
-  PropsParser,
   ExamplesParser,
-  MethodsParser,
-  TypesParser,
   HocParamsParser,
+  MethodsParser,
+  PropsParser,
+  TypesParser,
 } from './parsers';
+import { ExampleType } from './parsers/extampleType.enum';
 
 export class ReactNativeParser {
 
@@ -45,7 +46,8 @@ export class ReactNativeParser {
     return new Class({
       kind: kind,
       platform: null,
-      examples: this.examplesParser.getExamples(component[CO.comment]),
+      examples: this.examplesParser.getExamples(component[CO.comment], ExampleType.EXAMPLE),
+      overviewExamples: this.examplesParser.getExamples(component[CO.comment], ExampleType.OVERVIEW),
       props: this.propsParser.getProps(component[CO.comment]),
       methods: this.methodParser.getMethods(component[CO.comment]),
       types: this.typesParser.getTypes(component[CO.comment]),
@@ -76,6 +78,7 @@ export class ReactNativeParser {
   private getDescription(obj: any): string {
     const description: string = obj[CO.comment][CO.shortText] + '\n' + obj[CO.comment][CO.text];
     return description
+      .replace('undefined', '')
       .split('')
       .map((char: string, index: number) => {
         if (char === '`' && this.descriptionIsOddCodeChar) {
