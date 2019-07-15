@@ -1,7 +1,6 @@
 <a name="2.2.3"></a>
 ## <small>2.2.3 (2019-07-15)</small>
 
-* refactor(rn-prsr): overview-examples parsing refactor ([5d175a7](https://github.com/akveo/doc-prsr/commit/5d175a7))
 * feat(rn-prsr): overview-examples add ([397113c](https://github.com/akveo/doc-prsr/commit/397113c))
 
 
