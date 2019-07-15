@@ -3,11 +3,12 @@ import { Sample } from '../../model/class/example';
 
 export class ExamplesParser {
 
-  public getExamples(component: any): Sample[] {
+  public getExamples(component: any, targetTag: 'example' | 'overview-example'): Sample[] {
     if (component[CO.tags] && component[CO.tags].length !== 0) {
       return component[CO.tags]
-        .filter((tag: any) => tag[CO.tag] === 'example')
-        .map((tag: any) => this.parseExample(tag));
+        .filter((tag: any) => tag[CO.tag] === targetTag)
+        .map((tag: any) => this.parseExample(tag))
+        .filter(Boolean);
     } else {
       return [];
     }

@@ -19,6 +19,7 @@ export class Class {
   platform: null;
   /** @deprecated*/
   examples: Sample[];
+  overviewExamples?: Sample[];
   props: Prop[];
   methods: Method[];
   name: string;
@@ -36,6 +37,7 @@ export class Class {
     this.kind = options.kind;
     this.platform = options.platform;
     this.examples = options.examples;
+    this.overviewExamples = options.overviewExamples;
     this.props = options.props;
     this.methods = options.methods;
     this.name = options.name;
