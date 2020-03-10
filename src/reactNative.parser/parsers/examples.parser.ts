@@ -7,29 +7,25 @@ export class ExamplesParser {
     if (component[CO.tags] && component[CO.tags].length !== 0) {
       return component[CO.tags]
         .filter((tag: any) => tag[CO.tag] === targetTag)
-        .map((tag: any) => this.parseExample(tag))
+        .map((tag: any) => this.parseExampleText(tag[CO.text]))
         .filter(Boolean);
     } else {
       return [];
     }
   }
 
-  private parseExample(example: any): Sample {
-    return new Sample({
-      code: this.getCode(example[CO.text]),
-      description: this.getDescription(example[CO.text]),
-      shortDescription: ''
-    });
+  private parseExampleText(text: string): Sample {
+    const [name, ...descriptionOrCode] = text.split('\n');
+    const description = this.parseDescription(descriptionOrCode.join('\n'));
+
+    return new Sample({ description: name, ...description });
   }
 
-  private getCode(example: string): string {
-    const cutExample: string = example
-      .slice(example.indexOf('`') + 1, example.lastIndexOf('`'));
-    return '`' + cutExample + '`';
-  }
+  private parseDescription(example: string): any {
+    const code = example.startsWith('```') && example;
+    const shortDescription = !example.startsWith('```') && example;
 
-  protected getDescription(example: string): string {
-    return example.split('\n')[0];
+    return { shortDescription, code };
   }
 
 }
