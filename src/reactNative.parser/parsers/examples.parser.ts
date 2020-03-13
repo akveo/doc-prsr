@@ -22,10 +22,7 @@ export class ExamplesParser {
   }
 
   private parseDescription(example: string): any {
-    const code = example.startsWith('```') && example;
-    const shortDescription = !example.startsWith('```') && example;
-
+    const [shortDescription, code] = example.split('```');
     return { shortDescription, code };
   }
-
 }
