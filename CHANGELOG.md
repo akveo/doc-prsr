@@ -1,3 +1,10 @@
+<a name="2.2.4"></a>
+## <small>2.2.4 (2020-04-08)</small>
+
+* feat(prsr): react-native - parse short descriptions ([673010b](https://github.com/akveo/doc-prsr/commit/673010b))
+
+
+
 <a name="2.2.3"></a>
 ## <small>2.2.3 (2019-07-15)</small>
 
