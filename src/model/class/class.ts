@@ -6,7 +6,7 @@ import { OverviewNode } from './overview';
 import { Type } from './type';
 import { Param } from './param';
 
-export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface' | 'ng-module' | 'HOC';
+export type ClassKind = 'component' | 'class' | 'service' | 'directive' | 'interface' | 'ng-module' | 'HOC' | 'type' | 'enumeration';
 
 export class Class {
   /**
