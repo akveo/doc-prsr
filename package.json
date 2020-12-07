@@ -1,6 +1,6 @@
 {
   "name": "@logo-software/doc-prsr",
-  "version": "2.2.4",
+  "version": "2.2.44",
   "description": "",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
