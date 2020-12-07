@@ -1,5 +1,5 @@
 {
-  "name": "doc-prsr",
+  "name": "@logo-software/doc-prsr",
   "version": "2.2.4",
   "description": "",
   "main": "./dist/index.js",
