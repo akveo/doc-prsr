@@ -103,7 +103,7 @@ export class PropertiesParser {
       prop[CO.setSignature][CO.parameters] && prop[CO.setSignature][CO.parameters].length !== 0) {
       return prop[CO.setSignature][CO.parameters][0][CO.type][CO.name];
     } else if (prop[CO.getSignature] && prop[CO.getSignature].length !== 0) {
-      return prop[CO.getSignature][CO.type][CO.name];
+      return prop[CO.getSignature][0][CO.type][CO.name];
     }
   }
 

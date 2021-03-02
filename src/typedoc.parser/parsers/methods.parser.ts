@@ -173,10 +173,10 @@ export class MethodsParser {
     const indexSignatureObject: any = {};
     const indexSignatureObjectHelper: any = {};
     const item = obj[CO.type][CO.declaration][CO.indexSignature];
-    item[CO.parameters].forEach((itemsItem: any) => {
+    item[0][CO.parameters].forEach((itemsItem: any) => {
       indexSignatureObjectHelper[itemsItem[CO.name]] = itemsItem[CO.type][CO.name];
       indexSignatureObject['[' + JSON.stringify(indexSignatureObjectHelper)
-        .replace(/[{}]+/g, '') + ']'] = item[CO.type][CO.name];
+        .replace(/[{}]+/g, '') + ']'] = item[0][CO.type][CO.name];
     });
 
     return JSON.stringify(indexSignatureObject)

@@ -1,6 +1,4 @@
-# Akveo Parser Documentation Tool
-
-## This tool helps us in creating incredible documentation for our projects!
+This package is an extended version of Akveo doc-prsr, for Typescript. It contains interface, type, and other declarations for objects and methods.
 
 ### Usage: prsr [options]
 
