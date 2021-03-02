@@ -9,7 +9,8 @@
     "start": "tsc --watch",
     "build": "tsc",
     "release:changelog": "conventional-changelog -i CHANGELOG.md -s",
-    "release": "npm run build && npm test && npm publish --access=public"
+    "release": "npm run build && npm test && npm publish --access=public",
+    "paket": "npm pack"
   },
   "repository": {
     "type": "git",
