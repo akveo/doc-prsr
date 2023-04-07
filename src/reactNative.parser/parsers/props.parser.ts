@@ -47,7 +47,11 @@ export class PropsParser {
   private getName(prop: string): string {
     const splitted: string[] = prop.split('-');
     if (splitted.length > 1) {
-      return splitted[0].split('}')[1].trim();
+      const result = prop.match(/[^}]+(?=-[^-}]*$)/);
+      if (result) {
+        return result[0].trim();
+      }
+      throw new Error(`Property parse error. Please check the property string: \"${prop}\"`);
     } else {
       return splitted[0].replace(/(\r\n|\n|\r)/gm, '');
     }
