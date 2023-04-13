@@ -26,8 +26,8 @@ export class TypedocParser {
     this.findAllClasses(obj);
 
     return this.classes
-      .filter((item: any) => this.isClass(item) || this.isInterface(item))
-      .filter((item: any) => item[CO.comment])
+    .filter((item: any) => this.isClass(item) || this.isInterface(item) || this.isEnumeration(item) || this.isType(item))
+    .filter((item: any) => item[CO.comment])
       .map((item: any) => {
         if (item[CO.decorators]) {
           if (this.isComponent(item)) {
@@ -42,6 +42,10 @@ export class TypedocParser {
         } else {
           if (this.isInterface(item)) {
             return this.parseClass(item, 'interface');
+          } else if (this.isEnumeration(item)) {
+            return this.parseClass(item, 'enumeration');
+          } else if (this.isType(item)) {
+            return this.parseClass(item, 'type');
           } else {
             return this.parseClass(item, 'class');
           }
@@ -52,7 +56,7 @@ export class TypedocParser {
   findAllClasses(obj: any) {
     if (obj && obj[CO.children]) {
       obj[CO.children].forEach((item: any) => {
-        if (this.isClass(item) || this.isInterface(item)) {
+        if (this.isClass(item) || this.isInterface(item) || this.isEnumeration(item) || this.isType(item)) {
           this.classes.push(item);
         } else {
           this.findAllClasses(item);
@@ -83,6 +87,14 @@ export class TypedocParser {
 
   isInterface(obj: any) {
     return obj[CO.primKind] === 'Interface';
+  }
+
+  isEnumeration(obj: any) {
+    return obj[CO.primKind] === 'Enumeration';
+  }
+
+  isType(obj: any) {
+    return obj[CO.primKind] === 'Type alias';
   }
 
   isComponent(obj: any) {
