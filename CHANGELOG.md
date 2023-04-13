@@ -1,3 +1,10 @@
+<a name="2.2.5"></a>
+## <small>2.2.5 (2023-04-12)</small>
+
+* fix: react-native property parse error in case of several "-" characters ([669b8b1](https://github.com/akveo/doc-prsr/commit/669b8b1))
+
+
+
 <a name="2.2.4"></a>
 ## <small>2.2.4 (2020-04-08)</small>
 
