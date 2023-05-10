@@ -33,28 +33,25 @@ export class PropsParser {
   }
 
   private getDescription(prop: string): string {
-    const descriptionArray: string[] = prop.split('-');
-    descriptionArray.shift();
-    return descriptionArray.join('-');
+    const propLined = prop.replace(/(?:\r\n|\r|\n)/g, ' ');
+    const result = propLined.match(/(?<=\})(?:[^-]*-)(.*)/);
+    if (result && result.length > 1) {
+      return result[1].trim();
+    }
+    throw new Error("Property parse error. Please check the property string: \"" + prop + "\"");
   }
 
   private getType(prop: string): string {
     const type: string = prop.slice(prop.indexOf('{') + 1, prop.lastIndexOf('}'));
-
     return type ? type : '';
   }
 
   private getName(prop: string): string {
-    const splitted: string[] = prop.split('-');
-    if (splitted.length > 1) {
-      const result = prop.match(/[^}]+(?=-[^-}]*$)/);
-      if (result) {
-        return result[0].trim();
-      }
-      throw new Error(`Property parse error. Please check the property string: \"${prop}\"`);
-    } else {
-      return splitted[0].replace(/(\r\n|\n|\r)/gm, '');
+    const propLined = prop.replace(/(?:\r\n|\r|\n)/g, ' ');
+    const result = propLined.match(/(?<=\})([^-]*)(?:.*)/);
+    if (result && result.length > 1) {
+      return result[1].trim();
     }
+    throw new Error("Property parse error. Please check the property string: \"" + prop + "\"");
   }
-
 }
